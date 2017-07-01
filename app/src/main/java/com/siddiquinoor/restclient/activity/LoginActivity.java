@@ -347,6 +347,7 @@ public class LoginActivity extends BaseActivity {
             e.printStackTrace();
         }
         /**
+         *
          * if database is imported than save a flag for not to sync with online
          */
         if (flag) {

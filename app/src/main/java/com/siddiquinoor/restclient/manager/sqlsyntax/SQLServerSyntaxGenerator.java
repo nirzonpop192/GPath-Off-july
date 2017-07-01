@@ -5311,7 +5311,7 @@ public class SQLServerSyntaxGenerator {
 )
     * */
     public String DTShortNameDTRSeq_Save() {
-        return " DTShortNameDTRSeq_Save "
+        return " DTShortNameDTRSeq_Save  "
                 + getDTBasic()
                 + " , " + getDtShortName() // table Name
                 + " , " + getAdmCountryCode()
