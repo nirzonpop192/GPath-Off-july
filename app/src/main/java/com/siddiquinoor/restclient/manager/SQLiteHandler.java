@@ -13109,10 +13109,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         String where = DT_BASIC_COL + " = '" + dtBasic + "' " +
-                " AND " + ADM_COUNTRY_CODE_COL + " = '" + countryCode + "' " +
-                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
-                " AND " + ADM_AWARD_CODE_COL + " = '" + awardCode + "' " +
-                " AND " + ADM_PROG_CODE_COL + " = '" + programCode + "' " +
+                " AND " + COUNTRY_CODE_COL + " = '" + countryCode + "' " +
+                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
+                " AND " + PROGRAM_CODE_COL + " = '" + programCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + dtEnuId + "' " +
                 " AND " + DTQ_CODE_COL + " = '" + dtqCode + "' " +
                 " AND " + DTA_CODE_COL + " = '" + dtaCode + "' " +
@@ -13166,11 +13166,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put(DT_BASIC_COL, dtBasic);
-        values.put("CountryCode", countryCode);                                                     // // TODO: 5/17/2017  use constant  it
+        values.put(COUNTRY_CODE_COL, countryCode);                                                     // // TODO: 5/17/2017  use constant  it
         values.put(DONOR_CODE_COL, donorCode);
 
         values.put(AWARD_CODE_COL, awardCode);
-        values.put("ProgramCode", programCode);
+        values.put(PROGRAM_CODE_COL, programCode);
         values.put(DT_ENU_ID_COL, dtEnuId);
         values.put(DTQ_CODE_COL, dtqCode);
         values.put(DTA_CODE_COL, dtaCode);
@@ -13184,7 +13184,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(DT_SURVEY_NUM, surveyNumber);
         values.put(DATA_TYPE_COL, dataType);
         values.put(U_FILE_COL, image);
-        values.put(QRES_LUP_TEXT_COL, image);
+        values.put(QRES_LUP_TEXT_COL, qResLupText);
 
 
         db.insert(DT_SURVEY_TABLE, null, values);

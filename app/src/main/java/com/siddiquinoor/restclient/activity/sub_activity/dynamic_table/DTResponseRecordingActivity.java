@@ -1288,7 +1288,8 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         /**
          * main execute   Insert or update operation
          */
-        if (sqlH.isDataExitsInDTAResponse_Table(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, mDTRSeq)) {
+        if (sqlH.isDataExitsInDTAResponse_Table(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode     // if the data exits
+                , AdmProgCode, DTEnuID, DTQCode, DTACode, mDTRSeq)) {
             sqlH.updateIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode,
                     String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, imageString);
             sqlH.updateIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode,
@@ -1298,7 +1299,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
 
             sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, imageString, true);
-            sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString,mDTQResMode.getDtQResLupText());
+            sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString, mDTQResMode.getDtQResLupText());
 
             Log.i(TAG, "DTBasic :" + DTBasic + " AdmCountryCode: " + AdmCountryCode + " AdmDonorCode: " + AdmDonorCode + " AdmAwardCode: " + AdmAwardCode + " AdmProgCode:" + AdmProgCode + " DTEnuID: " + DTEnuID + " DTQCode: " + DTQCode + " DTACode: " + DTACode + " DTRSeq: " + String.valueOf(DTRSeq) + " DTAValue:" + DTAValue
                     + " ProgActivityCode :" + ProgActivityCode + " DTTimeString:" + DTTimeString + " OpMode: " + OpMode + "OpMonthCode :" + OpMonthCode + " DataType: " + DataType + " imageString :" + imageString);
@@ -1511,7 +1512,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                     // it's all about  check box
                     if (!presentQuesCode.equals(previousQuesCode)) {
                         sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
-                        sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString,mDTQResMode.getDtQResLupText());
+                        sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString, mDTQResMode.getDtQResLupText());
 
                         // uses suffix in increments
                         mQusIndex++;
@@ -1519,7 +1520,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                 } else if (i == 0) {
                     // saved the first freeze question
                     sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
-                    sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString,mDTQResMode.getDtQResLupText());
+                    sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString, mDTQResMode.getDtQResLupText());
 
                 }
 
@@ -1723,10 +1724,9 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         if (dtResponse != null)                                                 //if data exists show data
             _dt_tv_DatePickerNLatLong.setText(dtResponse.getDtaValue());
         else {
-            LocationManager manager = (LocationManager)
-                    getSystemService(Context.LOCATION_SERVICE);
+            LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-            mLocation = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);     //for demo, getLastKnownLocation from GPS only, not from NETWORK
+            mLocation = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);                  //for demo, getLastKnownLocation from GPS only, not from NETWORK
 
 
             manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mLocationListener);  // get the update of location
