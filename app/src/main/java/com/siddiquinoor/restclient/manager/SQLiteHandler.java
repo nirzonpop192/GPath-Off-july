@@ -13109,10 +13109,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         String where = DT_BASIC_COL + " = '" + dtBasic + "' " +
-                " AND " + COUNTRY_CODE_COL + " = '" + countryCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
-                " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
-                " AND " + PROGRAM_CODE_COL + " = '" + programCode + "' " +
+                " AND " + ADM_COUNTRY_CODE_COL + " = '" + countryCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_AWARD_CODE_COL + " = '" + awardCode + "' " +
+                " AND " + ADM_PROG_CODE_COL + " = '" + programCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + dtEnuId + "' " +
                 " AND " + DTQ_CODE_COL + " = '" + dtqCode + "' " +
                 " AND " + DTA_CODE_COL + " = '" + dtaCode + "' " +
@@ -13166,7 +13166,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put(DT_BASIC_COL, dtBasic);
-        values.put(COUNTRY_CODE_COL, countryCode);                                                     // // TODO: 5/17/2017  use constant  it
+        values.put(COUNTRY_CODE_COL, countryCode);
         values.put(DONOR_CODE_COL, donorCode);
 
         values.put(AWARD_CODE_COL, awardCode);
@@ -13199,10 +13199,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         String where = DT_BASIC_COL + " = '" + dtBasic + "' " +
-                " AND " + ADM_COUNTRY_CODE_COL + " = '" + countryCode + "' " +
-                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
-                " AND " + ADM_AWARD_CODE_COL + " = '" + awardCode + "' " +
-                " AND " + ADM_PROG_CODE_COL + " = '" + programCode + "' " +
+                " AND " + COUNTRY_CODE_COL + " = '" + countryCode + "' " +
+                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
+                " AND " + PROGRAM_CODE_COL + " = '" + programCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + dtEnuId + "' " +
                 " AND " + DTQ_CODE_COL + " = '" + dtqCode + "' " +
                 " AND " + DTA_CODE_COL + " = '" + dtaCode + "' " +
