@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.siddiquinoor.restclient.activity.GroupSearchPage">
+    <!-- Header aligned to top -->
+    <include
+        android:id="@+id/header"
+
+        layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+            style="@style/page_title_style"
+            android:text="Community Group Search" />
+
+    </RelativeLayout>
+
+
+    <!--End of Page Title -->
+
+    <LinearLayout
+        android:id="@+id/ll_details"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/page_title"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+
+        <!-- Award list spinner-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_assign_ac_layR4Label"
+                    style="@style/txt_label"
+                    android:text="@string/program_label" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/search_Group_spCriteria"
+                    style="@style/spinner_style" />
+            </LinearLayout>
+
+        </LinearLayout> <!--horizontal layout-->
+
+        <!-- search id field -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <EditText
+                android:inputType="text"
+                android:id="@+id/edt_groupSearch"
+                style="@style/edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+
+                android:layout_toLeftOf="@+id/btn_memberSearch"
+
+                android:layout_toStartOf="@+id/btn_memberSearch"
+                android:hint="Search"
+                android:padding="0dp" />
+            <!-- search member id Button -->
+            <Button
+                android:id="@+id/btn_groupSearch"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/search_20_20"
+
+                android:padding="5dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/table_title"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/ll_details"
+        android:background="#627C9F">
+
+
+        <TextView
+            android:id="@+id/tvgo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text=""
+            android:textColor="@color/white"
+
+            android:textSize="13sp" />
+        <!--</LinearLayout>-->
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/table_title"
+        android:fadeScrollbars="false"
+        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track" /> <!--vertical layout-->
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+
+</RelativeLayout>

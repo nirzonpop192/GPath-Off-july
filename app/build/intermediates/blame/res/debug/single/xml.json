@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\xml\\zxing_preferences.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\2.3.0\\res\\xml\\zxing_preferences.xml"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\xml\\zxing_preferences.xml",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\2.3.0\\res\\xml\\zxing_preferences.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\xml\\zxing_preferences.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\2.3.0\\res\\xml\\zxing_preferences.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\xml\\zxing_preferences.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\2.3.0\\res\\xml\\zxing_preferences.xml"
+    }
+]

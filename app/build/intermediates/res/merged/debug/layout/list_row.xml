@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+
+    android:padding="5dp">
+
+
+    <TextView
+        android:id="@+id/s_row_hhId"
+        android:hint="00001"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:textSize="@dimen/title"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/hh_name"
+        android:hint="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:textSize="@dimen/title"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/s_row_hhId"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_toStartOf="@+id/servicedHolderDataView"
+        android:layout_toLeftOf="@+id/servicedHolderDataView" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/servicedHolderDataView"
+        android:src="@drawable/ic_action_person"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/edit_service_holder"
+        android:layout_toStartOf="@+id/edit_service_holder" />
+
+    <ImageButton
+        android:id="@+id/edit_service_holder"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:src="@drawable/ic_action_edit"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+<!--    <ImageButton
+        android:id="@+id/delete_house_hold"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:src="@drawable/ic_action_cancel"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />-->
+
+
+
+
+</RelativeLayout>

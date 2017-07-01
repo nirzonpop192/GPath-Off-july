@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".activity.sub_activity.gps_sub.PointAttributes">
+    <!-- Header aligned to top -->
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <!--page title-->
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+
+            style="@style/page_title_style"
+
+            android:text="@string/Page_title_GPS" />
+
+    </RelativeLayout>
+    <!--page Title End-->
+
+    <LinearLayout
+        android:id="@+id/llayout_controller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/page_title"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".65"
+            android:orientation="vertical">
+
+            <TextView
+
+                style="@style/txt_label"
+                android:text="@string/label_group" />
+
+            <TextView
+                style="@style/txt_label"
+                android:text="@string/label_subGroup" />
+
+            <TextView
+                style="@style/txt_label"
+                android:text="@string/label_location" />
+
+            <TextView
+                android:id="@+id/gps_tv_lat_label"
+                style="@style/txt_label"
+                android:text="@string/label_lat" />
+
+            <TextView
+                android:id="@+id/gps_tv_lng_label"
+                style="@style/txt_label"
+                android:text="@string/label_long" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".35"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/spGroup"
+                style="@style/spinner_style"
+
+
+                android:layout_width="match_parent" />
+
+            <Spinner
+                android:id="@+id/spGPS_SubGroup"
+                style="@style/spinner_style"
+                android:layout_width="match_parent" />
+
+            <Spinner
+                android:id="@+id/spGPS_location"
+                style="@style/spinner_style"
+                android:layout_width="match_parent" />
+
+            <TextView
+                android:id="@+id/gps_tv_lat"
+                style="@style/spinner_style" />
+
+            <TextView
+                android:id="@+id/gps_tv_lng"
+                style="@style/spinner_style" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/hsvImageView_Controller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llayout_controller"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/imageView_Controller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="2dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/iv_gpsAtt_1"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_weight=".2"
+                android:src="@drawable/cam" />
+
+            <ImageView
+                android:id="@+id/iv_gpsAtt_2"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_weight=".2"
+                android:src="@drawable/cam" />
+
+            <ImageView
+                android:id="@+id/iv_gpsAtt_3"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_weight=".2"
+                android:src="@drawable/cam" />
+
+            <ImageView
+                android:id="@+id/iv_gpsAtt_4"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_weight=".2"
+                android:src="@drawable/cam" />
+
+            <ImageView
+                android:id="@+id/iv_gpsAtt_5"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_weight=".2"
+                android:src="@drawable/cam" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/table_title"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/hsvImageView_Controller"
+        android:background="#627C9F"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_label_att"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+
+            android:text="Attributes"
+
+            android:textColor="@color/white"
+
+
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnMap"
+        android:layout_below="@+id/table_title"
+        android:fadeScrollbars="false"
+        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track">
+
+        <LinearLayout
+            android:id="@+id/llayout_Dynamic_Attribute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:paddingBottom="10dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="25dp"
+            android:paddingTop="10dp"></LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+
+    <Button
+        android:id="@+id/btnMap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:background="@drawable/button_style"
+        android:text="" />
+</RelativeLayout>

@@ -1,0 +1,199 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.assign_program.AssignPage2">
+    <!--
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+     android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+android:paddingBottom="@dimen/activity_vertical_margin"
+-->
+    <!-- Header aligned to top -->
+    <include layout="@layout/header" />
+    <RelativeLayout
+        android:layout_below="@+id/header"
+        android:id="@+id/page_title"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            android:text="Assign Criteia Liberia"
+            android:textSize="@dimen/abc_text_size_large_material"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:id="@+id/tv_ass_page2Title" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_below="@+id/page_title"
+        android:id="@+id/ll_details"
+        android:layout_width="fill_parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:orientation="vertical"
+
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:weightSum="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Lable side -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight=".2"
+                android:layout_height="wrap_content">
+                <TextView
+                    style="@style/lable_textView"
+                    android:text="HH Name :"/>
+                <TextView
+                    style="@style/lable_textView"
+                    android:text=" HH ID"/>
+
+                <TextView
+                    style="@style/lable_textView"
+                    android:text="MemberName"/>
+                <TextView
+                    style="@style/lable_textView"
+                    android:text="Member ID"/>
+                <TextView
+                    style="@style/lable_textView"
+                    android:text="Criteria"/>
+                <TextView
+                    style="@style/lable_textView"
+                    android:text="Reg Date"/>
+                <TextView
+                    style="@style/lable_textView"
+                    android:text="Criteria Details"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight=".8"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/as_CU2_ed_hhName"
+                    style="@style/text_view"
+                    android:clickable="false"
+                    android:hint="House hold Name" />
+                <TextView
+                    android:id="@+id/as_CU2_ed_hhID"
+                    style="@style/text_view"
+                    android:clickable="false"
+                    android:hint="hhID"  />
+                <TextView
+                    android:id="@+id/as_CU2_ed_MemberName"
+                    style="@style/text_view"
+                    android:hint="MemberName"
+                    />
+                <TextView
+                    android:id="@+id/as_CU2_ed_MemberID"
+                    style="@style/text_view"
+                    android:hint="MemberID"
+                    />
+
+                <TextView
+                    android:id="@+id/as_CU2_ed_asCriteria"
+                    style="@style/text_view"
+                    android:hint="Criteria"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white"
+                    android:padding="10dp">
+
+
+                    <TextView
+                        android:id="@+id/as_CU2_edt_regD"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Date"
+                        android:textSize="14dp"
+                        android:hint="Registration Date"
+                        android:textColor="@color/black"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+
+                <!-- Criteria Details  -->
+                <Spinner
+                    android:id="@+id/spAssignCriteriaLiberia"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></Spinner>
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+    <!-- Save Button -->
+
+    <LinearLayout
+        android:layout_below="@+id/lv_assign"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:gravity="bottom"
+        >
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btn_assign_cu2_save"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="@string/btn_label_submit"
+            android:textSize="12dp"
+            android:background="@drawable/button_style_inner"
+            android:textColor="@color/green" />
+
+        <Button
+            android:id="@+id/btn_cu2_goAssignePage"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="@string/btn_AssignLabel"
+            android:textSize="12dp"
+            android:background="@drawable/button_style_inner"
+            android:textColor="@color/green"/>
+
+    </LinearLayout>
+    <include layout="@layout/footer" />
+    <!-- <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
+         android:layout_height="wrap_content" />-->
+
+</RelativeLayout>
+
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="com.siddiquinoor.restclient.activity.models.assign_sub.AssignChildenUnder2">
+
+        <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    -->

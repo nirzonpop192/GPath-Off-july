@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:paddingTop="4dp"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/ll_1"
+
+        android:layout_width="wrap_content"
+        android:paddingTop="5dp"
+
+        android:layout_height="wrap_content">
+        <!--  <TextView
+
+              android:layout_marginLeft="20dp"
+              android:layout_marginStart="20dp"
+
+              android:id="@+id/row_txt_voID"
+              android:hint="Axe"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:textSize="18sp"
+
+              android:gravity="center_vertical"
+              />-->
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/cb_dist_ext_voucher_id_holde"
+            android:checked="false" />
+
+            <TextView
+
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/row_txt_dist_vou_itemName"
+                android:hint="Axe"
+                android:layout_width="150dp"
+                android:layout_height="fill_parent"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                />
+
+
+
+
+
+    </LinearLayout>
+
+    <TextView
+
+android:paddingTop="10dp"
+        android:layout_toRightOf="@+id/ll_1"
+        android:layout_marginLeft="25dp"
+
+        android:id="@+id/row_txt_dist_Measurement"
+        android:hint="10.0000GMS"
+        android:layout_width="160dp"
+        android:layout_height="fill_parent"
+        android:textSize="16sp"
+
+
+        android:gravity="center_vertical"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/row_dist_voucherQuantity"
+        android:layout_toStartOf="@+id/row_dist_voucherQuantity"
+         />
+
+
+
+    <EditText
+
+        android:layout_alignParentRight="true"
+
+        android:id="@+id/row_dist_voucherQuantity"
+
+        android:layout_width="80dp"
+
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:singleLine="true"
+        android:background="@drawable/edit_box_background"
+
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:layout_marginBottom="5dp"
+        android:textSize="14dp"
+        android:inputType="number"
+
+        />
+
+</RelativeLayout>

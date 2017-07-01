@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.ServiceSummaryMenu">
+    <!-- Header aligned to top -->
+    <include layout="@layout/header"
+        android:id="@+id/header"/>
+
+    <!-- PAGE TITLE -->
+    <RelativeLayout android:id="@+id/page_title"
+        android:layout_below="@+id/header"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/page_title_style"
+            android:id="@+id/tv_srv_dstPageTitle"
+            android:text="Service Summary"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+
+
+
+        android:layout_below="@+id/page_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_marginTop="1dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:background="@drawable/blue_boder_style"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+
+            android:id="@+id/ll_serviceMonth"
+
+
+            android:layout_width="fill_parent"
+
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".4"
+                android:orientation="vertical"
+                >
+
+                        <TextView
+                            android:id="@+id/tv_awardLable"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/view_height"
+                            android:gravity="center_vertical"
+                            android:text=" Award"
+                            android:textSize="16sp" />
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:gravity="center_vertical"
+                    android:text=" Program "
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    style="@style/lable_textView"
+                    android:text="Month"
+                    android:layout_height="35dp"
+                    android:gravity="center_vertical"
+                    android:paddingTop="5dp"
+                    android:layout_width="match_parent"
+                    android:textSize="16sp"
+                    android:id="@+id/tv_OpMonthLable" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".6"
+                android:orientation="vertical"
+                >
+                 <Spinner
+                     android:layout_height="35dp"
+                     android:id="@+id/su_srv_spAward"
+                     style="@style/spinner_style"
+                     android:textColor="@color/black"
+                     android:padding="0dp"
+                     android:paddingLeft="5dp"
+                     android:layout_width="match_parent" />
+
+                <Spinner
+                    android:layout_height="35dp"
+                    android:padding="0dp"
+                    android:paddingLeft="5dp"
+                    android:id="@+id/su_srv_spProgram"
+                    style="@style/spinner_style" />
+                <Spinner
+
+                    style="@style/spinner_style"
+                    android:layout_height="35dp"
+                    android:padding="0dp"
+                    android:paddingLeft="5dp"
+                    android:layout_width="match_parent"
+
+                    android:id="@+id/sp_opMonthListSSC"
+                    />
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+        <RadioGroup
+
+            android:layout_below="@+id/ll_serviceMonth"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="15dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+          >
+            <RadioButton
+                android:checked="true"
+
+                android:textSize="20sp"
+                style="@style/radio_btn"
+                android:id="@+id/rbtn_srv_summary"
+                android:text="Summary"
+                />
+
+
+
+            <RadioButton
+                android:textSize="20sp"
+                style="@style/radio_btn"
+                android:id="@+id/rbtn_serv_attendance"
+                android:text="Service Attendance"
+                />
+
+            <RadioButton
+                style="@style/radio_btn"
+                android:textSize="20sp"
+                android:id="@+id/rbtn_Itemized_summary"
+                android:text="Itemized Summary"
+                />
+            <RadioButton
+                style="@style/radio_btn"
+                android:textSize="20sp"
+                android:id="@+id/rbtn_itemize_attendance"
+                android:text="Itemized Attendance"
+                android:checked="false" />
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <include layout="@layout/footer"/>
+</RelativeLayout>

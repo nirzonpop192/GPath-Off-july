@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".activity.sub_activity.dist_sub.DistrubutionVoucherActivity">
+
+    <include layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+            style="@style/page_title_style"
+
+            android:text="Distribution"
+
+
+            android:id="@+id/tv_ass_page2Title" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_contaner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer"
+        android:layout_below="@+id/page_title"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/ll_details"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".75"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    style="@style/txt_label"
+                    android:text="Member" />
+
+                <TextView
+                    style="@style/txt_label"
+                    android:text="Beneficiary" />
+
+                <TextView
+                    style="@style/txt_label"
+                    android:text="Voucher Number " />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_dist_vouMemberId"
+                    style="@style/text_view"
+
+                    android:hint="MEMBER ID" />
+
+                <TextView
+                    android:id="@+id/tv_dist_vouMemberName"
+                    style="@style/text_view"
+
+                    android:hint="BENEFICIARY" />
+
+                <EditText
+                    android:id="@+id/edt_dist_vio_refNumber"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white"
+                    android:hint="Voucher Number"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="14dp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- title of list view  -->
+        <RelativeLayout
+
+            android:id="@+id/ll_title"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/ll_details"
+            android:background="#627C9F">
+
+
+            <TextView
+
+                android:id="@+id/text1_table"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".45"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="Item Name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size"
+
+                />
+
+            <TextView
+                android:id="@+id/textitemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="121dp"
+                android:layout_marginStart="121dp"
+                android:layout_toEndOf="@+id/text1_table"
+                android:layout_toRightOf="@+id/text1_table"
+                android:layout_weight=".2"
+
+                android:gravity="left"
+                android:padding="10dp"
+                android:text="Unit name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size" />
+
+
+            <TextView
+
+                android:id="@+id/tv_unit"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Unit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size" />
+
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/lv_DistExtVoucher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/ll_title" />
+    </RelativeLayout>
+
+    <include layout="@layout/footer" />
+
+</RelativeLayout>

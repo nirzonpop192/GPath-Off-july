@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.siddiquinoor.restclient"
+    android:versionCode="10"
+    android:versionName="1.0.20" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <!-- for map -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Network State Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Accessing camera hardware -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+ <!-- Optional permission for Analytics to run. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="com.siddiquinoor.restclient.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.siddiquinoor.restclient.permission.C2D_MESSAGE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <application
+        android:name="com.siddiquinoor.restclient.controller.AppController"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.LoginActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.Register"
+            android:configChanges="orientation"
+            android:label="Register"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SumRegLay4TotalHHRecords"
+            android:configChanges="orientation"
+            android:label="Summary"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.RegisterRecordView"
+            android:configChanges="orientation"
+            android:label="View Records"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.ViewRecordDetail"
+            android:configChanges="orientation"
+            android:label="View Records"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.register_sub.RegisterMember"
+            android:configChanges="orientation"
+            android:label="Register Member"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.ServiceActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_service"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.gps_sub.MapActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_map"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.SummaryMenuActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_all_summary"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SumSrvOrDistCriteria"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_summary_service"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.OldAssignActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--
+        <activity
+            android:name=".assign_sub.AssignPage2"
+            android:label="@string/title_activity_assign_page2" >
+        </activity>
+        -->
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceRecordDetails"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_service_record"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SumSrvOrDistAttendance"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_service_summary_list"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.DistributionAttendanceActivity"
+            android:configChanges="orientation"
+            android:label="Distribution Attendance"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.GraduationActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_graduation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.assign_program.mchn.LM"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign_lactating_mother"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.assign_program.mchn.PW"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign_pregnant_women"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.assign_program.mchn.CU2"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign_childen_under2"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.assign_program.mchn.CA2"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign_child_above2"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.RegisterLiberia"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_register_liberia"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.graduation_sub.GraduationUpdate"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_graduation_update"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryAssignCriteria"
+            android:configChanges="orientation"
+            android:label="SummaryAssignCriteria"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryAssignBaseCriteria"
+            android:configChanges="orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.CardRequestActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_card_request"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.register_sub.RegisterMemberLiberia"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_register_member_liberia"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.garbage.AssignForLiberia"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign_for_liberia"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.DistributionActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_distribution"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.assign_program.peer.AssignForLiberiaAIV"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.assign_program.peer.AssignForLiberiaCFW"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.assign_program.peer.AssignForLiberiaUCT"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.assign_program.agr.AGR"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceVoucherDetails"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.dist_sub.DistrubutionVoucherActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.ServiceSummaryMenu"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.DistributionSummaryMenu"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemize"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemizeAttendance"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceSpecification"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_service_specification"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.gps_sub.PointAttributes"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.GPSLocationSearchPage"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.MemberSearchPage"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.AssignActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.assign_program.ddr.FFA"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.assign_program.ddr.AssignForDDRMalwaiVUL"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.GroupSearchPage"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.commu_group_sub.CommunityGroupNDetailsRecodes"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.GroupSummary"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.GroupMemberSummary"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.DynamicTable"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name="com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DTResponseActivity" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DTResponseRecordingActivity"
+            android:label="@string/title_activity_dt__qustion"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DT_ReportActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.TrainingActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name="com.siddiquinoor.restclient.activity.sub_activity.training.IdTypeSelection" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.training.TABeneficiaryCardListActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.training.AddTaParticipaintActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.siddiquinoor.restclient.activity.sub_activity.training.TaSummaryPage"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name="com.siddiquinoor.restclient.activity.FileExploerActivity" />
+        <activity
+            android:name="com.google.zxing.client.android.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:screenOrientation="sensorLandscape"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+ <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+            android:theme="@style/Theme.IAPTheme" />
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.siddiquinoor.restclient.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <activity
+            android:name="com.google.android.gms.appinvite.PreviewActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppInvite.Preview" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+Service handling Google Sign-In user revocation. For apps that do not integrate with
+            Google Sign-In, this service will never be started.
+        -->
+        <service
+            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.siddiquinoor.restclient" />
+            </intent-filter>
+        </receiver>
+        <!--
+ Internal (not exported) receiver used by the app to start its own exported services
+             without risk of being spoofed.
+        -->
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+            android:exported="false" />
+        <!--
+ FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.google.firebase.crash.internal.service.FirebaseCrashReceiverService"
+            android:process=":background_crash" />
+        <service
+            android:name="com.google.firebase.crash.internal.service.FirebaseCrashSenderService"
+            android:process=":background_crash" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <!--
+ FirebaseMessagingService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.google.android.gms.tagmanager.TagManagerService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity"
+            android:noHistory="true" >
+ <!-- optional, removes the previewActivity from the activity stack. -->
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.siddiquinoor.restclient" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

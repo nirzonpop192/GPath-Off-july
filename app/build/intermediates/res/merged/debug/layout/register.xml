@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/header" />
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+    <!-- TITLE PAGE   -->
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header">
+
+        <TextView
+            style="@style/page_title_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/btn_house_label"
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="@dimen/abc_text_size_large_material" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollableContents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_b"
+
+        android:layout_below="@id/page_title"
+        android:background="@color/gray_light">
+
+        <!-- Registration Form -->
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/linearLayoutBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dip"
+            android:paddingTop="10dip">
+
+
+            <!-- District Label layer -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".3"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:id="@+id/tv_hh_LayR1Label"
+                        style="@style/txt_label"
+                        android:text="@string/lbl_se_district" />
+                    <!-- Upazilla Label layer -->
+                    <TextView
+                        android:id="@+id/tv_hh_LayR2Label"
+
+                        style="@style/txt_label"
+                        android:text="Select Ta" />
+
+                    <TextView
+                        android:id="@+id/tv_hh_LayR3Label"
+                        style="@style/txt_label"
+                        android:text="@string/lbl_se_GVH" />
+
+                    <TextView
+                        android:id="@+id/tv_hh_LayR4Label"
+
+                        style="@style/txt_label"
+                        android:text="@string/lbl_se_village" />
+
+                    <TextView
+                        android:id="@+id/tv_hh_address"
+
+                        style="@style/txt_label"
+                        android:text="@string/lbl_se_address" />
+
+                    <TextView
+
+                        style="@style/txt_label"
+                        android:text="Household ID" />
+
+                    <TextView
+
+                        style="@style/txt_label"
+                        android:text="Reg. Date" />
+
+                    <TextView
+
+                        style="@style/txt_label"
+                        android:text="Household" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Gender" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="VSLA Group" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="HHSize" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Latitude" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Longitude" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="V Status" />
+
+                    <TextView
+
+                        style="@style/txt_label"
+                        android:text="Status" />
+
+                    <TextView
+
+                        style="@style/txt_label"
+                        android:text="Wealth Rank" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Hh Type" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".7"
+                    android:orientation="vertical"
+                    android:paddingRight="20dp">
+                    <!-- District -->
+                    <Spinner
+                        android:id="@+id/spDistrict"
+                        style="@style/registration_spinner_style" />
+                    <!-- Upazilla Label layer -->
+                    <Spinner
+                        android:id="@+id/spUpazilla"
+                        style="@style/registration_spinner_style" />
+
+                    <Spinner
+                        android:id="@+id/spUnion"
+                        style="@style/registration_spinner_style" />
+
+                    <Spinner
+                        android:id="@+id/spVillage"
+
+                        style="@style/registration_spinner_style" />
+
+                    <Spinner
+                        android:id="@+id/spAddress"
+
+                        style="@style/registration_spinner_style" />
+
+
+                    <EditText
+                        android:id="@+id/reg_id"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:hint="ID [auto generated]"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14dp" />
+
+                    <!-- Registration Date -->
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:padding="10dp">
+
+
+                        <TextView
+                            android:id="@+id/hh_reg_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:hint="Registration Date"
+                            android:text="Date"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/input_label_hint"
+                            android:textSize="14dp" />
+                    </RelativeLayout>
+
+                    <!-- Name -->
+                    <EditText
+                        android:id="@+id/reg_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:hint="Name of the Person"
+                        android:inputType="textPersonName"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14dp" />
+                    <!-- Gender Spinner -->
+                    <Spinner
+                        android:id="@+id/spGender"
+                        style="@style/registration_spinner_style" />
+
+                    <EditText
+                        android:id="@+id/VSLA_group"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:hint="VSLA Group"
+                        android:inputType="text"
+
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14dp"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/hh_size"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:hint="HHSize"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14dp" />
+                    <!-- Latitude -->
+                    <EditText
+                        android:id="@+id/latitude"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:hint="Latitude"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/longitude"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:hint="Longitude"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14dp" />
+
+                    <Spinner
+                        android:id="@+id/spVStatus"
+                        style="@style/registration_spinner_style" />
+                    <!-- M Status -->
+                    <Spinner
+                        android:id="@+id/spMStatus"
+                        style="@style/registration_spinner_style"
+                        android:padding="5dp" />
+
+                    <Spinner
+                        android:id="@+id/spWRank"
+
+                        style="@style/registration_spinner_style" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/cb_hh_type_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="1: Own less than 0.2 Hecters of land and be unable to hire it for food or cash;" />
+
+                        <CheckBox
+                            android:id="@+id/cb_hh_type_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2: Have less than three months of food stock starting from harvest time (rain-fed)" />
+
+                        <CheckBox
+                            android:id="@+id/cb_hh_type_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="3: Own no major common livestock (e.g., cattle, goats, sheep, pigs)" />
+
+                        <CheckBox
+                            android:id="@+id/cb_hh_type_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="4: Receive no formal wages" />
+
+                        <CheckBox
+                            android:id="@+id/cb_hh_type_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="5: Do not participate in a regular income-generating activity" />
+
+                        <CheckBox
+                            android:id="@+id/cb_hh_type_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="6: Rely on piecework/casual labor to meet daily food needs" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- M Status -->
+            <!--  <Spinner
+                  android:id="@+id/spMStatus"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_horizontal"
+                  android:layout_marginBottom="5dp"
+                  android:drawSelectorOnTop="true"
+                  android:background="@color/white"
+                  android:textColor="@color/black"
+                  android:padding="5dp" />-->
+
+
+            <!-- Registration ID Label -->
+            <!--     <EditText
+                     android:id="@+id/reg_id"
+                     android:hint="ID [auto generated]"
+                     android:layout_width="fill_parent"
+                     android:layout_height="wrap_content"
+                     android:singleLine="true"
+                     android:padding="10dp"
+                     android:background="@color/white"
+                     android:textColor="@color/black"
+                     android:textColorHint="@color/gray"
+                     android:layout_marginBottom="5dp"
+                     android:textSize="14dp" />-->
+
+            <!-- Registration Date -->
+            <!--   <RelativeLayout
+                   android:layout_width="fill_parent"
+                   android:layout_height="40dp"
+                   android:layout_marginBottom="5dp"
+                   android:background="@color/white"
+                   android:padding="10dp">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="fill_parent"
+                       android:text="Reg. Date"
+                       android:id="@+id/textView"
+                       android:textSize="14dp" />
+
+                   <TextView
+                       android:id="@+id/reg_dob"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textAppearance="?android:attr/textAppearanceLarge"
+                       android:text="Date"
+                       android:textSize="14dp"
+                       android:hint="Registration Date"
+                       android:textColor="@color/input_label_hint"
+                       android:layout_alignParentTop="true"
+                       android:layout_centerHorizontal="true" />
+               </RelativeLayout>-->
+
+            <!-- Name -->
+            <!--   <EditText android:id="@+id/reg_name"
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:hint="Name of the Person"
+                   android:singleLine="true"
+                   android:background="@color/white"
+                   android:padding="10dp"
+                   android:textColor="@color/black"
+                   android:textColorHint="@color/gray"
+                   android:layout_marginBottom="5dp"
+                   android:textSize="14dp"
+                   android:inputType="textPersonName"
+                   /> -->
+
+            <!-- Gender Spinner -->
+            <!-- <Spinner
+                 android:id="@+id/spGender"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_marginBottom="5dp"
+                 android:drawSelectorOnTop="true"
+                 android:background="@color/white"
+                 android:textColor="@color/black"
+                 android:padding="5dp" />-->
+
+
+            <!--  <EditText
+                  android:id="@+id/VSLA_group"
+                  android:hint="VSLA Group"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:singleLine="true"
+                  android:background="@color/white"
+                  android:padding="10dp"
+
+                  android:textSize="14dp"
+                  android:textColor="@color/black"
+                  android:textColorHint="@color/gray"
+                  android:layout_marginBottom="5dp"
+                  android:inputType="text"
+
+                  />-->
+
+            <!-- HH Size -->
+            <!--<EditText
+                android:id="@+id/hh_size"
+                android:hint="HHSize"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:background="@color/white"
+                android:padding="10dp"
+
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:layout_marginBottom="5dp"
+                android:inputType="number"
+                />-->
+
+            <!-- Latitude -->
+            <!-- <EditText
+                 android:id="@+id/latitude"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:singleLine="true"
+                 android:background="@color/white"
+                 android:padding="10dp"
+                 android:hint="Latitude"
+                 android:textSize="14dp"
+                 android:textColor="@color/black"
+                 android:textColorHint="@color/gray"
+                 android:layout_marginBottom="5dp"
+                 android:inputType="numberDecimal|numberSigned"
+                 />-->
+
+            <!-- Longitude -->
+            <!-- <EditText android:id="@+id/longitude"
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:singleLine="true"
+                 android:background="@color/white"
+                 android:padding="10dp"
+                 android:hint="Longitude"
+                 android:textSize="14dp"
+                 android:textColor="@color/black"
+                 android:textColorHint="@color/gray"
+                 android:layout_marginBottom="5dp"
+                 android:inputType="numberDecimal|numberSigned"
+                 /> -->
+
+            <!-- AG Land -->
+            <!--  <EditText
+                  android:id="@+id/ag_land"
+                  android:hint="AGLand"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:singleLine="true"
+                  android:background="@color/white"
+                  android:padding="10dp"
+                  android:textSize="14dp"
+                  android:textColor="@color/black"
+                  android:textColorHint="@color/gray"
+                  android:layout_marginBottom="5dp"
+                  android:inputType="number"
+                  />-->
+
+            <!-- V Status-->
+            <!-- <Spinner
+                 android:id="@+id/spVStatus"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_marginBottom="5dp"
+                 android:drawSelectorOnTop="true"
+                 android:background="@color/white"
+                 android:textColor="@color/black"
+                 android:padding="5dp" />-->
+
+            <!-- M Status -->
+            <!-- <Spinner
+                 android:id="@+id/spMStatus"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_marginBottom="5dp"
+                 android:drawSelectorOnTop="true"
+                 android:background="@color/white"
+                 android:textColor="@color/black"
+                 android:padding="5dp" />-->
+
+
+            <!-- Save Button -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom">
+
+                <!-- Save Button -->
+
+
+            </LinearLayout>
+
+
+            <!--<Button android:id="@+id/btnSaveData"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:text="@string/btn_label_submit"
+                android:background="@color/blue_light"
+                android:textColor="@color/green" />
+            <Button android:id="@+id/btnSaveData"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:text="@string/btn_label_submit"
+                android:background="@color/blue_light"
+                android:textColor="@color/green" />-->
+
+        </LinearLayout>
+        <!-- Registration Form Ends -->
+    </ScrollView>
+
+    <LinearLayout
+
+        android:id="@+id/ll_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSaveData"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="@string/btn_label_submit"
+            android:textColor="@color/green"
+            android:textSize="12dp" />
+
+        <Button
+
+            android:id="@+id/btnClearData"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="@string/btn_label_clear"
+            android:textColor="@color/green"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btnRegistrationRecode"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="@string/btn_label_submit"
+            android:textColor="@color/green"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+</RelativeLayout>
+    <!--
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include layout="@layout/header" />
+    <include layout="@layout/footer" />
+        &lt;!&ndash; TITLE PAGE   &ndash;&gt;
+    <RelativeLayout android:id="@+id/page_title"
+        android:layout_below="@id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            android:text="@string/btn_house_label"
+            android:textSize="@dimen/abc_text_size_large_material"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollableContents"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/footer"
+        android:background="@color/gray_light"
+        android:layout_below="@id/page_title" >
+
+        &lt;!&ndash; Registration Form &ndash;&gt;
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:id="@+id/linearLayoutBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header"
+            android:paddingLeft="20dip"
+            android:paddingTop="10dip"
+            android:paddingRight="20dip"
+            android:paddingBottom="20dip">
+
+
+            &lt;!&ndash; District Label layer &ndash;&gt;
+            <LinearLayout
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_weight=".3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tv_hh_LayR1Label"
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="@string/lbl_se_district"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"/>
+                    &lt;!&ndash; Upazilla Label layer &ndash;&gt;
+                    <TextView
+                        android:id="@+id/tv_hh_LayR2Label"
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Select Ta"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"/>
+                    <TextView
+                        android:id="@+id/tv_hh_LayR3Label"
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="@string/lbl_se_GVH"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_hh_LayR4Label"
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="@string/lbl_se_village"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"/>
+                    <TextView
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Household ID"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp" />
+                    <TextView
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Reg. Date"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"  />
+                    <TextView
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Household"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"/>
+                    <TextView
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Gender"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp" />
+                    <TextView
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="VSLA Group"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp" />
+
+                    <TextView
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="HHSize"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp" />
+                    <TextView
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Latitude"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Longitude"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="V Status"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:paddingLeft="4dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="M Status"
+                        android:layout_width="match_parent"
+                        android:textSize="16sp"
+                        android:layout_height="wrap_content" />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight=".7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    &lt;!&ndash; District &ndash;&gt;
+                    <Spinner
+                        android:id="@+id/spDistrict"
+                        style="@style/registration_spinner_style"/>
+                    &lt;!&ndash; Upazilla Label layer &ndash;&gt;
+                    <Spinner
+                        android:id="@+id/spUpazilla"
+                        style="@style/registration_spinner_style" />
+
+                    <Spinner
+                        android:id="@+id/spUnion"
+                        style="@style/registration_spinner_style" />
+
+                    <Spinner
+                        android:id="@+id/spVillage"
+
+                        style="@style/registration_spinner_style" />
+
+                    <EditText
+                        android:id="@+id/reg_id"
+                        android:hint="ID [auto generated]"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:padding="10dp"
+                        android:background="@color/white"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="14dp" />
+
+                    &lt;!&ndash; Registration Date &ndash;&gt;
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:padding="10dp">
+
+
+
+                         <TextView
+                            android:id="@+id/hh_reg_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Date"
+                            android:textSize="14dp"
+                            android:hint="Registration Date"
+                            android:textColor="@color/input_label_hint"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+
+                    &lt;!&ndash; Name &ndash;&gt;
+                    <EditText android:id="@+id/reg_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:hint="Name of the Person"
+                        android:singleLine="true"
+                        android:background="@color/white"
+                        android:padding="10dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="14dp"
+                        android:inputType="textPersonName"
+                        />
+                    &lt;!&ndash; Gender Spinner &ndash;&gt;
+                    <Spinner
+                        android:id="@+id/spGender"
+                        style="@style/registration_spinner_style" />
+                    <EditText
+                        android:id="@+id/VSLA_group"
+                        android:hint="VSLA Group"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:singleLine="true"
+                        android:background="@color/white"
+                        android:padding="10dp"
+
+                        android:textSize="14dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:layout_marginBottom="5dp"
+                        android:inputType="text"
+
+                        />
+                    <EditText
+                        android:id="@+id/hh_size"
+                        android:hint="HHSize"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:background="@color/white"
+                        android:padding="10dp"
+                        android:maxLength="2"
+                        android:textSize="14dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:layout_marginBottom="5dp"
+                        android:inputType="number"
+                        />
+                    &lt;!&ndash; Latitude &ndash;&gt;
+                    <EditText
+                        android:id="@+id/latitude"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:background="@color/white"
+                        android:padding="10dp"
+                        android:hint="Latitude"
+                        android:textSize="14dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:layout_marginBottom="5dp"
+                        android:inputType="numberDecimal|numberSigned"
+                        />
+                    <EditText android:id="@+id/longitude"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:background="@color/white"
+                        android:padding="10dp"
+                        android:hint="Longitude"
+                        android:textSize="14dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:layout_marginBottom="5dp"
+                        android:inputType="numberDecimal|numberSigned"
+                        />
+                    <Spinner
+                        android:id="@+id/spVStatus"
+                        style="@style/registration_spinner_style" />
+                    &lt;!&ndash; M Status &ndash;&gt;
+                    <Spinner
+                        android:id="@+id/spMStatus"
+                        style="@style/registration_spinner_style"
+                        android:padding="5dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+            &lt;!&ndash; M Status &ndash;&gt;
+            &lt;!&ndash;  <Spinner
+                  android:id="@+id/spMStatus"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_horizontal"
+                  android:layout_marginBottom="5dp"
+                  android:drawSelectorOnTop="true"
+                  android:background="@color/white"
+                  android:textColor="@color/black"
+                  android:padding="5dp" />&ndash;&gt;
+
+
+            &lt;!&ndash; Registration ID Label &ndash;&gt;
+       &lt;!&ndash;     <EditText
+                android:id="@+id/reg_id"
+                android:hint="ID [auto generated]"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:layout_marginBottom="5dp"
+                android:textSize="14dp" />&ndash;&gt;
+
+            &lt;!&ndash; Registration Date &ndash;&gt;
+         &lt;!&ndash;   <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/white"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="Reg. Date"
+                    android:id="@+id/textView"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/reg_dob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Date"
+                    android:textSize="14dp"
+                    android:hint="Registration Date"
+                    android:textColor="@color/input_label_hint"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>&ndash;&gt;
+
+            &lt;!&ndash; Name &ndash;&gt;
+         &lt;!&ndash;   <EditText android:id="@+id/reg_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name of the Person"
+                android:singleLine="true"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:layout_marginBottom="5dp"
+                android:textSize="14dp"
+                android:inputType="textPersonName"
+                /> &ndash;&gt;
+
+            &lt;!&ndash; Gender Spinner &ndash;&gt;
+           &lt;!&ndash; <Spinner
+                android:id="@+id/spGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:drawSelectorOnTop="true"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:padding="5dp" />&ndash;&gt;
+
+
+          &lt;!&ndash;  <EditText
+                android:id="@+id/VSLA_group"
+                android:hint="VSLA Group"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:background="@color/white"
+                android:padding="10dp"
+
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:layout_marginBottom="5dp"
+                android:inputType="text"
+
+                />&ndash;&gt;
+
+            &lt;!&ndash; HH Size &ndash;&gt;
+            &lt;!&ndash;<EditText
+                android:id="@+id/hh_size"
+                android:hint="HHSize"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:background="@color/white"
+                android:padding="10dp"
+
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:layout_marginBottom="5dp"
+                android:inputType="number"
+                />&ndash;&gt;
+
+            &lt;!&ndash; Latitude &ndash;&gt;
+           &lt;!&ndash; <EditText
+                android:id="@+id/latitude"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:hint="Latitude"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:layout_marginBottom="5dp"
+                android:inputType="numberDecimal|numberSigned"
+                />&ndash;&gt;
+
+            &lt;!&ndash; Longitude &ndash;&gt;
+           &lt;!&ndash; <EditText android:id="@+id/longitude"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:hint="Longitude"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:layout_marginBottom="5dp"
+                android:inputType="numberDecimal|numberSigned"
+                /> &ndash;&gt;
+
+            &lt;!&ndash; AG Land &ndash;&gt;
+          &lt;!&ndash;  <EditText
+                android:id="@+id/ag_land"
+                android:hint="AGLand"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:layout_marginBottom="5dp"
+                android:inputType="number"
+                />&ndash;&gt;
+
+            &lt;!&ndash; V Status&ndash;&gt;
+           &lt;!&ndash; <Spinner
+                android:id="@+id/spVStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:drawSelectorOnTop="true"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:padding="5dp" />&ndash;&gt;
+
+            &lt;!&ndash; M Status &ndash;&gt;
+           &lt;!&ndash; <Spinner
+                android:id="@+id/spMStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="5dp"
+                android:drawSelectorOnTop="true"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:padding="5dp" />&ndash;&gt;
+
+
+            &lt;!&ndash; Save Button &ndash;&gt;
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom">
+
+                &lt;!&ndash; Save Button &ndash;&gt;
+                <Button android:id="@+id/btnSaveData"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_label_submit"
+                    android:textSize="12dp"
+                    android:background="@drawable/button_style_inner"
+                    android:textColor="@color/green" />
+
+                <Button
+                    android:id="@+id/btnClearData"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_label_clear"
+                    android:textSize="12dp"
+                    android:background="@drawable/button_style_inner"
+                    android:textColor="@color/green"/>
+
+            </LinearLayout>
+
+
+            &lt;!&ndash;<Button android:id="@+id/btnSaveData"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:text="@string/btn_label_submit"
+                android:background="@color/blue_light"
+                android:textColor="@color/green" />
+            <Button android:id="@+id/btnSaveData"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:text="@string/btn_label_submit"
+                android:background="@color/blue_light"
+                android:textColor="@color/green" />&ndash;&gt;
+
+        </LinearLayout>
+        &lt;!&ndash; Registration Form Ends &ndash;&gt;
+    </ScrollView>
+
+</RelativeLayout>-->

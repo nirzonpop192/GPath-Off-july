@@ -1,0 +1,550 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="button_action_normal">
+        <item name="android:layout_marginTop">@dimen/spacing_normal</item>
+        <item name="android:background">@color/gray_light</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+    </style>
+
+    <style name="button_action_special">
+        <item name="android:layout_marginTop">@dimen/spacing_normal</item>
+        <item name="android:background">@color/red</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+    </style>
+
+    <style name="button_link">
+        <item name="android:layout_marginTop">@dimen/spacing_huge</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+    </style>
+
+    <style name="text_single_line">
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_tiny</item>
+        <item name="android:padding">@dimen/spacing_small</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+    </style>
+
+    <style name="ContentText">
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ContentTextLarge">
+        <item name="android:textSize">@dimen/font_large</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="detail_view">
+        <item name="android:paddingTop">@dimen/spacing_tiny</item>
+        <item name="android:paddingBottom">@dimen/spacing_tiny</item>
+
+    </style>
+
+    <style name="detail_viewData">
+        <item name="android:paddingTop">@dimen/spacing_tiny</item>
+        <item name="android:paddingBottom">@dimen/spacing_tiny</item>
+        <item name="android:layout_marginLeft">@dimen/spacing_normal</item>
+    </style>
+
+    <style name="detail_view_member">
+        <item name="android:layout_marginTop">@dimen/spacing_large</item>
+        <item name="android:layout_marginLeft">@dimen/spacing_normal</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_large</item>
+        <item name="android:textSize">@dimen/font_large</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- ADDED BY POP SPINNER -->
+    <style name="spinner_style" parent="Base.Widget.AppCompat.Spinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/ass_spinner_height</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:drawSelectorOnTop">true</item>
+        <item name="android:textColor">@color/dark_black</item>
+
+
+        <item name="android:background">@drawable/edit_box_background</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+
+    <!-- ADDED BY POP Edit text -->
+    <style name="edit_text" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:cursorVisible">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <!-- ADDED BY POP View -->
+    <style name="text_view" parent="Base.Widget.AppCompat.AutoCompleteTextView">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/assign_lbl_height</item>t
+        <item name="android:singleLine">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+    <!-- TEXT_VIEW OF THE DAYS COUNT IN aSSIGN LM, PW, CU2, CA2 -->
+    <style name="text_view.day_count" parent="text_view">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:text">@string/lbl_duration</item>
+
+    </style>
+
+
+    <style name="radio_btn" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/l_pad_15</item>
+        <item name="android:paddingRight">@dimen/l_pad_15</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- For liberia registration-->
+
+
+    <!-- ADDED BY POP SPINNER FOR REGISTRATION -->
+    <style name="registration_spinner_style" parent="Base.Widget.AppCompat.Spinner">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/spinner_height</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:drawSelectorOnTop">true</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:padding">5dp</item>
+
+
+    </style>
+
+    <style name="lable_textView" parent="@android:style/Widget.TextView">
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/assign_lbl_height</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:layout_marginBottom">5dp</item>
+
+
+    </style>
+
+    <style name="liberia_reg_label_container">
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">.2</item>
+
+    </style>
+
+    <style name="liberia_reg_age_label_container">
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">.4</item>
+
+    </style>
+
+    <style name="liberia_reg_age_view_container">
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">.6</item>
+
+    </style>
+
+
+    <style name="liberia_reg_view_container">
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">.8</item>
+
+    </style>
+
+
+    <style name="lb_reg_label" parent="@android:style/Widget.TextView">
+        <!--
+        android:paddingLeft="4dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_height="wrap_content"
+            android:text="Children (6 to 12 yrs)"
+            android:layout_width="match_parent"
+            android:textSize="13dp"-->
+
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+
+    <style name="lb_reg_age_l_edt" parent="@android:style/Widget.EditText">
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:layout_marginRight">2.5dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_weight">.4</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:inputType">number</item>
+
+    </style>
+
+    <style name="input_live_stoct_cnt_edt" parent="@android:style/Widget.EditText">
+
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginRight">2.5dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_weight">.4</item>
+        <item name="android:inputType">number</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+
+        <item name="android:maxLength">2</item>
+
+    </style>
+
+
+    <style name="input_live_stoct_doller_value_edt" parent="@android:style/Widget.EditText">
+
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginRight">2.5dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_weight">.4</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+
+
+    </style>
+
+
+    <style name="input_live_stoct_land_size_edt" parent="@android:style/Widget.EditText">
+
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginRight">2.5dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_weight">.4</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:maxLength">7</item>
+
+
+    </style>
+
+    <style name="lb_reg_age_r_edt" parent="@android:style/Widget.EditText">
+
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:layout_marginLeft">2.5dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_weight">.4</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:inputType">number</item>
+
+    </style>
+
+    <style name="lb_reg_dollar_l_edt" parent="@android:style/Widget.EditText">
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:layout_marginRight">2.5dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_weight">.4</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:inputType">numberDecimal</item>
+
+    </style>
+
+
+    <style name="lb_reg_dollar_r_edt" parent="@android:style/Widget.EditText">
+
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:layout_marginLeft">2.5dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_weight">.4</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:inputType">numberDecimal</item>
+
+    </style>
+
+    <style name="lb_reg_acre_edt" parent="@android:style/Widget.EditText">
+
+
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:layout_marginLeft">5dp</item>
+
+    </style>
+    <!-- For ASSign , Graduation , Service -->
+
+    <style name="total_view_container">
+        <item name="android:weightSum">1</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+
+    <style name="label_container">
+        <item name="android:weightSum">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">.4</item>
+
+    </style>
+
+    <style name="spinner_container">
+        <item name="android:weightSum">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">.6</item>
+
+    </style>
+
+
+    <!-- Page Title -->
+    <style name="txt_page_title_summ" parent="@android:style/Widget.TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:textSize">@dimen/abc_text_size_large_material</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:gravity">left</item>
+
+    </style>
+
+    <style name="btn_main_page" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/main_button_height</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:background">@color/blue_light</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/main_button_txtSize</item>
+    </style>
+
+    <!-- FOR DISTRIBUTION PAGE STYLE-->
+    <!-- fOR TEXT LABEL -->
+    <style name="txt_label" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/lable_height</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">5dp</item>
+
+    </style>
+
+
+    <!--FOR SERVICE SPECIFICATION LABEL-->
+    <style name="srv_spec_txt_lable" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/lable_height</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">12sp</item>
+
+        <item name="android:layout_marginBottom">5dp</item>
+
+    </style>
+    <!-- Radio button color -->
+
+    <!-- page title style  -->
+
+    <style name="page_title_style" parent="@android:style/Widget.TextView">
+
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:background">@drawable/button_style_inner</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/abc_text_size_large_material</item>
+
+    </style>
+
+
+    <style name="scrollbar_shape_style">
+
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scrollbar_vertical_thumb</item>
+
+
+        <!--  <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+          <item name="android:scrollbarStyle">outsideOverlay</item>
+          <item name="android:scrollbars">vertical</item>
+          <item name="android:fadeScrollbars">true</item>
+          <item name="android:scrollbarThumbVertical">@drawable/scrollbar_vertical_thumb</item>
+          <item name="android:scrollbarTrackVertical">@drawable/scrollbar_vertical_track</item>
+          <item name="android:scrollbarSize">12dp</item>
+          <item name="android:scrollbarFadeDuration">2000</item>
+          <item name="android:scrollbarDefaultDelayBeforeFade">1000</item>-->
+    </style>
+
+    <style name="btn_sync" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:background">@color/blue_light</item>
+        <item name="android:textColor">@color/black</item>
+
+        <item name="android:textSize">@dimen/main_button_txtSize</item>
+    </style>
+
+    <style name="btn_logout" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:background">@color/readish</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/main_button_txtSize</item>
+    </style>
+
+    <style name="forward_button">
+        <item name="android:layout_width">@dimen/icon_button_width</item>
+        <item name="android:layout_height">@dimen/icon_button_height</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/button_style</item>
+        <item name="android:drawableTop">@drawable/goto_forward</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">11dp</item>
+        <item name="android:paddingBottom">11dp</item>
+    </style>
+
+    <style name="backward_button">
+        <item name="android:layout_width">@dimen/icon_button_width</item>
+        <item name="android:layout_height">@dimen/icon_button_height</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/button_style</item>
+        <item name="android:drawableTop">@drawable/goto_back</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">11dp</item>
+    </style>
+
+    <style name="Home_icon_button">
+        <item name="android:layout_width">@dimen/icon_button_width</item>
+        <item name="android:layout_height">@dimen/icon_button_height</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/button_style</item>
+        <item name="android:drawableTop">@drawable/home_b</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">11dp</item>
+    </style>
+
+<!--    android:id="@+id/btn_dt_next"
+    android:layout_width="0dp"
+    android:layout_height="40dp"
+    android:layout_gravity="center"
+    android:layout_weight="1"
+    android:background="@drawable/button_style"
+    android:drawableTop="@drawable/goto_forward"
+    android:gravity="center"
+    android:paddingTop="11dp"-->
+
+</resources>

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.siddiquinoor.restclient"
+    android:versionCode="10"
+    android:versionName="1.0.20">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <!-- for map -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Network State Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Accessing camera hardware -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <application
+        android:name=".controller.AppController"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.Register"
+            android:configChanges="orientation"
+            android:label="Register"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.sub_activity.summary_sub.SumRegLay4TotalHHRecords"
+            android:configChanges="orientation"
+            android:label="Summary"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.sub_activity.summary_sub.RegisterRecordView"
+            android:configChanges="orientation"
+            android:label="View Records"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.summary_sub.ViewRecordDetail"
+            android:configChanges="orientation"
+            android:label="View Records"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.sub_activity.register_sub.RegisterMember"
+            android:configChanges="orientation"
+            android:label="Register Member"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.ServiceActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_service"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.sub_activity.gps_sub.MapActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_map"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SummaryMenuActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_all_summary"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.sub_activity.summary_sub.SumSrvOrDistCriteria"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_summary_service"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activity.OldAssignActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--
+        <activity
+            android:name=".assign_sub.AssignPage2"
+            android:label="@string/title_activity_assign_page2" >
+        </activity>
+        -->
+        <activity
+            android:name=".activity.sub_activity.service_sub.ServiceRecordDetails"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_service_record"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.sub_activity.summary_sub.SumSrvOrDistAttendance"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_service_summary_list"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <activity
+            android:name=".activity.sub_activity.summary_sub.DistributionAttendanceActivity"
+            android:configChanges="orientation"
+            android:label="Distribution Attendance"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.GraduationActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_graduation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activity.sub_activity.assign_program.mchn.LM"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign_lactating_mother"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.sub_activity.assign_program.mchn.PW"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign_pregnant_women"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.sub_activity.assign_program.mchn.CU2"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign_childen_under2"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.sub_activity.assign_program.mchn.CA2"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign_child_above2"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.RegisterLiberia"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_register_liberia"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.graduation_sub.GraduationUpdate"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_graduation_update"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.sub_activity.summary_sub.SummaryAssignCriteria"
+            android:configChanges="orientation"
+            android:label="SummaryAssignCriteria"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.sub_activity.summary_sub.SummaryAssignBaseCriteria"
+            android:configChanges="orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.CardRequestActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_card_request"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.sub_activity.register_sub.RegisterMemberLiberia"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_register_member_liberia"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".garbage.AssignForLiberia"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_assign_for_liberia"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.DistributionActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_distribution"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.sub_activity.assign_program.peer.AssignForLiberiaAIV"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.assign_program.peer.AssignForLiberiaCFW"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.assign_program.peer.AssignForLiberiaUCT"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.assign_program.agr.AGR"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.service_sub.ServiceVoucherDetails"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.dist_sub.DistrubutionVoucherActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.summary_sub.ServiceSummaryMenu"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".activity.sub_activity.summary_sub.DistributionSummaryMenu"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemize"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemizeAttendance"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.service_sub.ServiceSpecification"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_service_specification"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.sub_activity.gps_sub.PointAttributes"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.GPSLocationSearchPage"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.MemberSearchPage"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.AssignActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.assign_program.ddr.FFA"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.assign_program.ddr.AssignForDDRMalwaiVUL"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.GroupSearchPage"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.commu_group_sub.CommunityGroupNDetailsRecodes"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.summary_sub.GroupSummary"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.summary_sub.GroupMemberSummary"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.DynamicTable"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".activity.sub_activity.dynamic_table.DTResponseActivity" />
+        <activity
+            android:name=".activity.sub_activity.dynamic_table.DTResponseRecordingActivity"
+            android:label="@string/title_activity_dt__qustion"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.sub_activity.dynamic_table.DT_ReportActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.TrainingActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".activity.sub_activity.training.IdTypeSelection" />
+        <activity
+            android:name=".activity.sub_activity.training.TABeneficiaryCardListActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".activity.sub_activity.training.AddTaParticipaintActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name=".activity.sub_activity.training.TaSummaryPage"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name=".activity.FileExploerActivity"></activity>
+    </application>
+
+</manifest>

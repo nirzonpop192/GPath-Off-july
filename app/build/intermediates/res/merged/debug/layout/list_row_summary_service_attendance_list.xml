@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <TextView
+
+        android:id="@+id/tv_srvA_SrvSl"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:hint="01"
+       android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+        android:textSize="@dimen/txt_size_list_row_14sp"
+
+         />
+
+
+    <TextView
+        android:id="@+id/tv_id_srvAId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv_srvA_SrvSl"
+        android:layout_toRightOf="@+id/tv_srvA_SrvSl"
+        android:clickable="true"
+        android:hint="010502010000903"
+        android:padding="5dp"
+        android:textSize="@dimen/txt_size_list_row_14sp"
+         />
+
+    <TextView
+        android:layout_toLeftOf="@+id/tv_SrvAtten_status"
+        android:id="@+id/tv_Srv_memberName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:clickable="true"
+        android:hint="Name Name "
+        android:padding="5dp"
+        android:textSize="@dimen/txt_size_list_row_14sp"
+        android:layout_toRightOf="@+id/tv_id_srvAId"
+        android:layout_toEndOf="@+id/tv_id_srvAId" />
+
+    <TextView
+        android:id="@+id/tv_SrvAtten_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:clickable="true"
+        android:text="Open"
+        android:padding="5dp"
+        android:textSize="@dimen/txt_size_list_row_14sp"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+
+    android:padding="5dp">
+
+
+    <TextView
+        android:id="@+id/tv_row_dist_s_criteriaName"
+        android:paddingLeft="20dp"
+        android:hint="dime"
+        android:layout_width="100dp"
+        android:layout_height="fill_parent"
+        android:textSize="@dimen/title"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical" />
+
+
+
+    <TextView
+        android:id="@+id/tv_row_dist_s_plan_total"
+        android:hint="Plan"
+        android:layout_width="80dp"
+        android:layout_height="fill_parent"
+        android:paddingLeft="10dp"
+        android:textSize="@dimen/title"
+
+        android:layout_toRightOf="@+id/tv_row_dist_s_criteriaName"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_toStartOf="@+id/tv_row_dist_s_recieve_total"
+        android:layout_toLeftOf="@+id/tv_row_dist_s_recieve_total" />
+
+
+    <TextView
+        android:id="@+id/tv_row_dist_s_recieve_total"
+        android:hint="Recive"
+
+        android:layout_width="90dp"
+        android:layout_height="fill_parent"
+        android:textSize="@dimen/title"
+
+        android:layout_toRightOf="@+id/s_row_hhId"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_toStartOf="@+id/tv_row_dist_s_balance"
+        android:layout_toLeftOf="@+id/tv_row_dist_s_balance" />
+
+
+    <TextView
+        android:id="@+id/tv_row_dist_s_balance"
+        android:hint="Balance"
+        android:paddingLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:textSize="@dimen/title"
+
+        android:layout_toRightOf="@+id/s_row_hhId"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_toStartOf="@+id/servicedHolderDataView"
+        android:layout_toLeftOf="@+id/servicedHolderDataView" />
+
+
+
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/servicedHolderDataView"
+        android:src="@drawable/ic_action_person"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+
+
+
+</RelativeLayout>
+
+

@@ -1,0 +1,257 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+
+
+    tools:context=".activity.OldAssignActivity">
+    <!-- Header aligned to top -->
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+
+        <TextView
+
+            style="@style/page_title_style"
+
+            android:text="@string/tv_AssignTitleLabel" />
+
+
+    </RelativeLayout>
+    <!--vIEW CONTROLLER LAYOUT -->
+
+    <LinearLayout
+        android:id="@+id/ll_details"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/page_title"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+
+        <!-- Award list spinner-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:orientation="vertical">
+
+                <TextView
+
+                    style="@style/txt_label"
+
+                    android:text="@string/award_label" />
+
+                <TextView
+                    style="@style/txt_label"
+
+                    android:text="@string/program_label"
+                   />
+
+
+                <TextView
+                    style="@style/txt_label"
+
+                    android:text="@string/criteria_label"
+
+                  />
+
+                <TextView
+                    android:id="@+id/tv_assign_ac_layR4Label"
+                    style="@style/txt_label"
+
+                    android:text="@string/village_label"
+                  />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/sp_assine_awardList"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent" />
+
+                <Spinner
+                    android:id="@+id/spProgram"
+                    style="@style/spinner_style" />
+
+                <Spinner
+                    android:id="@+id/spCriteriaA"
+                    style="@style/spinner_style" />
+
+                <Spinner
+                    android:id="@+id/spVillageA"
+                    style="@style/spinner_style" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- search id field -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <EditText
+                android:id="@+id/edt_assign_memberSearch"
+                style="@style/edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+
+                android:hint="@string/search_id"
+                android:inputType="number"
+                android:padding="0dp"
+                android:layout_toLeftOf="@+id/btn_assign_search"
+                android:layout_toStartOf="@+id/btn_assign_search" />
+            <!-- search member id Button -->
+            <Button
+                android:id="@+id/btn_assign_search"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/search_20_20"
+
+                android:padding="5dp"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <!-- title of list view  -->
+    <LinearLayout
+        android:id="@+id/table_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_details"
+        android:background="#627C9F">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.65">
+
+            <TextView
+                android:id="@+id/text_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="5dp"
+                android:paddingTop="10dp"
+                android:text="memId"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".8"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+             android:paddingLeft="70dp"
+
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Name"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:text="Assign"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+
+
+                android:layout_weight="0.70" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="Edit"
+                android:textColor="@color/white"
+
+                android:textSize="13sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_assign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/table_title"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="5dp" />
+
+
+    <!-- Search Button -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/lv_assign">
+
+
+
+    </LinearLayout>
+
+    <include layout="@layout/footer"
+        android:id="@+id/footer"/>
+
+</RelativeLayout>
+

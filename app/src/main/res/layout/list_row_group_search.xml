@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp"
+
+    android:padding="5dp">
+
+
+    <TextView
+        android:id="@+id/groupSear_row_groupName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_toLeftOf="@+id/groupSear_tv_CateName"
+        android:layout_toStartOf="@+id/groupSear_tv_CateName"
+        android:gravity="center_vertical"
+        android:hint="MILA"
+        android:paddingTop="2dp"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/groupSear_row_progShort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBottom="@+id/groupSear_tv_CateName"
+        android:layout_toLeftOf="@+id/ibtn_group_sear_edit"
+        android:layout_toStartOf="@+id/ibtn_group_sear_edit"
+        android:gravity="center"
+
+        android:hint="Name"
+        android:paddingRight="5dp"
+        android:textSize="14sp" />
+
+
+    <TextView
+        android:id="@+id/groupSear_tv_CateName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/groupSear_row_groupName"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@+id/groupSear_row_progShort"
+        android:layout_toStartOf="@+id/groupSear_row_progShort"
+
+        android:gravity="center"
+        android:text="er" />
+
+    <ImageButton
+        android:id="@+id/ibtn_group_sear_edit"
+
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_action_edit" />
+
+
+</RelativeLayout>

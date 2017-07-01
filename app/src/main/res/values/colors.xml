@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="default_bgcl">#EEEEEE</color>
+
+    <!-- POP ADDED-->
+    <color name="blue_text">#e8222cd7</color>
+    <!-- POP ADDED-->
+
+    <color name="bg_register">#2e3237</color>
+    <color name="bg_main">#ff00d8ff</color>
+
+    <color name="btn_txt_color_white">#fff</color>
+
+    <color name="lbl_name">#333333</color>
+    <color name="btn_logut_bg">#ff6861</color>
+    <color name="label_color">#0befde</color>
+    <color name="input_label_hint">#999999</color>
+    <color name="readish">#FF002A</color>
+
+
+    <!-- List view color -->
+    <color name="genre">#666666</color>
+    <color name="year">#888888</color>
+    <color name="list_divider">#d9d9d9</color>
+    <color name="list_row_start_color">#ffffff</color>
+    <color name="list_row_end_color">#ffffff</color>
+    <color name="list_row_hover_start_color">#ebeef0</color>
+    <color name="list_row_hover_end_color">#ebeef0</color>
+
+<color name="default_bg">#EEEEEE</color>
+
+    <!-- grayscale -->
+    <color name="white"     >#FFFFFF</color>
+    <color name="gray_light">#DBDBDB</color>
+    <color name="gray"      >#939393</color>
+    <color name="gray_dark" >#5F5F5F</color>
+    <color name="black"     >#3b4148</color>
+    <color name="dark_black"     >#000</color>
+
+    <!-- basic colors -->
+    <color name="green">#26ae90</color>
+    <color name="blue">#FF007DAE</color>
+    <color name="blue_light">#4c00b6ff</color>
+    <color name="blue_dark_native">#000550</color>
+    <color name="blue_dark">#627C9F</color>
+    <color name="orange">#FF9D2F</color>
+    <color name="red">#ea4c88</color>
+    <color name="title_bg_col">#627C9F</color>
+
+    <!--  Custom toast  dimension -->
+    <color name="toast_stroke_color">#3d3d3d</color>
+    <color name="toast_gradient_start_col">#616460</color>
+    <color name="toast_gradient_end_col">#616460</color>
+
+</resources>

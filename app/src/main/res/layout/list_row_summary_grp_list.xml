@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/list_row_summ_grp_tv_LayR3_Name"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+
+        android:text="@string/layr3_name"
+        android:textSize="@dimen/txt_size_list_row_20sp"
+
+        />
+
+    <TextView
+        android:id="@+id/list_row_summ_grp_tv_Grp_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@+id/list_row_summ_grp_tv_Grp_CatName"
+        android:gravity="left"
+        android:text="@string/group_name"
+        android:textSize="@dimen/txt_size_list_row_20sp"
+
+        android:layout_toRightOf="@+id/list_row_summ_grp_tv_LayR3_Name"
+        android:layout_toEndOf="@+id/list_row_summ_grp_tv_LayR3_Name" />
+
+
+    <TextView
+        android:id="@+id/list_row_summ_grp_tv_Grp_CatName"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@+id/list_row_summ_grp_tv_count"
+        android:layout_toStartOf="@+id/list_row_summ_grp_tv_count"
+        android:gravity="center_horizontal"
+        android:text="IG"
+        android:textSize="@dimen/txt_size_list_row_20sp"
+
+        />
+
+
+    <TextView
+        android:id="@+id/list_row_summ_grp_tv_count"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/iView"
+        android:gravity="center_horizontal"
+
+        android:text="@string/count_lable"
+        android:textSize="@dimen/txt_size_list_row_20sp" />
+
+    <ImageView
+        android:id="@+id/iView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_action_person" />
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!-- Header aligned to top -->
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingTop="5dip"
+        android:paddingBottom="5dip"
+        android:background="@color/bg_main">
+
+        <ImageView android:id="@+id/logo"
+            android:src="@drawable/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"/>
+
+    </RelativeLayout>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+
+
+    android:padding="5dp">
+
+    <!-- end of member id  details  -->
+
+<!--    <LinearLayout
+        android:id="@+id/hhLay"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_weight=".2"
+            android:weightSum="1">
+
+            <CheckBox
+                android:id="@+id/cb_dis_hh_id_holde"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:checked="false" />
+
+            <TextView
+                android:id="@+id/tv_dist_hh_row_newId"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_weight="0.96"
+                android:gravity="center_vertical"
+
+                android:text="010203040001502"
+                android:textColor="@color/blue" />
+
+        </LinearLayout>
+
+        &lt;!&ndash;     <LinearLayout
+                 android:layout_width="0dp"
+                 android:layout_height="fill_parent"
+                 android:layout_weight=".42"
+                 android:weightSum="1">&ndash;&gt;
+
+        <TextView
+
+            android:id="@+id/txt_dis_hh_row_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".2"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+
+            android:text="Name"
+            android:textColor="@color/blue" />
+        &lt;!&ndash; </LinearLayout>&ndash;&gt;
+
+        &lt;!&ndash;    <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight=".1">&ndash;&gt;
+
+        <TextView
+            android:id="@+id/tv_dis_row_hh_criteriaShortName"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_weight=".1"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:hint="LM"
+            android:paddingLeft="10dp"
+            android:textColor="@color/blue" />
+
+
+        &lt;!&ndash; <ImageButton
+
+             android:layout_marginLeft="10dp"
+             android:id="@+id/ibtn_edit_service_holder"
+             android:layout_height="35dp"
+             android:layout_width="35dp"
+             android:layout_gravity="end"
+             android:padding="2dp"
+             android:src="@drawable/ic_action_edit"
+             />&ndash;&gt;
+        &lt;!&ndash;  </LinearLayout>&ndash;&gt;
+
+        &lt;!&ndash;
+                <LinearLayout
+
+
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight=".1">&ndash;&gt;
+
+
+        <TextView
+            android:id="@+id/dis_hh_row_tv_DistStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+
+            android:clickable="true"
+            android:gravity="center"
+            android:hint="-"
+
+            android:textColor="@color/blue" />
+
+
+        &lt;!&ndash; </LinearLayout>&ndash;&gt;
+
+     &lt;!&ndash;   <ImageButton
+
+            android:id="@+id/ibtn_voucher_hh_dist_holder"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:padding="2dp"
+            android:src="@drawable/voucher_icon" />&ndash;&gt;
+
+        <ImageButton
+            android:id="@+id/delete_hh_distribution_rpt"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_action_cancel" />
+
+    </LinearLayout>-->
+
+    <LinearLayout
+
+        android:id="@+id/memLay"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_weight=".2"
+            android:weightSum="1">
+
+            <CheckBox
+                android:id="@+id/cb_dis_mem_id_holde"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:checked="false" />
+
+            <TextView
+                android:id="@+id/tv_dist_mem_row_newId"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_weight="0.96"
+                android:gravity="center_vertical"
+
+                android:text="010203040001502"
+                android:textColor="@color/blue" />
+
+        </LinearLayout>
+
+        <!--     <LinearLayout
+                 android:layout_width="0dp"
+                 android:layout_height="fill_parent"
+                 android:layout_weight=".42"
+                 android:weightSum="1">-->
+
+        <TextView
+
+            android:id="@+id/txt_dis_mem_row_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".2"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+
+            android:text="Name"
+            android:textColor="@color/blue" />
+        <!-- </LinearLayout>-->
+
+        <!--    <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight=".1">-->
+
+        <TextView
+            android:id="@+id/tv_dis_row_mem_criteriaShortName"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_weight=".1"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:hint="LM"
+            android:paddingLeft="10dp"
+            android:textColor="@color/blue" />
+
+
+        <!-- <ImageButton
+
+             android:layout_marginLeft="10dp"
+             android:id="@+id/ibtn_edit_service_holder"
+             android:layout_height="35dp"
+             android:layout_width="35dp"
+             android:layout_gravity="end"
+             android:padding="2dp"
+             android:src="@drawable/ic_action_edit"
+             />-->
+        <!--  </LinearLayout>-->
+
+        <!--
+                <LinearLayout
+
+
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight=".1">-->
+
+
+        <TextView
+            android:id="@+id/dis_mem_row_tv_DistStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+
+            android:clickable="true"
+            android:gravity="center"
+            android:hint="-"
+
+            android:textColor="@color/blue" />
+
+
+        <!-- </LinearLayout>-->
+
+        <ImageButton
+
+            android:id="@+id/ibtn_voucher_dist_holder"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:padding="2dp"
+            android:src="@drawable/voucher_icon" />
+
+        <ImageButton
+            android:id="@+id/delete_distribution_rpt"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_action_cancel" />
+
+    </LinearLayout>
+</RelativeLayout>
+

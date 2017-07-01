@@ -1,0 +1,255 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceRecordDetails">
+
+    <!-- Header aligned to top -->
+    <include layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+            android:id="@+id/tv_ass_page2Title"
+            style="@style/page_title_style"
+
+            android:text="Service Record" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_details"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/page_title"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+
+        android:paddingRight="10dp">
+
+        <!-- Award list spinner-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:weightSum="1">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".65"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/txt_label"
+
+
+                    android:hint="@string/award_label"
+
+                    />
+
+                <TextView
+                    style="@style/txt_label"
+
+
+                    android:text="@string/criteria_label"
+
+                    />
+
+
+                <TextView
+                    style="@style/txt_label"
+
+
+                    android:text="@string/service_label"
+
+                    />
+
+
+                <TextView
+                    style="@style/txt_label"
+
+
+                    android:hint="@string/member_id_label"
+
+                    />
+
+
+                <TextView
+                    style="@style/txt_label"
+
+                    android:hint="@string/village_name_label"
+
+                    />
+
+                <TextView
+                    style="@style/txt_label"
+                    android:hint="@string/member_name_label"
+
+                    />
+
+
+            </LinearLayout>
+            <!--  Read only Control Lay out-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".35"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:id="@+id/edt_Srv_Rec_award"
+                    style="@style/text_view"
+                    android:hint="@string/award_label" />
+
+                <TextView
+
+                    android:id="@+id/edt_Srv_Rec_criteria"
+                    style="@style/text_view"
+
+                    android:hint="@string/criteria_label" />
+
+                <TextView
+
+                    android:id="@+id/edt_Srv_Rec_operationMonth"
+                    style="@style/text_view"
+
+
+                    android:hint="@string/service_label" />
+
+
+                <TextView
+
+                    android:id="@+id/edt_Srv_Rec_mmId"
+                    style="@style/text_view"
+
+
+                    android:hint="@string/member_id_label" />
+
+
+                <TextView
+
+                    android:id="@+id/edt_Srv_Rec_villageName"
+                    style="@style/text_view"
+
+
+                    android:hint="@string/village_name_label" />
+
+
+                <TextView
+
+                    android:id="@+id/edt_Srv_Rec_mmName"
+                    style="@style/text_view"
+
+
+                    android:hint="@string/member_name_label" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <!-- title of list view  -->
+    <LinearLayout
+        android:id="@+id/table_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_details"
+        android:background="#627C9F"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_table"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.18"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="SL"
+            android:textColor="@color/white"
+            android:textSize="@dimen/abc_text_size_menu_material" />
+
+        <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_weight="0.25"
+            android:padding="10dp"
+            android:text="Date"
+            android:textColor="@color/white"
+            android:textSize="@dimen/abc_text_size_menu_material" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.47"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+
+            android:text="Status"
+            android:textColor="@color/white"
+            android:textSize="@dimen/abc_text_size_menu_material" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="Remove"
+            android:textColor="@color/white"
+            android:textSize="@dimen/abc_text_size_menu_material" />
+
+
+    </LinearLayout>
+    <!--  end of table -->
+    <ListView
+        android:id="@+id/lv_ServiceRecord"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/table_title"></ListView>
+
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:gravity="bottom">
+
+
+        <Button
+            android:id="@+id/btn_srvRecordGoServiceSummaryPage"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="@string/btn_ServiceLabel"
+            android:textColor="@color/green"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <include layout="@layout/footer" />
+
+
+</RelativeLayout>
+

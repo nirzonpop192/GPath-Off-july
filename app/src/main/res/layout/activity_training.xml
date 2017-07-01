@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_training"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.siddiquinoor.restclient.activity.TrainingActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+            android:id="@+id/tv_ass_page2Title"
+            style="@style/page_title_style"
+            android:text="@string/training_amp_activity" />
+
+    </RelativeLayout>
+
+    <!-- search id field -->
+
+    <RelativeLayout
+        android:id="@+id/rl_searchPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/page_title"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="10dp"
+        android:weightSum="1">
+
+        <EditText
+            android:id="@+id/edt_TASearch"
+            style="@style/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/btn_DTSearch"
+            android:layout_toStartOf="@+id/btn_DTSearch"
+            android:hint="@string/search_event_name"
+            android:padding="5dp" />
+
+        <!-- search member id Button -->
+        <Button
+            android:id="@+id/btn_TASearch"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/search_20_20"
+
+            android:padding="5dp" />
+    </RelativeLayout>
+    <!--Simple border-->
+    <LinearLayout
+        android:id="@+id/table_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/rl_searchPanel"
+        android:background="@color/title_bg_col"
+        android:orientation="horizontal"></LinearLayout>
+
+
+    <ListView
+        android:id="@+id/lvTrainingActivityIndex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:layout_below="@+id/table_title" />
+
+    <include
+        android:id="@id/footer"
+        layout="@layout/footer" />
+
+</RelativeLayout>

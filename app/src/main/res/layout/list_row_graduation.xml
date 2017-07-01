@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_raw_gra_idMem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+
+        android:gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="010203041234501"
+        android:textSize="@dimen/abc_text_size_menu_material" />
+
+
+    <TextView
+        android:layout_toLeftOf="@+id/tv_raw_gra_Reason"
+        android:id="@+id/tv_raw_gra_memberName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:padding="10dp"
+
+        android:text="Name"
+
+        android:textSize="@dimen/abc_text_size_menu_material"
+        android:layout_toRightOf="@+id/tv_raw_gra_idMem"
+        android:layout_toEndOf="@+id/tv_raw_gra_idMem" />
+
+
+
+    <TextView
+
+        android:id="@+id/tv_raw_gra_Reason"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_toLeftOf="@+id/tv_raw_gra_grdDate"
+        android:layout_toStartOf="@+id/tv_raw_gra_grdDate"
+
+        android:padding="10dp"
+
+        android:text="Active"
+        android:textSize="@dimen/abc_text_size_menu_material" />
+
+    <TextView
+        android:id="@+id/tv_raw_gra_grdDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_toLeftOf="@+id/edit_graduation_holder"
+        android:layout_toStartOf="@+id/edit_graduation_holder"
+
+        android:padding="10dp"
+
+        android:text="07-02-2016"
+        android:textSize="@dimen/abc_text_size_menu_material" />
+
+    <ImageButton
+        android:id="@+id/edit_graduation_holder"
+        android:layout_width="40dp"
+
+
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_action_edit" />
+
+
+
+
+
+   <!-- <LinearLayout android:id="@+id/table_title"
+        android:layout_below="@+id/ll_details"
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content">
+
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:gravity="center_horizontal"
+           android:layout_gravity="center_horizontal"
+
+           android:text="000000"
+           android:textSize="@dimen/abc_text_size_menu_material"
+           android:id="@+id/tv_raw_gra_hhID"
+           android:paddingTop="10dp"
+           android:paddingBottom="10dp"
+           />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+           android:text="Member"
+           android:textSize="@dimen/abc_text_size_menu_material"
+
+           android:layout_marginLeft="0dp"
+           android:paddingTop="10dp"
+           android:paddingBottom="10dp"
+           android:id="@+id/tv_raw_gra_memberID"
+           />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight=".2"
+            android:layout_height="match_parent"
+
+            >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center_horizontal"
+
+                android:text="Name"
+                android:textSize="@dimen/abc_text_size_menu_material"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+
+                android:id="@+id/tv_raw_gra_memberName"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center_horizontal"
+
+                android:text="Reason"
+                android:textSize="@dimen/abc_text_size_menu_material"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:id="@+id/tv_raw_gra_Reason"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center_horizontal"
+
+                android:text="Date"
+                android:textSize="@dimen/abc_text_size_menu_material"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:id="@+id/tv_raw_gra_grdDate"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".15"
+            >
+            <ImageButton
+
+                android:id="@+id/edit_graduation_holder"
+                android:layout_height="40dp"
+                android:layout_width="40dp"
+                android:src="@drawable/ic_action_edit"
+             />
+        </LinearLayout>
+
+    </LinearLayout>-->
+
+</RelativeLayout>

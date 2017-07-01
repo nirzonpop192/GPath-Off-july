@@ -1,0 +1,266 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.assign_program.mchn.LM">
+
+    <!-- Header aligned to top -->
+    <include layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+            android:id="@+id/tv_ass_page2Title"
+
+
+            style="@style/page_title_style"
+
+
+            android:text="@string/assign_lm_title" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/assigne_ScrollableContents"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/page_title"
+
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_details"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/page_title"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+
+            android:paddingRight="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="@string/member_id" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="MemberName" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="HH Name :" />
+
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Criteria" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Reg Date" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="@string/c_name" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="@string/sex" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="@string/dob_date" />
+
+                    <TextView
+                        style="@style/txt_label"
+
+                        android:text="@string/category_label" />
+
+                    <TextView
+                        style="@style/txt_label"
+
+                        android:text="@string/group_label" />
+
+                    <TextView
+                        style="@style/txt_label"
+
+                        android:text="@string/active_lable" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".8"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/as_LM_ed_MemberID"
+                        style="@style/text_view"
+                        android:hint="@string/member_id" />
+
+                    <TextView
+                        android:id="@+id/as_LM_ed_MemberName"
+                        style="@style/text_view"
+                        android:hint="MemberName" />
+
+                    <TextView
+                        android:id="@+id/as_LM_ed_hhName"
+                        style="@style/text_view"
+                        android:clickable="false"
+                        android:hint="House hold Name" />
+
+
+                    <TextView
+                        android:id="@+id/as_LM_ed_asCriteria"
+                        style="@style/text_view"
+                        android:hint="Criteria" />
+                    <!-- Registration Date -->
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:padding="10dp">
+
+
+                        <TextView
+                            android:id="@+id/as_LM_edt_regD"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:hint="Registration Date"
+                            android:text="Date"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
+                    </RelativeLayout>
+
+
+                    <!-- Name -->
+                    <EditText
+                        android:id="@+id/as_LM_edt_ChildName"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:hint="@string/child_name"
+                        android:inputType="textPersonName"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14sp" />
+
+
+                    <Spinner
+                        android:id="@+id/spChildGender"
+                        style="@style/registration_spinner_style" />
+
+                    <!-- LMDOB Date -->
+
+                    <RelativeLayout
+
+                        android:layout_width="350dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:padding="10dp">
+
+
+                        <TextView
+                            android:id="@+id/as_LM_edt_lmDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:hint="LMP Date"
+                            android:text="Date"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
+
+                    </RelativeLayout>
+
+                    <Spinner
+                        android:id="@+id/sp_ass_lmGroupCategories"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent" />
+
+                    <Spinner
+
+                        android:id="@+id/sp_ass_lmGroup"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent" />
+
+                    <Spinner
+
+                        android:id="@+id/sp_ass_lmActive"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!-- Save Button -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+
+        android:gravity="bottom">
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btn_LM_goAssignePage"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="@string/btn_AssignLabel"
+            android:textColor="@color/green"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_assign_save"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="@string/btn_label_submit"
+            android:textColor="@color/green"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+    <!-- <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
+         android:layout_height="wrap_content" />-->
+
+</RelativeLayout>

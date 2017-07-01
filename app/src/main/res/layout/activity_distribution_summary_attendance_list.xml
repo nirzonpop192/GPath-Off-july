@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceCriteria">
+-->
+
+        <!-- Header aligned to top -->
+        <include layout="@layout/header" />
+
+        <!-- PAGE TITLE -->
+        <RelativeLayout
+            android:id="@+id/page_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header">
+
+            <TextView
+                android:id="@+id/srv_distAttendance"
+                style="@style/page_title_style"
+
+                android:text="Service Attendance" />
+
+        </RelativeLayout>
+        <!-- month spinner -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+
+            android:layout_below="@+id/page_title">
+
+            <LinearLayout
+                android:id="@+id/ll_serviceMonth"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+                    <TextView
+                        style="@style/txt_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/view_height"
+                        android:gravity="center_vertical"
+                        android:text="Award"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Type " />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:text="Program "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:id="@+id/tv_OpMonthLable"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:paddingTop="5dp"
+                        android:text="Month"
+                        android:textSize="16sp" />
+
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:id="@+id/tv_awardLable"
+
+                        android:layout_width="wrap_content"
+
+                        android:text="Criteria" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+
+                    <Spinner
+                        android:id="@+id/su_srv_dist_A_spAward"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:padding="0dp"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black" />
+
+
+                    <Spinner
+                        android:layout_height="35dp"
+                        android:padding="0dp"
+
+                        android:id="@+id/sp_srv_sum_distF_TypeSSA"
+                        style="@style/spinner_style" />
+                    <Spinner
+                        android:id="@+id/su_srv_dist_A_spProgram"
+                        style="@style/spinner_style"
+                        android:layout_height="35dp"
+                        android:padding="0dp"
+                        android:paddingLeft="5dp" />
+
+                    <Spinner
+
+                        android:id="@+id/sp_dist_A_opMonthListSSC"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:padding="0dp"
+
+                        android:paddingLeft="5dp" />
+
+                    <!--    <Spinner
+
+                            android:id="@+id/sp_criteriaListSum"
+                            style="@style/spinner_style"
+
+                            android:layout_width="match_parent" />
+        -->
+
+                    <Spinner
+
+                        android:id="@+id/sp_criteriaListSum"
+                        style="@style/spinner_style"
+
+                        android:layout_width="match_parent" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- title of list view  -->
+            <RelativeLayout
+                android:id="@+id/table_title"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+
+                android:layout_below="@+id/ll_serviceMonth"
+                android:background="#627C9F">
+
+
+
+                <TextView
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/tv_dist_atten_id_title"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_toRightOf="@+id/list_title_sl_N_count"
+                    android:gravity="left"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="10dp"
+
+                    android:text="ID"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/abc_text_size_menu_material"
+
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="left"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:text="Name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/abc_text_size_menu_material"
+
+                    android:layout_toLeftOf="@+id/list_title_sl_N_count"
+                    android:layout_toEndOf="@+id/tv_dist_atten_id_title"
+                    android:layout_toRightOf="@+id/tv_dist_atten_id_title" />
+                <TextView
+                    android:id="@+id/list_title_sl_N_count"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+
+                    android:padding="10dp"
+                    android:text="Status"
+                    android:textColor="@color/white"
+
+
+                    android:textSize="@dimen/abc_text_size_menu_material"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+                <!--</LinearLayout>-->
+
+
+
+            </RelativeLayout>
+
+
+            <ListView
+                android:id="@+id/lv_ServiceSumList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/table_title" />
+        </RelativeLayout>
+
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/footer" />
+
+    </RelativeLayout>
+
+
+
+<!--
+</RelativeLayout>-->

@@ -1,0 +1,1569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!-- Header aligned to top -->
+    <include layout="@layout/header"
+        android:id="@+id/header"/>
+
+
+    <ScrollView
+        android:id="@+id/scrollableContents"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/g_footer"
+        android:layout_below="@+id/header"
+        android:background="@color/gray_light"
+        android:fillViewport="true"
+
+        >
+
+        <LinearLayout
+            android:id="@+id/person_detail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+
+            <RelativeLayout
+                android:id="@+id/page_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="HOUSEHOLD  DETAIL"
+                    android:textAlignment="center"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/abc_text_size_large_material" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/newrellay"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@android:color/white">
+
+                <RelativeLayout
+                    android:id="@+id/relatuveFrameset"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="15dp"
+
+                    android:background="@drawable/shape_box"
+                    android:orientation="vertical"
+                    android:padding="1dp">
+
+                    <RelativeLayout
+                        android:id="@+id/relatuveFrameset2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_margin="0dp"
+
+                        android:background="#ffffffff"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+
+                        <TextView
+                            android:id="@+id/lblregId"
+                            style="@style/detail_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Registration ID:" />
+
+                        <TextView
+                            android:id="@+id/regid"
+                            style="@style/detail_viewData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/lblregId"
+                            android:layout_toRightOf="@+id/lblregId" />
+
+                        <TextView
+                            android:id="@+id/lblCountry"
+                            style="@style/detail_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/lblregId"
+                            android:text="Country Name:" />
+
+                        <TextView
+                            android:id="@+id/countryName"
+                            style="@style/detail_viewData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/lblCountry"
+                            android:layout_toRightOf="@id/lblCountry" />
+
+
+                        <TextView
+                            android:id="@+id/lblDistrict"
+                            style="@style/detail_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/lblCountry"
+                            android:text="@string/lbl_district" />
+
+                        <TextView
+                            android:id="@+id/district"
+                            style="@style/detail_viewData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/lblDistrict"
+                            android:layout_toRightOf="@id/lblDistrict" />
+
+
+                        <TextView
+                            android:id="@+id/lblUpazilla"
+                            style="@style/detail_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/lblDistrict"
+                            android:text="@string/lbl_ta" />
+
+                        <TextView
+                            android:id="@+id/upazilla"
+                            style="@style/detail_viewData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/lblUpazilla"
+                            android:layout_toRightOf="@id/lblUpazilla" />
+
+
+                        <TextView
+                            android:id="@+id/lblUnit"
+                            style="@style/detail_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/lblUpazilla"
+                            android:text="@string/lbl_GVH" />
+
+                        <TextView
+                            android:id="@+id/unit"
+                            style="@style/detail_viewData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/lblUnit"
+                            android:layout_toRightOf="@id/lblUnit" />
+
+
+                        <TextView
+                            android:id="@+id/lblVillage"
+                            style="@style/detail_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/lblUnit"
+                            android:text="@string/lbl_village" />
+
+                        <TextView
+                            android:id="@+id/lblAddress"
+                            style="@style/detail_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/lblVillage"
+                            android:text="Address :" />
+
+                        <TextView
+                            android:id="@+id/village"
+                            style="@style/detail_viewData"
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/lblVillage"
+                            android:layout_toRightOf="@+id/lblVillage" />
+
+
+                        <TextView
+                            android:id="@+id/lblregDate"
+                            style="@style/detail_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/lblAddress"
+                            android:text="Registration Date:" />
+
+                        <TextView
+                            android:id="@+id/regdate"
+                            style="@style/detail_viewData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/lblregDate"
+                            android:layout_toRightOf="@+id/lblregDate" />
+
+                        <TextView
+                            android:id="@+id/lblName"
+                            style="@style/detail_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/lblregDate"
+                            android:text="Name:" />
+
+                        <TextView
+                            android:id="@+id/person_name"
+                            style="@style/detail_viewData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/lblName"
+                            android:layout_toRightOf="@+id/lblName"
+                            android:hint="Name of the person" />
+                        <!-- Here the details about malawi from -->
+                        <RelativeLayout
+                            android:id="@+id/rl_malawi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/lblName"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/lblSex"
+                                style="@style/detail_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="Sex:" />
+
+                            <TextView
+                                android:id="@+id/sex"
+                                style="@style/detail_viewData"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/lblSex"
+                                android:layout_toRightOf="@+id/lblSex"
+                                android:hint="Sex" />
+
+                            <TextView
+                                android:id="@+id/lblhhSize"
+                                style="@style/detail_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lblSex"
+                                android:text="HH Size:" />
+
+                            <TextView
+                                android:id="@+id/hhsize"
+                                style="@style/detail_viewData"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/lblhhSize"
+                                android:layout_toRightOf="@+id/lblhhSize" />
+
+                            <TextView
+                                android:id="@+id/lblLatitude"
+                                style="@style/detail_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lblhhSize"
+                                android:text="Latitude:" />
+
+                            <TextView
+                                android:id="@+id/lblLatitudeVal"
+                                style="@style/detail_viewData"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/lblLatitude"
+                                android:layout_toRightOf="@+id/lblLatitude" />
+
+                            <TextView
+                                android:id="@+id/lblLongitude"
+                                style="@style/detail_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lblLatitude"
+                                android:text="Longitude:" />
+
+                            <TextView
+                                android:id="@+id/lblLongitudeVal"
+                                style="@style/detail_viewData"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/lblLongitude"
+                                android:layout_toRightOf="@+id/lblLongitude" />
+
+
+                            <!--<TextView
+                                android:id="@+id/lblaglang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="AGLand:"
+                                android:layout_below="@+id/lblLongitude"
+                                style="@style/detail_view"
+                                />-->
+
+                            <!-- <TextView
+                                 android:id="@+id/agland"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:layout_alignTop="@+id/lblaglang"
+                                 android:layout_toRightOf="@+id/lblaglang"
+                                 style="@style/detail_viewData"
+                                 />-->
+
+                            <TextView
+                                android:id="@+id/lblVstatus"
+                                style="@style/detail_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lblLongitude"
+                                android:text="VStatus:" />
+
+                            <TextView
+                                android:id="@+id/vstatus"
+                                style="@style/detail_viewData"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/lblVstatus"
+                                android:layout_toRightOf="@+id/lblVstatus" />
+
+                            <TextView
+                                android:id="@+id/lblMstatus"
+                                style="@style/detail_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lblVstatus"
+                                android:text="MStatus:" />
+
+                            <TextView
+                                android:id="@+id/mstatus"
+                                style="@style/detail_viewData"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/lblMstatus"
+                                android:layout_toRightOf="@+id/lblMstatus" />
+
+                        </RelativeLayout>
+                        <!-- End the details about malawi from -->
+
+                        <!-- Here the details about Liberia from -->
+                        <RelativeLayout
+                            android:id="@+id/rl_liberia"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rl_malawi">
+                            <!-- Hosue hold Type -->
+                            <TextView
+                                android:id="@+id/lblHouseHoldType"
+                                style="@style/detail_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="House Hold Type:" />
+
+                            <TextView
+                                android:id="@+id/HouseHoldType"
+                                style="@style/detail_viewData"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/lblHouseHoldType"
+                                android:layout_toRightOf="@+id/lblHouseHoldType"
+                                android:hint="HouseHoldType" />
+                            <!-- Age Table -->
+                            <LinearLayout
+                                android:id="@+id/llAgetable"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/HouseHoldType"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/table_box_border"
+                                    android:gravity="center"
+                                    android:padding="3dip"
+                                    android:text="Age Specific Distribution Of Members" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:weightSum="3">
+                                    <!-- Label layout -->
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="2"
+                                        android:background="@drawable/table_box_border"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+
+                                            android:padding="5dp"
+                                            android:text="Age" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+
+                                            android:padding="5dp"
+                                            android:text="Children (0 to 2 Yrs)" />
+
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+
+                                            android:padding="5dp"
+                                            android:text="Children (2 to 5 yrs)" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="5dp"
+                                            android:text="Children (6 to 12 yrs)" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+                                            android:padding="5dp"
+                                            android:text="Children (13 to 17 yrs)" />
+
+
+                                        <TextView
+
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="5dp"
+                                            android:text="Orphans (18 yrs)" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+                                            android:padding="5dp"
+                                            android:text="Adults (18 - 59 yrs)" />
+
+                                        <TextView
+
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="5dp"
+                                            android:text="Elderly (60+ yrs)" />
+                                    </LinearLayout>
+
+                                    <!-- Male layout -->
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:background="@drawable/table_box_border"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+
+                                            android:padding="5dp"
+                                            android:text="Male" />
+
+                                        <TextView
+                                            android:id="@+id/tv_childL2M_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+
+                                            android:padding="5dp"
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_child2to5M_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+
+                                            android:padding="5dp"
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_child6to12M_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+                                            android:padding="5dp"
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_child13to17M_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+
+                                            android:padding="5dp"
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_orphan18M_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+                                            android:padding="5dp"
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_adult18to59M_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+
+                                            android:padding="5dp"
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_yelderly60M_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+                                            android:padding="5dp"
+                                            android:text="02" />
+                                    </LinearLayout>
+                                    <!-- Female layout -->
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".5"
+                                        android:background="@drawable/table_box_border"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+
+                                            android:padding="5dp"
+                                            android:text="Femail" />
+
+                                        <TextView
+                                            android:id="@+id/tv_childL2F_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+                                            android:padding="5dp"
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_child2to5F_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="5dp"
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_child6to12F_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+                                            android:padding="5dp"
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_child13to17F_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="5dp"
+
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_orphan18F_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+                                            android:padding="5dp"
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_adult18to59F_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="5dp"
+
+                                            android:text="02" />
+
+                                        <TextView
+                                            android:id="@+id/tv_elderly60F_Value"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/table_box_border"
+                                            android:padding="5dp"
+                                            android:text="02" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                            <!-- End of Table -->
+
+                            <!-- Number of PLW in HH -->
+                            <TextView
+                                android:id="@+id/lblNo_PLW_HH"
+                                style="@style/detail_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/llAgetable"
+
+                                android:text="Number of PLW in HH:" />
+
+                            <TextView
+                                android:id="@+id/tv_No_PLW_HH"
+                                style="@style/detail_viewData"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/lblNo_PLW_HH"
+                                android:layout_toRightOf="@+id/lblNo_PLW_HH"
+                                android:hint="012" />
+
+
+                            <TextView
+
+
+                                android:id="@+id/lblNoChroni_ill"
+                                style="@style/detail_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lblNo_PLW_HH"
+
+                                android:text="CHRONICALLY ILL:" />
+
+                            <TextView
+                                android:id="@+id/tvNoChroni_ill"
+                                style="@style/detail_viewData"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@+id/lblNoChroni_ill"
+                                android:layout_toRightOf="@+id/lblNoChroni_ill"
+                                android:hint="012" />
+                            <!-- EBOLA AFFECT HOUSE  TABLE -->
+                            <LinearLayout
+                                android:id="@+id/ebolaEffectedHHTable"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tvNoChroni_ill"
+                                android:orientation="vertical">
+
+                                <TableLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:weightSum="4"
+
+                                    >
+                                    <!-- Table Header -->
+                                    <TableRow
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/table_box_border"
+                                        android:gravity="center">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:padding="5dp"
+                                            android:text="Ebola Affected Households"
+
+                                            />
+                                    </TableRow>
+
+                                    <TableRow
+
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="@dimen/lable_tv_height"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_weight="0.8"
+
+                                            android:background="@drawable/table_box_border"
+                                            android:singleLine="false"
+                                            android:text="@string/label_hasTakeCForEbola_" />
+
+                                        <TextView
+                                            android:id="@+id/tv_hasTakeCForEbola_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_height="@dimen/lable_tv_height"
+                                            android:layout_weight="0.2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Value" />
+                                    </TableRow>
+
+                                    <TableRow
+
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="@dimen/lable_tv_height"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_weight="0.8"
+                                            android:background="@drawable/table_box_border"
+                                            android:singleLine="false"
+                                            android:text="@string/label_DidContractEbola" />
+
+                                        <TextView
+                                            android:id="@+id/tv_DidContractEbola_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_height="@dimen/lable_tv_height"
+                                            android:layout_weight="0.2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Value" />
+                                    </TableRow>
+
+                                    <TableRow
+
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="@dimen/lable_tv_height"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_weight="0.8"
+                                            android:background="@drawable/table_box_border"
+                                            android:singleLine="false"
+                                            android:text="@string/label_hasTakeEForEbola" />
+
+                                        <TextView
+                                            android:id="@+id/tv_hasTakeEForEbola_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_height="@dimen/lable_tv_height"
+                                            android:layout_weight="0.2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Value" />
+                                    </TableRow>
+
+                                    <TableRow
+
+                                        android:weightSum="1">
+
+                                        <TextView
+
+                                            android:layout_width="0dp"
+                                            android:layout_height="@dimen/lable_tv_height"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_weight="0.8"
+                                            android:background="@drawable/table_box_border"
+                                            android:singleLine="false"
+                                            android:text="@string/label_hasTakeChronicallyIllForEbola" />
+
+                                        <TextView
+                                            android:id="@+id/tv_hasTakeChrIllForEbola_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_height="@dimen/lable_tv_height"
+                                            android:layout_weight="0.2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Value" />
+                                    </TableRow>
+
+
+                                </TableLayout>
+                            </LinearLayout>
+                            <!--FAMILY ASSet table -->
+                            <LinearLayout
+                                android:id="@+id/familyAssetTable"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/ebolaEffectedHHTable"
+                                android:orientation="vertical"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp">
+
+                                <TableLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <TableRow
+                                        android:background="@drawable/table_box_border"
+                                        android:gravity="center">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+
+
+                                            android:text="FAMILY ASSETS" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="@string/types" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".4"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="@string/before" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".4"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="@string/after" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="@string/livestock" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="@string/count" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="@string/value_id" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="@string/count" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="@string/value_id" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="@string/cattle" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_cattle_Count"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_cattle_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_cattle_count"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_cattle_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="SHEEP/GOATS" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_sheep_Count"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_sheep_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_sheep_Count"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_sheep_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="POULTRY" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_poultry_Count"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                          />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_poultry_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                             />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_poultry_Count"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_poultry_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                           />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="@string/other" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_other_Count"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_other_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_other_Count"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_other_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Agriculterland" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="ha/Accre" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="ValueLD" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="ha/Accre" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="VALUELD" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Cultivable" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_Cultivable_Accre"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_Cultivable_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_Cultivable_Accre"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_Cultivable_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="NCultivable" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_NCultivable_Accre"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_NCultivable_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_NCultivable_Accre"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_NCultivable_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+                                    </TableRow>
+
+                                    <TextView
+                                        android:text="Others"
+                                        android:textStyle="bold" />
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Orchards" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_Orchards_Accre"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_Orchards_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_Orchards_Accre"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_Orchards_Value"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".2"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+                                    </TableRow>
+
+                                </TableLayout>
+
+                            </LinearLayout>
+                            <!-- Source of familly income -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/familyAssetTable"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp">
+
+                                <TableLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <TableRow
+                                        android:background="@drawable/table_box_border"
+                                        android:gravity="center">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="SOURCE OF HOUSEHOLD INCOME/MONTH IN LD" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".4"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Source" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="BeforeLD" />
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="AfterLD" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".4"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="@string/crop" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_corp_ld"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_corp_ld"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".4"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Livestock" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_liveStock_ld"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_liveStock_ld"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".4"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Small Business" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_smallBusiness_ld"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_smallBusiness_ld"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".4"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Employment/Labour" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_employments_ld"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_employments_ld"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".4"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Remitance/Gift" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_remitance_ld"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_remitance_ld"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+                                    </TableRow>
+
+                                    <TableRow
+                                        android:gravity="center"
+                                        android:weightSum="1">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".4"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="Number of Earners" />
+
+                                        <TextView
+                                            android:id="@+id/tv_bf_noOfEarner"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+
+                                        <TextView
+                                            android:id="@+id/tv_af_noOfEarner"
+                                            android:layout_width="0dp"
+                                            android:layout_weight=".3"
+                                            android:background="@drawable/table_box_border"
+                                            android:gravity="center"
+                                            android:text="00" />
+                                    </TableRow>
+                                </TableLayout>
+
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <!-- End the details about Liberia from -->
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:background="@android:color/white"
+                    android:padding="5dp"
+                    android:text="HouseHold"
+                    android:textColor="@android:color/black" />
+            </RelativeLayout>
+
+
+            <!--<RelativeLayout-->
+            <!--android:id="@+id/separator"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="2dp"-->
+            <!--android:layout_marginTop="@dimen/spacing_small"-->
+            <!--android:background="@drawable/shape_box"-->
+            <!--android:layout_below="@+id/mstatus"-->
+            <!-->-->
+            <!--</RelativeLayout>-->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/newrellay"
+                android:background="@android:color/white"
+
+                >
+
+                <!--  This is the main content -->
+
+                <RelativeLayout
+                    android:id="@+id/relatuveFrameset3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="15dp"
+
+                    android:background="@drawable/shape_box"
+                    android:orientation="vertical"
+                    android:padding="1dp">
+
+                    <RelativeLayout
+                        android:id="@+id/relatuveFrameset4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_margin="0dp"
+
+                        android:background="#ffffffff"
+
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/title_member"
+                            style="@style/detail_view_member"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            />
+
+
+                        <TableRow
+                            android:id="@+id/tableRow"
+                            android:layout_width="fill_parent"
+                            android:layout_height="500dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@+id/title_member"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:textAlignment="center">
+
+
+                                <ListView
+                                    android:id="@+id/listView_member"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_centerVertical="true" />
+
+                            </RelativeLayout>
+                        </TableRow>
+
+                        <Button
+                            android:id="@+id/btnAddMember"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/tableRow"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+
+                            android:padding="5dp"
+                            android:text="Add Member" />
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:background="@android:color/white"
+                    android:padding="5dp"
+                    android:text="Member"
+                    android:textColor="@android:color/black" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Header aligned to top -->
+
+    <include
+        android:id="@+id/g_footer"
+        layout="@layout/footer" />
+
+
+</RelativeLayout>

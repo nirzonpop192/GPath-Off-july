@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_ta_participaint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.training.AddTaParticipaintActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+            android:id="@+id/tv_ass_page2Title"
+            style="@style/page_title_style"
+            android:text="@string/training_amp_activity" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ta_llRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/page_title"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:paddingLeft="5dp"
+        android:paddingStart="5dp">
+
+        <TextView
+            android:id="@+id/ta_index_row_tv_taTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="TATitle"
+            android:textSize="@dimen/dt_index_txt_size_22"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ta_index_row_tv_StartEndDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start to end date"
+            android:textSize="@dimen/dt_index_txt_size_22" />
+
+        <TextView
+            android:id="@+id/ta_index_row_tv_Venue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Venue Name"
+            android:textSize="@dimen/dt_index_txt_size_22" />
+
+        <TextView
+            android:id="@+id/ta_index_row_tv_Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address "
+            android:textSize="@dimen/dt_index_txt_size_22" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/table_title"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/ta_llRow"
+        android:background="@color/title_bg_col"
+        android:orientation="horizontal"></LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scv_Controller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/timeListTableTitle"
+        android:layout_below="@+id/table_title"
+        android:fadeScrollbars="false"
+        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/table_title"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Participant ID"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_add_participant_ID"
+                style="@style/edit_text"
+                android:hint="Participant ID" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Participant Name"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_add_participant_Name"
+                style="@style/edit_text"
+                android:hint="@string/participant_name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Sex"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spGender"
+                style="@style/registration_spinner_style" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/organization"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/ta_add_pati_rg_organization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"></RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/category"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/ta_add_pati_rg_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"></RadioGroup>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/position"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/ta_add_pati_rg_position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"></RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+
+        android:id="@+id/ll_nextO_preview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/btn_dt_preview"
+            style="@style/backward_button" />
+
+        <Button
+            android:id="@+id/btn_GoToTAPage"
+            style="@style/forward_button"
+            android:drawableTop="@drawable/training_activity_32" />
+
+
+        <Button
+            android:id="@+id/btn_dt_next"
+            style="@style/forward_button" />
+
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+
+
+    <LinearLayout
+        android:id="@+id/timeListTableTitle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_above="@+id/lv_time_schedule"
+        android:background="@color/title_bg_col"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingStart="5dp"
+            android:text="Date"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:text="AM"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:text="PM"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_time_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+
+        android:layout_above="@+id/ll_nextO_preview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
+

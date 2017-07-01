@@ -1,0 +1,1215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/title_register_member"
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="@dimen/abc_text_size_large_material" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollableContents"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/ll_btn_1"
+        android:layout_below="@id/page_title"
+        android:background="@color/gray_light">
+
+        <!-- Registration Form -->
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/linearLayoutBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header"
+            android:orientation="vertical"
+            android:paddingBottom="20dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="20dip"
+            android:paddingTop="10dip">
+            <!-- Fixed Controller -->
+            <LinearLayout
+                android:id="@+id/llayout_fixed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".7"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="HH ID "
+                        android:textSize="16sp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="HH Name "
+                        android:textSize="16sp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Member ID "
+                        android:textSize="16sp" />
+
+                    <!-- <TextView
+                         android:paddingLeft="4dp"
+                         android:paddingTop="10dp"
+                         android:paddingBottom="10dp"
+                         android:text="Reg. Date"
+                         android:layout_width="match_parent"
+                         android:textSize="16sp"
+                         android:layout_height="40dp"
+                         android:layout_marginBottom="5dp"  />
+                     -->
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_Mreg_HH_id"
+                        style="@style/edit_text"
+                        android:clickable="false"
+                        android:hint="HH ID [auto generated]"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/tv_reg_mem_hh_name"
+                        style="@style/edit_text"
+                        android:hint="HH Name"
+                        android:textColor="@color/gray"
+                        android:textColorHint="@color/gray" />
+
+                    <EditText
+                        android:id="@+id/mem_id"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="Member ID"
+                        android:inputType="none"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14dp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <!-- HH_ID Label layer -->
+
+
+            <!-- Views for malawi-->
+            <LinearLayout
+                android:id="@+id/lLayout_malawiViews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".7"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Member Name "
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Gender "
+                        android:textSize="16sp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Age "
+                        android:textSize="16sp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Relation "
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".3"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/mem_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:hint="Member Name"
+                        android:inputType="textPersonName"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14dp" />
+                    <!-- Gender Spinner -->
+                    <Spinner
+                        android:id="@+id/spGender"
+                        style="@style/registration_spinner_style" />
+
+                    <!-- Age -->
+                    <EditText
+                        android:id="@+id/mem_age"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:hint="Age"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14dp" />
+                    <!-- Relation -->
+                    <Spinner
+                        android:id="@+id/spRelation"
+                        style="@style/registration_spinner_style" />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- Views for Liberia -->
+
+            <LinearLayout
+                android:id="@+id/lLayout_LiberiaViews"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="Other Id"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_firstName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_midName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_lastName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="Martial"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_birthYear"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_contact"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ass_spinner_height"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_idType"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_idNo"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/ivMemberImage"
+                            android:layout_width="@dimen/image_width"
+                            android:layout_height="@dimen/image_height"
+                            android:src="@drawable/no_photo_big" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3"
+                        android:orientation="vertical">
+                        <!-- Other Id -->
+                        <EditText
+                            android:id="@+id/edt_mem_lib_otherId"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="Other Id"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp" />
+                        <!-- First NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_First_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_firstName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+                        <!-- Middle NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_Middle_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_midName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+                        <!-- Last  NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_Last_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="Last NAME"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp" />
+
+                        <!-- Spinner Id type -->
+                        <Spinner
+                            android:id="@+id/mem_lib_spMartial"
+                            style="@style/registration_spinner_style" />
+
+                        <!-- Birth Year -->
+                        <EditText
+                            android:id="@+id/mem_lib_BirthYear"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="Birth Year"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp" />
+
+                        <!-- CONTACT -->
+                        <EditText
+                            android:id="@+id/mem_lib_contact"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_contact"
+                            android:inputType="phone"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp" />
+                        <!-- Spinner Id type -->
+                        <Spinner
+                            android:id="@+id/mem_lib_spIdtype"
+                            style="@style/registration_spinner_style" />
+                        <!-- CONTACT -->
+                        <EditText
+                            android:id="@+id/mem_lib_typedId"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="Id"
+                            android:inputType="phone"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp" />
+
+                        <ImageButton
+                            android:id="@+id/ibtnLibMemImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_camera" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!--Verified by: BSC Member 1 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_bsc_mem_1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+                <!--Verified by: BSC Member 1 Input-->
+                <LinearLayout
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+                    <!--Verified by: BSC Member 1 Label-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_firstName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_midName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_lastName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_title"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3"
+                        android:orientation="vertical">
+                        <!-- First NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_bsc_mem_1_First_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_firstName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+                        <!-- Middle NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_bsc_mem_1_Middle_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_midName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+                        <!-- Last  NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_bsc_mem_1_Last_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_lastName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+
+                        <!-- Spinner Id type -->
+                        <Spinner
+                            android:id="@+id/mem_lib_bsc_mem_1_spTitle"
+                            style="@style/registration_spinner_style" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--Verified by: BSC Member 2 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_bsc_mem_2"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+                <!--Verified by: BSC Member 2 Input-->
+                <LinearLayout
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+                    <!-- Verified by: BSC Member 2 Input Label Layout-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_firstName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_midName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_lastName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_title"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                    <!-- Verified by: BSC Member 2 Input View-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3"
+                        android:orientation="vertical">
+                        <!-- First NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_bsc_mem_2_First_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_firstName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+                        <!-- Middle NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_bsc_mem_2_Middle_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_midName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+                        <!-- Last  NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_bsc_mem_2_Last_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_lastName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+
+                        <!-- Spinner Id type -->
+                        <Spinner
+                            android:id="@+id/mem_lib_bsc_mem_2_spTitle"
+                            style="@style/registration_spinner_style" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--Proxy Details -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Proxy Details"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+                <!--Verified by: BSC Member 2 Input-->
+                <LinearLayout
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+                    <!-- Label Layout-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="Designated Proxy"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_firstName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_midName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_lastName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_birthYear"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/ass_spinner_height"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_idType"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_idNo"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/ivProxyImage"
+                            android:layout_width="@dimen/image_width"
+                            android:layout_height="@dimen/image_height"
+                            android:src="@drawable/no_photo_big" />
+
+                    </LinearLayout>
+                    <!-- THE PROXY CONTROLLER -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3"
+                        android:orientation="vertical">
+                        <!-- Spinner Designated Proxy -->
+                        <Spinner
+                            android:id="@+id/mem_lib_spDesignatedProxy"
+                            style="@style/registration_spinner_style" />
+                        <!-- First NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_proxy_First_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_firstName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+                        <!-- Middle NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_proxy_Middle_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_midName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp" />
+                        <!-- Last  NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_proxy_Last_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_lastName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp" />
+                        <!--Proxy Birth Year -->
+                        <EditText
+                            android:id="@+id/mem_lib_proxy_BirthYear"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_birthYear"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp" />
+                        <!-- Proxy Spinner Id type -->
+                        <Spinner
+                            android:id="@+id/mem_lib_proxy_spIdType"
+                            style="@style/registration_spinner_style" />
+                        <!--Proxy Birth Year -->
+                        <EditText
+                            android:id="@+id/mem_lib_proxy_id"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_idNo"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp" />
+
+                        <ImageButton
+                            android:id="@+id/ibtnLibProxyCamera"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_camera" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--Verified by: BSC Member 1 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_proxy_bsc_mem_1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+                <!--Verified by: BSC Member 1 Input-->
+                <LinearLayout
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+                    <!-- Proxy Verified by: BSC Member 1 Label-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_firstName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_midName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_lastName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_title"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3"
+                        android:orientation="vertical">
+                        <!-- First NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_proxy_bsc_mem_1_fst_name"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_firstName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+                        <!-- Middle NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_proxy_bsc_mem_1_Mid_name"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_midName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+                        <!-- Last  NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_proxy_bsc_mem_1_Last_name"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_lastName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+
+                        <!-- Spinner Id type -->
+                        <Spinner
+                            android:id="@+id/mem_lib_proxy_bsc_mem_1_spTitle"
+                            style="@style/registration_spinner_style" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--Verified by: BSC Member 2 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_proxy_bsc_mem_2"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+                <!--Verified by: BSC Member 2 Input-->
+                <LinearLayout
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+                    <!-- Verified by: BSC Member 2 Input Label Layout-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_firstName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_midName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_lastName"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/lbl_title"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                    <!-- Proxy Verified by: BSC Member 2 Input View-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3"
+                        android:orientation="vertical">
+                        <!-- First NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_proxy_bsc_mem_2_First_name"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_firstName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+                        <!-- Middle NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_proxy_bsc_mem_2_Middle_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_midName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+                        <!-- Last  NAME -->
+                        <EditText
+                            android:id="@+id/mem_lib_proxy_bsc_mem_2_Last_NAME"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:background="@color/white"
+                            android:hint="@string/lbl_lastName"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14dp"
+
+                            />
+
+                        <!-- Spinner Id type -->
+                        <Spinner
+                            android:id="@+id/mem_lib_proxy_bsc_mem_2_spTitle"
+                            style="@style/registration_spinner_style" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!-- Assign Controller-->
+
+
+
+
+        </LinearLayout>
+        <!-- Registration Form Ends -->
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/ll_btn_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_mem_gotoHouseholdDetails"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+
+            android:text="@string/btn_AssignLabel"
+            android:textColor="@color/green" />
+
+        <Button
+
+            android:id="@+id/btn_mem_gotoAssign"
+
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+
+            android:text="@string/btn_AssignLabel"
+            android:textColor="@color/green" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_btn_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_btn_2"
+        android:gravity="bottom">
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btnClearMember"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+
+            android:text="@string/btn_label_clear"
+            android:textColor="@color/green" />
+
+        <!-- Clare Button -->
+        <Button
+
+            android:id="@+id/btnSaveMember"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="@string/btn_label_submit"
+
+            android:textColor="@color/green" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

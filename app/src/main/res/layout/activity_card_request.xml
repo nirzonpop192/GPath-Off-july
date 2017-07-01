@@ -1,0 +1,434 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siddiquinoor.restclient.activity.CardRequestActivity">
+    <include layout="@layout/header"/>
+    <RelativeLayout
+        android:layout_below="@+id/header"
+        android:id="@+id/page_title"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            android:text="@string/btn_Card_request_lable"
+            android:textSize="@dimen/abc_text_size_large_material"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:id="@+id/tv_ass_page2Title" />
+
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_below="@+id/page_title"
+        android:id="@+id/ll_details"
+        android:layout_width="fill_parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:orientation="vertical"
+
+        android:layout_height="wrap_content">
+
+        <!-- Award list spinner-->
+        <LinearLayout
+            style="@style/total_view_container">
+            <LinearLayout
+                style="@style/label_container"
+                >
+                <TextView
+
+                    android:text="@string/award_label"
+                    android:layout_width="match_parent"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_awardLable" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/spinner_container"
+                >
+                <Spinner
+
+                    style="@style/spinner_style"
+
+
+                    android:id="@+id/sp_Award_CardR"
+
+                    />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <!-- village spinner-->
+        <!-- <LinearLayout
+             android:weightSum="1"
+
+             android:layout_width="fill_parent"
+             android:orientation="horizontal"
+
+             android:layout_height="wrap_content">
+             <LinearLayout
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_weight=".5"
+                 >
+                 <TextView
+
+                     android:text="Village"
+                     android:layout_width="match_parent"
+                     android:textSize="16sp" android:layout_height="wrap_content"
+                     android:id="@+id/textView3" />
+             </LinearLayout>
+
+             <LinearLayout
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_weight=".5"
+                 >
+                 <Spinner
+
+                     style="@style/spinner_style"
+                     android:layout_width="match_parent"
+                     android:layout_height="50dp"
+                     android:id="@+id/spinner"
+                     />
+             </LinearLayout>
+
+         </LinearLayout> -->
+        <!-- program  -->
+
+        <LinearLayout
+            style="@style/total_view_container">
+            <LinearLayout
+                style="@style/label_container">
+                <TextView
+                    android:text="Program "
+
+                    android:layout_width="match_parent"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                style="@style/spinner_container">
+                <Spinner
+                    style="@style/spinner_style"
+                    android:id="@+id/sp_Program_CardR"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <!-- working abobe -->
+
+        <!-- Reason -->
+
+        <LinearLayout
+            style="@style/total_view_container">
+            <LinearLayout
+                style="@style/label_container">
+                <TextView
+                    android:text="Reason"
+
+                    android:layout_width="match_parent"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                style="@style/spinner_container">
+                <Spinner
+                    style="@style/spinner_style"
+                    android:id="@+id/sp_cpReasonCR" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+        <!-- Reason -->
+
+        <LinearLayout
+            style="@style/total_view_container">
+            <LinearLayout
+                style="@style/label_container">
+                <TextView
+                    android:text="@string/lbl_ct"
+
+                    android:layout_width="match_parent"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                style="@style/spinner_container">
+                <Spinner
+                    style="@style/spinner_style"
+
+                    android:id="@+id/sp_CardTypeCR" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <!-- village-->
+        <!--   <LinearLayout
+               android:layout_width="match_parent"
+               android:orientation="horizontal"
+               android:layout_height="wrap_content">
+               <TextView android:text="Village"
+                   android:layout_weight=".5"
+                   android:layout_width="match_parent"
+                   android:textSize="16sp" android:layout_height="wrap_content"
+                   />
+
+               <Spinner
+                   style="@style/spinner_style"
+                   android:layout_weight=".5"
+                   android:layout_width="match_parent"
+                   android:layout_height="50dp"
+
+                   />
+           </LinearLayout>
+           -->
+        <!-- search id field -->
+        <LinearLayout
+            style="@style/total_view_container">
+            <LinearLayout
+                style="@style/label_container"
+                android:layout_weight=".7">
+                <!---->
+                <EditText
+                    android:id="@+id/edt_searchId_CR"
+                    style="@style/edit_text"
+                    android:maxLength="15"
+                    android:hint="Search Member ID"
+                    android:inputType="number"
+                    />
+            </LinearLayout>
+            <LinearLayout
+
+                style="@style/spinner_container"
+                >
+                <!-- search member id Button -->
+                <ImageButton
+                    android:id="@+id/btn_searchCardRequest"
+                    android:layout_weight=".2"
+                    android:layout_width="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/search_20_20"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/ll_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/ll_lableLayer"
+            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+
+                android:text="Name"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                 />
+
+            <TextView
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Graduation"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Last Card Sl"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:text="RequestDate"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Print Date"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Delivery Date"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Status"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_memberName_CR"
+                android:padding="5dp"
+                android:background="@color/white"
+                android:hint="Name"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tv_graduation_CR"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:hint="Graduation"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tv_lastCardSl_CR"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:hint="Last Card Sl"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tv_RequestDate_CR"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tv_PrintDate_CR"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tv_DeliveryDate_CR"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/tv_Status_CR"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:hint="Status"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Save Button -->
+
+    <LinearLayout
+        android:layout_below="@+id/lv_assign"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:gravity="bottom"
+        >
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btn_saveRequest_CR"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Save Request"
+            android:textSize="12dp"
+            android:background="@drawable/button_style_inner"
+            android:textColor="@color/green" />
+
+        <Button
+            android:id="@+id/btn_saveDelivary_CR"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Save Delivery"
+            android:textSize="12dp"
+            android:background="@drawable/button_style_inner"
+            android:textColor="@color/green"/>
+
+    </LinearLayout>
+
+<include layout="@layout/footer"/>.
+</RelativeLayout>

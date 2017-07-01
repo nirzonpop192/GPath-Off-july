@@ -1,0 +1,937 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceSpecification">
+
+    <!-- Header aligned to top -->
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <!--page title-->
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+
+            style="@style/page_title_style"
+
+            android:text="@string/pageTitle_ServiceSpecificLabel" />
+
+    </RelativeLayout>
+    <!--page Title End-->
+
+    <!--MEMBER DETAILS-->
+    <LinearLayout
+        android:id="@+id/ll_details"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/page_title"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <!--Label plane-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".75"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+
+
+            <TextView
+                style="@style/txt_label"
+                android:text="Id" />
+
+            <TextView
+                style="@style/txt_label"
+                android:text="Name" />
+
+            <TextView
+                style="@style/txt_label"
+                android:text="Award" />
+
+            <TextView
+                style="@style/txt_label"
+                android:text="Criteria" />
+
+            <TextView
+                style="@style/txt_label"
+                android:text="Service" />
+
+            <TextView
+                style="@style/txt_label"
+                android:text="Group" />
+
+
+        </LinearLayout>
+
+        <!--  Read Only Controller plane-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_srvSpc_MemberId"
+                style="@style/text_view"
+
+                android:hint="ID" />
+
+            <TextView
+                android:id="@+id/tv_srvSpec_MemberName"
+                style="@style/text_view"
+                android:hint="Name" />
+
+            <TextView
+                android:id="@+id/tv_srvSpec_AwardName"
+                style="@style/text_view"
+                android:hint="Award" />
+
+            <TextView
+                android:id="@+id/tv_srvSpec_CriteriaName"
+                style="@style/text_view"
+                android:hint="Criteria" />
+
+            <TextView
+                android:id="@+id/tv_srvSpec_ServiceName"
+                style="@style/text_view"
+                android:hint="Service" />
+
+            <TextView
+                android:id="@+id/tv_srvSpec_GroupName"
+                style="@style/text_view"
+                android:hint="Group" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- title of list view  -->
+    <LinearLayout
+        android:id="@+id/table_title"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/ll_details"
+        android:background="#627C9F"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:id="@+id/sv_ViewCon"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/llay_srvSpc_SaveNDelete"
+        android:layout_below="@+id/table_title"
+        android:fadeScrollbars="false"
+        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track">
+
+
+        <!--CONTROLLER -->
+        <LinearLayout
+            android:id="@+id/ll_controller1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".6"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+            <!-- Spinner Baby_status -->
+            <TextView
+                android:id="@+id/tv_srvSpc_BabyStatus"
+                style="@style/txt_label"
+                android:text="@string/label_baby_status" />
+
+            <Spinner
+                android:id="@+id/srv_spec_spBabyStatus"
+                style="@style/registration_spinner_style" />
+
+            <TextView
+                android:id="@+id/tv_srvSpc_GMPAttendance"
+                style="@style/txt_label"
+                android:text="@string/label_gmp_attendance" />
+
+            <!-- Spinner GMP Attendance -->
+            <Spinner
+                android:id="@+id/srv_spec_spGMPAttendance"
+                style="@style/registration_spinner_style" />
+
+            <TextView
+                android:id="@+id/tv_srvSpc_WeightStatus"
+                style="@style/txt_label"
+                android:text="@string/label_weight_status" />
+
+            <!-- Spinner WeightStatus -->
+            <Spinner
+                android:id="@+id/srv_spec_spWeightStatus"
+                style="@style/registration_spinner_style" />
+
+            <TextView
+                android:id="@+id/tv_srvSpc_NutAttendance"
+                style="@style/txt_label"
+                android:text="@string/label_nut_attendance" />
+
+            <!-- Spinner NutAttendance -->
+            <Spinner
+                android:id="@+id/srv_spec_spNutAttendance"
+                style="@style/registration_spinner_style" />
+
+            <TextView
+                android:id="@+id/tv_srvSpc_VitA_Under5"
+                style="@style/txt_label"
+                android:text="@string/label_vitA_under5" />
+
+            <!-- Spinner NutAttendance -->
+            <Spinner
+                android:id="@+id/srv_spec_spVitA_Under5"
+                style="@style/registration_spinner_style" />
+
+
+            <TextView
+                android:id="@+id/tv_srvSpc_Exclusive_CurrentlyBF"
+                style="@style/txt_label"
+                android:text="@string/label_exclusive_currentlyBF" />
+
+            <!-- Spinner NutAttendance -->
+            <Spinner
+                android:id="@+id/srv_spec_spExclusive_CurrentlyBF"
+                style="@style/registration_spinner_style" />
+
+            <TextView
+                android:id="@+id/tv_srvSpc_DateCompFeeding"
+                style="@style/txt_label"
+                android:text="@string/label_date_comp_feeding" />
+
+            <!--DATE time-->
+            <RelativeLayout
+                android:id="@+id/rl_DateCompFeed"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/white"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/srv_spec_DateCompFeeding"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:hint="Registration Date"
+                    android:text="Date"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_srvSpc_CMAMRef"
+                style="@style/txt_label"
+                android:text="@string/label_CMAM_ref" />
+
+            <!-- Spinner CMAMRef -->
+            <Spinner
+                android:id="@+id/srv_spec_spCMAMRef"
+                style="@style/registration_spinner_style" />
+
+
+            <TextView
+                android:id="@+id/tv_srvSpc_CMAMAdd"
+                style="@style/txt_label"
+                android:text="@string/label_CMAM_add" />
+            <!-- Spinner CMAMAdd -->
+            <Spinner
+                android:id="@+id/srv_spec_spCMAMAdd"
+                style="@style/registration_spinner_style" />
+
+            <!--ANCVisit-->
+            <TextView
+                android:id="@+id/tv_srvSpc_DateANCVisit"
+                style="@style/txt_label"
+                android:text="@string/label_ANCVisit" />
+
+            <!--DATE time-->
+            <RelativeLayout
+                android:id="@+id/rl_srv_spec_DateANCVisit"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/white"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/srv_spec_DateANCVisit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:hint="Registration Date"
+                    android:text="Date"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+
+            <!--FacilityPostnatal-->
+            <TextView
+                android:id="@+id/tv_srvSpc_FacilityPostnatal"
+                style="@style/txt_label"
+                android:text="@string/label_FaciPostnatal" />
+            <!-- CheckBox -->
+            <LinearLayout
+                android:id="@+id/llayout_FacilityPostnatal_cb_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/cb_PNCVisit_2D"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cb_label_PNCVisit_2D" />
+
+                <CheckBox
+                    android:id="@+id/cb_PNCVisit_1W"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cb_label_PNCVisit_1W" />
+
+                <CheckBox
+                    android:id="@+id/cb_PNCVisit_6W"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cb_label_PNCVisit_6W" />
+
+            </LinearLayout>
+
+
+            <!--DeliveryStaff-->
+            <TextView
+                android:id="@+id/tv_srvSpc_DeliveryStaff"
+                style="@style/txt_label"
+                android:text="@string/label_DeliveryStaff" />
+
+            <RadioGroup
+                android:id="@+id/rg_srvSpc__DeliveryStaff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rbtn_srvSpc_DeliveryStaff_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb_label_DeliveryStaff_1" />
+
+                <RadioButton
+                    android:id="@+id/rbtn_srvSpc_DeliveryStaff_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb_label_DeliveryStaff_2" />
+
+                <RadioButton
+                    android:id="@+id/rbtn_srvSpc_DeliveryStaff_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rb_label_DeliveryStaff_3" />
+
+
+            </RadioGroup>
+
+            <!--HomeSupport24H-->
+            <TextView
+                android:id="@+id/tv_srvSpc_HomeSupport24H"
+                style="@style/txt_label"
+                android:text="@string/label_HomeSupport24H" />
+            <!--HomeSupport24H check box list-->
+
+            <LinearLayout
+                android:id="@+id/llay_HomeSupport24H_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport24H_1d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_1d" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport24H_2d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_2d" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport24H_3d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_3d" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport24H_8d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_8d" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport24H_14d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_14d" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport24H_21d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_21d" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport24H_30d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_30d" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport24H_60d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_60d" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport24H_90d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_90d" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!--HomeSupport48H-->
+            <TextView
+                android:id="@+id/tv_srvSpc_HomeSupport48H"
+                style="@style/txt_label"
+                android:text="@string/label_HomeSupport48H" />
+            <!--HomeSupport 48H check box list-->
+
+            <LinearLayout
+                android:id="@+id/llay_HomeSupport48H_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport48H_1d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_1d" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport48H_3d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_3d" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport48H_8d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_8d" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport48H_30d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_30d" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport48H_60d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_60d" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_HomeSupport48H_90d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_HomeSupport_xxH_90d" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!--MaternalComplications-->
+            <TextView
+                android:id="@+id/tv_srvSpc_MaternalComplications"
+                style="@style/txt_label"
+                android:text="@string/label_MaternalComplications" />
+            <!--MaternalComplications check box list-->
+
+            <LinearLayout
+                android:id="@+id/llay_MaternalComplications_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Maternal_Bleeding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Maternal_Bleeding" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Maternal_Seizure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Maternal_Seizure" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Maternal_Infection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Maternal_Infection" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Maternal_ProlongedLabor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Maternal_ProlongedLabor" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Maternal_ObstructedLabor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Maternal_ObstructedLabor" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Maternal_PPRM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Maternal_PPRM" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--Newborn Complications-->
+            <TextView
+                android:id="@+id/tv_srvSpc_NewbornComplications"
+                style="@style/txt_label"
+                android:text="@string/label_NewbornComplications" />
+            <!--Newborn Complications check box list-->
+
+            <LinearLayout
+                android:id="@+id/llay_NewbornComplications_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_NBron_Asphyxia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_NBron_Asphyxia" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_NBron_Sepsis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_NBron_Sepsis" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_NBron_Hypothermia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_NBron_Hypothermia" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_NBron_Hyperthermia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_NBron_Hyperthermia" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_NBron_NoSuckling"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_NBron_NoSuckling" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_NBron_Jaundice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_NBron_Jaundice" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!--Childhood Illnesses-->
+            <TextView
+                android:id="@+id/tv_srvSpc_ChildhoodIllnesses"
+                style="@style/txt_label"
+                android:text="@string/label_ChildhoodIllnesses" />
+            <!--Childhood Illnesses check box list-->
+
+            <LinearLayout
+                android:id="@+id/llay_ChildhoodIllnesses_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_CIllness_Diarrhea"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_CIllness_Diarrhea" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_CIllness_Pneumonia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_CIllness_Pneumonia" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_CIllness_Fever"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_CIllness_Fever" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_CIllness_Cerebral_Palsy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_CIllness_Cerebral_Palsy" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!--Immunizations-->
+            <TextView
+                android:id="@+id/tv_srvSpc_Immunizations"
+                style="@style/txt_label"
+                android:text="@string/label_Immunizations" />
+            <!--Immunizations check box list-->
+
+            <LinearLayout
+                android:id="@+id/llay_Immunizations_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Immu_Polio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Immu_Polio" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Immu_BCG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Immu_BCG" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Immu_Measles"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Immu_Measles" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Immu_DPT_HIB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Immu_DPT_HIB" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Immu_Lotta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Immu_Lotta" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_Immu_Other"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_Immu_Other" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!--FP counseling-->
+            <TextView
+                android:id="@+id/tv_srvSpc_FPCounsel"
+                style="@style/txt_label"
+                android:text="@string/label_FPCounsel" />
+            <!--FP Counsel check box list-->
+
+            <LinearLayout
+                android:id="@+id/llay_FPCounsel_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_FPCounsel_Male_Condoms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_FPCounsel_Male_Condoms" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_FPCounsel_Female_Condoms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_FPCounsel_Female_Condoms" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_FPCounsel_Pills"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_FPCounsel_Pills" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_FPCounsel_Depo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_FPCounsel_Depo" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_FPCounsel_LongParmanen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_FPCounsel_LongParmanent" />
+
+                    <CheckBox
+                        android:id="@+id/cb_srvSpc_FPCounsel_NoMethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cb_label_FPCounsel_NoMethod" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- Text view Type of Animal Type-->
+            <TextView
+                android:id="@+id/tv_srvSpc_spAnimalType"
+                style="@style/txt_label"
+                android:text="@string/label_animal_type" />
+
+            <Spinner
+                android:id="@+id/srv_spec_spAnimalType"
+                style="@style/registration_spinner_style" />
+
+            <!-- Text view Type of Type of crop-->
+            <TextView
+                android:id="@+id/tv_srvSpc_spCropType"
+                style="@style/txt_label"
+                android:text="@string/label_corp_type" />
+
+            <Spinner
+                android:id="@+id/srv_spec_spCropType"
+                style="@style/registration_spinner_style" />
+
+
+            <!-- Text view Type of Amount of Loan (MK)-->
+            <TextView
+                android:id="@+id/tv_srvSpc_spLoanAMT"
+                style="@style/txt_label"
+                android:text="@string/label_LoanAMT" />
+
+            <EditText
+                android:inputType="number"
+                android:id="@+id/srv_spec_edtLoanAMT"
+                style="@style/registration_spinner_style" />
+
+
+            <!-- Text view Type ofSource of Loan (Not VSL)-->
+            <TextView
+                android:id="@+id/tv_srvSpc_spLoanSource"
+                style="@style/txt_label"
+                android:text="@string/label_LoanSource" />
+
+            <Spinner
+                android:id="@+id/srv_spec_spLoanSource"
+                style="@style/registration_spinner_style" />
+
+            <!-- Text view  of Leadership Position-->
+            <TextView
+                android:id="@+id/tv_srvSpc_spLeadPosition"
+                style="@style/txt_label"
+                android:text="@string/label_LeadPosition" />
+
+            <Spinner
+                android:id="@+id/srv_spec_spLeadPosition"
+                style="@style/registration_spinner_style" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <!-- Save Button -->
+
+    <LinearLayout
+        android:id="@+id/llay_srvSpc_SaveNDelete"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:gravity="bottom">
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btn_srvSpcSave"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="Save"
+            android:textColor="@color/green"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btn_srvSpcDelete"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="Delete"
+            android:textColor="@color/green"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+    <!--  <Button
+          android:layout_above="@+id/footer"
+          android:id="@+id/btn_srvSpcDelete"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />-->
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+
+</RelativeLayout>

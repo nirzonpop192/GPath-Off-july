@@ -1,0 +1,289 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".activity.sub_activity.summary_sub.SumSrvOrDistCriteria">
+
+    <!-- Header aligned to top -->
+    <include layout="@layout/header" />
+
+
+    <!-- PAGE TITLE -->
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+            android:id="@+id/tv_srv_distCriPageTitle"
+
+            style="@style/page_title_style"
+            android:text="Summary" />
+
+    </RelativeLayout>
+
+    <!-- CONTROLLER -->
+  <!--  <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/page_title">-->
+
+ <!--       <RelativeLayout
+
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">-->
+
+
+            <LinearLayout
+                android:layout_below="@+id/page_title"
+                android:id="@+id/ll_CONTROLLER"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/blue_boder_style"
+                android:orientation="horizontal"
+
+                android:paddingBottom="15dp"
+
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="15dp"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_awardLable"
+                        style="@style/txt_label"
+                        android:text="Award"
+                        android:textSize="16sp" />
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Type " />
+
+                    <TextView
+                        style="@style/txt_label"
+
+                        android:text="Program "
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_OpMonthLable"
+
+                        style="@style/txt_label"
+
+                        android:text="Month"
+                     />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/su_srv_dist_spAward"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:padding="0dp"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black" />
+                    <Spinner
+                        android:id="@+id/sp_srv_sum_distF_TypeSSC"
+                        style="@style/spinner_style" />
+
+                    <Spinner
+                        android:id="@+id/su_srv_dist_spProgram"
+                        style="@style/spinner_style"
+                        android:layout_height="35dp"
+                        android:padding="0dp"
+                        android:paddingLeft="5dp" />
+
+                    <Spinner
+
+                        android:id="@+id/sp_dist_opMonthListSSC"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:padding="0dp"
+
+                        android:paddingLeft="5dp" />
+
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!-- title of list view  -->
+            <LinearLayout
+                android:id="@+id/table_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_CONTROLLER"
+                android:background="#627C9F"
+                android:weightSum=".8">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".53">
+
+                    <TextView
+                        android:id="@+id/hh_s_text_table"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="left"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="25dp"
+                        android:paddingTop="10dp"
+                        android:text="@string/tv_criteria"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/abc_text_size_menu_material"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".3"
+
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="0dp"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Count"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/abc_text_size_menu_material" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/dist_table_title"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+
+                android:layout_below="@+id/table_title"
+                android:background="#627C9F">
+
+                <TextView
+                    android:id="@+id/criteria"
+                    android:layout_width="90dp"
+
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/tv_criteria"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/abc_text_size_menu_material"
+
+                    />
+
+
+                <!--</LinearLayout>-->
+
+                <!--   <LinearLayout
+                       android:layout_width="0dp"
+                       android:layout_weight=".3"
+                       android:layout_height="match_parent"
+
+                       >-->
+                <TextView
+                    android:id="@+id/title_tv_plan"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="0dp"
+                    android:layout_toRightOf="@+id/criteria"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Plan"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/abc_text_size_menu_material" />
+
+                <TextView
+                    android:id="@+id/title_tv_receive"
+
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_toLeftOf="@+id/title_tv_balance"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
+                    android:text="Receive"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/abc_text_size_menu_material"
+
+                    />
+
+
+                <TextView
+                    android:id="@+id/title_tv_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_alignParentRight="true"
+
+
+                    android:layout_marginRight="40dp"
+                    android:gravity="center_vertical"
+
+                    android:text="Balance"
+
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="25dp"
+                    android:paddingTop="10dp"
+
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/abc_text_size_menu_material" />
+
+
+                <!--   </LinearLayout>-->
+            </RelativeLayout>
+
+
+            <ListView
+                android:id="@+id/lv_ServiceSumCriteria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/dist_table_title" />
+
+      <!--  </RelativeLayout>-->
+  <!--  </ScrollView>-->
+
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/footer" />
+
+
+</RelativeLayout>

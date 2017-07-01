@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+
+    android:padding="5dp">
+
+
+
+
+        <TextView
+            android:id="@+id/memS_row_memId"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+
+            android:gravity="center_vertical"
+            android:hint="011010101000213"
+            android:paddingTop="2dp"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/as_row_mm_name"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/as_row_tv_assignView"
+
+            android:gravity="center"
+            android:hint="Name"
+            android:paddingRight="5dp"
+            android:textSize="14sp"
+            android:layout_toRightOf="@+id/memS_row_memId"
+            android:layout_toEndOf="@+id/memS_row_memId" />
+
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/as_row_tv_assignView"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/ibtn_group_sear_edit"
+
+
+            android:gravity="start"
+            android:hint="@string/yn"
+
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:textSize="14sp" />
+
+
+ <!--       <ImageButton
+
+            android:id="@+id/mem_ibtn_toAssigne"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_action_edit" />-->
+
+
+
+</RelativeLayout>
+

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.summary_sub.GroupMemberSummary">
+    <!-- Header aligned to top -->
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <!-- PAGE TITLE -->
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+            style="@style/page_title_style"
+            android:gravity="center"
+            android:text="@string/title_id_list_in_grp_summary" />
+
+    </RelativeLayout>
+
+    <!-- title of list view  -->
+    <RelativeLayout
+        android:id="@+id/table_title"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/page_title"
+        android:background="#627C9F">
+
+        <TextView
+            android:id="@+id/list_title_sl_N_grp"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:text="Group Name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_list_row_20sp" />
+
+
+        <TextView
+            android:id="@+id/list_title_sl_N_count"
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/list_title_sl_N_grp"
+
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:text="Id"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_list_row_20sp" />
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toEndOf="@+id/list_title_sl_N_count"
+
+            android:layout_toLeftOf="@+id/tv_status"
+            android:layout_toRightOf="@+id/list_title_sl_N_count"
+
+            android:layout_toStartOf="@+id/tv_status"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+
+            android:paddingTop="10dp"
+            android:text="Name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_list_row_20sp" />
+
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+
+
+            android:gravity="center"
+            android:padding="5dp"
+
+            android:text="@string/btn_Criteria_label"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_list_row_20sp"
+
+            />
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/list_group_id_records"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/table_title"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp"
+        android:fadeScrollbars="false"
+        android:listSelector="@drawable/list_row_selector"
+        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track" />
+
+    <include
+
+        layout="@layout/footer" />
+</RelativeLayout>

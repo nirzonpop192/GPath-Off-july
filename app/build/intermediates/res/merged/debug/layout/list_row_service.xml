@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:paddingBottom="10dp"
+
+    android:paddingEnd="0dp"
+    android:paddingLeft="2dp"
+    android:paddingRight="0dp"
+    android:paddingStart="2dp"
+    android:paddingTop="10dp"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+
+        >
+
+        <CheckBox
+            android:id="@+id/cb_srv_id_holde"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:checked="false" />
+
+        <TextView
+            android:id="@+id/srv_row_newId"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"
+            android:gravity="center_vertical"
+
+
+            android:hint="@string/hit_15digitId" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/srv_row_member_name"
+        android:layout_width="250dp"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toRightOf="@+id/ll"
+        android:layout_toEndOf="@+id/ll"
+        android:layout_weight=".4"
+        android:gravity="center_vertical"
+        android:hint="Name"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+
+
+        android:paddingTop="5dp" />
+
+
+    <TextView
+        android:id="@+id/srv_row_tv_criteriaView"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_toRightOf="@+id/srv_row_member_name"
+        android:layout_toEndOf="@+id/srv_row_member_name"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:paddingTop="5dp"
+
+
+        android:text="02"
+
+        />
+
+
+    <ImageButton
+        android:id="@+id/ibtn_edit_service_holder"
+        android:layout_width="35dp"
+
+        android:layout_height="35dp"
+        android:layout_gravity="end"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toLeftOf="@+id/ibtn_voucher_service_holder"
+        android:layout_toStartOf="@+id/ibtn_voucher_service_holder"
+        android:layout_toRightOf="@+id/srv_row_tv_criteriaView"
+        android:padding="1dp"
+        android:src="@drawable/ic_action_edit" />
+
+    <ImageButton
+
+        android:id="@+id/ibtn_voucher_service_holder"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="end"
+        android:layout_marginLeft="5dp"
+        android:layout_toLeftOf="@+id/ibtn_service_spacific_holder"
+        android:padding="1dp"
+        android:src="@drawable/voucher_icon" />
+
+    <ImageButton
+        android:id="@+id/ibtn_service_spacific_holder"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="end"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+
+        android:padding="1dp"
+        android:src="@drawable/specific" />
+
+
+</RelativeLayout>
+

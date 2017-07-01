@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:weightSum="1"
+    >
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content">
+      <!--  <TextView
+
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+
+            android:id="@+id/row_txt_voID"
+            android:hint="Axe"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:textSize="18sp"
+
+            android:gravity="center_vertical"
+            />-->
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/cb_voucher_id_holde"
+            android:checked="false" />
+
+        <TextView
+
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+
+            android:id="@+id/row_txt_itemName"
+            android:hint="Axe"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:textSize="18sp"
+
+            android:gravity="center_vertical"
+            />
+
+    </LinearLayout>
+    <EditText
+        android:layout_marginRight="5dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/row_voucherQuantity"
+
+        android:layout_width="60dp"
+
+        android:layout_height="40dp"
+        android:text="0"
+        android:singleLine="true"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:layout_marginBottom="5dp"
+        android:textSize="14dp"
+        android:inputType="number"
+
+
+        />
+
+
+
+</RelativeLayout>

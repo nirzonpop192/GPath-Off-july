@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.assign_program.agr.AGR">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+            android:id="@+id/tv_ass_pageTitle"
+            style="@style/page_title_style"
+            android:text="AGR" />
+
+    </RelativeLayout>
+
+    <!--  All controller is here -->
+    <ScrollView
+        android:layout_above="@+id/save_pro_ll"
+        android:id="@+id/assigne_ScrollableContents"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/page_title">
+
+
+        <LinearLayout
+            android:id="@+id/ll_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:paddingLeft="10dp"
+
+            android:paddingRight="10dp"
+            >
+            <!-- Lable side -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".24"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/txt_label"
+                    android:text="Member ID" />
+                <TextView
+                    style="@style/txt_label"
+                    android:text="MemberName" />
+
+                <TextView
+
+                    style="@style/txt_label"
+                    android:text="HH Name :" />
+
+
+                <TextView
+                    style="@style/txt_label"
+                    android:text="Criteria" />
+
+                <TextView
+                    style="@style/txt_label"
+                    android:text="Reg Date" />
+
+                <TextView
+                    android:id="@+id/tv_label_as_agr_mlwai_elderley"
+                    style="@style/txt_label"
+                    android:text="Elderley" />
+
+                <TextView
+                    android:id="@+id/tv_label_as_agr_mlwai_landSize"
+                    style="@style/txt_label"
+                    android:text="Land Size" />
+
+                <TextView
+                    android:id="@+id/tv_label_as_agr_mlwai_willingness"
+                    style="@style/txt_label"
+                    android:text="Willingness" />
+
+                <TextView
+                    android:id="@+id/tv_label_as_agr_mlwai_winterCultivation"
+                    style="@style/txt_label"
+                    android:text="Winter Cultivation" />
+
+                <TextView
+                    android:id="@+id/tv_label_as_agr_mlwai_vulnerablehh"
+                    style="@style/txt_label"
+                    android:text="Vulnerable HH" />
+
+                <TextView
+                    android:id="@+id/tv_label_as_agr_mlwai_plantingvcCrop"
+                    style="@style/txt_label"
+                    android:text="Planting VC Crop" />
+
+                <TextView
+                    android:id="@+id/tv_label_as_agr_mlwai_dependonGanyu"
+                    style="@style/txt_label"
+                    android:text="Depend On Ganyu" />
+
+                <TextView
+                    android:id="@+id/tv_label_as_agr_mlwai_disable"
+                    style="@style/txt_label"
+                    android:text="Disable" />
+
+                <TextView
+                    android:id="@+id/tv_label_as_agr_mlwai_wealthRank"
+                    style="@style/txt_label"
+                    android:text="@string/wealth_rank" />
+
+                <TextView
+                    android:id="@+id/tv_label_as_agr_mlwai_exitingGroup"
+                    style="@style/txt_label"
+                    android:text="@string/existing_group" />
+
+                <TextView
+                    android:id="@+id/lbl_ass_agrGroupCategories"
+                    style="@style/txt_label"
+
+                    android:text="@string/category_label" />
+
+                <TextView
+                    android:id="@+id/lbl_ass_agrGroup"
+                    style="@style/txt_label"
+
+                    android:text="@string/group_label" />
+
+                <TextView
+                    android:id="@+id/lbl_ass_agrActive"
+                    style="@style/txt_label"
+
+                    android:text="@string/active_lable" />
+                <TextView
+                    android:id="@+id/lbl_ass_agrotherAgActivities"
+                    style="@style/txt_label"
+
+                    android:text="@string/other_ag_activities" />
+                <TextView
+                    android:id="@+id/lbl_ass_agr_O_L_S_goat"
+                    style="@style/txt_label"
+
+                    android:text="@string/goat" />
+                <TextView
+                    android:id="@+id/lbl_ass_agr_O_L_S_Chicken"
+                    style="@style/txt_label"
+
+                    android:text="@string/chicken" />
+                <TextView
+                    android:id="@+id/lbl_ass_agr_O_L_S_Pigeons"
+                    style="@style/txt_label"
+
+                    android:text="@string/pigeons" />
+                <TextView
+                    android:id="@+id/lbl_ass_agr_O_L_S_other_specify"
+                    style="@style/txt_label"
+
+                    android:text="@string/other_specify" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_as_agr_mlwai_MemberID"
+                    style="@style/text_view"
+                    android:hint="MemberID" />
+
+                <TextView
+                    android:id="@+id/tv_as_agr_mlwai_MemberName"
+                    style="@style/text_view"
+                    android:hint="MemberName" />
+                <TextView
+                    android:id="@+id/tv_as_agr_mlwai_hhName"
+                    style="@style/text_view"
+
+                    android:hint="House hold Name" />
+
+
+                <TextView
+                    android:id="@+id/tv_as_agr_mlwai_asCriteria"
+                    style="@style/text_view"
+                    android:hint="Criteria" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white"
+                    android:padding="10dp">
+
+
+                    <TextView
+                        android:id="@+id/tv_as_agr_mlwai_regD"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:hint="Registration Date"
+                        android:text="Date"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                </RelativeLayout>
+
+                <Switch
+                    android:id="@+id/tog_as_agr_mlwai_elderley"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="40dp"
+                    android:padding="10dp"
+                    android:showText="true"
+                    android:textOff="NO"
+                    android:textOn="Yes"
+
+                    />
+
+                <EditText
+
+                    android:inputType="numberDecimal"
+                    android:id="@+id/edt_as_agr_mlwai_landSize"
+                    style="@style/text_view"
+                    android:hint="Land Size" />
+
+                <Switch
+                    android:id="@+id/tog_as_agr_mlwai_willings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="40dp"
+                    android:padding="10dp"
+                    android:showText="true"
+                    android:textOff="NO"
+                    android:textOn="Yes" />
+
+                <Switch
+                    android:id="@+id/tog_as_agr_mlwai_winterCultivation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="40dp"
+                    android:padding="10dp"
+                    android:showText="true"
+                    android:textOff="NO"
+                    android:textOn="Yes" />
+
+                <Switch
+                    android:id="@+id/tog_as_agr_mlwai_vurnerablehh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="40dp"
+                    android:padding="10dp"
+                    android:showText="true"
+                    android:textOff="NO"
+                    android:textOn="Yes" />
+
+                <Spinner
+                    android:id="@+id/spiner_as_agr_mlwai_vcCrop"
+                    style="@style/spinner_style"></Spinner>
+
+                <Switch
+                    android:id="@+id/tog_as_agr_mlwai_dependonganyu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="40dp"
+                    android:checked="false"
+                    android:padding="10dp"
+                    android:showText="true"
+                    android:textOff="NO"
+                    android:textOn="Yes" />
+
+                <Switch
+                    android:id="@+id/tog_as_agr_mlwai_disable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:height="40dp"
+                    android:padding="10dp"
+                    android:showText="true"
+                    android:textOff="NO"
+                    android:textOn="Yes" />
+
+                <Spinner
+                    android:id="@+id/sp_ass_agrWealthRank"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent" />
+                <Spinner
+                    android:id="@+id/sp_ass_agrMemExitGroup"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent" />
+
+                <Spinner
+                    android:id="@+id/sp_ass_agrGroupCategories"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent" />
+
+                <Spinner
+
+                    android:id="@+id/sp_ass_agrGroup"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent" />
+
+                <Spinner
+
+                    android:id="@+id/sp_ass_agrActive"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:id="@+id/other_ag_activity_ll">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="INVC"
+                        android:id="@+id/o_ag_ac_invc"
+                        android:layout_weight=".25"/>
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NASFAM"
+                        android:id="@+id/o_ag_ac_nasfam"
+                        android:layout_weight=".25"/>
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CONCERN UNIVERSAL"
+                        android:id="@+id/o_ag_ac_cu"
+                        android:layout_weight=".25"
+                        />
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OTHER"
+                        android:id="@+id/o_ag_ac_other"
+                        android:layout_weight=".25"/>
+
+                </LinearLayout>
+                <EditText
+                    android:digits="0123456789"
+                    android:id="@+id/edt_as_agr_mlwai_O_L_s_goat"
+                    style="@style/text_view"
+                    android:inputType="number"
+                    android:hint="GOAT" />
+                <EditText
+                    android:digits="0123456789"
+                    android:inputType="number"
+                    android:id="@+id/edt_as_agr_mlwai_O_L_s_chicken"
+                    style="@style/text_view"
+                    android:hint="CHICKEN" />
+                <EditText
+                    android:digits="0123456789"
+                    android:inputType="number"
+                    android:id="@+id/edt_as_agr_mlwai_O_L_s_Pigeons"
+                    style="@style/text_view"
+                    android:hint="PIGEONS" />
+                <EditText
+                    android:digits="0123456789"
+                    android:inputType="number"
+                    android:id="@+id/edt_as_agr_mlwai_O_L_s_other_specify"
+                    style="@style/text_view"
+                    android:hint="Other(specify)" />
+            </LinearLayout>    <!-- vertical layout-->
+        </LinearLayout> <!--horizontal layout-->
+
+
+    </ScrollView>
+
+
+
+    <!-- Save Button -->
+
+    <LinearLayout
+        android:id="@+id/save_pro_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+
+        android:gravity="bottom">
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btn_agr_goAssignePage"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="@string/btn_AssignLabel"
+            android:textColor="@color/green"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_assign_agr_save"
+
+            android:text="@string/btn_label_submit"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+
+            android:textColor="@color/green"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <include layout="@layout/footer"
+        android:id="@+id/footer"/>
+
+</RelativeLayout>

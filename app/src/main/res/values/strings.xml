@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="loading_msg">Loading Records </string>
+    <string name="group_details">Group Details</string>
+
+    <string name="app_name">GPath</string>
+    <string name="hint_email">Email [optional]</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_mobile">Mobile Number</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_exit">Exit</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_link_to_register">Not a member? It is very simple, Sign up now.</string>
+    <string name="btn_link_to_login">Already registred! Login Me.</string>
+    <string name="btn_add_new_member">ADD NEW HOUSEHOLD</string>
+    <string name="welcome">Welcome</string>
+    <string name="btn_logout">LOGOUT</string>
+    <string name="name">Fullname</string>
+    <string name="btn_label_submit">SAVE</string>
+    <string name="btn_label_clear">CLEAR</string>
+    <string name="title_register">HHRegistration</string>
+    <string name="title_register_member">Member Registration</string>
+    <string name="btnViewRecordLable">View Records</string>
+    <string name="btnHomeLabel">HOME</string>
+    <string name="btnViewLabel">VIEW</string>
+    <string name="btnSummaryLabel">Registration Summary</string>
+    <string name="btnLabelAddMember">Add Member</string>
+    <string name="text_table">Table Title</string>
+    <string name="text_table_total">Record Total</string>
+
+    <string name="btn_house_label">Household Registration</string>
+    <string name="btn_service_label">Service</string>
+    <string name="btn_distribution_label">Distribution</string>
+    <string name="btn_Criteria_label">Criteria</string>
+    <string name="btn_Distribution_label">Distribution</string>
+
+    <string-array name="spGenderItem">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="spWRankItem">
+        <item>Very Poor</item>
+        <item>Poor</item>
+        <item>Well off</item>
+    </string-array>
+
+
+    <string-array name="arrVStatus">
+        <item>VStatus</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="arrMStatus">
+        <item>Resident</item>
+        <item>Migrated</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="arrPW">
+        <item>PW</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="arrCU2">
+        <item>CU2</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="arrCA2">
+        <item>CA2</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+
+    <string-array name="arrElderly">
+        <item>Elderly</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="arrDisabled">
+        <item>Disabled</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <!-- For Lebria Member -->
+    <string-array name="arrMarital">
+        <item>MARITAL Status</item>
+        <item>Marrried</item>
+        <item>Single</item>
+        <item>Divorced</item>
+        <item>Widowed</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="arrIDType">
+        <item>--Select--</item>
+        <item>Organization ID</item>
+        <item>School ID</item>
+        <item>Voter ID</item>
+        <item>Church ID</item>
+        <item>NA</item>
+    </string-array>
+
+    <string-array name="arrTitlePosition">
+        <item>--Select--</item>
+        <item>NA</item>
+        <item>Member</item>
+        <item>Chairman</item>
+        <item>Co-Chairman</item>
+
+    </string-array>
+    <string-array name="arrDesignatedProxy">
+        <item>Designated</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <!-- Distribution food type-->
+    <string-array name="arrDistributionType">
+        <item>None</item>
+        <item>Food</item>
+        <item>Non Food</item>
+        <item>Cash</item>
+        <item>Voucher</item>
+    </string-array>
+
+
+    <!-- Log in Mode food type-->
+    <string-array name="arrflagType">
+
+        <item>Food</item>
+        <item>Non Food</item>
+        <item>Cash</item>
+        <item>Voucher</item>
+    </string-array>
+
+    <!-- SumRegLay4TotalHHRecords -->
+    <string name="txt_title_summaryOp">Summary Option</string>
+
+
+    <string name="menu_action_logout">Logout</string>
+    <string name="hello_world">Hello world!</string>
+
+
+    <string name="error.message.network">Network error</string>
+    <string name="error.message.call">Call failed</string>
+    <string name="error.message.map">Map loading failed</string>
+    <string name="title_activity_service">ServiceActivity</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="arrStatus">
+        <item>NEW</item>
+        <item>EXISTING</item>
+
+    </string-array>
+
+
+    <!-- ADDED BY POP  FOR SERVICE ACTIVITY-->
+    <string name="btn_RemoveLabel">Remove</string>
+    <string name="btn_ServiceLabel">Service Record</string>
+
+    <string name="title_activity_map">MapActivity</string>
+
+    <string name="title_activity_all_summary">AllSummaryActivity</string>
+    <string name="title_activity_summary_service">SummaryService</string>
+    <string name="title_activity_assign">AssignActivity</string>
+    btnGraduation
+    <!-- ADDED BY POP  FOR Graduation ASiign-->
+    <string name="btn_GraduationLabel">Graduation</string>
+    <string name="tv_GraduationTitleLabel">Graduation</string>
+
+    <!-- ADDED BY POP  FOR SERVICE ASiign-->
+    <string name="btn_AssignLabel">Assign</string>
+    <string name="tv_AssignTitleLabel">Assign Beneficiary</string>
+    <string name="btn_search_Lable"></string>
+    <string name="btn_search">Search</string>
+
+    <string name="assignTitleLabelP2a">Assign Program (Page 2a)</string>
+    <string name="title_activity_assign_page2">AssignPage2</string>
+
+    <string name="btn_synchronizeLable">Sync</string>
+    <string name="btn_distributionLable">Distribution</string>
+    <string name="title_activity_service_record">ServiceRecord</string>
+
+    <!--  FOR SERVICE SUMMARY -->
+    <string name="srv_sum_crite_TitleLable">Service Summary</string>
+    <string name="srv_summary_TitleLable">Service Summary </string>
+    <string name="tv_criteria">Criteria</string>
+    <!-- LOG IN SCREEN -->
+    <string name="log_in_version_lable">GPath-OFF-20</string>
+    <!-- VERSION -->
+
+
+    <string name="title_activity_service_summary_list">ServiceSummaryList</string>
+    <string name="title_activity_graduation">GraduationActivity</string>
+    <string name="title_activity_assign_lactating_mother">AssignLactatingMother</string>
+    <string name="title_activity_assign_pregnant_women">AssignPregnantWomen</string>
+    <string name="title_activity_assign_childen_under2">AssignChildenUnder2</string>
+    <string name="title_activity_assign_child_above2">AssignChildAbove2</string>
+    <string name="title_activity_register_liberia">RegisterLiberia</string>
+    <string name="title_categories">FAMILY COMPOSITION AND  HOUSING</string>
+
+    <!-- FOR LIBERIA  REGISTRATION -->
+    <string name="label_hasTakeCForEbola_">Has this HH taken in an extra child because of Ebola? <br /> (ExtraChildBecauseEbola)</string>
+    <string name="label_DidContractEbola">Did someone in this HH (living or deceased) contract Ebola? (LivingDeceasedContractEbola)"</string>
+    <string name="label_hasTakeEForEbola"> Has this HH taken in an extra elderly person because of Ebola?</string>
+     <string name="label_hasTakeChronicallyIllForEbola"> Has this HH taken in an extra chronically ill or disabled person because of Ebola? (ExtraChronicallyIllDisabledPersonBecauseEbola)
+        </string>
+    <string name="title_activity_graduation_update">GraduationUpdate</string>
+    <string name="label_assign_summary">Assign Program</string>
+    <string name="title_activity_summary_assign_base_criteria">SummaryAssignBaseCriteria</string>
+    <string name="title_activity_card_request">CardRequest</string>
+    <!-- @date:2015-10-31-->
+    <!-- Card Request Model -->
+    <string name="btn_Card_request_lable">Card Request</string>
+    <string name="lbl_ct">Card Type</string>
+    <!-- Registration  lable -->
+    <string name="lbl_se_district">Select District</string>
+    <string name="lbl_se_ta">Select Ta</string>
+    <string name="lbl_se_GVH">Select GVH</string>
+    <string name="lbl_se_village">Select Village</string>
+    <string name="lbl_se_address">Address</string>
+
+    <!-- Registration  label -->
+    <string name="lbl_district">District :</string>
+    <string name="lbl_ta">Ta :</string>
+    <string name="lbl_GVH">GVH :</string>
+    <string name="lbl_village">Village :</string>
+    <!--Assign sub module -->
+    <string name="lbl_duration"> 0  days</string>
+    <!--Liberia member Sub Title label-->
+    <string name="lbl_bsc_mem_1">Verified by: BSC Member 1</string>
+    <string name="lbl_bsc_mem_2">Verified by: BSC Member 2</string>
+
+    <string name="lbl_proxy_bsc_mem_1">Proxy Verified by: BSC Member 1</string>
+    <string name="lbl_proxy_bsc_mem_2">Proxy Verified by: BSC Member 2</string>
+
+    <string name="lbl_firstName">First Name</string>
+    <string name="lbl_midName">Middle Name</string>
+    <string name="lbl_lastName">Last Name</string>
+    <string name="lbl_birthYear">Birth Year</string>
+    <string name="lbl_contact">Contact</string>
+    <string name="lbl_idType">Id Type</string>
+    <string name="lbl_idNo">Id No</string>
+    <string name="lbl_title">Title/Position</string>
+    <string name="title_activity_register_member_liberia">RegisterMemberLiberia</string>
+    <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_assign_for_liberia">AssignForLiberia</string>
+    <string name="title_activity_distribution">Distribution</string>
+    <!--Radio Button Tetx!-->
+    <string name="evdaffectedhouseholds">EVD-affected Households</string>
+    <string name="ChFhEhDh">Child-Headed or Female Headed or Elderly Headed or Disabled Headed Household</string>
+    <string name="a">A.Core Criteria: HHs with Pregnant Woman; Secondary Criteria: HH also has at least one Lactating Woman or CU2</string>
+    <string name="b">B.Core Criteria: HHs with Lactating Woman; Secondary Criteria: HH also has at least one Pregnant Woman or CU2;</string>
+    <string name="c">C.Core Criteria: HHs with CU2; Secondary Criteria: HH also has at least one Pregnant or Lactating Woman</string>
+    <string name="d">D.Child-Headed or Female Headed or Elderly Headed or Disabled Headed Household</string>
+    <string name="e">E.Core Criteria: HHs with PLW or CU2; Secondary Criteria: HH has a total of 4 or more children below 12 years of age</string>
+    <string name="f">F.Core Criteria: HHs with PLW or CU2; Secondary Criteria: the PLW, CU2 or any other person in the HH is disabled or chronically ill</string>
+    <string name="g">G.Core Criteria: HHs with PLW or CU2; Secondary Criteria: Elderly Headed Household (More than 60 years old)</string>
+    <string name="h">H.Core Criteria: HHs with PLW or CU2; Secondary Criteria: HHs with one or more orphan child below 18 years old</string>
+    <string name="search_id">Search ID</string>
+    <string name="lbl_search_btn">Search</string>
+    <string name="lbl_poltry">Poultry</string>
+
+
+    <string-array name="service_goto_array">
+        <item>Home Page</item>
+        <item>Assign</item>
+        <!--    <item>Distribution</item>-->
+        <!--<item>Member Registration</item>-->
+        <item>Summary Option</item>
+        <item>Registration</item>
+    </string-array>
+
+    <!-- "Home Page", "Assign", "Service", "Summery Option", "Member Registration", "House Hold Registration"-->
+    <string-array name="distribution_goto_array">
+        <item>Home Page</item>
+        <!--<item>Assign</item>-->
+        <!-- <item>Service</item>-->
+        <item>Summary Option</item>
+        <!--<item>Member Registration</item>-->
+        <!--  <item>Registration</item>-->
+    </string-array>
+
+    <!--"Home Page",//"Member Registration",
+    "Distribution", "Service", "SummeryOption", "House Hold Registration"-->
+
+    <string-array name="assign_got_array">
+        <item>Home Page</item>
+        <!--<item>Member Registration</item>-->
+        <item>Distribution</item>
+        <item>Service</item>
+        <item>Summary Option</item>
+        <item>Registration</item>
+    </string-array>
+    <!--"Home Page","Assign","Distribution","Service","SummeryOption","House Hold Registration"-->
+    <string-array name="reg_mem_goto_array">
+        <item>Home Page</item>
+        <item>Assign</item>
+        <item>Distribution</item>
+        <item>Service</item>
+        <item>Summary option</item>
+        <item>Registration</item>
+
+    </string-array>
+    <!--"Home Page","Distribution","Service","SummeryOption","House Hold Registration"-->
+    <string-array name="aiv_assign_goto_array">
+        <item>Home Page</item>
+        <item>Distribution</item>
+        <item>Service</item>
+        <item>Summary Option</item>
+        <item>Registration</item>
+    </string-array>
+
+    <string-array name="cfw_assign_goto_array">
+        <item>Home Page</item>
+        <item>Distribution</item>
+        <item>Service</item>
+        <item>Summary Option</item>
+        <item>Registration</item>
+    </string-array>
+
+    <string-array name="uct_assign_goto_array">
+        <item>Home Page</item>
+        <item>Distribution</item>
+        <item>Service</item>
+        <item>Summary Option</item>
+        <item>Registration</item>
+    </string-array>
+
+    <!--    ***FOR 59 PARAMETERS -->
+    <string name="pageTitle_ServiceSpecificLabel">Service Details</string>
+    <string name="title_activity_service_specification">ServiceSpecification</string>
+
+    <string name="label_baby_status">Status of Baby</string>
+    <string-array name="arr_baby_status">
+        <item>Normal</item>
+        <item>PT/LBW</item>
+    </string-array>
+
+
+    <string name="label_gmp_attendance">GMP Attendance Status </string>
+    <string-array name="arr_gmp_attendance">
+        <item>Just joined</item>
+        <item>Attending</item>
+    </string-array>
+
+    <!--WeightStatus-->
+    <string name="label_weight_status">Weight gain/loss Status </string>
+    <string-array name="arr_weight_status">
+        <item>Weight gain</item>
+        <item>Weight loss</item>
+        <item>No weight change</item>
+    </string-array>
+
+    <!--    NutAttendance-->
+    <string name="label_nut_attendance">Nutrition Programming Attendance </string>
+    <string-array name="arr_nut_attendance">
+        <item>CCFLS</item>
+        <item>SFP/CTC</item>
+    </string-array>
+
+    <!-- VitA_Under5-->
+    <string name="label_vitA_under5">Vitamin ‘A’ supplementation for under 5 </string>
+    <string-array name="arr_vitA_under5">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+
+    <!-- Exclusive_CurrentlyBF-->
+    <string name="label_exclusive_currentlyBF">Mother currently exclusively breast-feeding </string>
+    <string-array name="arr_exclusive_currentlyBF">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+
+    <!-- DateCompFeeding -->
+    <string name="label_date_comp_feeding">Child age at start of complementary feeding </string>
+
+    <!-- CMAMRef-->
+    <string name="label_CMAM_ref">Mother currently exclusively breast-feeding </string>
+    <string-array name="arr_CMAM_ref">
+        <item>NRU</item>
+        <item>SFP</item>
+        <item>OTP</item>
+        <item>CCFLS</item>
+    </string-array>
+
+
+    <!-- CMAMAdd-->
+    <string name="label_CMAM_add">Mother currently exclusively breast-feeding </string>
+    <string-array name="arr_CMAM_add">
+        <item>NRU</item>
+        <item>SFP</item>
+        <item>OTP</item>
+    </string-array>
+    <!-- PW LM-->
+
+    <!-- ANCVisit-->
+    <string name="label_ANCVisit">ANC Visits Attended</string>
+
+
+    <string name="label_FaciPostnatal">Facility Postnatal Visit (DD/MM)</string>
+    <!--cb= check box-->
+    <string name="cb_label_PNCVisit_2D">2 days</string>
+    <string name="cb_label_PNCVisit_1W">1 week</string>
+    <string name="cb_label_PNCVisit_6W">6 Weeks</string>
+
+    <string name="label_DeliveryStaff">Staff Conducting delivery</string>
+    <string name="rb_label_DeliveryStaff_1">Doctor/CO/Nurse/MA/ Midwife)</string>
+    <string name="rb_label_DeliveryStaff_2">PA/WA/HSA</string>
+    <string name="rb_label_DeliveryStaff_3">Others</string>
+
+    <string name="label_HomeSupport24H">Home support visit PT/LBW within 24 hours after hospital</string>
+    <string name="cb_label_HomeSupport_xxH_1d">1 day</string>
+    <string name="cb_label_HomeSupport_xxH_2d">2 days</string>
+    <string name="cb_label_HomeSupport_xxH_3d">3 days</string>
+    <string name="cb_label_HomeSupport_xxH_8d">8 days</string>
+    <string name="cb_label_HomeSupport_xxH_14d">14 days</string>
+    <string name="cb_label_HomeSupport_xxH_21d">21 days</string>
+    <string name="cb_label_HomeSupport_xxH_30d">30 days</string>
+    <string name="cb_label_HomeSupport_xxH_60d">60 days</string>
+    <string name="cb_label_HomeSupport_xxH_90d">90 days</string>
+
+    <string name="label_HomeSupport48H">Home support visit PT/LBW within 25 — 48 hours</string>
+
+    <string name="label_MaternalComplications">Maternal Complications</string>
+    <string name="cb_label_Maternal_Bleeding">Bleeding</string>
+    <string name="cb_label_Maternal_Seizure">Seizure</string>
+    <string name="cb_label_Maternal_Infection">Infection</string>
+    <string name="cb_label_Maternal_ProlongedLabor">Prolonged labor</string>
+    <string name="cb_label_Maternal_ObstructedLabor">Obstructed labor</string>
+    <string name="cb_label_Maternal_PPRM">Premature Prolonged Ruptured Membrane (PPRM)</string>
+
+    <string name="label_NewbornComplications">Newborn Complications</string>
+    <string name="cb_label_NBron_Asphyxia">Asphyxia</string>
+    <string name="cb_label_NBron_Sepsis">Sepsis</string>
+    <string name="cb_label_NBron_Hypothermia">Hypothermia</string>
+    <string name="cb_label_NBron_Hyperthermia">Hyperthermia</string>
+    <string name="cb_label_NBron_NoSuckling">No Suckling</string>
+    <string name="cb_label_NBron_Jaundice">Jaundice</string>
+
+
+    <string name="label_ChildhoodIllnesses">Childhood Illnesses</string>
+    <string name="cb_label_CIllness_Diarrhea">Diarrhea</string>
+    <string name="cb_label_CIllness_Pneumonia">Pneumonia</string>
+    <string name="cb_label_CIllness_Fever">Fever</string>
+    <string name="cb_label_CIllness_Cerebral_Palsy">Cerebral Palsy</string>
+
+
+    <string name="label_Immunizations">Immunizations</string>
+    <string name="cb_label_Immu_Polio">Polio</string>
+    <string name="cb_label_Immu_BCG">BCG</string>
+    <string name="cb_label_Immu_Measles">Measles</string>
+    <string name="cb_label_Immu_DPT_HIB">DPT/HIB</string>
+    <string name="cb_label_Immu_Lotta">Lotta</string>
+    <string name="cb_label_Immu_Other">Other (specify)</string>
+
+
+    <string name="label_FPCounsel">FP counseling</string>
+    <string name="cb_label_FPCounsel_Male_Condoms">Male Condoms</string>
+    <string name="cb_label_FPCounsel_Female_Condoms">Female Condoms</string>
+    <string name="cb_label_FPCounsel_Pills">Pills</string>
+    <string name="cb_label_FPCounsel_Depo">Depo-provera</string>
+    <string name="cb_label_FPCounsel_LongParmanent">Any long-acting and permanent method</string>
+    <string name="cb_label_FPCounsel_NoMethod">No method</string>
+
+    <string name="label_animal_type">Type of Animal</string>
+    <string name="label_corp_type">Type of Crop</string>
+    <string name="label_LoanAMT">Amount of Loan (MK)</string>
+    <string name="label_LoanSource">Source of Loan (Not VSL)</string>
+    <string name="label_LeadPosition">Leadership Position</string>
+
+
+    <!-- ADDED BY POP  FOR MAP ACTIVITY-->
+    <string name="btn_labelGPS">GPS</string>
+    <string name="Page_title_GPS">Point Attributes</string>
+    <string name="latiTitle">Latitude</string>
+    <string name="longTitle">Longitude</string>
+    <string name="label_group">Group</string>
+    <string name="label_subGroup">Sub Group</string>
+    <string name="label_location">Location</string>
+    <string name="label_lat">Latitude</string>
+    <string name="label_long">Longitude</string>
+    <!--Text label-->
+    <string name="award_label">Award</string>
+    <string name="criteria_label">Criteria</string>
+    <string name="program_label">Program</string>
+    <string name="service_label">Service</string>
+    <string name="village_label">Village</string>
+
+    <string name="hh_id_label">HH ID</string>
+    <string name="member_id_label">MemberID</string>
+    <string name="village_name_label">Village Name</string>
+    <string name="member_name_label">Member Name</string>
+    <string name="service_center_label">Service Center</string>
+    <string name="service_month_label">Service Month</string>
+    <string name="service_date_label">Service Date</string>
+    <string name="category_label">Category</string>
+    <string name="group_label">Group Name</string>
+    <string name="date_label">Date</string>
+    <string name="hit_15digitId">000105030002315</string>
+    <string name="wd">WD</string>
+    <string name="saved_coord">Saved Coordinate :</string>
+    <string name="current_coord">Current Coordinate :</string>
+
+    <string name="Page_title_SearchLocation">Location Search</string>
+    <string name="location_name">Location Name</string>
+    <string name="yn">Y/N</string>
+    <string name="assign_pw_title">Pregnant Women</string>
+    <string name="assign_lm_title">Lactating Mother</string>
+    <string name="assign_cu2_title">Children Under 2 Years-U2</string>
+    <string name="assign_ca2_title">Children Above 2 Years-A2</string>
+    <string name="lmp_date">LMP Date</string>
+    <string name="reg_date">Reg Date</string>
+    <string name="active_lable">Active</string>
+    <string name="mem_name">Member Name</string>
+    <string name="hh_name">HH Name :</string>
+    <string name="member_id">Member ID</string>
+    <string name="dob_date">DOB Date</string>
+    <string name="child_name">Child Name</string>
+    <string name="c_name">Name</string>
+    <string name="sex">Sex</string>
+    <string name="types">types</string>
+    <string name="before">Before</string>
+    <string name="after">After</string>
+    <string name="livestock">LIVESTOCK</string>
+    <string name="count">COUNT</string>
+    <string name="value_id">VALUE ID</string>
+    <string name="cattle">CATTLE</string>
+    <string name="other">OTHER</string>
+    <string name="crop">crop</string>
+    <string name="delete">DELETE</string>
+    <string name="other_ag_activities">Other AG activities</string>
+    <string name="goat">Goat</string>
+    <string name="chicken">Chicken</string>
+    <string name="pigeons">Pigeons</string>
+    <string name="other_specify">Other(specify)</string>
+
+
+    <string-array name="cameraOption">
+        <item>Capture</item>
+        <item>Delete</item>
+        <item>Cancel</item>
+    </string-array>
+
+    <string-array name="cameraOption_2">
+        <item>Capture</item>
+        <item>Cancel</item>
+    </string-array>
+
+    <string-array name="arrActive">
+        <item>Yes</item>
+        <item>No</item>
+
+    </string-array>
+
+
+        <string name="unsyn_msg">Login with the same user for whom the device was configured.
+Otherwise, initiate to sync and login again.</string>
+    <!--  Group SumRegLay4TotalHHRecords page resource-->
+
+    <string name="title_grp_summary">Group Summary</string>
+    <string name="group_name">Group Name</string>
+    <string name="group">Group</string>
+    <string name="category">Category</string>
+    <string name="srv_name">Srv Name</string>
+    <string name="count_lable">Count</string>
+    <!-- ID List in Group   SumRegLay4TotalHHRecords page resource-->
+    <string name="title_id_list_in_grp_summary">Group Members</string>
+
+    <!--ASSIGN DDR PROGRAM FFA -->
+    <string name="_1_child_headed_households_orphan_headed_households_or_where_the_parent_or_grandparent_is_incapable_of_undertaking_the_usual_head_of_household_roles">1. Child-headed households (orphan-headed households or where the parent or grandparent is incapable of undertaking the usual head of household roles)</string>
+    <string name="_2_elderly_headed_households_more_than_60_years_old_with_no_other_able_bodied_adult_household_members">2. Elderly-headed households (more than 60 years old) with no other able-bodied adult household members.</string>
+    <string name="_3_the_most_food_insecure_households_with_chronically_ill_hiv_or_aids_affected_members">3. The most food insecure households with chronically ill/HIV or AIDS affected members</string>
+    <string name="_4_female_headed_households">4. Female-headed households</string>
+    <string name="_5_households_with_two_or_more_years_of_successive_crop_failure">5. Households with two or more years of successive crop failure</string>
+    <string name="_6_households_with_children_receiving_supplementary_or_therapeutic_feeding">6. Households with children receiving supplementary or therapeutic feeding</string>
+    <string name="_7_willingness">7. Willingness</string>
+    <!--    Response-->
+    <string name="dt_response_title">Response</string>
+    <string name="title_activity_dt__qustion">DT_QustionActivity</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyB6R6Saou2TpmqGKcuZwbnUvhJhlv6nSls
+    </string>
+    <string name="labe_op_mode">Operation Mode</string>
+    <string name="label_geo_data">GEO-DATA</string>
+    <string name="label_last_sync">Last Sync</string>
+    <string name="type">Type</string>
+    <string name="house_hold_id">House Hold Id</string>
+    <string name="total_days">Total days</string>
+    <string name="response_number">Response Number</string>
+    <string name="device_id">Device Id</string>
+    <string name="apk_on_device">APK ON DEVICE</string>
+    <string name="version_name">Version Name</string>
+    <string name="xxxxxx_xxxxxxxx">XXXXXX-XXXXXXXX</string>
+    <string name="dttitle">DTTitle</string>
+    <string name="wealth_rank">Wealth Rank</string>
+    <string name="existing_group">Existing Group</string>
+    <string name="search_table">Search Table</string>
+    <string name="dynamic_table">Dynamic Table</string>
+    <string name="layr3_name">LayR3 Name</string>
+    <string name="country">Country</string>
+    <string name="training_n_activity">Training N Activity</string>
+    <string name="dynamic_data">Dynamic Data</string>
+    <string name="summary">Summary</string>
+    <string name="gps">GPS</string>
+    <string name="distribution">Distribution</string>
+    <string name="service">Service</string>
+    <string name="card_request">Card Request</string>
+    <string name="graduation">Graduation</string>
+    <string name="assign">Assign</string>
+    <string name="registration">Registration</string>
+    <string name="training_amp_activity"><![CDATA[Training & Activity]]></string>
+    <string name="search_event_name">Search Event Name</string>
+    <string name="id_type">ID type</string>
+    <string name="beneficiary_card">Beneficiary Card</string>
+    <string name="national_id_card">National ID Card</string>
+    <string name="email_address">Email address</string>
+    <string name="cell_phone">Cell Phone</string>
+    <string name="licence">Licence</string>
+    <string name="name_village">Name Village</string>
+    <string name="_010203040000601">010203040000601</string>
+    <string name="position">Position</string>
+    <string name="organization">Organization</string>
+    <string name="participant_name">Participant Name</string>
+    <string name="search_id_or_name">Search ID or Name</string>
+</resources>

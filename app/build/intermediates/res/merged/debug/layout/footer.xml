@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Footer aligned to bottom -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/btnRegisterFooter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_style"
+            android:text="@string/title_register"
+            android:textColor="@color/green"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/btnHomeFooter"
+            style="@style/Home_icon_button"
+     />
+
+        <!--  previous state of global home button  -->
+
+        <!--      <Button
+                  android:textStyle="bold"
+                  android:id="@+id/btnHomeFooter"
+                  android:layout_width="0dp"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:text="@string/btnHomeLabel"
+                  android:background="@drawable/button_style"
+                  android:textColor="@color/green"
+                  android:textSize="15sp" />-->
+
+    </LinearLayout>
+
+
+</RelativeLayout>

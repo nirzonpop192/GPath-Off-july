@@ -1,0 +1,341 @@
+-injars 'D:\WorkSpace\AndroidStudioProject\May-2017\GPath-OffLine\GPath-OffLine\app\build\intermediates\transforms\jarMerging\debug\jars\1\1f\combined.jar'
+-outjars 'D:\WorkSpace\AndroidStudioProject\May-2017\GPath-OffLine\GPath-OffLine\app\build\intermediates\multi-dex\debug\componentClasses.jar'
+
+-libraryjars 'D:\Android\sdk\build-tools\23.0.3\lib\shrinkedAndroid.jar'
+
+-forceprocessing
+-dontoptimize
+-dontobfuscate
+-dontusemixedcaseclassnames
+-dontpreverify
+-dontnote **,com.android.tools.fd.**,android.support.multidex.MultiDexExtractor
+-dontwarn **
+-printconfiguration 'D:\WorkSpace\AndroidStudioProject\May-2017\GPath-OffLine\GPath-OffLine\app\build\intermediates\multi-dex\debug\components.flags'
+
+
+-keep class com.siddiquinoor.restclient.controller.AppController {
+    <init>();
+    void attachBaseContext(android.content.Context);
+}
+
+-keep class com.siddiquinoor.restclient.activity.MainActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.LoginActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.Register {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SumRegLay4TotalHHRecords {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.RegisterRecordView {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.ViewRecordDetail {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.register_sub.RegisterMember {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.ServiceActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.gps_sub.MapActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.SummaryMenuActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SumSrvOrDistCriteria {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.OldAssignActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceRecordDetails {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SumSrvOrDistAttendance {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.DistributionAttendanceActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.GraduationActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.mchn.LM {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.mchn.PW {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.mchn.CU2 {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.mchn.CA2 {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.RegisterLiberia {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.graduation_sub.GraduationUpdate {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryAssignCriteria {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryAssignBaseCriteria {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.CardRequestActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.register_sub.RegisterMemberLiberia {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.garbage.AssignForLiberia {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.DistributionActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.peer.AssignForLiberiaAIV {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.peer.AssignForLiberiaCFW {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.peer.AssignForLiberiaUCT {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.agr.AGR {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceVoucherDetails {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.dist_sub.DistrubutionVoucherActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.ServiceSummaryMenu {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.DistributionSummaryMenu {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemize {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemizeAttendance {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceSpecification {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.gps_sub.PointAttributes {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.GPSLocationSearchPage {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.MemberSearchPage {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.AssignActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.ddr.FFA {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.ddr.AssignForDDRMalwaiVUL {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.GroupSearchPage {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.commu_group_sub.CommunityGroupNDetailsRecodes {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.GroupSummary {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.GroupMemberSummary {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.DynamicTable {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DTResponseActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DTResponseRecordingActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DT_ReportActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.TrainingActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.training.IdTypeSelection {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.training.TABeneficiaryCardListActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.training.AddTaParticipaintActivity {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.training.TaSummaryPage {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.FileExploerActivity {
+    <init>();
+}
+
+-keep class com.google.zxing.client.android.CaptureActivity {
+    <init>();
+}
+
+-keep class com.google.android.gms.ads.AdActivity {
+    <init>();
+}
+
+-keep class com.google.android.gms.ads.purchase.InAppPurchaseActivity {
+    <init>();
+}
+
+-keep class com.google.android.gms.common.api.GoogleApiActivity {
+    <init>();
+}
+
+-keep class com.google.firebase.provider.FirebaseInitProvider {
+    <init>();
+}
+
+-keep class com.google.android.gms.appinvite.PreviewActivity {
+    <init>();
+}
+
+-keep class com.google.android.gms.auth.api.signin.internal.SignInHubActivity {
+    <init>();
+}
+
+-keep class com.google.android.gms.auth.api.signin.RevocationBoundService {
+    <init>();
+}
+
+-keep class com.google.firebase.iid.FirebaseInstanceIdReceiver {
+    <init>();
+}
+
+-keep class com.google.firebase.iid.FirebaseInstanceIdInternalReceiver {
+    <init>();
+}
+
+-keep class com.google.firebase.iid.FirebaseInstanceIdService {
+    <init>();
+}
+
+-keep class com.google.firebase.crash.internal.service.FirebaseCrashReceiverService {
+    <init>();
+}
+
+-keep class com.google.firebase.crash.internal.service.FirebaseCrashSenderService {
+    <init>();
+}
+
+-keep class com.google.android.gms.measurement.AppMeasurementReceiver {
+    <init>();
+}
+
+-keep class com.google.android.gms.measurement.AppMeasurementService {
+    <init>();
+}
+
+-keep class com.google.firebase.messaging.FirebaseMessagingService {
+    <init>();
+}
+
+-keep class com.google.android.gms.tagmanager.TagManagerService {
+    <init>();
+}
+
+-keep class com.google.android.gms.tagmanager.TagManagerPreviewActivity {
+    <init>();
+}
+
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.android.tools.fd.** {
+    <fields>;
+    <methods>;
+}

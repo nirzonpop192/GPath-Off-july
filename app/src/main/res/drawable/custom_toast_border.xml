@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke
+        android:width="@dimen/toast_stroke_width"
+        android:color="@color/toast_stroke_color" />
+    <padding
+        android:bottom="@dimen/toast_padding_7dp"
+        android:left="@dimen/toast_padding_7dp"
+        android:right="@dimen/toast_padding_7dp"
+        android:top="@dimen/toast_padding_7dp" />
+    <corners android:radius="@dimen/toast_corners_radius" />
+    <gradient
+        android:angle="90"
+        android:endColor="@color/toast_gradient_end_col"
+        android:startColor="@color/toast_gradient_start_col" />
+
+</shape><!--
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+</selector>-->

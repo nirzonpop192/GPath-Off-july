@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siddiquinoor.restclient.activity.SummaryMenuActivity">
+
+    <include layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+            style="@style/page_title_style"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/txt_title_summaryOp"
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="@dimen/abc_text_size_large_material" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/page_title"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/l_pad_15"
+        android:paddingRight="@dimen/l_pad_15"
+
+        android:paddingTop="@dimen/l_pad_15">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp">
+
+            <RadioButton
+                android:id="@+id/rbtn_household_samm"
+                style="@style/radio_btn"
+                android:text="Registration" />
+            <!--  <RadioButton
+                  style="@style/radio_btn"
+                  android:id="@+id/rbtn_criteria_samm"
+                  android:text="@string/btn_Criteria_label"
+                   />-->
+
+
+            <RadioButton
+                android:id="@+id/rbtn_Assign_summary"
+                style="@style/radio_btn"
+                android:text="@string/label_assign_summary" />
+            <RadioButton
+                android:id="@+id/rbtn_Group_summary"
+                style="@style/radio_btn"
+                android:text="@string/group" />
+
+            <RadioButton
+                android:id="@+id/rbtn_service_samm"
+                style="@style/radio_btn"
+                android:text="@string/btn_ServiceLabel" />
+
+            <RadioButton
+                android:id="@+id/rbtn_distribution_samm"
+                style="@style/radio_btn"
+                android:text="@string/btn_Distribution_label" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <include layout="@layout/footer" />
+</RelativeLayout>

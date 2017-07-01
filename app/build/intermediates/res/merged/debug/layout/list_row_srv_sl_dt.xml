@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_srv_sl_no"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="0dp"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="SL"
+            android:textSize="@dimen/abc_text_size_menu_material" />
+
+
+        <TextView
+            android:id="@+id/tv_srv_date"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_srv_sl_no"
+            android:padding="10dp"
+
+            android:text="Date"
+            android:textSize="@dimen/abc_text_size_menu_material" />
+
+        <TextView
+            android:id="@+id/tv_srv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_toRightOf="@+id/tv_srv_date"
+            android:layout_toEndOf="@+id/tv_srv_date"
+            android:layout_toStartOf="@+id/delete_srv_member_sl"
+            android:layout_toLeftOf="@+id/delete_srv_member_sl"
+
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+
+            android:text="Status"
+            android:textSize="@dimen/abc_text_size_menu_material" />
+
+        <ImageButton
+
+            android:id="@+id/delete_srv_member_sl"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_action_cancel" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2">
+
+
+        </LinearLayout>
+
+
+        <!--   inner comments no need this component
+         <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/servicedHolderDataView"
+                android:src="@drawable/ic_action_person"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@+id/edit_service_holder"
+                android:layout_toStartOf="@+id/edit_service_holder" />
+    -
+            -->
+
+    </RelativeLayout>
+
+    <!-- <TextView
+
+         android:layout_marginLeft="18dp"
+       android:layout_alignParentLeft="true"
+         android:layout_alignParentStart="true"
+         android:layout_alignParentTop="true"
+
+         android:id="@+id/as_row_hhId"
+         android:hint="000031"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:textSize="@dimen/title"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical" />
+     -  inner comments no need this component
+     <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="fill_parent"
+          android:layout_marginLeft="10dp"
+          android:layout_toRightOf="@+id/customId"
+          android:layout_toEndOf="@+id/customId"
+          android:layout_toStartOf="@+id/houseHoldDataView"
+          android:layout_toLeftOf="@+id/houseHoldDataView">
+          <TextView
+              android:id="@+id/hh_name"
+              android:hint="Name"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:textSize="@dimen/title"
+
+              android:layout_toRightOf="@+id/customId"
+              android:layout_centerVertical="true"
+              android:gravity="center_vertical"
+              android:layout_toStartOf="@+id/tv_criteriaView"
+              android:layout_toLeftOf="@+id/tv_criteriaView" />
+
+
+          <TextView
+              android:id="@+id/tv_criteriaView"
+              android:hint="Criteria"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:textSize="@dimen/title"
+              android:layout_marginLeft="50dp"
+              android:layout_toRightOf="@+id/hh_name"
+              android:layout_centerVertical="true"
+              android:gravity="center_vertical"
+              android:layout_toStartOf="@+id/houseHoldDataView"
+              android:layout_toLeftOf="@+id/houseHoldDataView" />
+      </LinearLayout>-->
+    <!--  inner comments no need this component
+    <TextView
+         android:id="@+id/hh_name"
+         android:hint="Name"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:textSize="@dimen/title"
+         android:layout_marginLeft="15dp"
+         android:layout_toRightOf="@+id/customId"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical"
+         android:layout_toStartOf="@+id/tv_criteriaView"
+         android:layout_toLeftOf="@+id/tv_criteriaView" />
+
+
+     <TextView
+         android:id="@+id/tv_criteriaView"
+         android:hint="Criteria"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:textSize="@dimen/title"
+         android:layout_marginLeft="15dp"
+         android:layout_toRightOf="@+id/customId"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical"
+         android:layout_toStartOf="@+id/houseHoldDataView"
+         android:layout_toLeftOf="@+id/houseHoldDataView" />-->
+    <!--
+     <TextView
+         android:id="@+id/as_row_hh_mem_id"
+         android:hint="0025"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:layout_marginLeft="10dp"
+         android:textSize="@dimen/title"
+         android:layout_toRightOf="@+id/as_row_hhId"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical"
+         />
+     <TextView
+         android:id="@+id/as_row_mm_name"
+         android:hint="Name"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:textSize="@dimen/title"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical"
+         android:layout_toRightOf="@+id/as_row_hh_mem_id"
+         android:layout_toLeftOf="@+id/as_row_tv_assignView"
+         android:layout_toStartOf="@+id/as_row_tv_assignView"
+         android:layout_marginLeft="20dp"
+         android:layout_marginRight="20dp"/>
+
+     <TextView
+         android:id="@+id/as_row_tv_assignView"
+         android:hint="assignYN"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:textSize="@dimen/title"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical"
+         android:layout_marginRight="10dp"
+         android:layout_toLeftOf="@+id/edit_assign_holder" />
+
+ <!-   inner comments no need this component
+  <ImageView
+         android:layout_width="40dp"
+         android:layout_height="40dp"
+         android:id="@+id/servicedHolderDataView"
+         android:src="@drawable/ic_action_person"
+         android:layout_alignParentBottom="true"
+         android:layout_toLeftOf="@+id/edit_service_holder"
+         android:layout_toStartOf="@+id/edit_service_holder" />
+-
+     -->
+    <!--  <ImageButton
+          android:id="@+id/edit_assign_holder"
+          android:layout_height="40dp"
+          android:layout_width="40dp"
+          android:src="@drawable/ic_action_edit"
+          android:layout_alignParentTop="true"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentEnd="true" /> -->
+
+    <!--  inner comments no need this component
+    <ImageButton
+         android:id="@+id/delete_house_hold"
+         android:layout_height="40dp"
+         android:layout_width="40dp"
+         android:src="@drawable/ic_action_cancel"
+         android:layout_alignParentTop="true"
+         android:layout_alignParentRight="true"
+         android:layout_alignParentEnd="true" /> -->
+
+
+</LinearLayout><!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1.2"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            >
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+
+                android:text="SL"
+                android:textSize="@dimen/abc_text_size_menu_material"
+                android:id="@+id/tv_srv_sl_no"
+                android:padding="10dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="match_parent"
+
+            >
+            <TextView
+                android:id="@+id/tv_srv_date"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Date"
+                android:textSize="@dimen/abc_text_size_menu_material"
+
+                android:layout_marginLeft="0dp"
+                android:padding="10dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            >
+            <TextView
+                android:id="@+id/tv_srv_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+
+                android:text="Status"
+                android:textSize="@dimen/abc_text_size_menu_material"
+                android:padding="10dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            >
+            <ImageButton
+
+                android:id="@+id/delete_srv_member_sl"
+                android:layout_height="40dp"
+                android:layout_width="40dp"
+                android:src="@drawable/ic_action_cancel"
+                android:layout_gravity="center_horizontal"
+                 />
+        </LinearLayout>
+
+
+        &lt;!&ndash;   inner comments no need this component
+         <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/servicedHolderDataView"
+                android:src="@drawable/ic_action_person"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@+id/edit_service_holder"
+                android:layout_toStartOf="@+id/edit_service_holder" />
+    -
+            &ndash;&gt;
+
+    </LinearLayout>
+
+    &lt;!&ndash; <TextView
+
+         android:layout_marginLeft="18dp"
+       android:layout_alignParentLeft="true"
+         android:layout_alignParentStart="true"
+         android:layout_alignParentTop="true"
+
+         android:id="@+id/as_row_hhId"
+         android:hint="000031"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:textSize="@dimen/title"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical" />
+     -  inner comments no need this component
+     <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="fill_parent"
+          android:layout_marginLeft="10dp"
+          android:layout_toRightOf="@+id/customId"
+          android:layout_toEndOf="@+id/customId"
+          android:layout_toStartOf="@+id/houseHoldDataView"
+          android:layout_toLeftOf="@+id/houseHoldDataView">
+          <TextView
+              android:id="@+id/hh_name"
+              android:hint="Name"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:textSize="@dimen/title"
+
+              android:layout_toRightOf="@+id/customId"
+              android:layout_centerVertical="true"
+              android:gravity="center_vertical"
+              android:layout_toStartOf="@+id/tv_criteriaView"
+              android:layout_toLeftOf="@+id/tv_criteriaView" />
+
+
+          <TextView
+              android:id="@+id/tv_criteriaView"
+              android:hint="Criteria"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:textSize="@dimen/title"
+              android:layout_marginLeft="50dp"
+              android:layout_toRightOf="@+id/hh_name"
+              android:layout_centerVertical="true"
+              android:gravity="center_vertical"
+              android:layout_toStartOf="@+id/houseHoldDataView"
+              android:layout_toLeftOf="@+id/houseHoldDataView" />
+      </LinearLayout>&ndash;&gt;
+    &lt;!&ndash;  inner comments no need this component
+    <TextView
+         android:id="@+id/hh_name"
+         android:hint="Name"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:textSize="@dimen/title"
+         android:layout_marginLeft="15dp"
+         android:layout_toRightOf="@+id/customId"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical"
+         android:layout_toStartOf="@+id/tv_criteriaView"
+         android:layout_toLeftOf="@+id/tv_criteriaView" />
+
+
+     <TextView
+         android:id="@+id/tv_criteriaView"
+         android:hint="Criteria"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:textSize="@dimen/title"
+         android:layout_marginLeft="15dp"
+         android:layout_toRightOf="@+id/customId"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical"
+         android:layout_toStartOf="@+id/houseHoldDataView"
+         android:layout_toLeftOf="@+id/houseHoldDataView" />&ndash;&gt;
+    &lt;!&ndash;
+     <TextView
+         android:id="@+id/as_row_hh_mem_id"
+         android:hint="0025"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:layout_marginLeft="10dp"
+         android:textSize="@dimen/title"
+         android:layout_toRightOf="@+id/as_row_hhId"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical"
+         />
+     <TextView
+         android:id="@+id/as_row_mm_name"
+         android:hint="Name"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:textSize="@dimen/title"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical"
+         android:layout_toRightOf="@+id/as_row_hh_mem_id"
+         android:layout_toLeftOf="@+id/as_row_tv_assignView"
+         android:layout_toStartOf="@+id/as_row_tv_assignView"
+         android:layout_marginLeft="20dp"
+         android:layout_marginRight="20dp"/>
+
+     <TextView
+         android:id="@+id/as_row_tv_assignView"
+         android:hint="assignYN"
+         android:layout_width="wrap_content"
+         android:layout_height="fill_parent"
+         android:textSize="@dimen/title"
+         android:layout_centerVertical="true"
+         android:gravity="center_vertical"
+         android:layout_marginRight="10dp"
+         android:layout_toLeftOf="@+id/edit_assign_holder" />
+
+ <!-   inner comments no need this component
+  <ImageView
+         android:layout_width="40dp"
+         android:layout_height="40dp"
+         android:id="@+id/servicedHolderDataView"
+         android:src="@drawable/ic_action_person"
+         android:layout_alignParentBottom="true"
+         android:layout_toLeftOf="@+id/edit_service_holder"
+         android:layout_toStartOf="@+id/edit_service_holder" />
+-
+     &ndash;&gt;
+    &lt;!&ndash;  <ImageButton
+          android:id="@+id/edit_assign_holder"
+          android:layout_height="40dp"
+          android:layout_width="40dp"
+          android:src="@drawable/ic_action_edit"
+          android:layout_alignParentTop="true"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentEnd="true" /> &ndash;&gt;
+
+    &lt;!&ndash;  inner comments no need this component
+    <ImageButton
+         android:id="@+id/delete_house_hold"
+         android:layout_height="40dp"
+         android:layout_width="40dp"
+         android:src="@drawable/ic_action_cancel"
+         android:layout_alignParentTop="true"
+         android:layout_alignParentRight="true"
+         android:layout_alignParentEnd="true" /> &ndash;&gt;
+
+
+</LinearLayout>-->

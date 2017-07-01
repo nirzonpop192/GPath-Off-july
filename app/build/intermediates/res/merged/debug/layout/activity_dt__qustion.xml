@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".activity.sub_activity.dynamic_table.DTResponseRecordingActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+
+        <TextView
+            style="@style/page_title_style"
+            android:text="@string/dt_response_title" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_DtQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/page_title"
+        android:padding="10dp"
+        android:text="Qus"
+        android:textColor="@color/blue_dark"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:padding="5dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_DtQuestion"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_dtTimePicker"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="Click for Date"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/edt_dt"
+            style="@style/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Input"
+            android:padding="10dp"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/dt_sp"
+            style="@style/spinner_style" />
+
+        <ImageView
+            android:id="@+id/dt_iv_photo"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/cam" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_DtQuestion"
+
+
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_nextO_preview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ll_checkBox"
+        android:orientation="vertical">
+
+    </RadioGroup>
+    <!--    EDIT_TEXT & Radio Button -->
+    <LinearLayout
+        android:id="@+id/ll_radioGroupAndEditText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_CheckBoxAndEditTextParent"
+        android:layout_below="@+id/ll_checkBox"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/radioGroupForRadioAndEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:inputType="number"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <!--CheckBox Edit Tex-->
+
+    <LinearLayout
+        android:id="@+id/ll_CheckBoxAndEditTextParent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_nextO_preview"
+        android:layout_below="@+id/tv_DtQuestion"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+        <LinearLayout
+            android:id="@+id/ll_checkBoxAndEditTextCheckbox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/et_CheckBoxAndEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:inputType="number"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+  <!--  <LinearLayout
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:layout_above="@id/ll_nextO_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ToggleButton
+
+            android:id="@+id/toggleButton"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+
+            android:background="@drawable/toggole_selector"
+            android:checked="false"
+
+            android:text=""
+            android:textOff=""
+            android:textOn="" />
+    </LinearLayout>-->
+
+
+
+    <LinearLayout
+
+        android:id="@+id/ll_nextO_preview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/footer"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/btn_dt_preview"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_style"
+            android:text="prew"
+            android:textColor="@color/green"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        <ToggleButton
+
+            android:id="@+id/toggBtn_freezNUnfeez"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+
+            android:background="@drawable/toggole_selector"
+            android:checked="false"
+
+            android:text=""
+            android:textOff=""
+            android:textOn="" />
+
+
+        <Button
+            android:id="@+id/btn_dt_next"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_style"
+            android:text="next"
+            android:textColor="@color/green"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+</RelativeLayout>

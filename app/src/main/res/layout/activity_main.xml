@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="com.siddiquinoor.restclient.activity.MainActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <LinearLayout
+        android:id="@+id/welcome_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:background="#FFFFFF"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="Welcome"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:text="fullName"
+                android:textColor="#333333"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollableContents"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/welcome_message"
+        android:background="#FFFFFF">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="40dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp">
+            <!-- load Country section
+             IF ANNY THING GOES WRONG COMMENT THE BELO LINE-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/country"
+                    android:textSize="15dp" />
+
+
+                <Spinner
+                    android:id="@+id/spDCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|right"
+                    android:layout_marginLeft="50dp"
+                    android:background="#FFFFFF"
+                    android:drawSelectorOnTop="true"
+                    android:padding="2dp"
+
+                    android:textColor="#939393" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".55"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="left"
+                        android:text="ACTIVITY"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+
+                    <Button
+                        android:id="@+id/btnGroup"
+                        style="@style/btn_main_page"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+
+                        android:drawableLeft="@drawable/group_unite"
+                        android:drawableStart="@drawable/group_unite"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="  Group" />
+
+                    <Button
+                        android:id="@+id/btnNewReg"
+                        style="@style/btn_main_page"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+
+                        android:drawableLeft="@drawable/registration"
+                        android:drawableStart="@drawable/registration"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+
+                        android:text="@string/registration" />
+
+                    <Button
+                        android:id="@+id/btnAssinge"
+                        style="@style/btn_main_page"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+
+                        android:drawableLeft="@drawable/assign"
+                        android:drawableStart="@drawable/assign"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/assign" />
+
+                    <Button
+                        android:id="@+id/btnGraduation"
+                        style="@style/btn_main_page"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+
+                        android:drawableLeft="@drawable/exit"
+                        android:drawableStart="@drawable/exit"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/graduation" />
+
+                    <Button
+                        android:id="@+id/btnCardRequest"
+                        style="@style/btn_main_page"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+
+                        android:drawableLeft="@drawable/card_request"
+                        android:drawableStart="@drawable/card_request"
+
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/card_request" />
+
+                    <Button
+                        android:id="@+id/btnService"
+                        style="@style/btn_main_page"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+
+                        android:drawableLeft="@drawable/service"
+                        android:drawableStart="@drawable/service"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/service" />
+
+                    <Button
+                        android:id="@+id/btnDistribution"
+                        style="@style/btn_main_page"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+
+                        android:drawableLeft="@drawable/distribution"
+                        android:drawableStart="@drawable/distribution"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/distribution" />
+
+                    <Button
+                        android:id="@+id/btnGPS"
+                        style="@style/btn_main_page"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+
+                        android:drawableLeft="@drawable/map_btn_icon"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/gps" />
+
+
+                    <Button
+                        android:id="@+id/btnSummaryReport"
+                        style="@style/btn_main_page"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+
+                        android:drawableLeft="@drawable/summession_b"
+                        android:drawableStart="@drawable/summession_b"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/summary" />
+
+
+                    <Button
+                        android:id="@+id/btnDynamicData"
+                        style="@style/btn_main_page"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+
+                        android:drawableLeft="@drawable/dynamic_icon_42"
+                        android:drawableStart="@drawable/dynamic_icon_42"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingStart="5dp"
+                        android:text="@string/dynamic_data" />
+
+                    <Button
+                        android:id="@+id/btnTrainingActivity"
+                        style="@style/btn_main_page"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+
+                        android:drawableLeft="@drawable/training_activity_2"
+                        android:drawableStart="@drawable/training_activity_2"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="@string/training_n_activity" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight=".45"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="10dp"
+                        android:text="@string/apk_on_device"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/device_id"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_deviceId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/xxxxxx_xxxxxxxx" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/version_name"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/log_in_version_lable" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+
+                        android:gravity="center_horizontal"
+                        android:text="@string/labe_op_mode"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_operation_mode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_horizontal"
+                        android:text="" />
+
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/label_geo_data"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+
+                        android:id="@+id/tv_geo_data_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="450dp"
+                        android:layout_marginTop="5dp"
+                        android:fadeScrollbars="false"
+                        android:gravity="center_horizontal"
+                        android:maxLines="300"
+                        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+                        android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track"
+                        android:scrollbars="vertical"
+                        android:text="@string/xxxxxx_xxxxxxxx" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/label_last_sync"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_last_sync"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_horizontal"
+                        android:text="N/A" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_horizontal"
+                        android:text="Sync Required"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_sync_required"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_horizontal"
+                        android:text="" />
+
+
+                    <Button
+                        android:id="@+id/btnRestoreDB"
+                        style="@style/btn_main_page"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="30dp"
+                        android:drawableLeft="@drawable/database_import_32"
+                        android:drawableStart="@drawable/database_import_32"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="  Restore DB" />
+
+                    <Button
+                        android:id="@+id/btnImport"
+                        style="@style/btn_main_page"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="30dp"
+                        android:drawableLeft="@drawable/database_import_32"
+                        android:drawableStart="@drawable/database_import_32"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingStart="15dp"
+                        android:text="  Import DB" />
+
+                    <Button
+                        android:id="@+id/btnEXTDB"
+                        style="@style/btn_main_page"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="30dp"
+                        android:drawableLeft="@drawable/database_import_32"
+                        android:drawableStart="@drawable/database_import_32"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:text="  EXPORT DB" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <Button
+                    android:id="@+id/btnSyncRecord"
+                    style="@style/btn_sync"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight=".55"
+                    android:drawableLeft="@drawable/sync"
+                    android:drawableStart="@drawable/sync"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:text="  SYNC"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    style="@style/btn_logout"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight=".45"
+                    android:drawableLeft="@drawable/logout"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="92dp"
+                    android:text="  Logout"
+
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

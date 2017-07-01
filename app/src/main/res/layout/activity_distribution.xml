@@ -1,0 +1,226 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.siddiquinoor.restclient.activity.DistributionActivity">
+
+    <!-- Header aligned to top -->
+    <include layout="@layout/header" />
+    <!-- PAGE TITLE-->
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+
+        <TextView
+            android:id="@+id/tv_ass_page2Title"
+
+            style="@style/page_title_style"
+
+            android:text="@string/btn_distributionLable"
+
+            />
+
+
+    </RelativeLayout>
+    <!-- END OF PAGE TITLE -->
+
+    <ScrollView
+        android:id="@+id/distcView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/page_title"
+        android:fadeScrollbars="false"
+        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track"
+        >
+
+        <!-- VIEW CONTROLLER LAYOUT -->
+        <LinearLayout
+            android:id="@+id/ll_details"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+
+            <!-- Award list spinner-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".7"
+                    android:orientation="vertical">
+
+                    <TextView
+
+                        style="@style/txt_label"
+                        android:text="@string/award_label" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Type " />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Program " />
+
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Service" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="Distribution" />
+
+                    <TextView
+                        android:id="@+id/tv_layR2Label"
+                        style="@style/txt_label"
+                        android:text="District" />
+
+                    <TextView
+                        style="@style/txt_label"
+                        android:text="FDP" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".2"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/sp_dist_awardList"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent" />
+
+                    <Spinner
+                        android:id="@+id/sp_dist_Type"
+                        style="@style/spinner_style" />
+
+                    <Spinner
+                        android:id="@+id/sp_dist_Program"
+                        style="@style/spinner_style" />
+
+                    <Spinner
+                        android:id="@+id/sp_dis_ServiceMonth"
+                        style="@style/spinner_style" />
+
+                    <Spinner
+                        android:id="@+id/sp_dis_DistributionMonth"
+                        style="@style/spinner_style" />
+
+                    <Spinner
+                        android:id="@+id/sp_dis_upzellla"
+                        style="@style/spinner_style" />
+
+                    <Spinner
+                        android:id="@+id/sp_dis_FDPoint"
+                        style="@style/spinner_style" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- search id field -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/btn_distribution_search"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="@dimen/l_pad_15"
+
+                    android:background="@drawable/search_20_20"
+                    android:padding="5dp" />
+
+                <EditText
+                    android:id="@+id/edt_dist_memberSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/btn_dist_qr"
+
+                    android:background="@drawable/edit_box_background"
+                    android:hint="Search Member ID"
+                    android:padding="5dp"
+                    android:layout_toRightOf="@+id/btn_distribution_search"
+                    android:layout_toEndOf="@+id/btn_distribution_search" />
+
+                <!-- ne w search button -->
+
+
+                <Button
+                    android:id="@+id/btn_dist_qr"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/qr_code"
+                    android:padding="5dp" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <!-- END OF VIEW CONTROLLER LAYOUT -->
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/lv_dist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_buttonlayer"
+        android:layout_below="@+id/distcView"
+        android:fadeScrollbars="false"
+        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+        android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track"
+
+        />
+
+    <!-- Save Button -->
+
+    <LinearLayout
+        android:id="@+id/ll_buttonlayer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:gravity="bottom">
+
+
+        <Button
+            android:id="@+id/btn_dist_save"
+
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="@string/btn_label_submit"
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <include layout="@layout/footer" />
+
+</RelativeLayout>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DTResponseActivity">
+    <!-- Header aligned to top -->
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+
+        <TextView
+
+            style="@style/page_title_style"
+
+            android:text="@string/dt_response_title" />
+
+
+    </RelativeLayout>
+
+    <!--vIEW CONTROLLER LAYOUT -->
+
+    <LinearLayout
+        android:id="@+id/ll_details"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/page_title"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+
+        <!-- Award list spinner-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:orientation="vertical">
+
+
+                <TextView
+                    style="@style/txt_label"
+                    android:text="Table Name" />
+
+                <TextView
+                    style="@style/txt_label"
+                    android:text="@string/award_label" />
+
+                <TextView
+                    style="@style/txt_label"
+                    android:text="Program" />
+
+                <TextView
+                    style="@style/txt_label"
+                    android:text="Activity Title" />
+
+                <TextView
+                    style="@style/txt_label"
+                    android:text="Month" />
+
+                <TextView
+                    style="@style/txt_label"
+                    android:text="Date" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/sp_dtResponse_table_name"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent" />
+
+
+                <Spinner
+                    android:id="@+id/sp_dtResponse_award"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent" />
+
+                <Spinner
+                    android:id="@+id/sp_dtResponse_program"
+                    style="@style/spinner_style" />
+
+                <TextView
+                    android:id="@+id/tv_dtResponse_activity_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ass_spinner_height"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/edit_box_background"
+                    android:drawSelectorOnTop="true"
+                    android:hint="name"
+                    android:padding="10dp"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/dark_black" />
+
+                <Spinner
+                    android:id="@+id/sp_dtMonth"
+                    style="@style/spinner_style" />
+
+                <TextView
+                    android:id="@+id/txt_dtResponse_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ass_spinner_height"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/edit_box_background"
+                    android:drawSelectorOnTop="true"
+                    android:hint="00.00.0000"
+                    android:padding="10dp"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/dark_black" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <!-- title of list view  -->
+    <LinearLayout
+        android:id="@+id/table_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/ll_details"
+        android:background="#627C9F"
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
+
+
+
+
+    <!-- Search Button -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/lv_assign">
+
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+
+
+</RelativeLayout>

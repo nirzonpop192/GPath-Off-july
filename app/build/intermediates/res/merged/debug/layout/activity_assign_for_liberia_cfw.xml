@@ -1,0 +1,374 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.assign_program.AssignPage2">
+    <!--
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+     android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+android:paddingBottom="@dimen/activity_vertical_margin"
+-->
+    <!-- Header aligned to top -->
+    <include layout="@layout/header" />
+    <RelativeLayout
+        android:layout_below="@+id/header"
+        android:id="@+id/page_title"
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            android:text="Assign Criteia Liberia"
+            android:textSize="@dimen/abc_text_size_large_material"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:id="@+id/tv_ass_page2Title" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_below="@+id/page_title"
+        android:id="@+id/ll_details"
+        android:layout_width="fill_parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:orientation="vertical"
+
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:weightSum="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Lable side -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight=".2"
+                android:layout_height="wrap_content">
+                <TextView
+                    style="@style/lable_textView"
+                    android:text="HH Name :"/>
+                <TextView
+                    style="@style/lable_textView"
+                    android:text=" HH ID"/>
+
+                <TextView
+                    style="@style/lable_textView"
+                    android:text="MemberName"/>
+                <TextView
+                    style="@style/lable_textView"
+                    android:text="Member ID"/>
+                <TextView
+                    style="@style/lable_textView"
+                    android:text="Criteria"/>
+                <TextView
+                    style="@style/lable_textView"
+                    android:text="Reg Date"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight=".8"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/txt_assign_lib_HHName_cfw"
+                    style="@style/text_view"
+                    android:clickable="false"
+                    android:hint="House hold Name" />
+                <TextView
+                    android:id="@+id/txt_assign_lib_HHID_cfw"
+                    style="@style/text_view"
+                    android:clickable="false"
+                    android:hint="hhID"  />
+                <TextView
+                    android:id="@+id/txt_assign_lib_MemberName_cfw"
+                    style="@style/text_view"
+                    android:hint="MemberName"
+                    />
+                <TextView
+                    android:id="@+id/txt_assign_lib_MemberID_cfw"
+                    style="@style/text_view"
+                    android:hint="MemberID"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_assign_lib_Criteria_cfw"
+                    style="@style/text_view"
+                    android:hint="Criteria"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white"
+                    android:padding="10dp">
+
+
+                    <TextView
+                        android:id="@+id/txt_assign_lib_RegDate_cfw"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Date"
+                        android:textSize="14dp"
+                        android:hint="Registration Date"
+                        android:textColor="@color/black"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RadioGroup
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/choice_cfw">
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/evdAffectedHH_cfw"
+                                android:text="@string/evdaffectedhouseholds"
+                                />
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="false"
+                                android:id="@+id/ChFhEhDh_cfw"
+                                android:text="@string/ChFhEhDh"/>
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/a_cfw"
+                                android:singleLine="false"
+                                android:text="@string/a"/>
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/b_cfw"
+                                android:singleLine="false"
+                                android:text="@string/b"/>
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/c_cfw"
+                                android:singleLine="false"
+                                android:text="@string/c"/>
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/d_cfw"
+                                android:singleLine="false"
+                                android:text="@string/d"/>
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="false"
+                                android:id="@+id/e_cfw"
+                                android:text="@string/e"/>
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="false"
+                                android:text="@string/f"
+                                android:id="@+id/f_cfw"/>
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="false"
+                                android:text="@string/g"
+                                android:id="@+id/g_cfw"/>
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/h"
+                                android:singleLine="false"
+                                android:id="@+id/h_cfw"/>
+
+                        </RadioGroup>
+
+                    </RelativeLayout>
+                </ScrollView>
+
+
+                <!-- Criteria Details  -->
+
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+    <!-- title of list view  -->
+    <!--
+    <LinearLayout android:id="@+id/table_title"
+        android:layout_below="@+id/ll_controller"
+        android:layout_width="fill_parent"
+        android:background="#627C9F"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:text="HHId"
+                android:textSize="@dimen/abc_text_size_menu_material"
+                android:id="@+id/text_table"
+                android:padding="10dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="match_parent"
+
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Member Id"
+                android:textSize="@dimen/abc_text_size_menu_material"
+                android:textColor="@color/white"
+
+                android:layout_marginLeft="0dp"
+                android:padding="10dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:text="Name"
+                android:textSize="@dimen/abc_text_size_menu_material"
+
+                android:padding="10dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:text="Assign"
+                android:textSize="@dimen/abc_text_size_menu_material"
+
+                android:padding="10dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:text="Edit"
+                android:textSize="@dimen/abc_text_size_menu_material"
+
+                android:padding="10dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout> -->
+
+    <!--  <ListView
+          android:layout_below="@id/table_title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/lv_assign"
+          android:layout_centerVertical="true"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true" />-->
+
+
+    <!-- Save Button -->
+
+    <LinearLayout
+        android:layout_below="@+id/lv_assign"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:gravity="bottom"
+        >
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btn_assign_liberia_save_cfw"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="@string/btn_label_submit"
+            android:textSize="12dp"
+            android:background="@drawable/button_style_inner"
+            android:textColor="@color/green" />
+
+        <Button
+            android:id="@+id/btn_liberia_goAssignePage_cfw"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="@string/btn_AssignLabel"
+            android:textSize="12dp"
+            android:background="@drawable/button_style_inner"
+            android:textColor="@color/green"/>
+
+    </LinearLayout>
+    <include layout="@layout/footer" />
+    <!-- <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
+         android:layout_height="wrap_content" />-->
+
+</RelativeLayout>
+
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="com.siddiquinoor.restclient.activity.models.assign_sub.AssignChildenUnder2">
+
+        <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    -->

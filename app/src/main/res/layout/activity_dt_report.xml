@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DT_ReportActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <LinearLayout
+        android:id="@+id/llRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvDTTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/dttitle"
+            android:textSize="@dimen/dt_index_txt_size_22"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDTAward"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Award Name"
+            android:textSize="@dimen/dt_index_txt_size_22" />
+
+        <TextView
+            android:id="@+id/tvDTProgram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Program Name"
+            android:textSize="@dimen/dt_index_txt_size_22" />
+
+        <TextView
+            android:id="@+id/tvDTActivityTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ActivityTitle"
+            android:textSize="@dimen/dt_index_txt_size_22" />
+
+        <TextView
+            android:id="@+id/tvDTMonthTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Month"
+            android:textSize="@dimen/dt_index_txt_size_22" />
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llRow"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/ivLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_action_left" />
+
+        <TextView
+            android:id="@+id/tvSurveyNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/response_number"
+            android:textColor="@color/blue"
+            android:textSize="21sp" />
+
+        <ImageView
+            android:id="@+id/ivRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_action_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_above="@+id/footer"
+        android:layout_below="@+id/rlIndicator"
+        android:padding="10dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/line"
+            android:layout_marginBottom="5dp" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_above="@+id/ivDeleteSurvey"
+            android:layout_marginBottom="2dp"
+            android:background="@color/blue_dark" />
+
+        <ImageView
+            android:id="@+id/ivDeleteSurvey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:src="@drawable/delete" />
+
+
+    </RelativeLayout>
+
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+</RelativeLayout>

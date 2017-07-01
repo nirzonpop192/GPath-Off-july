@@ -1,0 +1,215 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siddiquinoor.restclient.activity.sub_activity.graduation_sub.GraduationUpdate">
+
+    <!-- Header aligned to top -->
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <RelativeLayout
+        android:id="@+id/page_title"
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <TextView
+            android:id="@+id/tv_ass_page2Title"
+            style="@style/page_title_style"
+
+            android:text="@string/tv_GraduationTitleLabel" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/page_title"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/txt_label"
+
+                android:text="@string/award_label" />
+            <TextView
+                style="@style/txt_label"
+
+                android:text="@string/program_label" />
+            <TextView
+                style="@style/txt_label"
+
+                android:text="Criteria" />
+            <TextView
+                style="@style/txt_label"
+
+                android:text="Village" />
+<!--
+            <TextView
+                style="@style/txt_label"
+
+                android:text="HH ID" />-->
+
+            <TextView
+                style="@style/txt_label"
+
+                android:text="Member ID" />
+            <TextView
+                style="@style/txt_label"
+
+                android:text="Member Name" />
+            <TextView
+                style="@style/txt_label"
+
+                android:text="Reason" />
+
+            <TextView
+                style="@style/txt_label"
+
+                android:text="Date" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".7"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_gradu_award"
+                style="@style/text_view"
+
+                android:hint="@string/award_label"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_gradu_Program"
+                style="@style/text_view"
+                android:clickable="false"
+                android:hint="@string/program_label"
+
+                />
+            <TextView
+                android:id="@+id/tv_gradu_Criteria"
+                style="@style/text_view"
+
+                android:hint="Criteria"
+
+                />
+            <TextView
+                android:id="@+id/tv_gradu_Village"
+                style="@style/text_view"
+
+                android:hint="Village"
+
+                />
+
+         <!--   <TextView
+                android:id="@+id/tv_gradu_hhID"
+                style="@style/text_view"
+                android:clickable="false"
+                android:hint="hhID"
+
+                />-->
+
+            <TextView
+                android:id="@+id/tv_gradu_MemberID"
+                style="@style/text_view"
+
+                android:hint="Member ID"
+
+                />
+            <TextView
+                android:id="@+id/tv_gradu_MemberName"
+                style="@style/text_view"
+
+                android:hint="MemberName"
+
+                />
+            <Spinner
+                android:id="@+id/spGraduationReason"
+                style="@style/spinner_style"
+
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/tv_gradu_GRDDate"
+                    style="@style/text_view"
+                    android:clickable="true"
+
+                    android:hint="Date" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+    <!-- Save Button -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:layout_below="@+id/lv_assign"
+        android:gravity="bottom">
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btn_Graduation_Save"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="@string/btn_label_submit"
+            android:textColor="@color/green"
+            android:textSize="12dp" />
+        <!-- Delete Button -->
+        <Button
+            android:id="@+id/btn_Graduation_Delete"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="Delete"
+            android:textColor="@color/green"
+            android:textSize="12dp" />
+
+ <!--       <Button
+            android:id="@+id/btn_Graduation_Search"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_style_inner"
+            android:text="Search"
+            android:textColor="@color/green"
+            android:textSize="12dp" />-->
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+
+
+</RelativeLayout>

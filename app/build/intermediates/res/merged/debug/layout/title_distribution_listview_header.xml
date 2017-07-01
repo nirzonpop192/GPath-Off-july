@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1"
+    android:background="#627C9F"
+    android:id="@+id/table_title"
+    tools:ignore="HardcodedText,ContentDescription">
+    <!-- title of list view  -->
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+
+        >
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.23"
+            android:weightSum="1">
+
+            <CheckBox
+                android:id="@+id/cb_DistributationCheckedAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/text_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="Id"
+
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size"
+
+                />
+        </LinearLayout>
+
+
+    <!--    <LinearLayout
+            android:id="@+id/ll_dist_tittleName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".36"
+            android:paddingLeft="25dp"
+
+            >-->
+
+            <TextView
+                android:id="@+id/tv_dist_tittle_rec"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:text="Recipient Name"
+                android:textColor="@color/white"
+                android:gravity="center"
+
+                android:textSize="@dimen/title_text_size"
+                android:layout_weight="0.04" />
+       <!-- </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="91dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="right"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Criteria"
+
+                android:textColor="@color/white"
+
+                android:textSize="@dimen/title_text_size" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".13"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+
+                android:text="Status"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:layout_weight=".5"
+                android:textSize="@dimen/title_text_size"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

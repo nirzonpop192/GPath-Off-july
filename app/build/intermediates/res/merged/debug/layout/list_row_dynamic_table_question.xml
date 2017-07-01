@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dt_qus_row_tv_dtQus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBottom="@+id/dt_q_row_ibtn_go"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/dt_q_row_ibtn_go"
+        android:layout_toStartOf="@+id/dt_q_row_ibtn_go"
+        android:gravity="center_vertical"
+        android:hint="DTTitle"
+        android:paddingTop="2dp"
+        android:textSize="18sp" />
+
+<!--    <ImageButton
+        android:id="@+id/dt_q_row_ibtn_go"
+
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentRight="true"
+        android:src="@drawable/goto_forward" />-->
+
+
+</RelativeLayout>
