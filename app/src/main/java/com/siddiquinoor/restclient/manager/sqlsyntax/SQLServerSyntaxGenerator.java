@@ -5294,16 +5294,34 @@ public class SQLServerSyntaxGenerator {
      *
      * @return store procedure of sql server DTShortName_Save
      */
-    public String sqlSpDTShortName_Save() {
-        return " DTShortName_Save "
-                + getDTBasic() + " , "
-                + getDtShortName() + " , " // table Name
-                + getAdmCountryCode() + " , "
-                + getAdmDonorCode() + " , "
-                + getAdmAwardCode() + " , "
-                + getAdmProgCode() + " , "
-                + getDTEnuID() + " , "
-                + getOpMonthCode();
+
+    /*
+    * ALTER proc [dbo].[DTShortNameDTRSeq_Save]
+(
+@DTBasic varchar(8),
+@TABLE_NAME varchar(100),
+@AdmCountryCode  varchar(4),
+@AdmDonorCode varchar(2),
+@AdmAwardCode varchar(2),
+@AdmProgCode varchar(3),
+@DTEnuID varchar(4),
+@OpMonthCode varchar(2),
+@DTRSeq int
+
+)
+    * */
+    public String DTShortNameDTRSeq_Save() {
+        return " DTShortNameDTRSeq_Save "
+                + getDTBasic()
+                + " , " + getDtShortName() // table Name
+                + " , " + getAdmCountryCode()
+                + " , " + getAdmDonorCode()
+                + " , " + getAdmAwardCode()
+                + " , " + getAdmProgCode()
+                + " , " + getDTEnuID()
+                + " , " + getOpMonthCode()
+                + " , " + getDTRSeq()
+                ;
     }
 
     private String getLTp2Hectres() {

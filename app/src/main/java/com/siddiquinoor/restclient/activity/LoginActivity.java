@@ -323,6 +323,12 @@ public class LoginActivity extends BaseActivity {
 
             File newDb = new File(path);
             if (newDb.exists()) {
+                /***
+                 *  here isValidLocalLogin() only use for to create PCI.db file in in
+                 *  package database folder . other wise the import db operation fails
+                 */
+                db.isValidLocalLogin("", "");
+
                 flag = db.importDatabase(path, LoginActivity.this);
                 File file = new File(path);                                                         // delete
                 file.delete();

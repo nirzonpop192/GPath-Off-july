@@ -1337,7 +1337,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
     /**
      * set thank you statements to user to understand end set survey
-     * use {@link SQLServerSyntaxGenerator#sqlSpDTShortName_Save()} sp
+     * use {@link SQLServerSyntaxGenerator#DTShortNameDTRSeq_Save()} sp
      */
     private void compilationFunctionNMessage() {
 
@@ -1356,7 +1356,8 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         mSyntaxGenerator.setAdmProgCode(dyIndex.getProgramCode());
         mSyntaxGenerator.setOpMonthCode(dyIndex.getOpMonthCode());
         mSyntaxGenerator.setDTEnuID(getStaffID());
-        sqlH.insertIntoUploadTable(mSyntaxGenerator.sqlSpDTShortName_Save());
+        mSyntaxGenerator.setDTRSeq(String.valueOf(mDTRSeq));
+        sqlH.insertIntoUploadTable(mSyntaxGenerator.DTShortNameDTRSeq_Save());
 
         Toast.makeText(mContext, "Saved Successfully ", Toast.LENGTH_SHORT).show();
 

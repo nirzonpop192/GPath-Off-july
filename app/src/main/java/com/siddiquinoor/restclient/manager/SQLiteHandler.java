@@ -85,6 +85,7 @@ import org.json.JSONArray;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1209,18 +1210,20 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         // database to internal storage.
         close();
         File newDb = new File(scrDBPath);
-        File oldDb = new File("/data/data/" + context.getPackageName() + "/databases/"
+        File packageDb = new File("/data/data/" + context.getPackageName() + "/databases/"
                 + DATABASE_NAME);
 
 //        File oldDbpath = new File("/data/data/" + context.getPackageName() + "/databases/");
 
 
         if (newDb.exists()) {
-            // // TODO: 6/29/2017  create driretories  for old drirectories
-      /*      if (!oldDbpath.exists())
-                oldDbpath.mkdirs();*/
+            // // TODO: 6/29/2017  create directories  for old directories
+            if (!packageDb.exists()) {
+                new SQLiteHandler(context);
+            }
 
-            FileUtils.copyFile(new FileInputStream(newDb), new FileOutputStream(oldDb));             // Access the copied database so SQLiteHelper will cache it and mark
+
+            FileUtils.copyFile(new FileInputStream(newDb), new FileOutputStream(packageDb));             // Access the copied database so SQLiteHelper will cache it and mark
 
 
             getWritableDatabase().close();                                                          // it as created.

@@ -1,5 +1,5 @@
--injars 'D:\WorkSpace\AndroidStudioProject\May-2017\GPath-OffLine\GPath-OffLine\app\build\intermediates\transforms\jarMerging\debug\jars\1\1f\combined.jar'
--outjars 'D:\WorkSpace\AndroidStudioProject\May-2017\GPath-OffLine\GPath-OffLine\app\build\intermediates\multi-dex\debug\componentClasses.jar'
+-injars 'D:\WorkSpace\AndroidStudioProject\july-2017\GPath-Off-july\app\build\intermediates\transforms\jarMerging\debug\jars\1\1f\combined.jar'
+-outjars 'D:\WorkSpace\AndroidStudioProject\july-2017\GPath-Off-july\app\build\intermediates\multi-dex\debug\componentClasses.jar'
 
 -libraryjars 'D:\Android\sdk\build-tools\23.0.3\lib\shrinkedAndroid.jar'
 
@@ -10,7 +10,7 @@
 -dontpreverify
 -dontnote **,com.android.tools.fd.**,android.support.multidex.MultiDexExtractor
 -dontwarn **
--printconfiguration 'D:\WorkSpace\AndroidStudioProject\May-2017\GPath-OffLine\GPath-OffLine\app\build\intermediates\multi-dex\debug\components.flags'
+-printconfiguration 'D:\WorkSpace\AndroidStudioProject\july-2017\GPath-Off-july\app\build\intermediates\multi-dex\debug\components.flags'
 
 
 -keep class com.siddiquinoor.restclient.controller.AppController {

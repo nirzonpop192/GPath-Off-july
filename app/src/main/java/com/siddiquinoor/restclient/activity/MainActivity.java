@@ -821,87 +821,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
 
 
-                /*publishProgress(++progressIncremental);
-                if (!jObj.isNull(Parser.REG_N_AGR_JSON_A)) {
 
-
-                    JSONArray reg_n_agr_tableDatas = jObj.getJSONArray(Parser.REG_N_AGR_JSON_A);
-                    size = reg_n_agr_tableDatas.length();
-                    for (int i = 0; i < size; i++) {
-                        JSONObject reg_n_agr_tableData = reg_n_agr_tableDatas.getJSONObject(i);
-                        AGR_DataModel data = new AGR_DataModel();
-                        data.setCountryCode(reg_n_agr_tableData.getString(Parser.ADM_COUNTRY_CODE));
-
-                        data.setDistrictCode(reg_n_agr_tableData.getString(Parser.LAY_R_1_LIST_CODE));
-                        data.setUpazillaCode(reg_n_agr_tableData.getString(Parser.LAY_R_2_LIST_CODE));
-                        data.setUnitCode(reg_n_agr_tableData.getString(Parser.LAY_R_3_LIST_CODE));
-                        data.setVillageCode(reg_n_agr_tableData.getString(Parser.LAY_R_4_LIST_CODE));
-                        data.setHhId(reg_n_agr_tableData.getString(Parser.HHID));
-
-                        data.setHhMemId(reg_n_agr_tableData.getString(Parser.MEM_ID));
-                        data.setRegnDate(reg_n_agr_tableData.getString(Parser.REG_N_DATE));
-                        data.setElderleyYN(reg_n_agr_tableData.getString(Parser.ELDERLY_YN));
-                        data.setLandSize(reg_n_agr_tableData.getString(Parser.LAND_SIZE));
-                        data.setDepenonGanyu(reg_n_agr_tableData.getString(Parser.DEPEND_ON_GANYU));
-                        data.setWillingness(reg_n_agr_tableData.getString(Parser.WILLINGNESS));
-                        data.setWinterCultivation(reg_n_agr_tableData.getString(Parser.WINTER_CULTIVATION));
-                        data.setVulnerableHh(reg_n_agr_tableData.getString(Parser.VULNERABLE_HH));
-                        data.setPlantingVcrop(reg_n_agr_tableData.getString(Parser.PLANTING_VALUE_CHAIN_CROP));
-
-
-                        String AGOINVC = reg_n_agr_tableData.getString("AGOINVC");
-                        String AGONASFAM = reg_n_agr_tableData.getString("AGONASFAM");
-                        String AGOCU = reg_n_agr_tableData.getString("AGOCU");
-                        String AGOOther = reg_n_agr_tableData.getString("AGOOther");
-                        int LSGoat = Integer.parseInt(reg_n_agr_tableData.getString("LSGoat"));
-                        int LSChicken = Integer.parseInt(reg_n_agr_tableData.getString("LSChicken"));
-                        int LSPigeon = Integer.parseInt(reg_n_agr_tableData.getString("LSPigeon"));
-                        int LSOther = Integer.parseInt(reg_n_agr_tableData.getString("LSOther"));
-
-
-                        db.addInRegNAgrTableFromOnline(data, AGOINVC, AGONASFAM, AGOCU, AGOOther, LSGoat, LSChicken, LSPigeon
-                                , LSOther);
-
-                    }
-                }*/
 
 
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull(Parser.REG_N_CT_JSON_A)) {
                     Parser.RegN_CTParser(jObj.getJSONArray(Parser.REG_N_CT_JSON_A), db);
                 }
-               /* publishProgress(++progressIncremental);
 
-
-                if (!jObj.isNull(Parser.REG_N_CT_JSON_A)) {
-                    JSONArray reg_n_ct_tableDatas = jObj.getJSONArray(Parser.REG_N_CT_JSON_A);
-                    size = reg_n_ct_tableDatas.length();
-                    for (int i = 0; i < size; i++) {
-                        JSONObject reg_n_ct_tableData = reg_n_ct_tableDatas.getJSONObject(i);
-                        CTDataModel data = new CTDataModel();
-                        data.setCountryCode(reg_n_ct_tableData.getString(Parser.ADM_COUNTRY_CODE));
-                        data.setDistrictCode(reg_n_ct_tableData.getString(Parser.LAY_R_1_LIST_CODE));
-                        data.setUpazillaCode(reg_n_ct_tableData.getString(Parser.LAY_R_2_LIST_CODE));
-                        data.setUnitCode(reg_n_ct_tableData.getString(Parser.LAY_R_3_LIST_CODE));
-                        data.setVillageCode(reg_n_ct_tableData.getString(Parser.LAY_R_4_LIST_CODE));
-                        data.setHhId(reg_n_ct_tableData.getString(Parser.HHID));
-                        data.setMemID(reg_n_ct_tableData.getString(Parser.MEM_ID));
-                        data.setC11CtPr(reg_n_ct_tableData.getString(Parser.C_11_CT_PR));
-                        data.setC21CtPr(reg_n_ct_tableData.getString(Parser.C_21_CT_PR));
-                        data.setC31CtPr(reg_n_ct_tableData.getString(Parser.C_31_CT_PR));
-                        data.setC32CtPr(reg_n_ct_tableData.getString(Parser.C_32_CT_PR));
-                        data.setC33CtPr(reg_n_ct_tableData.getString(Parser.C_33_CT_PR));
-                        data.setC34CtPr(reg_n_ct_tableData.getString(Parser.C_34_CT_PR));
-                        data.setC35CtPr(reg_n_ct_tableData.getString(Parser.C_35_CT_PR));
-                        data.setC36CtPr(reg_n_ct_tableData.getString(Parser.C_36_CT_PR));
-                        data.setC37CtPr(reg_n_ct_tableData.getString(Parser.C_37_CT_PR));
-                        data.setC38CtPr(reg_n_ct_tableData.getString(Parser.C_38_CT_PR));
-
-
-                        db.addMemIntoCT_Table(data);
-
-                    }
-                }*/
 
 
                 if (!jObj.isNull("reg_n_ffa")) {
