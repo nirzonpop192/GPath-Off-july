@@ -4038,8 +4038,7 @@ public class SQLiteQuery {
                         + ", " + DT_LUP_TABLE + "." + LIST_NAME_COL
                         + " FROM " + DT_LUP_TABLE
                         + " WHERE " + DT_LUP_TABLE + "." + ADM_COUNTRY_CODE_COL + "= '" + cCode + "' "
-                        + " AND " + DT_LUP_TABLE + "." + TABLE_NAME_COL + "= '" + lup_TableName + "'"
-                ;
+                        + " AND " + DT_LUP_TABLE + "." + TABLE_NAME_COL + "= '" + lup_TableName + "'";
 
 
                 break;
@@ -4103,7 +4102,8 @@ public class SQLiteQuery {
 
             case ORGANIZATION_LIST:
 
-                udf = "SELECT  progOR." + ORG_N_CODE_COL + ", pOrg." + ORGANIZATION_NAME + " " +
+                udf = "SELECT  progOR." + ORG_N_CODE_COL
+                        + ", pOrg." + ORGANIZATION_NAME + " " +
                         "                                FROM " + PROGRAM_ORGANIZATION_ROLE_TABLE + " AS progOR "
                         + "                               INNER JOIN " +
                         "                                " + PROGRAM_ORGANIZATION_NAME_TABLE + " AS pOrg " +
@@ -4193,11 +4193,14 @@ public class SQLiteQuery {
 
         }
 
-        //Log.d("toma", udf);
-        return udf;
-        // old method
 
-        /* String udf = "";
+        return udf;
+
+    }
+
+
+    public static String loadDynamicSpinnerValueInReport_sql(String cCode, String resLupText, String value) {
+        String udf = "";
 
         switch (resLupText) {
 
@@ -4206,7 +4209,10 @@ public class SQLiteQuery {
                 udf = "SELECT " + LAY_R1_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL + " || '' || " + LAY_R3_LIST_CODE_COL
                         + ", " + LAY_R3_LIST_NAME
                         + " FROM " + GEO_LAY_R3_LIST_TABLE
-                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'";
+                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
+                        + " AND " + LAY_R1_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL + " || '' || " + LAY_R3_LIST_CODE_COL + " = '" + value + "'"
+
+                ;
 
 
                 break;
@@ -4214,17 +4220,19 @@ public class SQLiteQuery {
                 udf = "SELECT " + LAY_R1_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL
                         + ", " + UPZILLA_NAME_COL
                         + " FROM " + UPAZILLA_TABLE
-                        + " WHERE " + ADM_COUNTRY_CODE_COL + "= '" + cCode + "'";
+                        + " WHERE " + ADM_COUNTRY_CODE_COL + "= '" + cCode + "'"
+                        + " AND " + LAY_R1_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL + "= '" + value + "'";
 
 
                 break;
 
             case GEO_LAYER_1:
 
-                udf = "SELECT " + LAY_R1_LIST_CODE_COL
+                udf = "SELECT " + LAY_R_LIST_CODE_COL
                         + ", " + DISTRICT_NAME_COL
                         + " FROM " + DISTRICT_TABLE
-                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'";
+                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
+                        + " AND " + LAY_R_LIST_CODE_COL + " = '" + value + "'";
 
 
                 break;
@@ -4234,7 +4242,8 @@ public class SQLiteQuery {
                 udf = "SELECT " + LAY_R1_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL + " || '' || " + LAY_R3_LIST_CODE_COL + " || '' || " + LAY_R4_LIST_CODE_COL
                         + ", " + LAY_R4_LIST_NAME_COL
                         + " FROM " + VILLAGE_TABLE
-                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'";
+                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
+                        + " AND " + LAY_R1_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL + " || '' || " + LAY_R3_LIST_CODE_COL + " || '' || " + LAY_R4_LIST_CODE_COL + " = '" + value + "'";
 
 
                 break;
@@ -4244,49 +4253,26 @@ public class SQLiteQuery {
                 udf = "SELECT " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL + " || '' || " + LAY_R3_LIST_CODE_COL + " || '' || " + LAY_R4_LIST_CODE_COL + " || '' || " + REGN_ADDRESS_LOOKUP_CODE_COL
                         + ", " + REGN_ADDRESS_LOOKUP_NAME_COL
                         + " FROM " + LUP_REGN_ADDRESS_LOOKUP_TABLE
-                        + " WHERE " + ADM_COUNTRY_CODE_COL + "='" + cCode + "'";
+                        + " WHERE " + ADM_COUNTRY_CODE_COL + "='" + cCode + "'"
+                        + " AND " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL + " || '' || " + LAY_R3_LIST_CODE_COL + " || '' || " + LAY_R4_LIST_CODE_COL + " || '' || " + REGN_ADDRESS_LOOKUP_CODE_COL + "='" + value + "'";
 
 
                 break;
-
-            case SERVICE_SITE:
-
-                udf = "SELECT " + SERVICE_CENTER_TABLE + "." + SERVICE_CENTER_CODE_COL
-                        + ", " + SERVICE_CENTER_TABLE + "." + SERVICE_CENTER_NAME_COL
-                        + " FROM " + SERVICE_CENTER_TABLE
-                        + " WHERE " + SERVICE_CENTER_TABLE + "." + ADM_COUNTRY_CODE_COL + "='" + cCode + "'";
-
-
-                break;
-
-            case DISTRIBUTION_POINT:
-
-                udf = "SELECT " + FDP_MASTER_TABLE + "." + FDP_CODE_COL
-                        + ", " + FDP_MASTER_TABLE + "." + FDP_NAME_COL
-                        + " FROM " + FDP_MASTER_TABLE
-                        + " WHERE " + FDP_MASTER_TABLE + "." + FDP_MASTER_COUNTRY_CODE + "='" + cCode + "'";
-
-
-                break;
-
-
-            case LOOKUP_LIST:
-
-                udf = "SELECT " + DT_LUP_TABLE + "." + LIST_CODE_COL
-                        + ", " + DT_LUP_TABLE + "." + LIST_NAME_COL
-                        + " FROM " + DT_LUP_TABLE
-                        + " WHERE " + DT_LUP_TABLE + "." + ADM_COUNTRY_CODE_COL + "= '" + cCode + "' "
-                        + " AND " + DT_LUP_TABLE + "." + TABLE_NAME_COL + "= '" + lup_TableName + "'"
-                ;
-
-
-                break;
-
 
             case COMMUNITY_GROUP:
                 udf = loadCommunityGroup(" INNER JOIN " + STAFF_SRV_CENTER_ACCESS_TABLE + " AS srvAcc "
                         + " ON commGrp." + SERVICE_CENTER_CODE_COL + " =  srvAcc." + SERVICE_CENTER_CODE_COL
-                        + " WHERE " + "commGrp." + ADM_COUNTRY_CODE_COL + "='" + cCode + "'");
+                        + " WHERE " + "commGrp." + ADM_COUNTRY_CODE_COL + "='" + cCode + "'"
+
+                        + " AND " + " commGrp." + ADM_DONOR_CODE_COL + " || '' || "
+                        + " commGrp." + ADM_AWARD_CODE_COL + " || '' ||"
+                        + " commGrp." + ADM_PROG_CODE_COL + " || '' ||"
+                        + " commGrp." + GROUP_CODE_COL + " || '' || "
+                        + " commGrp." + LAY_R1_CODE_COL + " || '' || "
+                        + " commGrp." + GRP_LAY_R2_LIST_CODE_COL + " || '' || "
+                        + " commGrp." + GRP_LAY_R3_LIST_CODE_COL + " = '" + value + "'"
+
+                );
 
                 break;
 
@@ -4299,6 +4285,14 @@ public class SQLiteQuery {
                         + " WHERE " + "commGrp." + ADM_COUNTRY_CODE_COL + "='" + cCode + "'"
                         + " AND  " + "commGrp." + GROUP_CAT_CODE_COL + "= '001' " // Producer group= 001
                         + " AND  " + "commGrp." + ADM_PROG_CODE_COL + "= '003' " // agr= 001
+
+                        + " AND " + " commGrp." + ADM_DONOR_CODE_COL + " || '' || "
+                        + " commGrp." + ADM_AWARD_CODE_COL + " || '' ||"
+                        + " commGrp." + ADM_PROG_CODE_COL + " || '' ||"
+                        + " commGrp." + GROUP_CODE_COL + " || '' || "
+                        + " commGrp." + LAY_R1_CODE_COL + " || '' || "
+                        + " commGrp." + GRP_LAY_R2_LIST_CODE_COL + " || '' || "
+                        + " commGrp." + GRP_LAY_R3_LIST_CODE_COL + " = '" + value + "'"
                 );
                 break;
             case COMMUNITY_GROUP_IG:
@@ -4308,6 +4302,14 @@ public class SQLiteQuery {
                                 + " WHERE " + "commGrp." + ADM_COUNTRY_CODE_COL + "='" + cCode + "'"
                                 + " AND  " + "commGrp." + GROUP_CAT_CODE_COL + "= '003' " // Irrigation Group= 003
                                 + " AND  " + "commGrp." + ADM_PROG_CODE_COL + "= '003' " // agr= 001
+
+                                + " AND " + " commGrp." + ADM_DONOR_CODE_COL + " || '' || "
+                                + " commGrp." + ADM_AWARD_CODE_COL + " || '' ||"
+                                + " commGrp." + ADM_PROG_CODE_COL + " || '' ||"
+                                + " commGrp." + GROUP_CODE_COL + " || '' || "
+                                + " commGrp." + LAY_R1_CODE_COL + " || '' || "
+                                + " commGrp." + GRP_LAY_R2_LIST_CODE_COL + " || '' || "
+                                + " commGrp." + GRP_LAY_R3_LIST_CODE_COL + " = '" + value + "'"
                 );
                 break;
 
@@ -4318,6 +4320,14 @@ public class SQLiteQuery {
                                 + " WHERE " + "commGrp." + ADM_COUNTRY_CODE_COL + "='" + cCode + "'"
                                 + " AND  " + "commGrp." + GROUP_CAT_CODE_COL + "= '002' " // Marketing Group= 002
                                 + " AND  " + "commGrp." + ADM_PROG_CODE_COL + "= '003' " // agr= 001
+
+                                + " AND " + " commGrp." + ADM_DONOR_CODE_COL + " || '' || "
+                                + " commGrp." + ADM_AWARD_CODE_COL + " || '' ||"
+                                + " commGrp." + ADM_PROG_CODE_COL + " || '' ||"
+                                + " commGrp." + GROUP_CODE_COL + " || '' || "
+                                + " commGrp." + LAY_R1_CODE_COL + " || '' || "
+                                + " commGrp." + GRP_LAY_R2_LIST_CODE_COL + " || '' || "
+                                + " commGrp." + GRP_LAY_R3_LIST_CODE_COL + " = '" + value + "'"
                 );
                 break;
 
@@ -4327,6 +4337,14 @@ public class SQLiteQuery {
                         + " WHERE " + "commGrp." + ADM_COUNTRY_CODE_COL + "='" + cCode + "'"
                         + " AND  " + "commGrp." + GROUP_CAT_CODE_COL + "= '004' " // WeVSL= 004
                         + " AND  " + "commGrp." + ADM_PROG_CODE_COL + "= '003' " // agr= 001
+
+                        + " AND " + " commGrp." + ADM_DONOR_CODE_COL + " || '' || "
+                        + " commGrp." + ADM_AWARD_CODE_COL + " || '' ||"
+                        + " commGrp." + ADM_PROG_CODE_COL + " || '' ||"
+                        + " commGrp." + GROUP_CODE_COL + " || '' || "
+                        + " commGrp." + LAY_R1_CODE_COL + " || '' || "
+                        + " commGrp." + GRP_LAY_R2_LIST_CODE_COL + " || '' || "
+                        + " commGrp." + GRP_LAY_R3_LIST_CODE_COL + " = '" + value + "'"
                 );
                 break;
 
@@ -4336,103 +4354,23 @@ public class SQLiteQuery {
                         + " WHERE " + "commGrp." + ADM_COUNTRY_CODE_COL + "='" + cCode + "'"
                         + " AND  " + "commGrp." + GROUP_CAT_CODE_COL + "= '005' " // Livestock Group= 005
                         + " AND  " + "commGrp." + ADM_PROG_CODE_COL + "= '003' " // agr= 001
+
+                        + " AND " + " commGrp." + ADM_DONOR_CODE_COL + " || '' || "
+                        + " commGrp." + ADM_AWARD_CODE_COL + " || '' ||"
+                        + " commGrp." + ADM_PROG_CODE_COL + " || '' ||"
+                        + " commGrp." + GROUP_CODE_COL + " || '' || "
+                        + " commGrp." + LAY_R1_CODE_COL + " || '' || "
+                        + " commGrp." + GRP_LAY_R2_LIST_CODE_COL + " || '' || "
+                        + " commGrp." + GRP_LAY_R3_LIST_CODE_COL + " = '" + value + "'"
                 );
-                break;
-
-            case ORGANIZATION_LIST:
-
-                udf = "SELECT  progOR." + ORG_CODE_COL + ", pOrg." + ORGANIZATION_NAME + " " +
-                        "                                FROM " + PROGRAM_ORGANIZATION_ROLE_TABLE + " AS progOR "
-                        + "                               INNER JOIN " +
-                        "                                " + PROGRAM_ORGANIZATION_NAME_TABLE + " AS pOrg " +
-                        "                               ON progOR." + ORG_CODE_COL + " = pOrg." + PROGRAM_ORGANIZATION_NAME_TABLE_ORG_CODE_COL + "  " +
-                        "                                WHERE (progOR." + ADM_COUNTRY_CODE_COL + " = '" + cCode + "')" +
-                        " GROUP BY pOrg." + ORGANIZATION_NAME;
-
-                break;
-
-            case DTResponseRecordingActivity.COMMNITY_ANIMAL:
-
-                udf = "SELECT " + ANIMAL_CODE_COL +
-                        " , " + ANIMAL_TYPE_COL
-                        + " FROM " + LUP_COMMUNITY_ANIMAL_TABLE
-                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + dyBasic.getcCode() + "' "
-                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dyBasic.getDonorCode() + "' "
-                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dyBasic.getAwardCode() + "' "
-                        + " AND " + ADM_PROG_CODE_COL + " = '" + dyBasic.getProgramActivityCode() + "' ";
-
-
-                break;
-
-            case "Community Lead Position":
-
-                udf = "SELECT " + LEAD_CODE_COL +
-                        " , " + LEAD_POSITION_COL
-                        + " FROM " + LUP_COMMUNITY_LEAD_POSITION_TABLE
-                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + dyBasic.getcCode() + "' "
-                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dyBasic.getDonorCode() + "' "
-                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dyBasic.getAwardCode() + "' "
-                        + " AND " + ADM_PROG_CODE_COL + " = '" + dyBasic.getProgramActivityCode() + "' ";
-
-
-                break;
-
-            case "Commnity Loan Source":
-
-                udf = "SELECT " + LOAN_CODE_COL +
-                        " , " + LOAN_SOURCE_COL
-                        + " FROM " + LUP_COMMUNITY_LOAN_SOURCE_TABLE
-                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + dyBasic.getcCode() + "' "
-                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dyBasic.getDonorCode() + "' "
-                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dyBasic.getAwardCode() + "' "
-                        + " AND " + ADM_PROG_CODE_COL + " = '" + dyBasic.getProgramActivityCode() + "' ";
-
-
-                break;
-
-
-            case "Commnity Fund Source":
-
-                udf = "SELECT " + FUND_CODE_COL +
-                        " , " + FUND_SOURCE_COL
-                        + " FROM " + LUP_COMMUNITY_FUND_SOURCE_TABLE
-                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + dyBasic.getcCode() + "' "
-                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dyBasic.getDonorCode() + "' "
-                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dyBasic.getAwardCode() + "' "
-                        + " AND " + ADM_PROG_CODE_COL + " = '" + dyBasic.getProgramActivityCode() + "' ";
-
-
-                break;
-            case "Community Irrigation System":
-                udf = "SELECT " + IRRI_SYS_CODE_COL +
-                        " , " + IRRI_SYS_NAME_COL
-                        + " FROM " + LUP_COMMUNITY_IRRIGATION_SYSTEM_TABLE
-                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + dyBasic.getcCode() + "' "
-                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dyBasic.getDonorCode() + "' "
-                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dyBasic.getAwardCode() + "' "
-                        + " AND " + ADM_PROG_CODE_COL + " = '" + dyBasic.getProgramActivityCode() + "' ";
-
-
-                break;
-
-
-            case "Prog Group Crop List":
-                udf = "SELECT " + CROP_CODE_COL +
-                        " , " + CROP_NAME_COL
-                        + " FROM " + LUP_PROG_GROUP_CROP_TABLE
-                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + dyBasic.getcCode() + "' "
-                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dyBasic.getDonorCode() + "' "
-                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dyBasic.getAwardCode() + "' "
-                        + " AND " + ADM_PROG_CODE_COL + " = '" + dyBasic.getProgramActivityCode() + "' ";
-
-
                 break;
 
 
         }
 
-        //Log.d("toma", udf);
-        return udf;*/
+
+        return udf;
+
     }
 
     private static String loadCommunityGroup(String whereCondition) {

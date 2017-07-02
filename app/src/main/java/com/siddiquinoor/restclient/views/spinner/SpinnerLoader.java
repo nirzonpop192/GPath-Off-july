@@ -253,7 +253,7 @@ public class SpinnerLoader {
         int position = 0;
         List<SpinnerHelper> list = new ArrayList<SpinnerHelper>();
         String udf = SQLiteQuery.loadDynamicSpinnerListLoader_sql(cCode, resLupText, mDTQ.getLup_TableName(), dyBasic);
-        //  Log.d(TAG, " resLupText:" + resLupText);
+
 
         list.clear();
         list = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, udf, cCode, false);

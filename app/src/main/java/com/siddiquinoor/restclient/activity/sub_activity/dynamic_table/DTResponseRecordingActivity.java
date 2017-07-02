@@ -743,7 +743,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         mDTQResMode = sqlH.getDT_QResMode(resMode);
         String responseControl = mDTQResMode.getDtResponseValueControl();
         String dataType = mDTQResMode.getDtDataType();
-        String resLupText = mDTQResMode.getDtQResLupText();
+        String resLupText = mDTQResMode.getDtQResLupText();                                         // resLupText is controlling the query of combo box
 
         mResponseController = responseControl;
         //Resort Data if Data exists
@@ -828,10 +828,10 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                     dt_spinner.setVisibility(View.VISIBLE);
 
 
-                    hideSoftKayPad(dt_spinner);                             //hide the key pad when spinner Appears
+                    hideSoftKayPad(dt_spinner);                                                     //hide the key pad when spinner Appears
 
 
-                    if (dtResponse != null)                                 //if data exist get the Spinner String  set position •
+                    if (dtResponse != null)                                                         //if data exist get the Spinner String  set position •
                         strSpinner = dtResponse.getDtaValue();
                     else
                         strSpinner = null;
@@ -902,7 +902,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
         int i = 0;
         String responseControl = mDTQResMode.getDtResponseValueControl();
-        String resLupText = mDTQResMode.getDtQResLupText();
+        String resLupText = mDTQResMode.getDtQResLupText();                                         //resLupText is controlling the query of combo box
 
         if (mDTQTable == null)
             return;
@@ -937,7 +937,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                                     errorIndicator();
                                     displayError("Out of range input! ");
                                 }
-                            } else {                                                // else the input method would  be the text
+                            } else {                                                                // else the input method would  be the text
                                 normalIndicator();
                                 saveData(edtInput, "", mDTATables.get(0), calling4TerminalPoint);
 
@@ -975,7 +975,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                 case COMBO_BOX:
 
 
-                    if (idSpinner != null) {            // here it get null point reference if spinner get no values
+                    if (idSpinner != null) {                                                        // here it get null point reference if spinner get no values
                         if (idSpinner.equals("00")) {
 
                             errorIndicator();
@@ -984,12 +984,34 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                         } else {
                             normalIndicator();
 
-                            // set id
-                            saveData(idSpinner, "", mDTATables.get(0), calling4TerminalPoint);
-//                            Toast.makeText(mContext, "idSpinner : "+idSpinner, Toast.LENGTH_SHORT).show();
 
 
-                            getNextQuestion();       // load  next question
+//                            String resLupText = mDTQResMode.getDtQResLupText();                     // resLupText is controlling the query of combo box
+
+                            switch (resLupText) {
+                                /**
+                                 * below section will the
+                                 */
+                                case GEO_LAYER_3:
+                                case GEO_LAYER_2:
+                                case GEO_LAYER_1:
+                                case GEO_LAYER_4:
+                                case GEO_LAYER_ADDRESS:
+                                case COMMUNITY_GROUP:
+                                case COMMUNITY_GROUP_PG:
+                                case COMMUNITY_GROUP_IG:
+                                case COMMUNITY_GROUP_MG:
+                                case COMMUNITY_GROUP_WE:
+                                case COMMUNITY_GROUP_LG:
+                                    saveData(idSpinner, "", mDTATables.get(0), calling4TerminalPoint);
+                                    break;
+                                default:
+                                    saveData(strSpinner, "", mDTATables.get(0), calling4TerminalPoint);
+                                    break;
+                            }
+
+
+                            getNextQuestion();                                                      // load  next question
                         }
                     }
                     break;
@@ -1012,18 +1034,17 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                                 dtaCombinationCode = dtaCombinationCode + mDTATables.get(i).getDt_AValue() + ",";
                                 saveData("", "", mDTATables.get(i), calling4TerminalPoint);
 
-                            }       // end of if condition
+                            }                                                                       // end of if condition
 
                             i++;
-                        }           // end of for each loop
+                        }                                                                           // end of for each loop
 
 
                         dtaCombinationCode = dtaCombinationCode.substring(0, dtaCombinationCode.length() - 1);  //remove the last character from a string
 
                         // skip rules for test
                         skipRules(responseControl, i, dtaCombinationCode);
-                        // for test  u may delete the below code
-//                        Toast.makeText(mContext, "dtaCombinationCode: " + dtaCombinationCode, Toast.LENGTH_SHORT).show();
+
 
                         getNextQuestion();       // load  next question
                     }// end of else
@@ -1290,7 +1311,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         FreezeDataModel freezingData = new FreezeDataModel(AdmAwardCode
                 , AdmCountryCode, AdmDonorCode, AdmProgCode, DataType, DTACode, DTAValue
                 , DTBasic, DTEnuID, DTQCode, DTQText, DTRSeq, DTTimeString, mQusIndex, OpMode
-                , OpMonthCode, ProgActivityCode,mDTQTable.getqText(),mResponseController, mDTQResMode.getDtQResLupText(),dtATable.getDt_ALabel());
+                , OpMonthCode, ProgActivityCode, mDTQTable.getqText(), mResponseController, mDTQResMode.getDtQResLupText(), dtATable.getDt_ALabel());
 
         saveTemporaryDataIntoMBufferList(mQusIndex, freezingData, isCall4termPoint);
 
@@ -1308,7 +1329,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
 
             sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, imageString, true);
-            sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString, mResponseController, mDTQResMode.getDtQResLupText(),dtATable.getDt_ALabel());
+            sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString, mResponseController, mDTQResMode.getDtQResLupText(), dtATable.getDt_ALabel());
 
             Log.i(TAG, "DTBasic :" + DTBasic + " AdmCountryCode: " + AdmCountryCode + " AdmDonorCode: " + AdmDonorCode + " AdmAwardCode: " + AdmAwardCode + " AdmProgCode:" + AdmProgCode + " DTEnuID: " + DTEnuID + " DTQCode: " + DTQCode + " DTACode: " + DTACode + " DTRSeq: " + String.valueOf(DTRSeq) + " DTAValue:" + DTAValue
                     + " ProgActivityCode :" + ProgActivityCode + " DTTimeString:" + DTTimeString + " OpMode: " + OpMode + "OpMonthCode :" + OpMonthCode + " DataType: " + DataType + " imageString :" + imageString);
@@ -1528,7 +1549,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                     // it's all about  check box
                     if (!presentQuesCode.equals(previousQuesCode)) {
                         sqlH.addIntoDTResponseTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
-                        sqlH.addIntoDTSurveyTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DT_QText, surveyNumber, imageString,DT_responseController, DT_resLupTxt,DT_ALabel);
+                        sqlH.addIntoDTSurveyTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DT_QText, surveyNumber, imageString, DT_responseController, DT_resLupTxt, DT_ALabel);
 
                         // uses suffix in increments
                         mQusIndex++;
@@ -1536,7 +1557,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                 } else if (i == 0) {
                     // saved the first freeze question
                     sqlH.addIntoDTResponseTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
-                    sqlH.addIntoDTSurveyTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DT_QText, surveyNumber, imageString,DT_responseController, DT_resLupTxt,DT_ALabel);
+                    sqlH.addIntoDTSurveyTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DT_QText, surveyNumber, imageString, DT_responseController, DT_resLupTxt, DT_ALabel);
 
                 }
 
@@ -1737,9 +1758,10 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         _dt_tv_DatePickerNLatLong.setText("");
         _dt_tv_DatePickerNLatLong.setClickable(false);
 
-        if (dtResponse != null)                                                 //if data exists show data
+        if (dtResponse != null)                                                                     //if data exists show data
             _dt_tv_DatePickerNLatLong.setText(dtResponse.getDtaValue());
         else {
+
             LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
             mLocation = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);                  //for demo, getLastKnownLocation from GPS only, not from NETWORK
