@@ -8238,7 +8238,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     public ListDataModel getSingleRegisteredData(String cCode, String layR1Code, String layR2Code, String layR3Code, String layR4Code, final String hhId) {
 
-        //List<ListDataModel> personList = new ArrayList<ListDataModel>();
+
         SQLiteDatabase db = this.getReadableDatabase();
 
         String query = "";
@@ -13161,7 +13161,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     public void addIntoDTSurveyTable(String dtBasic, String countryCode, String donorCode, String awardCode, String programCode,
                                      String dtEnuId, String dtqCode, String dtaCode, String dtrSeq, String dtaValue,
-                                     String progActivityCode, String dttTimeString, String opMode, String opMonthCode, String dataType, String dtqText, int surveyNumber, String image, String qResLupText) {
+                                     String progActivityCode, String dttTimeString, String opMode,
+                                     String opMonthCode, String dataType, String dtqText,
+                                     int surveyNumber, String image
+            , String resposeController, String qResLupText, String dtaLabel) {
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -13184,7 +13188,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(DT_SURVEY_NUM, surveyNumber);
         values.put(DATA_TYPE_COL, dataType);
         values.put(U_FILE_COL, image);
+        values.put(RESPONSE_VALUE_CONTROL_COL, resposeController);
         values.put(QRES_LUP_TEXT_COL, qResLupText);
+        values.put(DTA_LABEL_COL, dtaLabel);
 
 
         db.insert(DT_SURVEY_TABLE, null, values);
@@ -13254,10 +13260,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND " + OP_MODE_COL + " = '" + OpMode + "' " +
                 " AND " + OP_MONTH_CODE_COL + " = '" + OpMonthCode + "' ";
         String where2 = DT_BASIC_COL + " = '" + DTBasic + "' " +
-                " AND " + "CountryCode" + " = '" + AdmCountryCode + "' " +
-                " AND " + "DonorCode" + " = '" + AdmDonorCode + "' " +
-                " AND " + "AwardCode" + " = '" + AdmAwardCode + "' " +
-                " AND " + "ProgramCode" + " = '" + AdmProgCode + "' " +
+                " AND " + COUNTRY_CODE_COL + " = '" + AdmCountryCode + "' " +
+                " AND " + DONOR_CODE_COL + " = '" + AdmDonorCode + "' " +
+                " AND " + AWARD_CODE_COL + " = '" + AdmAwardCode + "' " +
+                " AND " + PROGRAM_CODE_COL + " = '" + AdmProgCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + DTEnuID + "' " +
                 " AND " + DT_R_SEQ_COL + " = " + DTRSeq +
                 " AND " + OP_MODE_COL + " = '" + OpMode + "' " +
@@ -13329,7 +13335,24 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND " + DT_R_SEQ_COL + " = " + DTRSeq +
                 " AND " + OP_MODE_COL + " = '" + OpMode + "' " +
                 " AND " + OP_MONTH_CODE_COL + " = '" + OpMonthCode + "' ";
+
+        String where2 = DT_BASIC_COL + " = '" + DTBasic + "' " +
+                " AND " + COUNTRY_CODE_COL + " = '" + AdmCountryCode + "' " +
+                " AND " + DONOR_CODE_COL + " = '" + AdmDonorCode + "' " +
+                " AND " + AWARD_CODE_COL + " = '" + AdmAwardCode + "' " +
+                " AND " + PROGRAM_CODE_COL + " = '" + AdmProgCode + "' " +
+                " AND " + DT_ENU_ID_COL + " = '" + DTEnuID + "' " +
+                " AND " + DT_R_SEQ_COL + " = " + DTRSeq +
+                " AND " + OP_MODE_COL + " = '" + OpMode + "' " +
+                " AND " + OP_MONTH_CODE_COL + " = '" + OpMonthCode + "' ";
+        /**
+         * delete from response table
+         */
         db.delete(DT_RESPONSE_TABLE, where, null);
+        /**
+         * delete from Dt survey table
+         */
+        db.delete(DT_SURVEY_TABLE, where2, null);
 
         db.close();
         /**
@@ -13502,7 +13525,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     public ArrayList<DTSurveyTableDataModel> dtSurveyTableDataModels(int surveyNum, String dtBasic, String cCode, String donorCode, String awardCode, String prgCode, String entryBy) {
         SQLiteDatabase db = this.getReadableDatabase();
-        ArrayList<DTSurveyTableDataModel> dtSurveyTableDataModels = new ArrayList<>();
+
+        ArrayList<DTSurveyTableDataModel> dtSurveyTableDataList = new ArrayList<>();
+
         String sql = SQLiteQuery.dtSurveyTableDataModels_sql(surveyNum, dtBasic);
 
         Cursor cursor = db.rawQuery(sql, null);
@@ -13510,27 +13535,36 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 int count = 0;
                 do {
-                    DTSurveyTableDataModel dtSurveyTableDataModel = new DTSurveyTableDataModel();
-                    dtSurveyTableDataModel.setDtBasic(cursor.getString(cursor.getColumnIndex(DT_BASIC_COL)));
-                    dtSurveyTableDataModel.setCountryCode(cursor.getString(cursor.getColumnIndex("CountryCode")));
-                    dtSurveyTableDataModel.setDonorCode(cursor.getString(cursor.getColumnIndex("DonorCode")));
-                    dtSurveyTableDataModel.setAwardCode(cursor.getString(cursor.getColumnIndex("AwardCode")));
-                    dtSurveyTableDataModel.setProgramCode(cursor.getString(cursor.getColumnIndex("ProgramCode")));
-                    dtSurveyTableDataModel.setDtEnuId(cursor.getString(cursor.getColumnIndex(DT_ENU_ID_COL)));
-                    dtSurveyTableDataModel.setDtqCode(cursor.getString(cursor.getColumnIndex(DTQ_CODE_COL)));
-                    dtSurveyTableDataModel.setDtaCode(cursor.getString(cursor.getColumnIndex(DTA_CODE_COL)));
-                    dtSurveyTableDataModel.setDtrSeq(cursor.getInt(cursor.getColumnIndex(DT_R_SEQ_COL)));
-                    dtSurveyTableDataModel.setDtaValue(cursor.getString(cursor.getColumnIndex(DTA_VALUE_COL)));
-                    dtSurveyTableDataModel.setProgActivityCode(cursor.getString(cursor.getColumnIndex(PROG_ACTIVITY_CODE_COL)));
-                    dtSurveyTableDataModel.setDttTimeString(cursor.getString(cursor.getColumnIndex(DTTIME_STRING_COL)));
-                    dtSurveyTableDataModel.setOpMode(cursor.getString(cursor.getColumnIndex(OP_MODE_COL)));
-                    dtSurveyTableDataModel.setOpMonthCode(cursor.getString(cursor.getColumnIndex(OP_MONTH_CODE_COL)));
-                    dtSurveyTableDataModel.setDataType(cursor.getString(cursor.getColumnIndex(DATA_TYPE_COL)));
-                    dtSurveyTableDataModel.setDtqText(cursor.getString(cursor.getColumnIndex(DTQ_TEXT_COL)));
-                    dtSurveyTableDataModel.setDtSurveyNumber(cursor.getInt(cursor.getColumnIndex(DT_SURVEY_NUM)));
-                    dtSurveyTableDataModel.setDtALabel(cursor.getString(cursor.getColumnIndex(DTA_LABEL_COL)));
-                    dtSurveyTableDataModel.setDtPhoto(cursor.getString(cursor.getColumnIndex(U_FILE_COL)));
-                    dtSurveyTableDataModels.add(dtSurveyTableDataModel);
+                    DTSurveyTableDataModel dtSurveyTableData = new DTSurveyTableDataModel();
+
+                    dtSurveyTableData.setDtBasic(cursor.getString(cursor.getColumnIndex(DT_BASIC_COL)));
+                    dtSurveyTableData.setCountryCode(cursor.getString(cursor.getColumnIndex("CountryCode")));
+                    dtSurveyTableData.setDonorCode(cursor.getString(cursor.getColumnIndex("DonorCode")));
+                    dtSurveyTableData.setAwardCode(cursor.getString(cursor.getColumnIndex("AwardCode")));
+                    dtSurveyTableData.setProgramCode(cursor.getString(cursor.getColumnIndex("ProgramCode")));
+                    dtSurveyTableData.setDtEnuId(cursor.getString(cursor.getColumnIndex(DT_ENU_ID_COL)));
+                    dtSurveyTableData.setDtqCode(cursor.getString(cursor.getColumnIndex(DTQ_CODE_COL)));
+                    dtSurveyTableData.setDtaCode(cursor.getString(cursor.getColumnIndex(DTA_CODE_COL)));
+                    dtSurveyTableData.setDtrSeq(cursor.getInt(cursor.getColumnIndex(DT_R_SEQ_COL)));
+                    dtSurveyTableData.setDtaValue(cursor.getString(cursor.getColumnIndex(DTA_VALUE_COL)));
+                    dtSurveyTableData.setProgActivityCode(cursor.getString(cursor.getColumnIndex(PROG_ACTIVITY_CODE_COL)));
+                    dtSurveyTableData.setDttTimeString(cursor.getString(cursor.getColumnIndex(DTTIME_STRING_COL)));
+                    dtSurveyTableData.setOpMode(cursor.getString(cursor.getColumnIndex(OP_MODE_COL)));
+                    dtSurveyTableData.setOpMonthCode(cursor.getString(cursor.getColumnIndex(OP_MONTH_CODE_COL)));
+                    dtSurveyTableData.setDataType(cursor.getString(cursor.getColumnIndex(DATA_TYPE_COL)));
+                    dtSurveyTableData.setDtqText(cursor.getString(cursor.getColumnIndex(DTQ_TEXT_COL)));
+                    dtSurveyTableData.setDtSurveyNumber(cursor.getInt(cursor.getColumnIndex(DT_SURVEY_NUM)));
+
+                    dtSurveyTableData.setDtPhoto(cursor.getString(cursor.getColumnIndex(U_FILE_COL)));
+                    dtSurveyTableData.setDtResController(cursor.getString(cursor.getColumnIndex(RESPONSE_VALUE_CONTROL_COL)));
+
+                    dtSurveyTableData.setDtQResLupText(cursor.getString(cursor.getColumnIndex(QRES_LUP_TEXT_COL)));
+                    dtSurveyTableData.setDtALabel(cursor.getString(cursor.getColumnIndex(DTA_LABEL_COL)));
+
+                    /***
+                     *  add to the list
+                     */
+                    dtSurveyTableDataList.add(dtSurveyTableData);
                     count++;
                 } while (cursor.moveToNext());
             }
@@ -13538,7 +13572,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             cursor.close();
             db.close();
         }
-        return dtSurveyTableDataModels;
+        return dtSurveyTableDataList;
     }
 
 

@@ -4832,7 +4832,11 @@ public class SQLiteQuery {
                 " , dtSrv." + DTQ_TEXT_COL +
                 " , dtSrv." + DT_SURVEY_NUM +
                 " , dtSrv." + U_FILE_COL +
+                " , dtSrv." + RESPONSE_VALUE_CONTROL_COL +
+                " , dtSrv." + QRES_LUP_TEXT_COL +
+                " , dtSrv." + DTA_LABEL_COL +
                 " , dtan." + DTA_LABEL_COL +
+
                 " FROM " + DT_SURVEY_TABLE + " AS dtSrv " +
                 " left join " + DT_A_TABLE + " AS dtan ON " +
                 " dtSrv." + DT_BASIC_COL + " =  dtan." + DT_BASIC_COL +

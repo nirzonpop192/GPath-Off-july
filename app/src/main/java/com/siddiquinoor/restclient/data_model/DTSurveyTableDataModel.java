@@ -27,6 +27,17 @@ public class DTSurveyTableDataModel implements Parcelable {
     private int dtSurveyNumber;
     private String dtALabel;
     private String dtPhoto;
+    private String dtResController;
+    private String dtQResLupText;
+
+    public String getDtQResLupText() {
+        return dtQResLupText;
+    }
+
+    public void setDtQResLupText(String dtQResLupText) {
+        this.dtQResLupText = dtQResLupText;
+    }
+
     //imageString
 
     public String getDtALabel() {
@@ -60,6 +71,8 @@ public class DTSurveyTableDataModel implements Parcelable {
         dtSurveyNumber = in.readInt();
         dtALabel = in.readString();
         dtPhoto = in.readString();
+        dtResController = in.readString();
+        dtQResLupText = in.readString();
     }
 
     public static final Creator<DTSurveyTableDataModel> CREATOR = new Creator<DTSurveyTableDataModel>() {
@@ -218,6 +231,14 @@ public class DTSurveyTableDataModel implements Parcelable {
         this.dtSurveyNumber = dtSurveyNumber;
     }
 
+    public String getDtResController() {
+        return dtResController;
+    }
+
+    public void setDtResController(String dtResController) {
+        this.dtResController = dtResController;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -244,5 +265,7 @@ public class DTSurveyTableDataModel implements Parcelable {
         dest.writeInt(dtSurveyNumber);
         dest.writeString(dtALabel);
         dest.writeString(dtPhoto);
+        dest.writeString(dtResController);
+        dest.writeString(dtQResLupText);
     }
 }

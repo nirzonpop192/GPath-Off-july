@@ -309,6 +309,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
 
     private Location mLocation;
+
     /**
      * set up location listener
      */
@@ -330,6 +331,12 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         public void onProviderDisabled(String provider) {
         }
     };
+
+    /**
+     * if the res response  button is Radio button DTA label if the the control is
+     */
+    String mResponseController;
+
 
     /**
      * Refer the all the necessary view in java object
@@ -738,7 +745,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         String dataType = mDTQResMode.getDtDataType();
         String resLupText = mDTQResMode.getDtQResLupText();
 
-
+        mResponseController = responseControl;
         //Resort Data if Data exists
         DTResponseTableDataModel dtResponse = sqlH.getDTResponseTableData(dyIndex.getDtBasicCode(), dyIndex.getcCode(), dyIndex.getDonorCode(), dyIndex.getAwardCode(), dyIndex.getProgramCode(), getStaffID(), mDTQTable.getDtQCode(), mDTATables.get(0).getDt_ACode(), mDTRSeq);
 
@@ -1280,8 +1287,10 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         /**
          *  get data freeze data         *
          */
-        FreezeDataModel freezingData = new FreezeDataModel(AdmAwardCode, AdmCountryCode, AdmDonorCode, AdmProgCode, DataType, DTACode, DTAValue
-                , DTBasic, DTEnuID, DTQCode, DTQText, DTRSeq, DTTimeString, mQusIndex, OpMode, OpMonthCode, ProgActivityCode);
+        FreezeDataModel freezingData = new FreezeDataModel(AdmAwardCode
+                , AdmCountryCode, AdmDonorCode, AdmProgCode, DataType, DTACode, DTAValue
+                , DTBasic, DTEnuID, DTQCode, DTQText, DTRSeq, DTTimeString, mQusIndex, OpMode
+                , OpMonthCode, ProgActivityCode,mDTQTable.getqText(),mResponseController, mDTQResMode.getDtQResLupText(),dtATable.getDt_ALabel());
 
         saveTemporaryDataIntoMBufferList(mQusIndex, freezingData, isCall4termPoint);
 
@@ -1299,7 +1308,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
 
             sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, imageString, true);
-            sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString, mDTQResMode.getDtQResLupText());
+            sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString, mResponseController, mDTQResMode.getDtQResLupText(),dtATable.getDt_ALabel());
 
             Log.i(TAG, "DTBasic :" + DTBasic + " AdmCountryCode: " + AdmCountryCode + " AdmDonorCode: " + AdmDonorCode + " AdmAwardCode: " + AdmAwardCode + " AdmProgCode:" + AdmProgCode + " DTEnuID: " + DTEnuID + " DTQCode: " + DTQCode + " DTACode: " + DTACode + " DTRSeq: " + String.valueOf(DTRSeq) + " DTAValue:" + DTAValue
                     + " ProgActivityCode :" + ProgActivityCode + " DTTimeString:" + DTTimeString + " OpMode: " + OpMode + "OpMonthCode :" + OpMonthCode + " DataType: " + DataType + " imageString :" + imageString);
@@ -1488,7 +1497,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                 mBufferingList.get(i).setDTRSeq(mDTRSeq);
 
 
-                String DTBasic = mBufferingList.get(i).getDTBasic();
+                String dt_Basic = mBufferingList.get(i).getDTBasic();
                 String AdmCountryCode = mBufferingList.get(i).getAdmCountryCode();
                 String AdmDonorCode = mBufferingList.get(i).getAdmDonorCode();
                 String AdmAwardCode = mBufferingList.get(i).getAdmAwardCode();
@@ -1502,25 +1511,32 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                 String OpMode = mBufferingList.get(i).getOpMode();
                 String OpMonthCode = mBufferingList.get(i).getOpMonthCode();
                 String DataType = mBufferingList.get(i).getDataType();
-                String DTQText = mDTQTable.getqText();
+
+//                String DTQText = mDTQTable.getqText();
+                String DT_QText = mBufferingList.get(i).getDTQText();
+                String DT_responseController = mBufferingList.get(i).getDtResController();
+                String DT_resLupTxt = mBufferingList.get(i).getDtResLupText();
+                String DT_ALabel = mBufferingList.get(i).getDtALabel();
                 String imageString = "";
+                // // TODO: 7/1/2017  wrong  sqence id inserted
                 int DTRSeq = mBufferingList.get(i).getDTRSeq();
+
                 if (i >= 1) {
                     String presentQuesCode = mBufferingList.get(i).getDTQCode();
                     String previousQuesCode = mBufferingList.get(i - 1).getDTQCode();
 
                     // it's all about  check box
                     if (!presentQuesCode.equals(previousQuesCode)) {
-                        sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
-                        sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString, mDTQResMode.getDtQResLupText());
+                        sqlH.addIntoDTResponseTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
+                        sqlH.addIntoDTSurveyTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DT_QText, surveyNumber, imageString,DT_responseController, DT_resLupTxt,DT_ALabel);
 
                         // uses suffix in increments
                         mQusIndex++;
                     }
                 } else if (i == 0) {
                     // saved the first freeze question
-                    sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
-                    sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString, mDTQResMode.getDtQResLupText());
+                    sqlH.addIntoDTResponseTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
+                    sqlH.addIntoDTSurveyTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DT_QText, surveyNumber, imageString,DT_responseController, DT_resLupTxt,DT_ALabel);
 
                 }
 

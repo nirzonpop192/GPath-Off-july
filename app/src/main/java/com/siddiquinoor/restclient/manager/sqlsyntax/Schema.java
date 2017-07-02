@@ -1793,7 +1793,10 @@ public class Schema {
                 "     " + DTQ_TEXT_COL + "       TEXT,   " +
                 "     " + DT_SURVEY_NUM + "       INTEGER NOT NULL   " +
                 "     , " + U_FILE_COL + "       BLOB   " +
+                "     , " + RESPONSE_VALUE_CONTROL_COL + "       TEXT   " +
                 "     , " + QRES_LUP_TEXT_COL + "       TEXT   " +
+                "     , " + DTA_LABEL_COL + "       TEXT   " +
+
                 "  , " + PRIMARY_KEY + "(" + DT_BASIC_COL + "," + COUNTRY_CODE_COL + ", " + DONOR_CODE_COL + " ," + AWARD_CODE_COL + " ," + PROGRAM_CODE_COL
                 + "," + DT_ENU_ID_COL + "," + DTQ_CODE_COL + "," + DTA_CODE_COL + " ," + DT_R_SEQ_COL + ")   " +
                 ")";

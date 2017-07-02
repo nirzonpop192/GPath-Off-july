@@ -1,7 +1,8 @@
 package com.siddiquinoor.restclient.data_model;
 
 /**
- * Created by pop on 3/15/2017.
+ * Created by pop
+ * on 3/15/2017.
  */
 
 public class FreezeDataModel {
@@ -16,10 +17,8 @@ public class FreezeDataModel {
     private String DTQCode;
     private String DTQText;
     private String DTACode;
-    /**
-     * DTRSeq is user input serial no
-     */
-   private int DTRSeq;
+
+    private int DTRSeq;                                                                             //DTRSeq is user input serial no
     private String DTAValue;
     private String ProgActivityCode;
     private String DTTimeString;
@@ -28,9 +27,18 @@ public class FreezeDataModel {
     private String OpMonthCode;
 
     private String DataType;
+    private String dtQuesText;                                                                      // dt question in text value
+    private String dtResController;                                                                 // response controller
+    private String dtResLupText;                                                                    // DT look up text for combo box
+    private String dtALabel;                                                                        // DT Answer Label
 
 
-    public FreezeDataModel(String admAwardCode, String admCountryCode, String admDonorCode, String admProgCode, String dataType, String DTACode, String DTAValue, String DTBasic, String DTEnuID, String DTQCode, String DTQText, int DTRSeq, String DTTimeString, int index, String opMode, String opMonthCode, String progActivityCode) {
+    public FreezeDataModel(String admAwardCode, String admCountryCode, String admDonorCode
+            , String admProgCode, String dataType, String DTACode, String DTAValue, String DTBasic
+            , String DTEnuID, String DTQCode, String DTQText, int DTRSeq, String DTTimeString
+            , int index, String opMode, String opMonthCode, String progActivityCode
+            , String dtQuesText, String dtResController, String dtResLupText, String dtALabel
+    ) {
         AdmAwardCode = admAwardCode;
         AdmCountryCode = admCountryCode;
         AdmDonorCode = admDonorCode;
@@ -48,8 +56,44 @@ public class FreezeDataModel {
         OpMode = opMode;
         OpMonthCode = opMonthCode;
         ProgActivityCode = progActivityCode;
+
+        this.dtQuesText = dtQuesText;
+        this.dtResController = dtResController;
+        this.dtResLupText = dtResLupText;
+        this.dtALabel = dtALabel;
     }
 
+    public String getDtALabel() {
+        return dtALabel;
+    }
+
+    public void setDtALabel(String dtALabel) {
+        this.dtALabel = dtALabel;
+    }
+
+    public String getDtQuesText() {
+        return dtQuesText;
+    }
+
+    public void setDtQuesText(String dtQuesText) {
+        this.dtQuesText = dtQuesText;
+    }
+
+    public String getDtResController() {
+        return dtResController;
+    }
+
+    public void setDtResController(String dtResController) {
+        this.dtResController = dtResController;
+    }
+
+    public String getDtResLupText() {
+        return dtResLupText;
+    }
+
+    public void setDtResLupText(String dtResLupText) {
+        this.dtResLupText = dtResLupText;
+    }
 
     public int getIndex() {
         return index;

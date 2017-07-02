@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.siddiquinoor.restclient.R;
+import com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DTResponseRecordingActivity;
 import com.siddiquinoor.restclient.data_model.DTSurveyTableDataModel;
 
 import java.util.ArrayList;
@@ -50,11 +51,20 @@ public class SurveyAdapter extends RecyclerView.Adapter<SurveyAdapter.SurveyItem
         /**
          * if the  answer type is radio button IT will show total value
          */
-        if (dtSurveyTableDataModel.getDtaValue().equalsIgnoreCase("Y")) {
-            holder.tvAnswer.setText("Yes");
-        } else if (dtSurveyTableDataModel.getDtaValue().equalsIgnoreCase("N")) {
-            holder.tvAnswer.setText("No");
-        } else if (dtSurveyTableDataModel.getDtALabel() == null) {                              //if the answer control is not Radio button or check Box  then set the DtaValue
+        if (dtSurveyTableDataModel.getDtResController().equals(DTResponseRecordingActivity.RADIO_BUTTON)) {
+
+            if (dtSurveyTableDataModel.getDtALabel().equals("Yes") || dtSurveyTableDataModel.getDtALabel().equals("No")) {
+                if (dtSurveyTableDataModel.getDtaValue().equalsIgnoreCase("Y")) {
+                    holder.tvAnswer.setText("Yes");
+                } else if (dtSurveyTableDataModel.getDtaValue().equalsIgnoreCase("N")) {
+                    holder.tvAnswer.setText("No");
+                }
+            }else {
+                holder.tvAnswer.setText(dtSurveyTableDataModel.getDtALabel());
+            }
+
+        }
+        if (dtSurveyTableDataModel.getDtALabel() == null) {                              //if the answer control is not Radio button or check Box  then set the DtaValue
             holder.tvAnswer.setText(dtSurveyTableDataModel.getDtaValue());
         } else {
             if (dtSurveyTableDataModel.getDtPhoto().length() < MINIMUM_PHOTO_LENGTH)
