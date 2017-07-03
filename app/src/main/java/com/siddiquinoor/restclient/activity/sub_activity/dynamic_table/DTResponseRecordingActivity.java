@@ -974,7 +974,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
                 break;
             case Date_OR_Time:
-                //// TODO: 7/2/2017  check if alowe null mehedi
+                //// TODO: 7/2/2017  check if allow null mehedi
 
                 String dateTime = _dt_tv_DatePickerNLatLong.getText().toString();
                 if (dateTime.equals("Click for Date") || dateTime.equals("Select Date")) {
@@ -1395,7 +1395,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         mSyntaxGenerator.setOpMonthCode(dyIndex.getOpMonthCode());
         mSyntaxGenerator.setDTEnuID(getStaffID());
         mSyntaxGenerator.setDTRSeq(String.valueOf(mDTRSeq));
-        sqlH.insertIntoUploadTable(mSyntaxGenerator.DTShortNameDTRSeq_Save());
+        sqlH.insertIntoUploadPhysicalTable(mSyntaxGenerator.DTShortNameDTRSeq_Save(),mDTRSeq);
 
         Toast.makeText(mContext, "Saved Successfully ", Toast.LENGTH_SHORT).show();
 
@@ -1416,13 +1416,13 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         if (mSkipDTATable != null && isSkipQuestion) {
             dt_SkipDTQCode = mSkipDTATable.getDt_SkipDTQCode();
 
-            dt_SkipDTQues = loadNextQuestion(dyIndex.getDtBasicCode(), dt_SkipDTQCode);     // get the skip question
+            dt_SkipDTQues = loadNextQuestion(dyIndex.getDtBasicCode(), dt_SkipDTQCode);                 // get the skip question
 
-            if (dt_SkipDTQues != null) {                                                //  safety block
+            if (dt_SkipDTQues != null) {                                                            //  safety block
                 dtqTableDataModel = dt_SkipDTQues;
                 isSkipQuestion = false;
 
-                mQusIndex = Integer.parseInt(dt_SkipDTQues.getqSeq());                  // set question index
+                mQusIndex = Integer.parseInt(dt_SkipDTQues.getqSeq());                              // set question index
             }
 
         } else {

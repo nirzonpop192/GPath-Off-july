@@ -114,6 +114,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "NAME";
     public static final String SQL_QUERY_SYNTAX = "SqlQuery";
     public static final String UPLOAD_SYNTAX_TABLE = "UploadSyntax";
+    public static final String UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE = "UploadPhysicalTableSyntax";
     public static final String FOOD_FLAG = "FoodFlag";
     public static final String PROG_FLAG = "ProgFlag";
     public static final String NON_FOOD_FLAG = "NFoodFlag";
@@ -1098,6 +1099,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db, int version) {
         dropTableFromExportedDatabase(db);
         db.execSQL(Schema.sqlCreateUploadTable());
+        db.execSQL(Schema.sqlCreateUploadPhysicalTable());
     }
 
     /**
@@ -1180,7 +1182,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             cursor.close();
         }
 
-        orginalDatabase.close();
+      //  orginalDatabase.close();
 
 
         if (list.size() > 0) {
@@ -1191,6 +1193,45 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
                 extralDatabase.insert(UPLOAD_SYNTAX_TABLE, null, values);
+
+            }
+        }
+
+
+
+        List<dataUploadDB> list_1 = new ArrayList<>();
+
+        extralDatabase.delete(UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE, null, null);
+
+        String sql_1 = "SELECT  "+SQL_QUERY_SYNTAX
+                +","+ DT_R_SEQ_COL
+                +"FROM " + UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE +// " WHERE " + SYNC_COL + "=0 "
+                " ORDER BY " + ID_COL + " ASC ";
+        Cursor cursor_1 = orginalDatabase.rawQuery(sql_1, null);
+        if (cursor_1.moveToFirst()) {
+            do {
+                dataUploadDB data = new dataUploadDB();
+//                data._id = cursor.getString(cursor.getColumnIndex(ID_COL));
+                data._syntax = cursor_1.getString(cursor.getColumnIndex(SQL_QUERY_SYNTAX));
+                data._sqn = cursor_1.getInt(cursor.getColumnIndex(DT_R_SEQ_COL));
+                list_1.add(data);
+
+            } while (cursor_1.moveToNext());
+            cursor_1.close();
+        }
+
+        orginalDatabase.close();
+
+
+        if (list_1.size() > 0) {
+            for (int i = 0; i < list_1.size(); i++) {
+                ContentValues values = new ContentValues();
+                values.put(SQL_QUERY_SYNTAX, list_1.get(i)._syntax);
+                values.put(DT_R_SEQ_COL, list_1.get(i)._sqn);
+                values.put(SYNC_COL, "0");
+
+
+                extralDatabase.insert(UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE, null, values);
 
             }
         }
@@ -1364,6 +1405,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(Schema.sqlCreateUploadTable());
+        db.execSQL(Schema.sqlCreateUploadPhysicalTable());
         db.execSQL(Schema.sqlCreateUserLoginTable());
         db.execSQL(Schema.sqlCreateStaffMasterTable());
         db.execSQL(Schema.sqlCreateCountry());
@@ -4321,7 +4363,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
     /**
-     * @param query sql syntext
+     * @param query sql syntax
      * @return insert id
      */
     public long insertIntoUploadTable(String query) {
@@ -4330,7 +4372,26 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(SQL_QUERY_SYNTAX, query);
         values.put(SYNC_COL, "0");
         long id = db.insert(UPLOAD_SYNTAX_TABLE, null, values);
-        //  Log.d(TAG, "inserted into Upload Table id:" + id);
+
+        db.close();
+        return id;
+
+    }
+
+
+    /**
+     *
+     * @param query sp for dtresponse table
+     * @return
+     */
+    public long insertIntoUploadPhysicalTable(String query,int sequence) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(SQL_QUERY_SYNTAX, query);
+        values.put(DT_R_SEQ_COL, sequence);
+        values.put(SYNC_COL, "0");
+        long id = db.insert(UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE, null, values);
+
         db.close();
         return id;
 

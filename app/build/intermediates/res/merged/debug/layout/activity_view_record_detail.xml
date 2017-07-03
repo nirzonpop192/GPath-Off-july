@@ -289,23 +289,7 @@
                                 android:layout_toRightOf="@+id/lblLongitude" />
 
 
-                            <!--<TextView
-                                android:id="@+id/lblaglang"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="AGLand:"
-                                android:layout_below="@+id/lblLongitude"
-                                style="@style/detail_view"
-                                />-->
 
-                            <!-- <TextView
-                                 android:id="@+id/agland"
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:layout_alignTop="@+id/lblaglang"
-                                 android:layout_toRightOf="@+id/lblaglang"
-                                 style="@style/detail_viewData"
-                                 />-->
 
                             <TextView
                                 android:id="@+id/lblVstatus"
@@ -322,6 +306,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignTop="@+id/lblVstatus"
                                 android:layout_toRightOf="@+id/lblVstatus" />
+<!--
+ don't delete the below code work in future
 
                             <TextView
                                 android:id="@+id/lblMstatus"
@@ -338,6 +324,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignTop="@+id/lblMstatus"
                                 android:layout_toRightOf="@+id/lblMstatus" />
+-->
 
                         </RelativeLayout>
                         <!-- End the details about malawi from -->

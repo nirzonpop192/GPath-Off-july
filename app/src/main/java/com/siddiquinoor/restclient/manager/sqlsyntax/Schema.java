@@ -604,36 +604,25 @@ public class Schema {
      */
 
     public static String sqlCreateUploadTable() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.UPLOAD_SYNTAX_TABLE + " ( "
-                + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
-                + SQLiteHandler.SQL_QUERY_SYNTAX + " BLOB , "
+        return CREATE_TABLE_IF_NOT_EXISTS + UPLOAD_SYNTAX_TABLE + " ( "
+                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+                + SQL_QUERY_SYNTAX + " BLOB , "
                 + SYNC_COL + " BOOLEAN DEFAULT 0 )";
     }
 
+    public static String sqlCreateUploadPhysicalTable() {
+        return CREATE_TABLE_IF_NOT_EXISTS + UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE + " ( "
+                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT " +
+                " , " + SQL_QUERY_SYNTAX + " BLOB" +
+                " , " + SYNC_COL + " BOOLEAN DEFAULT 0 " +
+                " , " + DT_R_SEQ_COL + " INTEGER " +
+                ")";
+    }
+
+
 
     public static String sqlCreateRegNLMTable() {
-//        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.REG_N_LM_TABLE + " ( "
-//                + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
-//                + ADM_COUNTRY_CODE_COL + " VARCHAR(5), "
-//                + LAY_R_LIST_CODE_COL + " VARCHAR(2), "
-//                + LAY_R2_LIST_CODE_COL + " VARCHAR(2), "
-//                + LAY_R3_LIST_CODE_COL + " VARCHAR(2), "
-//                + LAY_R4_LIST_CODE_COL + " VARCHAR(2), "
-//                + HHID_COL + " VARCHAR(6), "
-//                + HH_MEM_ID + " VARCHAR(3), "
-//                + REG_N_DAT_COL + " VARCHAR(50), "
-//                + SQLiteHandler.LM_DATE_COL + " VARCHAR(50), "
-//                + ADM_PROG_CODE_COL + " VARCHAR(3), "
-//                + ADM_SRV_CODE_COL + " VARCHAR(2), "
-//                + SQLiteHandler.GRDCODE_COL + " VARCHAR(2) , "
-//                + SQLiteHandler.LMGRDDATE_COL + " VARCHAR(50) , "
-//                + SQLiteHandler.CHILD_NAME_COL + " VARCHAR(50) , "
-//                + SQLiteHandler.CHILD_SEX_COL + " VARCHAR(2) , "
-//
-//                + ENTRY_BY + " VARCHAR(5) , "
-//                + ENTRY_DATE + " VARCHAR(50) DEFAULT '0', "
-//                + SYNC_COL + "  BOOLEAN DEFAULT 0"
-//                + " )";
+
 
         return CREATE_TABLE_IF_NOT_EXISTS + REG_N_LM_TABLE + " ( "
                 //    + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
