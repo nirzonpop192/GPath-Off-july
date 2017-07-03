@@ -53,7 +53,7 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
 
 
     TextView tv_LayR4Name, tv_hhSize, tv_Latitude, tv_Longitude,/* tv_agland,*/
-            tv_vstatus, tv_mstatus;
+            tv_vstatus/*, tv_mstatus*/;
 
 
     TextView tv_hhType;
@@ -174,7 +174,7 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
             tv_Longitude.setText(intnt.getStringExtra(KEY.LONGITUDE));
             // tv_agland.setText(intnt.getStringExtra(KEY.AG_LAND));
             tv_vstatus.setText(intnt.getStringExtra(KEY.VSTATUS));
-            tv_mstatus.setText(intnt.getStringExtra(KEY.MSTATUS));
+//            tv_mstatus.setText(intnt.getStringExtra(KEY.MSTATUS));
 
         } else {
             rLayoutMalawi.setVisibility(View.GONE);
@@ -302,7 +302,7 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
         tv_Longitude = (TextView) findViewById(id.lblLongitudeVal);
         ///tv_agland = (TextView) findViewById(id.agland);
         tv_vstatus = (TextView) findViewById(id.vstatus);
-        tv_mstatus = (TextView) findViewById(id.mstatus);
+//        tv_mstatus = (TextView) findViewById(id.mstatus);
 
         tv_hhType = (TextView) findViewById(R.id.HouseHoldType);
        /* entrydate = (TextView) findViewById(id.entrydate);

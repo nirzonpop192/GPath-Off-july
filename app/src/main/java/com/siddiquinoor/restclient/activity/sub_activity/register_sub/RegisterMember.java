@@ -361,6 +361,7 @@ public class RegisterMember extends BaseActivity {
         String entryBy = data.getEntryBy();
         String entryDate = data.getEntryDate();
         String vsla_group = data.getVSLAGroup();
+        String address = data.getAddressName();
 
         int pId = data.getID();
 
@@ -389,6 +390,7 @@ public class RegisterMember extends BaseActivity {
         dIntent.putExtra(KEY.ENTRY_DATE, entryDate);
         dIntent.putExtra(KEY.VSLA_GROUP, vsla_group);
         dIntent.putExtra(KEY.P_ID, pId);
+        dIntent.putExtra(KEY.ADDRESS_NAME, address);
         finish();
 
         startActivity(dIntent);
