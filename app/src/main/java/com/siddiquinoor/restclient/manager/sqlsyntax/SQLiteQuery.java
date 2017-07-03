@@ -3,6 +3,7 @@ package com.siddiquinoor.restclient.manager.sqlsyntax;
 import android.util.Log;
 
 import com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DTResponseRecordingActivity;
+import com.siddiquinoor.restclient.data_model.DTSurveyTableDataModel;
 import com.siddiquinoor.restclient.data_model.RegNAssgProgSrv;
 import com.siddiquinoor.restclient.data_model.adapters.AssignDataModel;
 import com.siddiquinoor.restclient.manager.SQLiteHandler;
@@ -4199,7 +4200,7 @@ public class SQLiteQuery {
     }
 
 
-    public static String loadDynamicSpinnerValueInReport_sql(String cCode, String resLupText, String value) {
+    public static String loadDynamicSpinnerValueInReport_sql(String cCode, String resLupText, String value, DTSurveyTableDataModel dataModel) {
         String udf = "";
 
         switch (resLupText) {
@@ -4363,6 +4364,138 @@ public class SQLiteQuery {
                         + " commGrp." + GRP_LAY_R2_LIST_CODE_COL + " || '' || "
                         + " commGrp." + GRP_LAY_R3_LIST_CODE_COL + " = '" + value + "'"
                 );
+                break;
+
+
+            case SERVICE_SITE:
+
+                udf = "SELECT " + SERVICE_CENTER_TABLE + "." + SERVICE_CENTER_CODE_COL
+                        + ", " + SERVICE_CENTER_TABLE + "." + SERVICE_CENTER_NAME_COL
+                        + " FROM " + SERVICE_CENTER_TABLE
+                        + " WHERE " + SERVICE_CENTER_TABLE + "." + ADM_COUNTRY_CODE_COL + "= '" + cCode + "'"
+                        + " AND " + SERVICE_CENTER_TABLE + "." + SERVICE_CENTER_CODE_COL + "= '" + value + "'";
+
+
+                break;
+
+            case DISTRIBUTION_POINT:
+
+                udf = "SELECT " + FDP_MASTER_TABLE + "." + FDP_CODE_COL
+                        + ", " + FDP_MASTER_TABLE + "." + FDP_NAME_COL
+                        + " FROM " + FDP_MASTER_TABLE
+                        + " WHERE " + FDP_MASTER_TABLE + "." + FDP_MASTER_COUNTRY_CODE + "= '" + cCode + "'"
+                        + " AND " + FDP_MASTER_TABLE + "." + FDP_CODE_COL + "= '" + value + "'";
+
+
+                break;
+
+
+            case LOOKUP_LIST:
+
+                udf = "SELECT " + DT_LUP_TABLE + "." + LIST_CODE_COL
+                        + ", " + DT_LUP_TABLE + "." + LIST_NAME_COL
+                        + " FROM " + DT_LUP_TABLE
+                        + " WHERE " + DT_LUP_TABLE + "." + ADM_COUNTRY_CODE_COL + "= '" + cCode + "' "
+                        + " AND " + DT_LUP_TABLE + "." + LIST_CODE_COL + "= '" + value + "'";
+
+
+                break;
+
+
+            case ORGANIZATION_LIST:
+
+                udf = "SELECT  progOR." + ORG_N_CODE_COL
+                        + ", pOrg." + ORGANIZATION_NAME + " "
+                        + " FROM " + PROGRAM_ORGANIZATION_ROLE_TABLE + " AS progOR "
+                        + " INNER JOIN " + " " + PROGRAM_ORGANIZATION_NAME_TABLE + " AS pOrg "
+                        + " ON progOR." + ORG_N_CODE_COL + " = pOrg." + PROGRAM_ORGANIZATION_NAME_TABLE_ORG_CODE_COL
+                        + " WHERE progOR." + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
+                        + " AND progOR." + ORG_N_CODE_COL + " = '" + value + "' "
+                        + " GROUP BY pOrg." + ORGANIZATION_NAME;
+
+                break;
+
+            case DTResponseRecordingActivity.COMMNITY_ANIMAL:
+
+                udf = "SELECT " + ANIMAL_CODE_COL +
+                        " , " + ANIMAL_TYPE_COL
+                        + " FROM " + LUP_COMMUNITY_ANIMAL_TABLE
+                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
+                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dataModel.getDonorCode() + "' "
+                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dataModel.getAwardCode() + "' "
+                        + " AND " + ADM_PROG_CODE_COL + " = '" + dataModel.getProgramCode() + "' "
+                        + " AND " + ANIMAL_CODE_COL + " = '" + value + "' ";
+
+
+                break;
+
+            case DTResponseRecordingActivity.COMMNITY_LEAD_POSITION:
+
+                udf = "SELECT " + LEAD_CODE_COL +
+                        " , " + LEAD_POSITION_COL
+                        + " FROM " + LUP_COMMUNITY_LEAD_POSITION_TABLE
+                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
+                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dataModel.getDonorCode() + "' "
+                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dataModel.getAwardCode() + "' "
+                        + " AND " + ADM_PROG_CODE_COL + " = '" + dataModel.getProgramCode() + "' "
+                        + " AND " + LEAD_CODE_COL + " = '" + value + "' ";
+
+
+                break;
+
+            case "Commnity Loan Source":
+
+                udf = "SELECT " + LOAN_CODE_COL +
+                        " , " + LOAN_SOURCE_COL
+                        + " FROM " + LUP_COMMUNITY_LOAN_SOURCE_TABLE
+                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
+                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dataModel.getDonorCode() + "' "
+                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dataModel.getAwardCode() + "' "
+                        + " AND " + ADM_PROG_CODE_COL + " = '" + dataModel.getProgramCode() + "' "
+                        + " AND " + LOAN_CODE_COL + " = '" + value + "' ";
+
+
+                break;
+
+
+            case "Commnity Fund Source":
+
+                udf = "SELECT " + FUND_CODE_COL +
+                        " , " + FUND_SOURCE_COL
+                        + " FROM " + LUP_COMMUNITY_FUND_SOURCE_TABLE
+                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
+                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dataModel.getDonorCode() + "' "
+                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dataModel.getAwardCode() + "' "
+                        + " AND " + ADM_PROG_CODE_COL + " = '" + dataModel.getProgramCode() + "' "
+                        + " AND " + FUND_CODE_COL + " = '" + value + "' ";
+
+
+                break;
+            case "Community Irrigation System":
+                udf = "SELECT " + IRRI_SYS_CODE_COL +
+                        " , " + IRRI_SYS_NAME_COL
+                        + " FROM " + LUP_COMMUNITY_IRRIGATION_SYSTEM_TABLE
+                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
+                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dataModel.getDonorCode() + "' "
+                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dataModel.getAwardCode() + "' "
+                        + " AND " + ADM_PROG_CODE_COL + " = '" + dataModel.getProgramCode() + "' "
+                        + " AND " + IRRI_SYS_CODE_COL + " = '" + value + "' ";
+
+
+                break;
+
+
+            case "Prog Group Crop List":
+                udf = "SELECT " + CROP_CODE_COL +
+                        " , " + CROP_NAME_COL
+                        + " FROM " + LUP_PROG_GROUP_CROP_TABLE
+                        + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
+                        + " AND " + ADM_DONOR_CODE_COL + " = '" + dataModel.getDonorCode() + "' "
+                        + " AND " + ADM_AWARD_CODE_COL + " = '" + dataModel.getAwardCode() + "' "
+                        + " AND " + ADM_PROG_CODE_COL + " = '" + dataModel.getProgramCode() + "' "
+                        + " AND " + CROP_CODE_COL + " = '" + value + "' ";
+
+
                 break;
 
 

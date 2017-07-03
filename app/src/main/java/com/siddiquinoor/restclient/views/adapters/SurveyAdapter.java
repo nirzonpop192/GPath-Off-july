@@ -85,38 +85,27 @@ public class SurveyAdapter extends RecyclerView.Adapter<SurveyAdapter.SurveyItem
         } else if (resControl.equals(DTResponseRecordingActivity.COMBO_BOX)) {
 
 
-            switch (resLupText) {
-                /**
-                 * below section will the be saved as code
-                 */
-                case DTResponseRecordingActivity.GEO_LAYER_3:
-                case DTResponseRecordingActivity.GEO_LAYER_2:
-                case DTResponseRecordingActivity.GEO_LAYER_1:
-                case DTResponseRecordingActivity.GEO_LAYER_4:
-                case DTResponseRecordingActivity.GEO_LAYER_ADDRESS:
-                case DTResponseRecordingActivity.COMMUNITY_GROUP:
-                case DTResponseRecordingActivity.COMMUNITY_GROUP_PG:
-                case DTResponseRecordingActivity.COMMUNITY_GROUP_IG:
-                case DTResponseRecordingActivity.COMMUNITY_GROUP_MG:
-                case DTResponseRecordingActivity.COMMUNITY_GROUP_WE:
-                case DTResponseRecordingActivity.COMMUNITY_GROUP_LG:
 
-                   SQLiteHandler sqlH = new SQLiteHandler(mContext);
+
+                    SQLiteHandler sqlH = new SQLiteHandler(mContext);
                     List<SpinnerHelper> list = new ArrayList<SpinnerHelper>();
 
-                    String udf = SQLiteQuery.loadDynamicSpinnerValueInReport_sql(dtSurveyTableDataModel.getCountryCode(), resLupText,  dtSurveyTableDataModel.getDtaValue());
+                    String udf = SQLiteQuery.loadDynamicSpinnerValueInReport_sql(dtSurveyTableDataModel.getCountryCode(), resLupText, dtSurveyTableDataModel.getDtaValue(),dtSurveyTableDataModel);
 
 
                     list.clear();
                     list = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, udf, dtSurveyTableDataModel.getCountryCode(), false);
+                    /**
+                     * jodi list e 1 er beshi element  thake tarmane comobox e value chilo
+                     * other wise combox e kisu select kora hoy nai seta null
+                     */
+                    if (list.size() > 1)
+                        holder.tvAnswer.setText(list.get(1).getValue());
+                    else
+                        holder.tvAnswer.setText("N/A");
 
 
-                    holder.tvAnswer.setText(list.get(1).getValue());
-                    break;
-                default:
-                    holder.tvAnswer.setText(dtSurveyTableDataModel.getDtaValue());
-                    break;
-            }
+
         } else {
             /**
              * the default section block

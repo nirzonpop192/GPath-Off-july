@@ -220,6 +220,12 @@ public class SQLServerSyntaxGenerator {
             if (tem.equals("null") || tem.length() == 0 || tem.equals("")) {
                 tem = null;
             } else {
+                /**
+                 * Rectify issues causing Unclosed quotation marks
+                 * by replacing double  single quotation 
+                 */
+                tem=tem.replace("'","''");
+
                 tem = "'" + tem + "'";
             }
 
