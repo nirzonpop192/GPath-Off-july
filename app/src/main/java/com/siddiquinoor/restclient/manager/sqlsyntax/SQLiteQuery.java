@@ -3539,14 +3539,14 @@ public class SQLiteQuery {
         return "SELECT " +
 
 
-                "  regG." + LAY_R_LIST_CODE_COL +
+                "  regG." + LAY_R1_LIST_CODE_COL +
                 " || '' || regG." + LAY_R2_LIST_CODE_COL +
                 " || '' || regG." + LAY_R3_LIST_CODE_COL +
                 " || '' || regG." + LAY_R4_LIST_CODE_COL +
                 " || '' || regG." + HHID_COL +
-                " || '' || regG." + HH_MEM_ID + " AS idMem " +
+                " || '' || regG." + MEM_ID_COL + " AS idMem " +
 
-                " , srv." + SERVICE_SHORT_NAME_COL +
+                " , srv." + SERVICE_MASTER_SERVICE_SHORT_NAME_COL +
                 " , " + getMemberName + " AS memName " +
                 " , cg." + GROUP_NAME_COL +
                 " FROM " + REG_N_MEM_PROG_GRP_TABLE + " AS regG " +
@@ -3554,34 +3554,34 @@ public class SQLiteQuery {
 
                 " LEFT JOIN " + SERVICE_MASTER_TABLE + " AS srv " +
                 " ON regG." + PROG_CODE_COL + " = srv. " + ADM_PROG_CODE_COL +
-                " AND regG." + ADM_SRV_CODE_COL + " = srv." + ADM_SRV_CODE_COL +
+                " AND regG." + SRV_CODE_COL + " = srv." + ADM_SRV_CODE_COL +
 
                 " LEFT JOIN " + REGISTRATION_MEMBER_TABLE + " AS regMem " +
 
                 " ON " + " regG." + ADM_COUNTRY_CODE_COL + " = " + " regMem." + ADM_COUNTRY_CODE_COL +
-                " AND " + " regG." + LAY_R_LIST_CODE_COL + " = " + " regMem." + DISTRICT_NAME_COL +
-                " AND " + " regG." + LAY_R2_LIST_CODE_COL + " = " + " regMem." + UPZILLA_NAME_COL +
-                " AND " + " regG." + LAY_R3_LIST_CODE_COL + " = " + " regMem." + LAY_R3_LIST_NAME +
-                " AND " + " regG." + LAY_R4_LIST_CODE_COL + " = " + " regMem." + LAY_R4_LIST_NAME_COL +
+                " AND " + " regG." + LAY_R1_LIST_CODE_COL + " = " + " regMem." + LAY_R1_LIST_CODE_COL +
+                " AND " + " regG." + LAY_R2_LIST_CODE_COL + " = " + " regMem." + LAY_R2_LIST_CODE_COL +
+                " AND " + " regG." + LAY_R3_LIST_CODE_COL + " = " + " regMem." + LAY_R3_LIST_CODE_COL +
+                " AND " + " regG." + LAY_R4_LIST_CODE_COL + " = " + " regMem." + LAY_R4_LIST_CODE_COL +
                 " AND " + " regG." + HHID_COL + " = " + " regMem." + HHID_COL +
-                " AND " + " regG." + HH_MEM_ID + " = " + " regMem." + HH_MEM_ID + " " +
+                " AND " + " regG." + MEM_ID_COL + " = " + " regMem." + HH_MEM_ID + " " +
 
                 " INNER JOIN " + COMMUNITY_GROUP_TABLE + " AS cg "
                 + " ON  cg." + ADM_COUNTRY_CODE_COL + " = " + " regG." + ADM_COUNTRY_CODE_COL
                 + " AND cg." + ADM_AWARD_CODE_COL + " = " + " regG." + ADM_AWARD_CODE_COL
                 + " AND cg." + ADM_DONOR_CODE_COL + " = " + " regG." + ADM_DONOR_CODE_COL
-                + " AND cg." + ADM_PROG_CODE_COL + " = " + " regG." + ADM_PROG_CODE_COL
+                + " AND cg." + ADM_PROG_CODE_COL + " = " + " regG." + PROG_CODE_COL
                 + " AND cg." + GROUP_CODE_COL + " = " + " regG." + GROUP_CODE_COL
 
-                + " AND cg." + LAY_R1_CODE_COL + " = " + " regG." + LAY_R1_CODE_COL
-                + " AND cg." + GRP_LAY_R2_LIST_CODE_COL + " = " + " regG." + GRP_LAY_R2_LIST_CODE_COL
-                + " AND cg." + GRP_LAY_R3_LIST_CODE_COL + " = " + " regG." + GRP_LAY_R3_LIST_CODE_COL +
+                + " AND cg." + LAY_R1_CODE_COL + " = " + " regG." + REG_N_MEM_PROG_GRP_TABLE_GRP_LAY_R1_LIST_CODE_COL
+                + " AND cg." + GRP_LAY_R2_LIST_CODE_COL + " = " + " regG." + REG_N_MEM_PROG_GRP_TABLE_GRP_LAY_R2_LIST_CODE_COL
+                + " AND cg." + GRP_LAY_R3_LIST_CODE_COL + " = " + " regG." + REG_N_MEM_PROG_GRP_TABLE_GRP_LAY_R3_LIST_CODE_COL +
 
 
                 " WHERE regG." + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
                 " AND regG." + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND regG." + ADM_AWARD_CODE_COL + " = '" + awardCode + "' " +
-                " AND regG." + ADM_PROG_CODE_COL + " = '" + prgCode + "' " +
+                " AND regG." + PROG_CODE_COL + " = '" + prgCode + "' " +
                 " AND regG." + GROUP_CODE_COL + " = '" + grpCode + "' " +
                 " GROUP BY idMem "
                 ;

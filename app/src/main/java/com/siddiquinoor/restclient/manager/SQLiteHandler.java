@@ -4572,7 +4572,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 SummaryIdListInGroupDataModel data = new SummaryIdListInGroupDataModel();
                 data.setnMemId(cursor.getString(cursor.getColumnIndex("idMem")));
                 data.setMemName(cursor.getString(cursor.getColumnIndex("memName")));
-                data.setSrvName(cursor.getString(cursor.getColumnIndex(SERVICE_SHORT_NAME_COL)));
+                data.setSrvName(cursor.getString(cursor.getColumnIndex(SERVICE_MASTER_SERVICE_SHORT_NAME_COL)));
                 data.setGrpName(cursor.getString(cursor.getColumnIndex(GROUP_NAME_COL)));
 
 

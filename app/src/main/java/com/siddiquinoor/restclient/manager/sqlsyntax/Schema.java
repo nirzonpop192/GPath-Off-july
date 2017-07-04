@@ -786,7 +786,7 @@ public class Schema {
      */
     public static String sqlCreateServiceMasterTable() {
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.SERVICE_MASTER_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + SERVICE_MASTER_TABLE + "("
                 + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_PROG_CODE_COL + " VARCHAR(20), "
                 + ADM_SRV_CODE_COL + " VARCHAR(20), "
@@ -802,7 +802,7 @@ public class Schema {
      */
     public static String sqlCreateProgramMasterTable() {
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.ADM_PROGRAM_MASTER_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + ADM_PROGRAM_MASTER_TABLE + "("
 
                 + ADM_DONOR_CODE_COL + " VARCHAR(2), "
                 + ADM_AWARD_CODE_COL + " VARCHAR(2), "
@@ -1175,7 +1175,7 @@ public class Schema {
 
     public static String sqlCreateCommunityGroup_Table() {
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.COMMUNITY_GROUP_TABLE + " ("
+        return CREATE_TABLE_IF_NOT_EXISTS + COMMUNITY_GROUP_TABLE + " ("
 
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "
                 + " , " + ADM_DONOR_CODE_COL + " VARCHAR(4) "
@@ -1490,14 +1490,14 @@ public class Schema {
 
 
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "
-                + " , " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " VARCHAR(2) "
+                + " , " + LAY_R1_LIST_CODE_COL + " VARCHAR(2) "
                 + " , " + LAY_R2_LIST_CODE_COL + " VARCHAR(2) "
                 + " , " + LAY_R3_LIST_CODE_COL + " VARCHAR(2) "
                 + " , " + LAY_R4_LIST_CODE_COL + " VARCHAR(2) "
                 + " , " + ADM_DONOR_CODE_COL + " VARCHAR(2) "
                 + " , " + ADM_AWARD_CODE_COL + " VARCHAR(2) "
                 + " , " + HHID_COL + " VARCHAR(6) "
-                + " , " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " VARCHAR(2) "
+                + " , " + MEM_ID_COL + " VARCHAR(2) "
                 + " , " + PROG_CODE_COL + " VARCHAR(3) "
                 + " , " + SRV_CODE_COL + " VARCHAR(2) "
                 + " , " + GROUP_CODE_COL + " VARCHAR(5) "

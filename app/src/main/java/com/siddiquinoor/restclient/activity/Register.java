@@ -586,9 +586,10 @@ public class Register extends BaseActivity {
 
             } else if (sqlH.ifThisHHIDExitsInRegHHTable(idCountry, idDist, idUP, idUnion, idVill, registeredId)) {
                 dialog.showErrorDialog(mContext, "HH Id already exists. Save attempt denied. Press clear Button For new Entry");
-            } else if (countNoWhitSpace(name) > countNoWord(name)) {
+            }
+            /* else if (countNoWhitSpace(name) > countNoWord(name)) {
                 dialog.showErrorDialog(mContext, " Invalid format. Save attempt denied");
-            } else if (isHousHoldExits(name) && !is_edit) {
+            }*/ else if (isHousHoldExits(name) && !is_edit) {
                 dialog.showErrorDialog(mContext, "HH Head hhName already exists. Save attempt denied.");
             } // same id Exits in db than it will not insert
 
