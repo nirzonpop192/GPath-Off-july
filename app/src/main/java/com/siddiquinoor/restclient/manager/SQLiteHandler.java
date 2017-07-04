@@ -1204,16 +1204,16 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         extralDatabase.delete(UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE, null, null);
 
         String sql_1 = "SELECT  "+SQL_QUERY_SYNTAX
-                +","+ DT_R_SEQ_COL
-                +"FROM " + UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE +// " WHERE " + SYNC_COL + "=0 "
-                " ORDER BY " + ID_COL + " ASC ";
+                +" , "+ DT_R_SEQ_COL
+                +" FROM " + UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE ;//+// " WHERE " + SYNC_COL + "=0 "
+          //      " ORDER BY " + ID_COL + " ASC ";
         Cursor cursor_1 = orginalDatabase.rawQuery(sql_1, null);
         if (cursor_1.moveToFirst()) {
             do {
                 dataUploadDB data = new dataUploadDB();
 //                data._id = cursor.getString(cursor.getColumnIndex(ID_COL));
-                data._syntax = cursor_1.getString(cursor.getColumnIndex(SQL_QUERY_SYNTAX));
-                data._sqn = cursor_1.getInt(cursor.getColumnIndex(DT_R_SEQ_COL));
+                data._syntax = cursor_1.getString(0);
+                data._sqn = cursor_1.getInt(1);
                 list_1.add(data);
 
             } while (cursor_1.moveToNext());
