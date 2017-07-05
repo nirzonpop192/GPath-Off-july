@@ -12,14 +12,6 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_pregnant_women.xml"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_common.xml",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_common.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_summary.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_member_liberia.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_register_member_liberia.xml"
     },
@@ -30,6 +22,198 @@
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_camera.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_camera.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary_assign_base_criteria.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_summary_assign_base_criteria.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_all_summary.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_all_summary.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_childen_under2.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_childen_under2.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_child_above2.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_child_above2.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_all_summary.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_all_summary.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_liberia.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_register_liberia.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_distribution.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_distribution.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_pregnant_women.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_pregnant_women.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_card_request.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_card_request.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_pregnant_women.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_pregnant_women.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_summary.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_service_summary_list.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_service_summary_list.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_service_summary_list.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_service_summary_list.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_pregnant_women.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_pregnant_women.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_service_summary_list.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_service_summary_list.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign.xml"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_graduation.xml",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_graduation.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_.xml"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_member_liberia.xml",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_register_member_liberia.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_childen_under2.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_childen_under2.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_childen_under2.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_childen_under2.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_page2.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_page2.xml"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary.xml",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_summary.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_card_request.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_card_request.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_page2.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_page2.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_common.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_common.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_member_liberia.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_register_member_liberia.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_liberia.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_register_liberia.xml"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_childen_under2.xml",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_childen_under2.xml"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_all_summary.xml",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_all_summary.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_card_request.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_card_request.xml"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_liberia.xml",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_register_liberia.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_summary.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\map_menu.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\map_menu.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_child_above2.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_child_above2.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_graduation.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_graduation.xml"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_service_summary_list.xml",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_service_summary_list.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_summary.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_for_liberia.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_for_liberia.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_camera.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_camera.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_service_record.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_service_record.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_common.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_common.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary_assign_base_criteria.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_summary_assign_base_criteria.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_pregnant_women.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_pregnant_women.xml"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_common.xml",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_common.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_summary.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_child_above2.xml",
@@ -44,8 +228,8 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_graduation_update.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary_assign_base_criteria.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_summary_assign_base_criteria.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary_assign_base_criteria.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_summary_assign_base_criteria.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_service_record.xml",
@@ -68,16 +252,8 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_childen_under2.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_child_above2.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_child_above2.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_all_summary.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_all_summary.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_liberia.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_register_liberia.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_page2.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_page2.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary_assign_base_criteria.xml",
@@ -92,24 +268,8 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_lactating_mother.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_distribution.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_distribution.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\map_menu.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\map_menu.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_pregnant_women.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_pregnant_women.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_card_request.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_card_request.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_pregnant_women.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_pregnant_women.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_common.xml",
@@ -120,52 +280,36 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\map_menu.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_summary.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_graduation.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_graduation.xml"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_lactating_mother.xml",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_lactating_mother.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_service_summary_list.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_service_summary_list.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_lactating_mother.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_lactating_mother.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_service_summary_list.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_service_summary_list.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\map_menu.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\map_menu.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_graduation_update.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_graduation_update.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_page2.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_page2.xml"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_graduation.xml",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_graduation.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_.xml"
-    },
-    {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_member_liberia.xml",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_register_member_liberia.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_childen_under2.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_childen_under2.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_childen_under2.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_childen_under2.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_distribution.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_distribution.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_card_request.xml",
@@ -176,14 +320,6 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_graduation_update.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_page2.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_page2.xml"
-    },
-    {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign.xml",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign.xml"
     },
@@ -192,16 +328,8 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_service_record.xml"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary.xml",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_summary.xml"
-    },
-    {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_.xml",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_camera.xml",
@@ -210,18 +338,6 @@
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_all_summary.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_all_summary.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_card_request.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_card_request.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_page2.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_page2.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_common.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_common.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_distribution.xml",
@@ -234,6 +350,10 @@
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_for_liberia.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_for_liberia.xml"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_for_liberia.xml",
@@ -252,8 +372,8 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_graduation.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_member_liberia.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_register_member_liberia.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_lactating_mother.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_assign_lactating_mother.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_for_liberia.xml",
@@ -264,16 +384,8 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_lactating_mother.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_liberia.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_register_liberia.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_service_record.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_service_record.xml"
-    },
-    {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_childen_under2.xml",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_childen_under2.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign.xml",
@@ -284,10 +396,6 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_card_request.xml"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_all_summary.xml",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_all_summary.xml"
-    },
-    {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary_assign_base_criteria.xml",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_summary_assign_base_criteria.xml"
     },
@@ -296,59 +404,39 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_child_above2.xml"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_liberia.xml",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_register_liberia.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_member_liberia.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_register_member_liberia.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_liberia.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_register_liberia.xml"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_page2.xml",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_page2.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\map_menu.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\map_menu.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_graduation.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_graduation.xml"
-    },
-    {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_service_summary_list.xml",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_service_summary_list.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_summary.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_.xml"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_camera.xml",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_camera.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_for_liberia.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_for_liberia.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_camera.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_camera.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_common.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_common.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_camera.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_camera.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_graduation.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_graduation.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_summary_assign_base_criteria.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\menu\\menu_summary_assign_base_criteria.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_register_liberia.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_register_liberia.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_assign_pregnant_women.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\menu\\menu_assign_pregnant_women.xml"
     }
 ]

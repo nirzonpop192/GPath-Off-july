@@ -14,5 +14,9 @@
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_launcher.png",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\ic_launcher.png",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     }
 ]

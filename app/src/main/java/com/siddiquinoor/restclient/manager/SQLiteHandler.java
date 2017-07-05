@@ -343,6 +343,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public static final String ALLOW_NULL_COL = "AllowNull";
     public static final String LUP_TABLE_NAME = "LUPTableName";
 
+    public static final String PORTABLE_DEVICE_ID_COL = "PortableDeviceID";
+
     public static final String QSEQ_SCOL = "QSeq";
     public static final String DT_ENU_ID_COL = "DTEnuID";
     public static final String OP_MODE_COL = "OpMode";
@@ -1160,17 +1162,19 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      */
     public void insertIntoExportDataBase(Context context) {
         List<dataUploadDB> list = new ArrayList<>();
+
         String path = "/data/data/" + context.getPackageName() + "/databases/";
-        SQLiteDatabase extralDatabase, orginalDatabase;
+
+        SQLiteDatabase extralDatabase, originalDatabase;
         extralDatabase = SQLiteDatabase.openDatabase(path + EXTERNAL_DATABASE_NAME, null, SQLiteDatabase.OPEN_READWRITE);
-        orginalDatabase = SQLiteDatabase.openDatabase(path + DATABASE_NAME, null, SQLiteDatabase.OPEN_READWRITE);
+        originalDatabase = SQLiteDatabase.openDatabase(path + DATABASE_NAME, null, SQLiteDatabase.OPEN_READWRITE);
 
 
         extralDatabase.delete(UPLOAD_SYNTAX_TABLE, null, null);
 
         String sql = "SELECT  * FROM " + UPLOAD_SYNTAX_TABLE +// " WHERE " + SYNC_COL + "=0 "
                 " ORDER BY " + ID_COL + " ASC ";
-        Cursor cursor = orginalDatabase.rawQuery(sql, null);
+        Cursor cursor = originalDatabase.rawQuery(sql, null);
         if (cursor.moveToFirst()) {
             do {
                 dataUploadDB data = new dataUploadDB();
@@ -1182,7 +1186,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             cursor.close();
         }
 
-      //  orginalDatabase.close();
+        //  originalDatabase.close();
 
 
         if (list.size() > 0) {
@@ -1198,16 +1202,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         }
 
 
-
         List<dataUploadDB> list_1 = new ArrayList<>();
 
         extralDatabase.delete(UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE, null, null);
 
-        String sql_1 = "SELECT  "+SQL_QUERY_SYNTAX
-                +" , "+ DT_R_SEQ_COL
-                +" FROM " + UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE ;//+// " WHERE " + SYNC_COL + "=0 "
-          //      " ORDER BY " + ID_COL + " ASC ";
-        Cursor cursor_1 = orginalDatabase.rawQuery(sql_1, null);
+        String sql_1 = "SELECT  " + SQL_QUERY_SYNTAX
+                + " , " + DT_R_SEQ_COL
+                + " FROM " + UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE;
+
+        Cursor cursor_1 = originalDatabase.rawQuery(sql_1, null);
         if (cursor_1.moveToFirst()) {
             do {
                 dataUploadDB data = new dataUploadDB();
@@ -1220,7 +1223,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             cursor_1.close();
         }
 
-        orginalDatabase.close();
+        originalDatabase.close();
 
 
         if (list_1.size() > 0) {
@@ -1229,6 +1232,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 values.put(SQL_QUERY_SYNTAX, list_1.get(i)._syntax);
                 values.put(DT_R_SEQ_COL, list_1.get(i)._sqn);
                 values.put(SYNC_COL, "0");
+                values.put(PORTABLE_DEVICE_ID_COL, UtilClass.getDeviceId(context));
 
 
                 extralDatabase.insert(UPLOAD_PHYSICAL_TABLE_SYNTAX_TABLE, null, values);
@@ -4380,11 +4384,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
     /**
-     *
      * @param query sp for dtresponse table
      * @return
      */
-    public long insertIntoUploadPhysicalTable(String query,int sequence) {
+    public long insertIntoUploadPhysicalTable(String query, int sequence) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(SQL_QUERY_SYNTAX, query);
@@ -5266,8 +5269,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * date :2015-11-07
      * modified: 2015-11-07
-     * <p>
-     * <p>
+     * <p/>
+     * <p/>
      * get Serial no from MemberCardRequestTable
      */
     public String getCardRequestDate(String cCode, String donorCode, String awardCode, String disCode, String upCode, String unCode, String vCode, String hhID,

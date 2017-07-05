@@ -134,9 +134,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         tvLastSync.setText(db.lastSyncStatus());
 
 
-        String macAddress = UtilClass.getDeviceId(mContext);                                      // get mac address
+        String deviceId = UtilClass.getDeviceId(mContext);                                      // get mac address
 
-        tvDeviceId.setText(macAddress);
+        tvDeviceId.setText(deviceId);
 
 
 

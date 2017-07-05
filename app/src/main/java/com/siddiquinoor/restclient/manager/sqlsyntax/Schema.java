@@ -312,13 +312,13 @@ public class Schema {
     // added @2015-09-29
     public static String sqlCreateGraduationTable() {
         return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.REG_N_LUP_GRADUATION_TABLE + "("
-                + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_PROG_CODE_COL + " VARCHAR(20), "
                 + ADM_SRV_CODE_COL + " VARCHAR(50), "
                 + GRD_CODE_COL + " VARCHAR(50), "
-                + SQLiteHandler.GRD_TITLE_COL + " VARCHAR(50), "
-                + SQLiteHandler.DEFAULT_CAT_ACTIVE_COL + " VARCHAR(50), "
-                + SQLiteHandler.DEFAULT_CAT_EXIT_COL + " VARCHAR(50) ) ";
+                + GRD_TITLE_COL + " VARCHAR(50), "
+                + DEFAULT_CAT_ACTIVE_COL + " VARCHAR(50), "
+                + DEFAULT_CAT_EXIT_COL + " VARCHAR(50) ) ";
 
 
     }
@@ -616,6 +616,7 @@ public class Schema {
                 " , " + SQL_QUERY_SYNTAX + " BLOB" +
                 " , " + SYNC_COL + " BOOLEAN DEFAULT 0 " +
                 " , " + DT_R_SEQ_COL + " INTEGER " +
+                " , " + PORTABLE_DEVICE_ID_COL + " TEXT " +
                 ")";
     }
 

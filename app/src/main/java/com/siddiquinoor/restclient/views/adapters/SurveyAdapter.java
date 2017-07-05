@@ -69,9 +69,12 @@ public class SurveyAdapter extends RecyclerView.Adapter<SurveyAdapter.SurveyItem
              * if the the radio button's values are Yes or No  then
              */
             if (dtSurveyTableDataModel.getDtALabel().equals("Yes") || dtSurveyTableDataModel.getDtALabel().equals("No")) {
-                if (dtSurveyTableDataModel.getDtaValue().equalsIgnoreCase("Y")) {
+                /**
+                 * unexpected data show in report view due to Y and Yes confection
+                 */
+                if (dtSurveyTableDataModel.getDtaValue().equalsIgnoreCase("Y") || dtSurveyTableDataModel.getDtaValue().equals("Yes")) {
                     holder.tvAnswer.setText("Yes");
-                } else if (dtSurveyTableDataModel.getDtaValue().equalsIgnoreCase("N")) {
+                } else if (dtSurveyTableDataModel.getDtaValue().equalsIgnoreCase("N") || dtSurveyTableDataModel.getDtaValue().equals("No")) {
                     holder.tvAnswer.setText("No");
                 }
             } else {
@@ -85,25 +88,22 @@ public class SurveyAdapter extends RecyclerView.Adapter<SurveyAdapter.SurveyItem
         } else if (resControl.equals(DTResponseRecordingActivity.COMBO_BOX)) {
 
 
+            SQLiteHandler sqlH = new SQLiteHandler(mContext);
+            List<SpinnerHelper> list = new ArrayList<SpinnerHelper>();
+
+            String udf = SQLiteQuery.loadDynamicSpinnerValueInReport_sql(dtSurveyTableDataModel.getCountryCode(), resLupText, dtSurveyTableDataModel.getDtaValue(), dtSurveyTableDataModel);
 
 
-                    SQLiteHandler sqlH = new SQLiteHandler(mContext);
-                    List<SpinnerHelper> list = new ArrayList<SpinnerHelper>();
-
-                    String udf = SQLiteQuery.loadDynamicSpinnerValueInReport_sql(dtSurveyTableDataModel.getCountryCode(), resLupText, dtSurveyTableDataModel.getDtaValue(),dtSurveyTableDataModel);
-
-
-                    list.clear();
-                    list = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, udf, dtSurveyTableDataModel.getCountryCode(), false);
-                    /**
-                     * jodi list e 1 er beshi element  thake tarmane comobox e value chilo
-                     * other wise combox e kisu select kora hoy nai seta null
-                     */
-                    if (list.size() > 1)
-                        holder.tvAnswer.setText(list.get(1).getValue());
-                    else
-                        holder.tvAnswer.setText("N/A");
-
+            list.clear();
+            list = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, udf, dtSurveyTableDataModel.getCountryCode(), false);
+            /**
+             * jodi list e 1 er beshi element  thake tarmane comobox e value chilo
+             * other wise combox e kisu select kora hoy nai seta null
+             */
+            if (list.size() > 1)
+                holder.tvAnswer.setText(list.get(1).getValue());
+            else
+                holder.tvAnswer.setText("N/A");
 
 
         } else {
