@@ -1112,15 +1112,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      */
     public SQLiteHandler(Context context, int version) {
         super(context, EXTERNAL_DATABASE_NAME, null, version);
-        SQLiteDatabase extranal = this.getWritableDatabase();
-        onCreate(extranal, version);
+        SQLiteDatabase external = this.getWritableDatabase();
+        onCreate(external, version);
 
     }
 
     public String getSubscriberNPublisherID(String macID) {
         String fileName = "";
         String sourceID = "";
-        String distinationID = "";
+        String destinationID = "";
         String opCode = "";
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = " SELECT " + M_CODE_COL + " AS SubscriberID "
@@ -1142,21 +1142,21 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Cursor cursor_2 = db.rawQuery(sql_1, null);
 
         if (cursor_2 != null && cursor_2.moveToFirst()) {
-            distinationID = cursor_2.getString(cursor_2.getColumnIndex("PublisherID"));
+            destinationID = cursor_2.getString(cursor_2.getColumnIndex("PublisherID"));
         }
         if (cursor_2 != null)
             cursor_2.close();
 
 
-        fileName = sourceID + "_" + distinationID + "_" + opCode;
-        if (sourceID.length() == 0 || distinationID.length() == 0 || opCode.length() == 0)
+        fileName = sourceID + "_" + destinationID + "_" + opCode;
+        if (sourceID.length() == 0 || destinationID.length() == 0 || opCode.length() == 0)
             fileName = "";
         db.close();
         return fileName;
     }
 
     /**
-     * ei method orginal data base theke data niye exported data base Upload syntax gulo insert korabe
+     * ei method original data base theke data niye exported data base Upload syntax gulo insert korabe
      *
      * @param context the invoking activity or MainActivity
      */

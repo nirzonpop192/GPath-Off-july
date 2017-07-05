@@ -225,6 +225,7 @@ com/google/android/gms/internal/zzdk.class
 com/siddiquinoor/restclient/data_model/GPS_LocationAttributeDataModel.class
 com/google/firebase/iid/zzf.class
 com/siddiquinoor/restclient/data_model/adapters/TrainingNActivityIndexDataModel.class
+com/siddiquinoor/restclient/network/NetworkStateChangeReceiver$1.class
 android/support/multidex/ZipUtil$CentralDirectory.class
 com/google/android/gms/ads/internal/request/zzd.class
 com/siddiquinoor/restclient/activity/sub_activity/commu_group_sub/CommunityGroupNDetailsRecodes$11.class
@@ -404,6 +405,7 @@ com/google/android/gms/internal/zzjt.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/mchn/CU2$6.class
 com/siddiquinoor/restclient/activity/RegisterLiberia$1.class
 com/google/android/gms/common/data/AbstractDataBuffer.class
+com/siddiquinoor/restclient/network/NetworkStateChangeReceiver$VolleyCallback.class
 com/google/android/gms/games/social/Social$InviteDirection.class
 com/siddiquinoor/restclient/activity/sub_activity/summary_sub/SumSrvOrDistCriteria.class
 com/siddiquinoor/restclient/activity/sub_activity/gps_sub/MapActivity$1.class
@@ -484,6 +486,7 @@ android/support/v7/widget/AdapterHelper.class
 com/google/android/gms/wallet/WalletConstants.class
 com/google/android/gms/appindexing/AppIndexApi$ActionResult.class
 com/siddiquinoor/restclient/activity/LoginActivity$10.class
+com/siddiquinoor/restclient/network/NetworkStateChangeReceiver.class
 com/siddiquinoor/restclient/views/adapters/HouseHoldPersonListAdapter.class
 com/siddiquinoor/restclient/activity/sub_activity/dynamic_table/DTResponseActivity$5.class
 com/google/android/gms/internal/zzfw.class
@@ -576,6 +579,7 @@ android/support/v4/util/MapCollections.class
 com/google/ads/mediation/AbstractAdViewAdapter.class
 com/siddiquinoor/restclient/data_model/SurveyModel.class
 com/google/android/gms/internal/zzeq.class
+com/siddiquinoor/restclient/network/NetworkStateChangeReceiver$2.class
 android/support/annotation/XmlRes.class
 com/google/android/gms/internal/zzea.class
 android/support/v7/app/ActionBarActivity.class
@@ -852,6 +856,7 @@ com/siddiquinoor/restclient/views/adapters/VouItemServiceExtDataModel.class
 com/siddiquinoor/restclient/activity/sub_activity/summary_sub/DistributionSummaryMenu$4.class
 com/siddiquinoor/restclient/activity/MainActivity$Inject_EnuTableIntoSQLite.class
 com/siddiquinoor/restclient/data_model/ProgramMasterDM.class
+com/siddiquinoor/restclient/network/NetworkStateChangeReceiver$3.class
 com/siddiquinoor/restclient/activity/sub_activity/service_sub/ServiceSpecification$17.class
 android/support/v7/view/ActionMode$Callback.class
 org/osmdroid/views/overlay/Overlay.class

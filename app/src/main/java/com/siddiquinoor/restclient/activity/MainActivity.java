@@ -33,11 +33,13 @@ import com.siddiquinoor.restclient.fragments.BaseActivity;
 import com.siddiquinoor.restclient.manager.SQLiteHandler;
 import com.siddiquinoor.restclient.manager.SyncDatabase;
 import com.siddiquinoor.restclient.network.ConnectionDetector;
+import com.siddiquinoor.restclient.network.NetworkStateChangeReceiver;
 import com.siddiquinoor.restclient.parse.Parser;
 import com.siddiquinoor.restclient.utils.FileUtils;
 import com.siddiquinoor.restclient.utils.KEY;
 import com.siddiquinoor.restclient.utils.UtilClass;
 import com.siddiquinoor.restclient.data_model.adapters.DistributionSaveDataModel;
+import com.siddiquinoor.restclient.utils.VersionUtils;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 import com.siddiquinoor.restclient.views.notifications.ADNotificationManager;
 import com.siddiquinoor.restclient.views.notifications.AlertDialogManager;
@@ -197,7 +199,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
         if (syncMode) {
             btnExportDataBase.setVisibility(View.GONE);
-        }else
+        } else
             btnExportDataBase.setVisibility(View.VISIBLE);
 
         btnExportDataBase.setOnClickListener(new View.OnClickListener() {
@@ -206,7 +208,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 String root = Environment.getExternalStorageDirectory().toString();
 
-               File sd = new File(root + "/GpathOffline/");                                             // get the internal root directories root/GpathOffline path
+                File sd = new File(root + "/GpathOffline/");                                             // get the internal root directories root/GpathOffline path
 
                 deleteRecursive(sd);
 
@@ -266,13 +268,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void onClick(View v) {
 
-//                importDataBase();
-                ImportDbAsycnTask importDbAsycnTask = new ImportDbAsycnTask();
-                importDbAsycnTask.execute();
+
+                new ImportDbAsycnTask().execute();
             }
         });
-    }
 
+//       String versionName= VersionUtils.getVersionName(getApplicationContext());                  delete it
+
+        callBroadCastReceiverToCheck();
+    }                                                                                               // end of onCreate
+
+
+    private void callBroadCastReceiverToCheck() {
+        Intent registerBroadcast = new Intent(this, NetworkStateChangeReceiver.class);
+        sendBroadcast(registerBroadcast);
+    }
 
     void deleteRecursive(File fileOrDirectory) {
 
@@ -821,14 +831,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
 
 
-
-
-
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull(Parser.REG_N_CT_JSON_A)) {
                     Parser.RegN_CTParser(jObj.getJSONArray(Parser.REG_N_CT_JSON_A), db);
                 }
-
 
 
                 if (!jObj.isNull("reg_n_ffa")) {

@@ -254,6 +254,10 @@
     <init>();
 }
 
+-keep class com.siddiquinoor.restclient.network.NetworkStateChangeReceiver {
+    <init>();
+}
+
 -keep class com.google.zxing.client.android.CaptureActivity {
     <init>();
 }

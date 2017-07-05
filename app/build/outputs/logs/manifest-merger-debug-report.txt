@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:2:1-368:12
+ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:2:1-373:12
 	package
 		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml
@@ -1268,7 +1268,7 @@ MERGED from [org.osmdroid:osmdroid-android:5.2] D:\Android\GPath-Off-july\app\bu
 	android:name
 		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:32:9-64
 application
-ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:35:5-366:19
+ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:35:5-371:19
 MERGED from [:osmbonuspack_v5.8.1:] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\osmbonuspack_v5.8.1\AndroidManifest.xml:11:5-20
 MERGED from [com.journeyapps:zxing-android-embedded:2.3.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.journeyapps\zxing-android-embedded\2.3.0\AndroidManifest.xml:48:5-56:19
 MERGED from [com.journeyapps:zxing-android-integration:2.3.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.journeyapps\zxing-android-integration\2.3.0\AndroidManifest.xml:9:5-10:19
@@ -3380,6 +3380,16 @@ activity#com.siddiquinoor.restclient.activity.FileExploerActivity
 ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:365:9-75
 	android:name
 		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:365:19-63
+receiver#com.siddiquinoor.restclient.network.NetworkStateChangeReceiver
+ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:366:9-370:20
+	android:name
+		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:366:19-69
+intent-filter#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:367:13-369:29
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:368:17-78
+	android:name
+		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:368:25-76
 uses-feature#android.hardware.camera.front
 ADDED from [com.journeyapps:zxing-android-embedded:2.3.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.journeyapps\zxing-android-embedded\2.3.0\AndroidManifest.xml:29:5-31:36
 	android:required
