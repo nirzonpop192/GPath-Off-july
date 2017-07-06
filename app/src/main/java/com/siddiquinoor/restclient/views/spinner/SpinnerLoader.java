@@ -266,8 +266,8 @@ public class SpinnerLoader {
         /**      Retrieving Code for previous button         */
         if (strSpinner != null) {
             for (int i = 0; i < dt_spinner.getCount(); i++) {
-                String union = dt_spinner.getItemAtPosition(i).toString();
-                if (union.equals(strSpinner)) {
+//                String union = dt_spinner.getItemAtPosition(i).toString();
+                if (list.get(i).getId().equals(strSpinner)) {
                     position = i;
                 }
             }
