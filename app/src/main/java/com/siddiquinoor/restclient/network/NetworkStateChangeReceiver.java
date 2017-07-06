@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
+
 
 /**
  * Created by TD-Faisal
@@ -46,24 +46,24 @@ public class NetworkStateChangeReceiver extends BroadcastReceiver {
                         if (!jObj.isNull("apk_version")) {
 
 
-                            String AppSerial;
-                            String Version = "";
+                            String appSerial;
+                            String version = "";
                             JSONArray village = jObj.getJSONArray("apk_version");
 
                             int size = village.length();
                             for (int i = 0; i < size; i++) {
                                 JSONObject vil = village.getJSONObject(i);
 
-                                AppSerial = vil.getString("AppSerial");
-                                Version = vil.getString("Version");
+                                appSerial = vil.getString("AppSerial");
+                                version = vil.getString("Version");
 
-                                if (Version.length() > 0)
+                                if (version.length() > 0)
                                     break;
                             }
 
-                            Log.d("POP_192", "Version " + Version);
-                            if (!Version.equals("")) {
-                                if (!VersionUtils.getVersionName(context).equals(Version)){
+                            Log.d("POP_192", "Version " + version);
+                            if (!version.equals("")) {
+                                if (!VersionUtils.getVersionName(context).equals(version)){
                                     // do something
 
 
@@ -87,7 +87,7 @@ public class NetworkStateChangeReceiver extends BroadcastReceiver {
 
     public static void checkVersionName(final VolleyCallback callback) {
         // Tag used to cancel the request
-        String tag_string_req = "enu";
+        String tag_string_req = "version_tag";
 
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
@@ -97,8 +97,7 @@ public class NetworkStateChangeReceiver extends BroadcastReceiver {
             public void onResponse(String response) {
 
 
-                AppController.getInstance().getRequestQueue().getCache().clear();  // clear catch
-
+                AppController.getInstance().getRequestQueue().getCache().clear();                   // clear catch memory from heap
 
                 /**
                  *  DOING STRING OPERATION TO AVOID ALLOCATE CACHE MEMORY
@@ -106,20 +105,14 @@ public class NetworkStateChangeReceiver extends BroadcastReceiver {
 
                 String errorResult = response.substring(9, 14);
 
-
                 boolean error = !errorResult.equals("false");                                       //If Json String  get False than it return false
 
-                if (!error) {
-
-//                    VersionUtils.getVersionName().equals()
+                if (!error) {                                   //
 
                     callback.onSuccess(response);
 
                 } else {
-                    // Error in login. Invalid UserName or Password
-                    String errorMsg = response.substring(response.indexOf("error_msg") + 11);
-
-
+                    String errorMsg = response.substring(response.indexOf("error_msg") + 11);       // Error in login. Invalid UserName or Password
                 }
 
 
@@ -134,11 +127,14 @@ public class NetworkStateChangeReceiver extends BroadcastReceiver {
             }
         });
 
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);                      // Adding request to request queue
 
     }
 
+    /**
+     * custom Interface
+     */
     public interface VolleyCallback {
         void onSuccess(String result);
     }

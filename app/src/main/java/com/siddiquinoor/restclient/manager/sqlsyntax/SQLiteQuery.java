@@ -155,18 +155,21 @@ public class SQLiteQuery {
     }
 
     public static String loadTaSummaryCategory_sql(final String cCode, final String eventCode) {
-        return " select " + TA_CATEGORY_TABLE + "." + TA_CAT_CODE_COL + " AS code "
+        return  " select " + TA_CATEGORY_TABLE + "." + TA_CAT_CODE_COL + " AS code "
                 + " , " + TA_CATEGORY_TABLE + "." + TA_CAT_NAME_COL + " AS title " +
-                "    , " + "   (Select count(  " + TA_PARTICIPANTS_LIST_TABLE + "." + PART_CAT_CODE_COL + " )  from " + TA_PARTICIPANTS_LIST_TABLE + " where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + "='" + cCode + "' " +
+                "    , " + "   (Select count(  " + TA_PARTICIPANTS_LIST_TABLE + "." + ID_CATEGORY_COL + " )  " +
+                "from " + TA_PARTICIPANTS_LIST_TABLE + " where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + "='" + cCode + "' " +
                 "    and  " + TA_PARTICIPANTS_LIST_TABLE + "." + EVENT_CODE_COL + " = '" + eventCode + "'  " +
-                "   and " + TA_PARTICIPANTS_LIST_TABLE + "." + PART_CAT_CODE_COL + " = " + TA_CATEGORY_TABLE + "." + TA_CAT_CODE_COL + " )  AS count " +
+                "   and " + TA_PARTICIPANTS_LIST_TABLE + "." + ID_CATEGORY_COL + " = " + TA_CATEGORY_TABLE + "." + TA_CAT_CODE_COL + " )  AS count " +
                 "    from " + TA_PARTICIPANTS_LIST_TABLE + " " +
                 "    inner join " + TA_CATEGORY_TABLE + "  ON " +
                 "    " + TA_CATEGORY_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + " " +
-                "    and " + TA_CATEGORY_TABLE + "." + TA_CAT_CODE_COL + " = " + TA_PARTICIPANTS_LIST_TABLE + "." + PART_CAT_CODE_COL +
+                "    and " + TA_CATEGORY_TABLE + "." + TA_CAT_CODE_COL + " = " + TA_PARTICIPANTS_LIST_TABLE + "." + ID_CATEGORY_COL +
                 "    where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
                 "    and  " + TA_PARTICIPANTS_LIST_TABLE + "." + EVENT_CODE_COL + " = '" + eventCode + "' " +
                 "    group by  code , title";
+//        Log.d(TAG," sql:"+sql);
+//        return sql;
     }
 
     public static String loadTaSummaryPosition_sql(final String cCode, final String eventCode) {

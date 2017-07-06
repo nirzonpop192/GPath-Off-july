@@ -1,26 +1,10 @@
 package com.siddiquinoor.restclient.utils;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
-import android.widget.Toast;
 
-
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.siddiquinoor.restclient.activity.MainActivity;
-import com.siddiquinoor.restclient.controller.AppConfig;
-import com.siddiquinoor.restclient.controller.AppController;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Faisal
@@ -30,6 +14,12 @@ import java.util.Map;
 public class VersionUtils {
 
     private static final String TAG = VersionUtils.class.getSimpleName();
+
+    /**
+     *
+     * @param context the context of the  Application
+     * @return the version name of the application
+     */
 
     public static String getVersionName(Context context) {
 
