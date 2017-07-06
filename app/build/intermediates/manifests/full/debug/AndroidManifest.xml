@@ -2,11 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.siddiquinoor.restclient"
     android:versionCode="10"
-    android:versionName="1.0.20" >
+    android:versionName="1.0.21" >
 
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
 
     <!-- for map -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -406,7 +409,7 @@
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity android:name="com.siddiquinoor.restclient.activity.FileExploerActivity" />
 
-        <receiver android:name="com.siddiquinoor.restclient.network.NetworkStateChangeReceiver" >
+        <receiver android:name="com.siddiquinoor.restclient.version.VersionStateChangeReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>

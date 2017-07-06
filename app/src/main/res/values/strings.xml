@@ -2,6 +2,7 @@
 <resources>
     <string name="loading_msg">Loading Records </string>
     <string name="group_details">Group Details</string>
+    <string name="notification_description">New version Apk Download</string>
 
     <string name="app_name">GPath</string>
     <string name="hint_email">Email [optional]</string>

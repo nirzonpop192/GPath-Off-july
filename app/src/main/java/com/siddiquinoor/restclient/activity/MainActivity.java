@@ -11,10 +11,14 @@ package com.siddiquinoor.restclient.activity;
  */
 
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -28,18 +32,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.siddiquinoor.restclient.R;
+import com.siddiquinoor.restclient.controller.AppConfig;
 import com.siddiquinoor.restclient.controller.AppController;
 import com.siddiquinoor.restclient.fragments.BaseActivity;
 import com.siddiquinoor.restclient.manager.SQLiteHandler;
 import com.siddiquinoor.restclient.manager.SyncDatabase;
 import com.siddiquinoor.restclient.network.ConnectionDetector;
-import com.siddiquinoor.restclient.network.NetworkStateChangeReceiver;
+import com.siddiquinoor.restclient.version.VersionStateChangeReceiver;
 import com.siddiquinoor.restclient.parse.Parser;
 import com.siddiquinoor.restclient.utils.FileUtils;
 import com.siddiquinoor.restclient.utils.KEY;
 import com.siddiquinoor.restclient.utils.UtilClass;
 import com.siddiquinoor.restclient.data_model.adapters.DistributionSaveDataModel;
-import com.siddiquinoor.restclient.utils.VersionUtils;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 import com.siddiquinoor.restclient.views.notifications.ADNotificationManager;
 import com.siddiquinoor.restclient.views.notifications.AlertDialogManager;
@@ -276,11 +280,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //       String versionName= VersionUtils.getVersionName(getApplicationContext());                  delete it
 
         callBroadCastReceiverToCheck();
+
+
+
     }                                                                                               // end of onCreate
 
 
+    public static void whenDComplete(){
+
+    }
+
+
     private void callBroadCastReceiverToCheck() {
-        Intent registerBroadcast = new Intent(this, NetworkStateChangeReceiver.class);
+        Intent registerBroadcast = new Intent(this, VersionStateChangeReceiver.class);
         sendBroadcast(registerBroadcast);
     }
 

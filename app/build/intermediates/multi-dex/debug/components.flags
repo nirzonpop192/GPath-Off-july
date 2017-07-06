@@ -254,7 +254,7 @@
     <init>();
 }
 
--keep class com.siddiquinoor.restclient.network.NetworkStateChangeReceiver {
+-keep class com.siddiquinoor.restclient.version.VersionStateChangeReceiver {
     <init>();
 }
 

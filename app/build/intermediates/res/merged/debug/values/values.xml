@@ -1001,6 +1001,7 @@
     <string name="name">Fullname</string>
     <string name="name_village">Name Village</string>
     <string name="national_id_card">National ID Card</string>
+    <string name="notification_description">New version Apk Download</string>
     <string name="offline">Offline mode</string>
     <string name="organization">Organization</string>
     <string name="osmbonuspack.directions.1">Continue[ on %s]</string>

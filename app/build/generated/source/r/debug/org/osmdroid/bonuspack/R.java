@@ -60,7 +60,7 @@ public final class R {
 		public static final int mapquest_aerial = 0x7f090167;
 		public static final int mapquest_osm = 0x7f090168;
 		public static final int my_location = 0x7f09005a;
-		public static final int offline = 0x7f090171;
+		public static final int offline = 0x7f090172;
 		public static final int osmbonuspack_directions_1 = 0x7f09005b;
 		public static final int osmbonuspack_directions_12 = 0x7f09005c;
 		public static final int osmbonuspack_directions_17 = 0x7f09006f;
@@ -87,13 +87,13 @@ public final class R {
 		public static final int osmbonuspack_format_hours = 0x7f090074;
 		public static final int osmbonuspack_format_minutes = 0x7f090075;
 		public static final int osmbonuspack_format_seconds = 0x7f090076;
-		public static final int public_transport = 0x7f09017b;
-		public static final int roads_nl = 0x7f090182;
-		public static final int samples = 0x7f090183;
-		public static final int set_mode_hide_me = 0x7f09018e;
-		public static final int set_mode_offline = 0x7f09018f;
-		public static final int set_mode_online = 0x7f090190;
-		public static final int set_mode_show_me = 0x7f090191;
+		public static final int public_transport = 0x7f09017c;
+		public static final int roads_nl = 0x7f090183;
+		public static final int samples = 0x7f090184;
+		public static final int set_mode_hide_me = 0x7f09018f;
+		public static final int set_mode_offline = 0x7f090190;
+		public static final int set_mode_online = 0x7f090191;
+		public static final int set_mode_show_me = 0x7f090192;
 		public static final int topo = 0x7f09006d;
 		public static final int unknown = 0x7f09006e;
 	}

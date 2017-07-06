@@ -225,7 +225,6 @@ com/google/android/gms/internal/zzdk.class
 com/siddiquinoor/restclient/data_model/GPS_LocationAttributeDataModel.class
 com/google/firebase/iid/zzf.class
 com/siddiquinoor/restclient/data_model/adapters/TrainingNActivityIndexDataModel.class
-com/siddiquinoor/restclient/network/NetworkStateChangeReceiver$1.class
 android/support/multidex/ZipUtil$CentralDirectory.class
 com/google/android/gms/ads/internal/request/zzd.class
 com/siddiquinoor/restclient/activity/sub_activity/commu_group_sub/CommunityGroupNDetailsRecodes$11.class
@@ -341,6 +340,7 @@ android/support/v4/media/MediaBrowserCompat$Subscription.class
 android/support/v4/media/MediaBrowserCompat$ConnectionCallback$ConnectionCallbackInternal.class
 com/google/android/gms/ads/internal/reward/client/RewardedVideoAdRequestParcel.class
 android/support/v7/widget/RecyclerView.class
+com/siddiquinoor/restclient/version/VersionStateChangeReceiver$VolleyCallback.class
 com/google/android/gms/internal/zzkk.class
 com/google/android/gms/internal/zzlj.class
 com/google/android/gms/internal/zzki.class
@@ -405,7 +405,6 @@ com/google/android/gms/internal/zzjt.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/mchn/CU2$6.class
 com/siddiquinoor/restclient/activity/RegisterLiberia$1.class
 com/google/android/gms/common/data/AbstractDataBuffer.class
-com/siddiquinoor/restclient/network/NetworkStateChangeReceiver$VolleyCallback.class
 com/google/android/gms/games/social/Social$InviteDirection.class
 com/siddiquinoor/restclient/activity/sub_activity/summary_sub/SumSrvOrDistCriteria.class
 com/siddiquinoor/restclient/activity/sub_activity/gps_sub/MapActivity$1.class
@@ -421,6 +420,7 @@ com/google/android/gms/tagmanager/TagManagerService.class
 android/support/multidex/MultiDex$V4.class
 android/support/annotation/TransitionRes.class
 android/support/annotation/PluralsRes.class
+com/siddiquinoor/restclient/version/VersionStateChangeReceiver$2.class
 com/siddiquinoor/restclient/activity/sub_activity/register_sub/RegisterMember$4.class
 android/support/v4/app/FragmentManager.class
 com/google/android/gms/common/internal/safeparcel/zza.class
@@ -486,7 +486,6 @@ android/support/v7/widget/AdapterHelper.class
 com/google/android/gms/wallet/WalletConstants.class
 com/google/android/gms/appindexing/AppIndexApi$ActionResult.class
 com/siddiquinoor/restclient/activity/LoginActivity$10.class
-com/siddiquinoor/restclient/network/NetworkStateChangeReceiver.class
 com/siddiquinoor/restclient/views/adapters/HouseHoldPersonListAdapter.class
 com/siddiquinoor/restclient/activity/sub_activity/dynamic_table/DTResponseActivity$5.class
 com/google/android/gms/internal/zzfw.class
@@ -579,7 +578,6 @@ android/support/v4/util/MapCollections.class
 com/google/ads/mediation/AbstractAdViewAdapter.class
 com/siddiquinoor/restclient/data_model/SurveyModel.class
 com/google/android/gms/internal/zzeq.class
-com/siddiquinoor/restclient/network/NetworkStateChangeReceiver$2.class
 android/support/annotation/XmlRes.class
 com/google/android/gms/internal/zzea.class
 android/support/v7/app/ActionBarActivity.class
@@ -856,7 +854,6 @@ com/siddiquinoor/restclient/views/adapters/VouItemServiceExtDataModel.class
 com/siddiquinoor/restclient/activity/sub_activity/summary_sub/DistributionSummaryMenu$4.class
 com/siddiquinoor/restclient/activity/MainActivity$Inject_EnuTableIntoSQLite.class
 com/siddiquinoor/restclient/data_model/ProgramMasterDM.class
-com/siddiquinoor/restclient/network/NetworkStateChangeReceiver$3.class
 com/siddiquinoor/restclient/activity/sub_activity/service_sub/ServiceSpecification$17.class
 android/support/v7/view/ActionMode$Callback.class
 org/osmdroid/views/overlay/Overlay.class
@@ -899,6 +896,7 @@ android/support/v7/widget/RecyclerView$6.class
 com/google/android/gms/ads/internal/zzc.class
 com/google/android/gms/auth/api/signin/internal/SignInHubActivity$zza.class
 com/google/android/gms/ads/internal/overlay/zzd$zzc.class
+com/siddiquinoor/restclient/version/VersionStateChangeReceiver$1.class
 android/support/v4/media/session/MediaSessionCompat$OnActiveChangeListener.class
 com/siddiquinoor/restclient/activity/sub_activity/training/IdTypeSelection$1.class
 com/siddiquinoor/restclient/utils/KEY.class
@@ -1114,6 +1112,7 @@ com/siddiquinoor/restclient/activity/sub_activity/training/AddTaParticipaintActi
 org/joda/time/base/AbstractDuration.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/mchn/PW$8.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/peer/AssignForLiberiaCFW.class
+com/siddiquinoor/restclient/version/VersionStateChangeReceiver.class
 com/siddiquinoor/restclient/activity/sub_activity/dynamic_table/DT_ReportActivity$7.class
 com/google/android/gms/wearable/MessageApi$FilterType.class
 com/siddiquinoor/restclient/activity/sub_activity/gps_sub/PointAttributes$10.class
@@ -1585,6 +1584,7 @@ com/siddiquinoor/restclient/activity/sub_activity/summary_sub/SummaryServiceOrDi
 com/google/android/gms/auth/api/signin/internal/zzk.class
 android/support/annotation/RequiresPermission$Write.class
 com/siddiquinoor/restclient/activity/sub_activity/register_sub/RegisterMember$3.class
+com/siddiquinoor/restclient/version/VersionStateChangeReceiver$3.class
 com/siddiquinoor/restclient/views/adapters/GPSLocationLatLong.class
 android/support/v7/view/ActionMode.class
 org/osmdroid/tileprovider/tilesource/ITileSource.class

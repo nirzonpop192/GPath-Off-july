@@ -5606,7 +5606,7 @@ Otherwise, initiate to sync and login again.</string><string name="cb_label_Home
         <item>CA2</item>
         <item>Yes</item>
         <item>No</item>
-    </string-array><string name="cb_label_NBron_NoSuckling">No Suckling</string><string name="label_gmp_attendance">GMP Attendance Status </string><string name="value_id">VALUE ID</string><string name="existing_group">Existing Group</string><string name="graduation">Graduation</string><string name="crop">crop</string><string name="organization">Organization</string><string-array name="arr_exclusive_currentlyBF">
+    </string-array><string name="cb_label_NBron_NoSuckling">No Suckling</string><string name="notification_description">New version Apk Download</string><string name="label_gmp_attendance">GMP Attendance Status </string><string name="value_id">VALUE ID</string><string name="existing_group">Existing Group</string><string name="graduation">Graduation</string><string name="crop">crop</string><string name="organization">Organization</string><string-array name="arr_exclusive_currentlyBF">
         <item>Yes</item>
         <item>No</item>
     </string-array><string name="label_location">Location</string><string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
