@@ -681,8 +681,6 @@ public class PW extends BaseActivity {
      */
     private String calculateGRDDate(String regDate) {
         String outputDate = "";
-       /* SimpleDateFormat myFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
-        SimpleDateFormat saveFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);  */
 
         SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         SimpleDateFormat saveFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);

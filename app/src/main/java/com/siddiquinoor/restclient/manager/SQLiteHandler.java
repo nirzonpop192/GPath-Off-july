@@ -4629,15 +4629,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             if (cursor != null) {
                 cursor.moveToFirst();
                 grdDate = cursor.getString(cursor.getColumnIndex("grdDate"));
-                /** @tips: For Removing timestamp 2015-06-06 00:00:00.00 to 2015-06-06
-                 * use mm-- dd--YYYY*/
-                String dateformat = "";
-                if (grdDate.length() > 5) {
-                    grdDate = grdDate.substring(0, 10);
-                    dateformat = "";
-                    dateformat = dateformat + grdDate.substring(5, 7) + "-" + grdDate.substring(8, 10) + "-" + grdDate.substring(0, 4);
-                    grdDate = dateformat;
-                }
+//                /** @tips: For Removing timestamp 2015-06-06 00:00:00.00 to 2015-06-06
+//                 * use mm-- dd--YYYY*/
+//                String dateformat = "";
+//                if (grdDate.length() > 5) {
+//                    grdDate = grdDate.substring(0, 10);
+//                    dateformat = "";
+//                    dateformat = dateformat + grdDate.substring(5, 7) + "-" + grdDate.substring(8, 10) + "-" + grdDate.substring(0, 4);
+//                    grdDate = dateformat;
+//                }
 
             }
         } catch (NullPointerException e) {
@@ -5042,15 +5042,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
                     cardPrintDate = cursor.getString(cursor.getColumnIndex("deliveryDate"));
-                    /** @tips: For Removing timestamp 2015-06-06 00:00:00.00 to 2015-06-06
-                     * use mm-- dd--YYYY*/
+               /*     *//** @tips: For Removing timestamp 2015-06-06 00:00:00.00 to 2015-06-06
+                     * use mm-- dd--YYYY*//*
                     String dateformat = "";
                     if (cardPrintDate.length() > 5 && !cardPrintDate.equals("No Data found")) {
                         cardPrintDate = cardPrintDate.substring(0, 10);
                         dateformat = "";
                         dateformat = dateformat + cardPrintDate.substring(5, 7) + "-" + cardPrintDate.substring(8, 10) + "-" + cardPrintDate.substring(0, 4);
                         cardPrintDate = dateformat;
-                    }
+                    }*/
                 }
 
             }
@@ -13363,12 +13363,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public boolean isDataExitsInDTAResponse_Table(String dtBasic, String countryCode, String donorCode, String awardCode, String programCode,
                                                   String dtEnuId, String dtqCode, String dtaCode, int dtRSeq) {
 
+        boolean exitsStatus = false;
         DTResponseTableDataModel mDta = getDTResponseTableData(dtBasic, countryCode, donorCode, awardCode, programCode, dtEnuId, dtqCode, dtaCode, dtRSeq);
-        if (mDta != null)
-            return true;
-        else
-            return false;
 
+        if (mDta != null && mDta.getDtaValue() != null)
+            exitsStatus = true;
+        else
+            exitsStatus = false;
+
+        return exitsStatus;
     }
 
     /**
@@ -13465,6 +13468,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 dtResponse.setDtBasic(cursor.getString(cursor.getColumnIndex(DT_BASIC_COL)));
                 dtResponse.setDtqCode(cursor.getString(cursor.getColumnIndex(DTQ_CODE_COL)));
                 dtResponse.setDtaCode(cursor.getString(cursor.getColumnIndex(DTA_CODE_COL)));
+                dtResponse.setDtaValue(cursor.getString(cursor.getColumnIndex(DTA_VALUE_COL)));
                /* dtResponse.setCountryCode(cursor.getString(1));
                 dtResponse.setDonorCode(cursor.getString(2));
                 dtResponse.setAwardCode(cursor.getString(3));

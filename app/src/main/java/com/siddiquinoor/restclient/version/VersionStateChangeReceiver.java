@@ -1,15 +1,15 @@
 package com.siddiquinoor.restclient.version;
 
-import android.app.Activity;
+
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
-
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -31,6 +31,7 @@ import java.io.File;
 
 /**
  * Created by TD-Faisal
+ * Note  no Dialog can be set in Broadcast Receiver
  * on 7/5/2017.
  */
 public class VersionStateChangeReceiver extends BroadcastReceiver {
@@ -43,8 +44,9 @@ public class VersionStateChangeReceiver extends BroadcastReceiver {
 
         ConnectionDetector detector = new ConnectionDetector(context);
         if (detector.isConnectingToInternet()) {
-//            Toast.makeText(context, "net", Toast.LENGTH_SHORT).show();
+
             checkVersionName(new VolleyCallback() {
+
                 @Override
                 public void onSuccess(String result) {
                     try {
@@ -68,16 +70,17 @@ public class VersionStateChangeReceiver extends BroadcastReceiver {
                                     break;
                             }
 
-                            Log.d("POP_192", "Version " + version);
+//                            Log.d("POP_192", "Version " + version);
                             if (!version.equals("")) {
                                 if (!VersionUtils.getVersionName(context).equals(version)) {
 
 
-                                    ADNotificationManager dialog= new ADNotificationManager();
-                                    String msg="New Apk version available for Download.You will get less than 5 minutes.\nInstall the apk by FileExplorer or FileManager apps in Download Folder";
-                                    CustomToast.show(context,msg);
-                                    CustomToast.show(context,msg);
-                                    CustomToast.show(context,msg);
+                                    ADNotificationManager dialog = new ADNotificationManager();
+                                    String msg = "New Apk version available for Download.You will get less than 5 minutes.\nInstall the apk by FileExplorer or FileManager apps in Download Folder";
+
+                                    CustomToast.show(context, msg);
+                                    CustomToast.show(context, msg);
+
 
 
                                     //get destination to update file and set Uri
@@ -86,6 +89,7 @@ public class VersionStateChangeReceiver extends BroadcastReceiver {
                                     //solution, please inform us in comment
                                     String destination = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/";
                                     String fileName = AppConfig.DOWNLOADED_APK_NAME;
+
                                     final Uri uri_apk_view = Uri.parse("file://" + destination);
                                     destination += fileName;
                                     final Uri uri = Uri.parse("file://" + destination);
@@ -113,16 +117,10 @@ public class VersionStateChangeReceiver extends BroadcastReceiver {
                                     BroadcastReceiver onComplete = new BroadcastReceiver() {
                                         public void onReceive(Context ctxt, Intent intent) {
 
-//                                            Intent install = new Intent(Intent.ACTION_GET_CONTENT);
-//
-//                                            install.setDataAndType(Uri.fromFile(new File(uri.toString())), "*/*");
-//                                            install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//
-//                                            context.unregisterReceiver(this);
-//                                            context.startActivity(install);
+
 
                                             Intent install = new Intent(Intent.ACTION_GET_CONTENT);
-                                            Uri uri = Uri.parse( Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/");
+                                            Uri uri = Uri.parse(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/");
                                             install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                             install.setDataAndType(uri, "resource/folder");
 
@@ -180,20 +178,15 @@ public class VersionStateChangeReceiver extends BroadcastReceiver {
 
                 AppController.getInstance().getRequestQueue().getCache().clear();                   // clear catch memory from heap
 
-                /**
-                 *  DOING STRING OPERATION TO AVOID ALLOCATE CACHE MEMORY
-                 */
-
                 String errorResult = response.substring(9, 14);
-
                 boolean error = !errorResult.equals("false");                                       //If Json String  get False than it return false
 
-                if (!error) {                                   //
-
+                if (!error) {                                  //
                     callback.onSuccess(response);
 
                 } else {
                     String errorMsg = response.substring(response.indexOf("error_msg") + 11);       // Error in login. Invalid UserName or Password
+                    Log.e(TAG,errorMsg);
                 }
 
 
@@ -204,7 +197,6 @@ public class VersionStateChangeReceiver extends BroadcastReceiver {
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
-
             }
         });
 
@@ -214,7 +206,7 @@ public class VersionStateChangeReceiver extends BroadcastReceiver {
     }
 
     /**
-     * custom Interface
+     * custom Interface for call back method
      */
     public interface VolleyCallback {
         void onSuccess(String result);
