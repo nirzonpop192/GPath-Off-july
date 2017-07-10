@@ -65,6 +65,9 @@ public class DT_ReportActivity extends AppCompatActivity {
 
         generateSurveyList();
 
+        // to delete in complete data
+        sqlH.deleteInCompelteData();
+
         btnDynamicPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

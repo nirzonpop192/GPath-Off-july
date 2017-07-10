@@ -13275,6 +13275,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + "  , " + OP_MONTH_CODE_COL
                 + " FROM " + DT_SURVEY_TABLE
                 + " WHERE " + COMPLETENESS_COL + " != 'Y' "
+                +" OR "+ COMPLETENESS_COL+" is null "
                 + " GROUP BY " + DT_R_SEQ_COL;
 
         Cursor cursor = db.rawQuery(sql_srv, null);
