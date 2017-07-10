@@ -44,16 +44,16 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\layout\\activity_assign_for_malwai_agr.xml"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_row_dynamic_table_question.xml",
-        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\layout\\list_row_dynamic_table_question.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_view.xml"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_row_search_location.xml",
         "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\layout\\list_row_search_location.xml"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_view.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_row_dynamic_table_question.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\layout\\list_row_dynamic_table_question.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_register_member_liberia.xml",
@@ -104,12 +104,12 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\layout\\custom_toast_layout.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\layout\\bonuspack_bubble.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\org.osmdroid\\osmdroid-android\\5.2\\res\\layout\\bonuspack_bubble.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_toast_layout.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\layout\\custom_toast_layout.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\layout\\bonuspack_bubble.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\org.osmdroid\\osmdroid-android\\5.2\\res\\layout\\bonuspack_bubble.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_toast_layout.xml",

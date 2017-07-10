@@ -1136,6 +1136,7 @@ MERGED from [com.android.support:support-v4:23.4.0] D:\Android\GPath-Off-july\ap
 MERGED from [org.osmdroid:osmdroid-android:5.2] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\org.osmdroid\osmdroid-android\5.2\AndroidManifest.xml:4:2-69
 MERGED from [com.android.support:recyclerview-v7:23.4.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:23.4.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.amitshekhar.android:debug-db:1.0.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.amitshekhar.android\debug-db\1.0.0\AndroidManifest.xml:25:5-27:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:23.4.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
@@ -1201,6 +1202,7 @@ MERGED from [com.google.firebase:firebase-analytics-impl:9.0.1] D:\Android\GPath
 MERGED from [com.google.firebase:firebase-iid:9.0.1] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.0.1\AndroidManifest.xml:21:5-67
 MERGED from [com.google.android.gms:play-services-maps:9.0.1] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.0.1\AndroidManifest.xml:21:5-66
 MERGED from [org.osmdroid:osmdroid-android:5.2] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\org.osmdroid\osmdroid-android\5.2\AndroidManifest.xml:11:2-63
+MERGED from [com.amitshekhar.android:debug-db:1.0.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.amitshekhar.android\debug-db\1.0.0\AndroidManifest.xml:29:5-67
 	android:name
 		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:17:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
@@ -2375,6 +2377,7 @@ MERGED from [com.android.support:support-v4:23.4.0] D:\Android\GPath-Off-july\ap
 MERGED from [com.google.android.gms:play-services-basement:9.0.1] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.0.1\AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:23.4.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.4.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.amitshekhar.android:debug-db:1.0.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.amitshekhar.android\debug-db\1.0.0\AndroidManifest.xml:32:5-38:19
 	android:label
 		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:42:9-41
 	android:allowBackup
@@ -3892,6 +3895,7 @@ ADDED from [org.osmdroid:osmdroid-android:5.2] D:\Android\GPath-Off-july\app\bui
 		ADDED from [org.osmdroid:osmdroid-android:5.2] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\org.osmdroid\osmdroid-android\5.2\AndroidManifest.xml:5:20-45
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from [org.osmdroid:osmdroid-android:5.2] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\org.osmdroid\osmdroid-android\5.2\AndroidManifest.xml:9:2-72
+MERGED from [com.amitshekhar.android:debug-db:1.0.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.amitshekhar.android\debug-db\1.0.0\AndroidManifest.xml:30:5-76
 	android:name
 		ADDED from [org.osmdroid:osmdroid-android:5.2] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\org.osmdroid\osmdroid-android\5.2\AndroidManifest.xml:9:19-70
 uses-feature#android.hardware.location.network
@@ -3912,3 +3916,13 @@ ADDED from [org.osmdroid:osmdroid-android:5.2] D:\Android\GPath-Off-july\app\bui
 		ADDED from [org.osmdroid:osmdroid-android:5.2] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\org.osmdroid\osmdroid-android\5.2\AndroidManifest.xml:17:58-82
 	android:name
 		ADDED from [org.osmdroid:osmdroid-android:5.2] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\org.osmdroid\osmdroid-android\5.2\AndroidManifest.xml:17:16-57
+provider#com.amitshekhar.DebugDBInitProvider
+ADDED from [com.amitshekhar.android:debug-db:1.0.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.amitshekhar.android\debug-db\1.0.0\AndroidManifest.xml:33:9-37:40
+	android:authorities
+		ADDED from [com.amitshekhar.android:debug-db:1.0.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.amitshekhar.android\debug-db\1.0.0\AndroidManifest.xml:35:13-71
+	android:enabled
+		ADDED from [com.amitshekhar.android:debug-db:1.0.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.amitshekhar.android\debug-db\1.0.0\AndroidManifest.xml:36:13-35
+	android:exported
+		ADDED from [com.amitshekhar.android:debug-db:1.0.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.amitshekhar.android\debug-db\1.0.0\AndroidManifest.xml:37:13-37
+	android:name
+		ADDED from [com.amitshekhar.android:debug-db:1.0.0] D:\Android\GPath-Off-july\app\build\intermediates\exploded-aar\com.amitshekhar.android\debug-db\1.0.0\AndroidManifest.xml:34:13-63

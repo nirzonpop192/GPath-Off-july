@@ -65,10 +65,12 @@ public class SurveyAdapter extends RecyclerView.Adapter<SurveyAdapter.SurveyItem
          */
         if (resControl.equals(DTResponseRecordingActivity.RADIO_BUTTON)) {
 
+            String lable = dtSurveyTableDataModel.getDtALabel();
+
             /***
              * if the the radio button's values are Yes or No  then
              */
-            if (dtSurveyTableDataModel.getDtALabel().equals("Yes") || dtSurveyTableDataModel.getDtALabel().equals("No")) {
+            if (lable != null && (dtSurveyTableDataModel.getDtALabel().equals("Yes") || dtSurveyTableDataModel.getDtALabel().equals("No"))) {
                 /**
                  * unexpected data show in report view due to Y and Yes confection
                  */

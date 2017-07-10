@@ -85,6 +85,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.amitshekhar.android/debug-db/1.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars" />
@@ -194,6 +195,7 @@
     <orderEntry type="library" exported="" name="firebase-messaging-9.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-23.4.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-fitness-9.0.1" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.8.0" level="project" />
     <orderEntry type="library" exported="" name="volley" level="project" />
     <orderEntry type="library" exported="" name="play-services-nearby-9.0.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-auth-module-9.0.1" level="project" />
@@ -217,6 +219,7 @@
     <orderEntry type="library" exported="" name="mediarouter-v7-23.0.0" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-crash-9.0.1" level="project" />
+    <orderEntry type="library" exported="" name="debug-db-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-9.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-9.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-safetynet-9.0.1" level="project" />

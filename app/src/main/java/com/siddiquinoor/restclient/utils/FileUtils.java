@@ -59,8 +59,9 @@ public class FileUtils {
 
             String root = Environment.getExternalStorageDirectory().toString();
 
-//            File sd = Environment.getExternalStorageDirectory();                                   // get the internal root directories
+
             File sd = new File(root + "/GpathOffline/");                                             // get the internal root directories root/GpathOffline path
+//            File sd = new File(root + "/");                                             // get the internal root directories root/GpathOffline path
 
             if (!sd.exists())
                 sd.mkdirs();
@@ -87,7 +88,7 @@ public class FileUtils {
         }
     }
 
-    public static void  deleteExportDatabase(){
+    public static void deleteExportDatabase() {
         String root = Environment.getExternalStorageDirectory().toString();
         File exportDbFile = new File(root + "/GpathOffline/" + EXPORT_GOF_FILE);                                             // get the internal root directories root/GpathOffline path
 

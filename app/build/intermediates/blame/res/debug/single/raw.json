@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_australia_melbourne",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_australia_melbourne"
-    },
-    {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_gmtplus6",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_etc_gmtplus6"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_australia_melbourne",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_australia_melbourne"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_maseru",
@@ -28,12 +28,12 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_oral"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_oral",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_oral"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_porto_velho",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_porto_velho"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_oral",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_oral"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_australia_darwin",
@@ -52,12 +52,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_antarctica_vostok"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_conakry",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_conakry"
-    },
-    {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_argentina_ushuaia",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_argentina_ushuaia"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_conakry",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_conakry"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_gmt_7",
@@ -104,12 +104,12 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_london"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_ulyanovsk",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_ulyanovsk"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_rome",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_rome"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_ulyanovsk",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_ulyanovsk"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_argentina_ushuaia",
@@ -128,12 +128,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_bishkek"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_chita",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_chita"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_atyrau",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_atyrau"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_chita",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_chita"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_gmt_6",
@@ -168,28 +168,28 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_anchorage"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_chongqing",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_chongqing"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_anchorage",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_anchorage"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_chongqing",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_chongqing"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_gmtplus4",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_etc_gmtplus4"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_menominee",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_menominee"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_blanc_sablon",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_blanc_sablon"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_zaporozhye",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_zaporozhye"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_blanc_sablon",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_blanc_sablon"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_menominee",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_menominee"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_indiana_vevay",
@@ -216,20 +216,20 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_australia_broken_hill"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_zaporozhye",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_zaporozhye"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_nauru",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_nauru"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_yangon",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_yangon"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_zaporozhye",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_zaporozhye"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\zxing_beep.ogg",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\2.3.0\\res\\raw\\zxing_beep.ogg"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_yangon",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_yangon"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_gmt_9",
@@ -288,20 +288,20 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_chatham"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_auckland",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_auckland"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_asmera",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_asmera"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_pago_pago",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_pago_pago"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_auckland",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_auckland"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_est",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_est"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_pago_pago",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_pago_pago"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_rosario",
@@ -356,20 +356,20 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_new_york"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_nouakchott",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_nouakchott"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_qyzylorda",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_qyzylorda"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_funafuti",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_funafuti"
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_nouakchott",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_nouakchott"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_gmtplus2",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_etc_gmtplus2"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_funafuti",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_funafuti"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_phnom_penh",
@@ -412,12 +412,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_dakar"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_jakarta",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_jakarta"
-    },
-    {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_madrid",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_madrid"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_jakarta",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_jakarta"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_kwajalein",
@@ -444,20 +444,20 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_nassau"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_novokuznetsk",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_novokuznetsk"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_addis_ababa",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_addis_ababa"
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_gmtplus3",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_etc_gmtplus3"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_sofia",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_sofia"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_gmtplus3",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_etc_gmtplus3"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_addis_ababa",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_addis_ababa"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_novokuznetsk",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_novokuznetsk"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_manila",
@@ -492,12 +492,12 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_dubai"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_rio_branco",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_rio_branco"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_london",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_london"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_rio_branco",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_rio_branco"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_cairo",
@@ -508,12 +508,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_etc_uct"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_taipei",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_taipei"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_coral_harbour",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_coral_harbour"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_taipei",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_taipei"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_pitcairn",
@@ -536,28 +536,28 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_tongatapu"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_samara",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_samara"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_antarctica_mawson",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_antarctica_mawson"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_dili",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_dili"
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_samara",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_samara"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_nauru",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_nauru"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_pago_pago",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_pago_pago"
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_dili",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_dili"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_panama",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_panama"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_pago_pago",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_pago_pago"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_niamey",
@@ -576,12 +576,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_magadan"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_chicago",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_chicago"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_nipigon",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_nipigon"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_chicago",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_chicago"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_anadyr",
@@ -616,12 +616,12 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_maseru"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_fortaleza",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_fortaleza"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_atlantic_st_helena",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_atlantic_st_helena"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_fortaleza",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_fortaleza"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_pangnirtung",
@@ -636,20 +636,20 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_kamchatka"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_nome",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_nome"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_djibouti",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_djibouti"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_pohnpei",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_pohnpei"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_nome",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_nome"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_australia_lindeman",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_australia_lindeman"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_pohnpei",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_pohnpei"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_pitcairn",
@@ -680,12 +680,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_srednekolymsk"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_helsinki",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_helsinki"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_bratislava",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_bratislava"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_helsinki",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_helsinki"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_tallinn",
@@ -696,12 +696,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_novokuznetsk"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_australia_perth",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_australia_perth"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_utc",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_etc_utc"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_australia_perth",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_australia_perth"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_paris",
@@ -712,12 +712,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_boa_vista"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_tahiti",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_tahiti"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_utc",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_etc_utc"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_tahiti",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_tahiti"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_indian_comoro",
@@ -732,24 +732,24 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_kralendijk"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_urumqi",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_urumqi"
-    },
-    {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_boa_vista",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_boa_vista"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_urumqi",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_urumqi"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_damascus",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_damascus"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_jersey",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_jersey"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_atlantic_cape_verde",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_atlantic_cape_verde"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_jersey",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_jersey"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_windhoek",
@@ -828,32 +828,32 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_hermosillo"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pst8pdt",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pst8pdt"
-    },
-    {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_indian_comoro",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_indian_comoro"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_urumqi",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_urumqi"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pst8pdt",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pst8pdt"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_nome",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_nome"
     },
     {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_urumqi",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_urumqi"
+    },
+    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_yakutat",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_yakutat"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_athens",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_athens"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_chisinau",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_chisinau"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_athens",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_athens"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_cayenne",
@@ -868,12 +868,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_tallinn"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_douala",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_douala"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_bangui",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_bangui"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_douala",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_douala"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_juneau",
@@ -920,24 +920,24 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_kiritimati"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_nipigon",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_nipigon"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_rarotonga",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_rarotonga"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_nipigon",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_nipigon"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_jayapura",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_jayapura"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_moscow",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_moscow"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_australia_lindeman",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_australia_lindeman"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_moscow",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_moscow"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_wake",
@@ -952,12 +952,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_argentina_mendoza"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_chicago",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_chicago"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_winnipeg",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_winnipeg"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_chicago",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_chicago"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_noumea",
@@ -996,24 +996,24 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pst8pdt"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_oral",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_oral"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_ouagadougou",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_ouagadougou"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_oral",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_oral"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_istanbul",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_istanbul"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_moncton",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_moncton"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_magadan",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_magadan"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_moncton",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_moncton"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_cayenne",
@@ -1080,12 +1080,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_new_york"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_saipan",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_saipan"
-    },
-    {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_guyana",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_guyana"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_saipan",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_saipan"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_guadalcanal",
@@ -1136,36 +1136,36 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_skopje"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_samara",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_samara"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_tehran",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_tehran"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_karachi",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_karachi"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_samara",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_samara"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_atlantic_stanley",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_atlantic_stanley"
     },
     {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_karachi",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_karachi"
+    },
+    {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_gmtplus8",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_etc_gmtplus8"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_atlantic_azores",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_atlantic_azores"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_taipei",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_taipei"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_stockholm",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_stockholm"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_taipei",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_taipei"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_atlantic_azores",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_atlantic_azores"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_tortola",
@@ -1224,28 +1224,28 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_indian_reunion"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_brunei",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_brunei"
-    },
-    {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_merida",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_merida"
-    },
-    {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_antarctica_mawson",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_antarctica_mawson"
-    },
-    {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_cet",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_cet"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_antarctica_casey",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_antarctica_casey"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_chongqing",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_chongqing"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_antarctica_casey",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_antarctica_casey"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_cet",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_cet"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_antarctica_mawson",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_antarctica_mawson"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_merida",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_merida"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_brunei",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_brunei"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_freetown",
@@ -1280,12 +1280,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_dhaka"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_tunis",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_tunis"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_mariehamn",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_mariehamn"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_tunis",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_tunis"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_brunei",

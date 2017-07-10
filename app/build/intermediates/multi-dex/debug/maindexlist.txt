@@ -10,6 +10,7 @@ com/siddiquinoor/restclient/data_model/adapters/DTQTableDataModel.class
 com/siddiquinoor/restclient/activity/sub_activity/summary_sub/SumSrvOrDistAttendance$4.class
 com/google/android/gms/appinvite/AppInviteInvitation$IntentBuilder.class
 com/siddiquinoor/restclient/activity/sub_activity/summary_sub/RegisterRecordView$LoadingListView.class
+com/google/gson/annotations/SerializedName.class
 android/support/v4/os/ResultReceiver.class
 org/osmdroid/views/overlay/Overlay$Snappable.class
 com/google/android/gms/internal/zzeb.class
@@ -259,6 +260,7 @@ com/google/android/gms/wearable/DataApi$DataListener.class
 android/support/v4/media/VolumeProviderCompat$1.class
 com/google/android/gms/games/internal/experience/ExperienceEvent.class
 com/google/android/gms/internal/zzjw.class
+com/amitshekhar/DebugDBInitProvider.class
 com/siddiquinoor/restclient/activity/GraduationActivity$3.class
 com/google/firebase/database/IgnoreExtraProperties.class
 com/google/android/gms/location/places/internal/PlaceLocalization.class
@@ -333,6 +335,7 @@ com/siddiquinoor/restclient/views/adapters/TA_ParticipientAttendenceDateTimeAdap
 com/google/android/gms/internal/zzdx.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/mchn/PW$3.class
 com/siddiquinoor/restclient/utils/UtilClass.class
+com/amitshekhar/DebugDB.class
 com/google/android/gms/ads/mediation/admob/AdMobExtras.class
 com/siddiquinoor/restclient/data_model/TemOpMonth.class
 com/google/android/gms/common/SignInButton$ButtonSize.class
@@ -705,6 +708,7 @@ com/google/android/gms/internal/zzkc.class
 com/siddiquinoor/restclient/activity/sub_activity/dynamic_table/DT_ReportActivity$4.class
 com/siddiquinoor/restclient/activity/RegisterLiberia$5.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/ddr/FFA$7.class
+com/google/gson/annotations/Expose.class
 com/google/android/gms/gcm/OneoffTask.class
 com/google/android/gms/analytics/internal/Command.class
 com/siddiquinoor/restclient/views/notifications/ADNotificationManager$4.class
@@ -732,6 +736,7 @@ com/google/android/gms/ads/internal/overlay/zzw.class
 com/google/android/gms/internal/zzgz.class
 com/google/android/gms/ads/search/SearchAdView.class
 org/joda/time/Hours.class
+com/google/gson/reflect/TypeToken.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/agr/AGR$7.class
 com/siddiquinoor/restclient/activity/sub_activity/service_sub/ServiceSpecification$16.class
 com/siddiquinoor/restclient/activity/Register$10.class
@@ -946,6 +951,7 @@ android/support/v4/view/MotionEventCompat.class
 com/google/android/gms/auth/api/credentials/CredentialRequest$Builder.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/mchn/PW$5.class
 android/support/v4/app/LoaderManager$LoaderCallbacks.class
+com/google/gson/JsonNull.class
 com/google/android/gms/ads/internal/request/CapabilityParcel.class
 com/siddiquinoor/restclient/activity/DistributionActivity$3.class
 com/siddiquinoor/restclient/activity/GraduationActivity$2.class
@@ -1335,6 +1341,7 @@ com/google/android/gms/internal/zzev.class
 com/google/android/gms/ads/internal/zzo.class
 com/siddiquinoor/restclient/activity/DistributionActivity$4.class
 android/support/v4/app/FragmentManagerImpl$FragmentTag.class
+com/google/gson/annotations/Until.class
 android/support/v4/app/LoaderManagerImpl.class
 com/siddiquinoor/restclient/data_model/AGR_DataModel.class
 android/support/v4/view/ViewPropertyAnimatorCompat.class
@@ -1479,6 +1486,7 @@ com/google/android/gms/internal/zzfr.class
 com/google/android/gms/internal/zzfb.class
 com/siddiquinoor/restclient/activity/sub_activity/summary_sub/RegisterRecordView$1.class
 com/google/android/gms/wearable/NodeApi$NodeListener.class
+com/google/gson/annotations/Since.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/mchn/CU2$4.class
 com/siddiquinoor/restclient/activity/sub_activity/dynamic_table/DT_ReportActivity$2.class
 android/support/v4/view/ViewCompat$BaseViewCompatImpl.class
@@ -1649,6 +1657,7 @@ com/siddiquinoor/restclient/views/adapters/AssignDataModelAdapter.class
 android/support/annotation/VisibleForTesting.class
 android/support/v4/view/ViewCompatLollipop.class
 com/siddiquinoor/restclient/activity/AssignActivity.class
+com/google/gson/annotations/JsonAdapter.class
 com/siddiquinoor/restclient/activity/GraduationActivity$4.class
 android/support/v4/media/MediaMetadataCompat$TextKey.class
 org/joda/time/YearMonthDay.class

@@ -21,6 +21,15 @@ public class DTResponseTableDataModel {
     private String opMonthCode;
     private String dataType;
     private String dtALabel;
+    private int srvNumber;
+
+    public int getSrvNumber() {
+        return srvNumber;
+    }
+
+    public void setSrvNumber(int srvNumber) {
+        this.srvNumber = srvNumber;
+    }
 
     public String getDtALabel() {
         return dtALabel;

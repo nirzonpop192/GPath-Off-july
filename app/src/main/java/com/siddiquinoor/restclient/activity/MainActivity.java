@@ -187,6 +187,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
  */
         final Button restorDb = (Button) findViewById(R.id.btnRestoreDB);
 
+        // for test disable it
         restorDb.setVisibility(View.GONE);                                                          //no dded this button any more
         restorDb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -199,7 +200,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         Button btnExportDataBase = (Button) findViewById(R.id.btnEXTDB);
 
-//        SharedPreferences settings_ = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+
         boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
         if (syncMode) {
             btnExportDataBase.setVisibility(View.GONE);
@@ -253,6 +254,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     dialog.showInvalidDialog(mContext, "Invalid Attempt ", "This device is not registered to export !");
 
                 }
+
+
 
             }
         });
@@ -317,7 +320,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
         String destinationDbPath = "G_path_" + dbBy + "-" + dbByName + "_" + backupDate + ".db";
 
-        String sourceDbPath = "/data/data/" + getPackageName() + "/databases/pci";
+        String sourceDbPath = "/data/data/" + getPackageName() + "/databases/"+SQLiteHandler.DATABASE_NAME;
 
         FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext, sourceDbPath, destinationDbPath, "Import Successful! " + destinationDbPath);
 

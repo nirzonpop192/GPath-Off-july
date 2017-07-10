@@ -36,12 +36,12 @@
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\src\\main\\res\\drawable\\specific.png"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_dark.xml",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.0.1\\res\\drawable\\common_plus_signin_btn_icon_dark.xml"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\goto_back.png",
         "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\goto_back.png"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_dark.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.0.1\\res\\drawable\\common_plus_signin_btn_icon_dark.xml"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
@@ -128,56 +128,56 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\freeze.png"
     },
     {
-        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
-        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_btn_borderless_material.xml"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\add_survey_sel.png",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\drawable\\add_survey_sel.png"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\summession_b.png",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\drawable\\summession_b.png"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_dark.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_dialog_material_background_dark.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\summession_b.png",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\drawable\\summession_b.png"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\add_survey_sel.png",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\drawable\\add_survey_sel.png"
+    },
+    {
+        "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
+        "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_ic_media_route_mono_light.xml",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\drawable\\mr_ic_media_route_mono_light.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\next.png",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\org.osmdroid\\osmdroid-android\\5.2\\res\\drawable\\next.png"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\save_b.png",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\save_b.png"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_action_add_to_queue.png",
         "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\ic_action_add_to_queue.png"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\save_b.png",
-        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\save_b.png"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\next.png",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\org.osmdroid\\osmdroid-android\\5.2\\res\\drawable\\next.png"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\group_unite.png",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\src\\main\\res\\drawable\\group_unite.png"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_action_edit.png",
-        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\ic_action_edit.png"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\training_activity_32.png",
         "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\training_activity_32.png"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_light.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_dialog_material_background_light.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_action_edit.png",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\ic_action_edit.png"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_ic_media_route_mono_light.xml",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\drawable\\mr_ic_media_route_mono_light.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_light.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_dialog_material_background_light.xml"
     },
     {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\icon_camera.png",
@@ -192,24 +192,24 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\icamera_ront.png"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\warning_32.png",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\drawable\\warning_32.png"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\toast_icon.png",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\toast_icon.png"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\unfreeze.png",
         "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\unfreeze.png"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\toast_icon.png",
-        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\toast_icon.png"
-    },
-    {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_ic_play_dark.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\drawable\\mr_ic_play_dark.xml"
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\warning_32.png",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\src\\main\\res\\drawable\\warning_32.png"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_ic_media_route_connecting_mono_dark.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\drawable\\mr_ic_media_route_connecting_mono_dark.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_ic_play_dark.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\G-pathOFF_20V_july\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\23.0.0\\res\\drawable\\mr_ic_play_dark.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\july-2017\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\view_reports.png",
@@ -256,12 +256,12 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\org.osmdroid\\osmdroid-android\\5.2\\res\\drawable\\moreinfo_arrow.png"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\scrollbar_vertical_thumb.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\drawable\\scrollbar_vertical_thumb.xml"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\scrollbar_vertical_thumb.xml",
         "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\drawable\\scrollbar_vertical_thumb.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\scrollbar_vertical_thumb.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\src\\main\\res\\drawable\\scrollbar_vertical_thumb.xml"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",

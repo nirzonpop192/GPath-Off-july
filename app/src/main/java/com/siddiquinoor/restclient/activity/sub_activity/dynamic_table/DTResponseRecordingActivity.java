@@ -18,7 +18,6 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.util.Base64;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.ViewGroup;
@@ -240,13 +239,13 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
     /**
      * Freeze flag
      * 2. all variables that remains on or before the selected question "serial" will be stored with the "same" value that has been saved until Freeze = True.
-     * <p>
+     * <p/>
      * 3. If user want to continue (Yes) at the end of the responses then if Freeze = true then the interface will take the user to the next question serial after the Freeze point.
-     * <p>
+     * <p/>
      * 4. If user do not want to continue (No) at the end of the responses then set Freeze =false and then interface will take the user to the first question serial.
-     * <p>
+     * <p/>
      * 5. point 4 will be effective if user want to quite in the middle of saving responses then set Freeze =false.
-     * <p>
+     * <p/>
      * 6. If there are skip rules associated with the selected question then it will return a message saying "Freeze will not be possible at this point."
      */
     private boolean isFreeze = false;
@@ -390,7 +389,14 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         Intent intent = getIntent();
         dyIndex = intent.getParcelableExtra(KEY.DYNAMIC_INDEX_DATA_OBJECT_KEY);
         totalQuestion = intent.getIntExtra(KEY.DYNAMIC_T_QUES_SIZE, 0);
+
+        /**
+         * check incomplete data to delete
+         */
+        sqlH.deleteInCompelteData();
+
         initialWithFirstQues();
+
     }
 
 
@@ -401,9 +407,9 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
     private void getPreviousQuestion() {
 
         --mQusIndex;
-        hideViews();                            // hide all previous view
+        hideViews();                                                                                // hide all previous view
 
-        if (mQusIndex >= 1) {                   // to check does index exceed the minimum  value
+        if (mQusIndex >= 1) {                                                                       // to check does index exceed the minimum  value
 
             DTQTableDataModel nextQus = loadPreviousQuestion(dyIndex.getDtBasicCode(), mQusIndex);
             displayQuestion(nextQus);
@@ -412,7 +418,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                 btnPreviousQus.setVisibility(View.INVISIBLE);
             }
         } else
-            mQusIndex = 1;                         // set index at initial stage
+            mQusIndex = 1;                                                                          // set index at initial stage
 
 
     }
@@ -431,15 +437,15 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
             btnPreviousQus.setVisibility(View.VISIBLE);
 
 
-        ++mQusIndex;                                                        // increments the question no index
+        ++mQusIndex;                                                                                // increments the question no index
 
-        if (mQusIndex <= totalQuestion)                                     //to check does index exceed the maximum value
-            hideViews();                                                    // hide all views
+        if (mQusIndex <= totalQuestion)                                                             //to check does index exceed the maximum value
+            hideViews();                                                                            // hide all views
 
 
         if (mQusIndex < totalQuestion) {
 
-            DTQTableDataModel nextQus = skipToQuestionCheck(mQusIndex);         //  add skip rules
+            DTQTableDataModel nextQus = skipToQuestionCheck(mQusIndex);                             //  add skip rules
 
             if (nextQus != null)
                 displayQuestion(nextQus);
@@ -455,9 +461,14 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
         } else if (mQusIndex == totalQuestion) {
 
-            DTQTableDataModel nextQus = skipToQuestionCheck(mQusIndex); //  add skip rules
+            DTQTableDataModel nextQus = skipToQuestionCheck(mQusIndex);                             //  add skip rules
 
             if (nextQus != null) {
+
+                // update the Completeness columns with Y
+                if ((totalQuestion - 1) == sqlH.getDTResponseCount(dyIndex.getDtBasicCode(), dyIndex.getcCode(), dyIndex.getDonorCode(), dyIndex.getAwardCode(), dyIndex.getProgramCode(), getStaffID(), mDTRSeq, dyIndex.getOpMonthCode()))
+                    sqlH.updateCompleteStatusDTResponseTable(dyIndex.getDtBasicCode(), dyIndex.getcCode(), dyIndex.getDonorCode(), dyIndex.getAwardCode(), dyIndex.getProgramCode(), getStaffID(), String.valueOf(mDTRSeq), dyIndex.getOpMonthCode());
+
                 if (nextQus.getqText() != null && !nextQus.getqText().equals("Thank You!") && !nextQus.getqText().equals("Thank you!"))
                     displayQuestion(nextQus);
                 else {
@@ -827,7 +838,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                     break;
 
                 case COMBO_BOX:
-                    //// TODO: 7/3/2017  review  state to get old state
+
                     dt_spinner.setVisibility(View.VISIBLE);
 
 
@@ -1395,7 +1406,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         mSyntaxGenerator.setOpMonthCode(dyIndex.getOpMonthCode());
         mSyntaxGenerator.setDTEnuID(getStaffID());
         mSyntaxGenerator.setDTRSeq(String.valueOf(mDTRSeq));
-        sqlH.insertIntoUploadPhysicalTable(mSyntaxGenerator.DTShortNameDTRSeq_Save(),mDTRSeq);
+        sqlH.insertIntoUploadPhysicalTable(mSyntaxGenerator.DTShortNameDTRSeq_Save(), mDTRSeq);
 
         Toast.makeText(mContext, "Saved Successfully ", Toast.LENGTH_SHORT).show();
 

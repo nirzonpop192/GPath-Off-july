@@ -621,7 +621,6 @@ public class Schema {
     }
 
 
-
     public static String sqlCreateRegNLMTable() {
 
 
@@ -1742,22 +1741,23 @@ public class Schema {
 
     public static String createTableDTResponseTable() {
         return CREATE_TABLE_IF_NOT_EXISTS + "   " + DT_RESPONSE_TABLE + "    (   " +
-                "      " + DT_BASIC_COL + "      TEXT NOT NULL,   " +
-                "      " + ADM_COUNTRY_CODE_COL + "      TEXT NOT NULL,   " +
-                "      " + ADM_DONOR_CODE_COL + "      TEXT NOT NULL,   " +
-                "      " + ADM_AWARD_CODE_COL + "      TEXT NOT NULL,   " +
-                "      " + ADM_PROG_CODE_COL + "      TEXT NOT NULL,   " +
-                "      " + DT_ENU_ID_COL + "      TEXT NOT NULL,   " +
-                "      " + DTQ_CODE_COL + "      TEXT NOT NULL,   " +
-                "     " + DTA_CODE_COL + "       TEXT NOT NULL,   " +
-                "     " + DT_R_SEQ_COL + "      INTEGER NOT NULL,   " +
-                "      " + DTA_VALUE_COL + "      BLOB,   " +
-                "      " + PROG_ACTIVITY_CODE_COL + "      TEXT,   " +
-                "      " + DTTIME_STRING_COL + "      TEXT,   " +
-                "      " + OP_MODE_COL + "      TEXT,   " +
-                "     " + OP_MONTH_CODE_COL + "       TEXT,   " +
-                "     " + DATA_TYPE_COL + "       TEXT,   " +
-                "     " + U_FILE_COL + "       BLOB   " +
+                "      " + DT_BASIC_COL + "      TEXT NOT NULL" +
+                " ,   " + "      " + ADM_COUNTRY_CODE_COL + "      TEXT NOT NULL" +
+                " ,   " + "      " + ADM_DONOR_CODE_COL + "      TEXT NOT NULL" +
+                " ,   " + "      " + ADM_AWARD_CODE_COL + "      TEXT NOT NULL" +
+                " ,   " + "      " + ADM_PROG_CODE_COL + "      TEXT NOT NULL" +
+                " ,   " + "      " + DT_ENU_ID_COL + "      TEXT NOT NULL" +
+                " ,   " + "      " + DTQ_CODE_COL + "      TEXT NOT NULL" +
+                " ,   " + "     " + DTA_CODE_COL + "       TEXT NOT NULL" +
+                " ,   " + "     " + DT_R_SEQ_COL + "      INTEGER NOT NULL" +
+                " ,   " + "      " + DTA_VALUE_COL + "      BLOB" +
+                " ,   " + "      " + PROG_ACTIVITY_CODE_COL + "      TEXT" +
+                " ,   " + "      " + DTTIME_STRING_COL + "      TEXT" +
+                " ,   " + "      " + OP_MODE_COL + "      TEXT" +
+                " ,   " + "     " + OP_MONTH_CODE_COL + "       TEXT" +
+                " ,   " + "     " + DATA_TYPE_COL + "       TEXT" +
+                " ,   " + "     " + U_FILE_COL + "       BLOB   " +
+                " ,   " + "     " + COMPLETENESS_COL + "       VARCHAR(1)   " +
                 //  "  , " + PRIMARY_KEY + "(" +  DT_BASIC_COL + "," +  ADM_COUNTRY_CODE_COL + ", " +  ADM_DONOR_CODE_COL + " ," +  ADM_AWARD_CODE_COL + " ," +  ADM_PROG_CODE_COL
                 //+ "," +  DT_ENU_ID_COL + "," +  DTQ_CODE_COL + "," +  DTA_CODE_COL + " ," +  DT_R_SEQ_COL + ")   " +
                 ")";
@@ -1786,6 +1786,7 @@ public class Schema {
                 "     , " + RESPONSE_VALUE_CONTROL_COL + "       TEXT   " +
                 "     , " + QRES_LUP_TEXT_COL + "       TEXT   " +
                 "     , " + DTA_LABEL_COL + "       TEXT   " +
+                "     , " + COMPLETENESS_COL + "       TEXT   " +
 
                 "  , " + PRIMARY_KEY + "(" + DT_BASIC_COL + "," + COUNTRY_CODE_COL + ", " + DONOR_CODE_COL + " ," + AWARD_CODE_COL + " ," + PROGRAM_CODE_COL
                 + "," + DT_ENU_ID_COL + "," + DTQ_CODE_COL + "," + DTA_CODE_COL + " ," + DT_R_SEQ_COL + ")   " +

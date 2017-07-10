@@ -330,6 +330,10 @@
     <init>();
 }
 
+-keep class com.amitshekhar.DebugDBInitProvider {
+    <init>();
+}
+
 -keep public class * extends android.app.backup.BackupAgent {
     <init>();
 }

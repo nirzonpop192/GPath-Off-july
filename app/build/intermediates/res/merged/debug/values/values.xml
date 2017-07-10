@@ -677,6 +677,7 @@
         <item quantity="other"><ns1:g id="count">%d</ns1:g> seconds ago</item>
     </plurals>
     <string name="ChFhEhDh">Child-Headed or Female Headed or Elderly Headed or Disabled Headed Household</string>
+    <string name="PORT_NUMBER" translatable="false">8080</string>
     <string name="Page_title_GPS">Point Attributes</string>
     <string name="Page_title_SearchLocation">Location Search</string>
     <string name="_010203040000601">010203040000601</string>
