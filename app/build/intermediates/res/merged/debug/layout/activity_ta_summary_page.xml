@@ -93,7 +93,7 @@
             <ListView
                 android:id="@+id/lv_sum_ta_orz"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"></ListView>
+                android:layout_height="250dp"></ListView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -106,7 +106,7 @@
             <ListView
                 android:id="@+id/lv_sum_ta_cat"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"></ListView>
+                android:layout_height="250dp"></ListView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -119,7 +119,7 @@
             <ListView
                 android:id="@+id/lv_sum_ta_pos"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"></ListView>
+                android:layout_height="400dp"></ListView>
 
             <TextView
                 android:layout_width="match_parent"

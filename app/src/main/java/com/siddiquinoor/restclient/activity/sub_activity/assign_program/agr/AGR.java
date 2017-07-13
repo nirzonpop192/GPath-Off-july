@@ -618,10 +618,12 @@ public class AGR extends BaseActivity {
 
                 assignMem.setGrdCode(sqlH.getGRDDefaultActiveReason(assignMem.getProgram_code(), assignMem.getService_code()));
                 assignMem.setGrdDate(calculateGRDDate(assignMem.getCountryCode(), assignMem.getDonor_code(), assignMem.getAward_code()));
-                saveDataForSqlServer();
+
 
                 assign_agr.setGRDDate(assignMem.getGrdDate());
                 assignDataModel.setRegNDate(strRegDate);
+
+                setDataForSqlServer();
 
                 /**                 * check RegNAssProgSrv                 */
                 if (sqlH.ifExistsInRegNAssProgSrv(assignDataModel)) {
@@ -743,7 +745,7 @@ public class AGR extends BaseActivity {
 
     }
 
-    private void saveDataForSqlServer() {
+    private void setDataForSqlServer() {
         assign_agr = new SQLServerSyntaxGenerator();
         assign_agr.setAdmCountryCode(assignDataModel.getCountryCode());
         assign_agr.setAdmDonorCode(assignDataModel.getDonor_code());

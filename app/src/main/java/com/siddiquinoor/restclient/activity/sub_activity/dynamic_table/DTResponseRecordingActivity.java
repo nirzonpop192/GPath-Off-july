@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -52,6 +53,7 @@ import com.siddiquinoor.restclient.parse.Parse;
 import com.siddiquinoor.restclient.utils.CameraUtils;
 import com.siddiquinoor.restclient.utils.KEY;
 import com.siddiquinoor.restclient.data_model.adapters.DTQTableDataModel;
+import com.siddiquinoor.restclient.utils.UtilClass;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 import com.siddiquinoor.restclient.views.notifications.ADNotificationManager;
 import com.siddiquinoor.restclient.views.notifications.CustomToast;
@@ -239,13 +241,13 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
     /**
      * Freeze flag
      * 2. all variables that remains on or before the selected question "serial" will be stored with the "same" value that has been saved until Freeze = True.
-     * <p/>
+     * <p>
      * 3. If user want to continue (Yes) at the end of the responses then if Freeze = true then the interface will take the user to the next question serial after the Freeze point.
-     * <p/>
+     * <p>
      * 4. If user do not want to continue (No) at the end of the responses then set Freeze =false and then interface will take the user to the first question serial.
-     * <p/>
+     * <p>
      * 5. point 4 will be effective if user want to quite in the middle of saving responses then set Freeze =false.
-     * <p/>
+     * <p>
      * 6. If there are skip rules associated with the selected question then it will return a message saying "Freeze will not be possible at this point."
      */
     private boolean isFreeze = false;
@@ -1406,7 +1408,20 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         mSyntaxGenerator.setOpMonthCode(dyIndex.getOpMonthCode());
         mSyntaxGenerator.setDTEnuID(getStaffID());
         mSyntaxGenerator.setDTRSeq(String.valueOf(mDTRSeq));
-        sqlH.insertIntoUploadPhysicalTable(mSyntaxGenerator.DTShortNameDTRSeq_Save(), mDTRSeq);
+
+        /**
+         * if the device is on On-line mode than all sp will be saved
+         * in UploadSyntax Table or else in  UploadPhysicalTable
+         */
+        SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
+        if (syncMode) {
+            sqlH.insertIntoUploadTable(mSyntaxGenerator.DTShortNameDTRSeq_Save());
+
+        } else {
+            sqlH.insertIntoUploadPhysicalTable(mSyntaxGenerator.DTShortNameDTRSeq_Save(), mDTRSeq);
+        }
+
 
         Toast.makeText(mContext, "Saved Successfully ", Toast.LENGTH_SHORT).show();
 
