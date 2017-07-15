@@ -1111,7 +1111,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
     private void loadLayR4List(String cCode) {
 
         int position = 0;
-        List<SpinnerHelper> listVillage = sqlH.getListAndID(SQLiteHandler.VILLAGE_TABLE, SQLiteQuery.layR4ListServicePage_sql(), cCode, false);
+        List<SpinnerHelper> listVillage = sqlH.getListAndID(SQLiteHandler.GEO_LAY_R4_LIST_TABLE, SQLiteQuery.layR4ListServicePage_sql(), cCode, false);
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listVillage);
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
         spLayR4List.setAdapter(dataAdapter);

@@ -65,8 +65,8 @@ import static com.siddiquinoor.restclient.manager.SQLiteHandler.LAY_R2_LIST_CODE
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.SELECTED_FDP_TABLE;
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.STAFF_FDP_ACCESS_COUNTRY_CODE;
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.STAFF_FDP_ACCESS_TABLE;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.UPAZILLA_TABLE;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.UPZILLA_NAME_COL;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.GEO_LAY_R2_LIST_TABLE;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.LAY_R2_LIST_NAME_COL;
 
 public class DistributionActivity extends BaseActivity {
     private static final int ONCE = 1;
@@ -746,17 +746,17 @@ public class DistributionActivity extends BaseActivity {
     private void loadLayR2List(String cCode) {
         int position = 0;
         String criteria =
-                " Select DISTINCT  " + UPAZILLA_TABLE + "." + LAY_R1_LIST_CODE_COL + " || " + UPAZILLA_TABLE + "." + LAY_R2_LIST_CODE_COL + " AS code "
-                        + " , " + UPAZILLA_TABLE + " ." + UPZILLA_NAME_COL + " AS Name "
+                " Select DISTINCT  " + GEO_LAY_R2_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL + " || " + GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL + " AS code "
+                        + " , " + GEO_LAY_R2_LIST_TABLE + " ." + LAY_R2_LIST_NAME_COL + " AS Name "
                         + " FROM  " + STAFF_FDP_ACCESS_TABLE
                         + "  INNER JOIN         " + FDP_MASTER_TABLE
                         + "   ON         " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = " + FDP_MASTER_TABLE + "." + ADM_COUNTRY_CODE_COL
                         + "   AND         " + STAFF_FDP_ACCESS_TABLE + "." + FDP_CODE_COL + " = " + FDP_MASTER_TABLE + "." + FDP_CODE_COL
-                        + "   INNER JOIN    " + UPAZILLA_TABLE
-                        + "   ON    " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = " + UPAZILLA_TABLE + "." + ADM_COUNTRY_CODE_COL
-                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_COUNTRY_CODE + " = " + UPAZILLA_TABLE + "." + ADM_COUNTRY_CODE_COL
-                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_LAY_R1_LIST_CODE_COL + " = " + UPAZILLA_TABLE + "." + LAY_R1_LIST_CODE_COL
-                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_LAY_R2_LIST_CODE_COL + " = " + UPAZILLA_TABLE + "." + LAY_R2_LIST_CODE_COL
+                        + "   INNER JOIN    " + GEO_LAY_R2_LIST_TABLE
+                        + "   ON    " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = " + GEO_LAY_R2_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
+                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_COUNTRY_CODE + " = " + GEO_LAY_R2_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
+                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_LAY_R1_LIST_CODE_COL + " = " + GEO_LAY_R2_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL
+                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_LAY_R2_LIST_CODE_COL + " = " + GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
 
                         + " INNER JOIN " + SELECTED_FDP_TABLE + " ON "
                         + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = " + SELECTED_FDP_TABLE + "." + ADM_COUNTRY_CODE_COL
@@ -765,7 +765,7 @@ public class DistributionActivity extends BaseActivity {
         " WHERE " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = '" + idCountry + "'"
                 + " AND " + STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.STAFF_CODE + " = '" + getStaffID() + "'"
                 + " AND " + STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.BTN_NEW_COL + " = '1'"
-                + " ORDER BY  "+UPAZILLA_TABLE + "." + LAY_R2_LIST_CODE_COL ;
+                + " ORDER BY  "+ GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL ;
 
 
         List<SpinnerHelper> listUpazilla = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, cCode, false);

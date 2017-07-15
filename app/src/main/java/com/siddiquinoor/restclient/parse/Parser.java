@@ -133,14 +133,14 @@ public class Parser extends Parse {
     public static final String FDP_MASTER_JSON_A = "fdp_master";
     public static final String DISTRIBUTION_TABLE_JSON_A = "distribution_table";
     public static final String LUP_SRV_OPTION_LIST = "lup_srv_option_list";
-    public static final String CARD_PRINT_REASON = "card_print_reason";
-    public static final String REPORT_TEMPLATE = "report_template";
+    public static final String CARD_PRINT_REASON_JSON_A = "card_print_reason";
+    public static final String REPORT_TEMPLATE_JSON_A = "report_template";
     public static final String MEMBERS_JSON_A = "members";
     public static final String REGISTRATION_JSON_A = "registration";
     public static final String VILLAGE_JSON_A = "village";
     public static final String UNIT_JSON_A = "unit";
-    public static final String UPAZILLA = "upazilla";
-    public static final String DISTRICT = "district";
+    public static final String UPAZILLA_JSON_A = "upazilla";
+    public static final String DISTRICT_JSON_A = "district";
     public static final String REG_LUP_GRADUATION_JSON_A = "reg_lup_graduation";
     public static final String LB_REG_HH_CATEGORY_JSON_A = "lb_reg_hh_category";
     public static final String REGN_CA_2 = "regn_ca2";
@@ -1010,8 +1010,6 @@ public class Parser extends Parse {
             e.printStackTrace();
         }
     }
-
-
 
 
     public static void GpsLocationContentParser(String jsonString, SQLiteHandler sqlH) {
@@ -2602,6 +2600,254 @@ public class Parser extends Parse {
         }
     }
 
+    public static void lupRegnHHCategoryParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+        String AdmCountryCode, HHHeadCatCode, CatName;
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+                AdmCountryCode = jsonObject.getString(Parser.ADM_COUNTRY_CODE);
+                HHHeadCatCode = jsonObject.getString(Parser.HH_HEAD_CAT_CODE);
+                CatName = jsonObject.getString(Parser.CAT_NAME);
+
+                sqlH.addLupRegNHHCategory(AdmCountryCode, HHHeadCatCode, CatName);
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void regNLupGraduationParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+        String AdmProgCode, AdmSrvCode, GRDCode, GRDTitle, DefaultCatActive, DefaultCatExit;
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+                AdmProgCode = jsonObject.getString(Parser.ADM_PROG_CODE);
+                AdmSrvCode = jsonObject.getString(Parser.ADM_SRV_CODE);
+                GRDCode = jsonObject.getString(Parser.GRD_CODE);
+                GRDTitle = jsonObject.getString(Parser.GRD_TITLE);
+                DefaultCatActive = jsonObject.getString(Parser.DEFAULT_CAT_ACTIVE);
+                DefaultCatExit = jsonObject.getString(Parser.DEFAULT_CAT_EXIT);
+
+
+                sqlH.addRegNLupGraduation(AdmProgCode, AdmSrvCode, GRDCode, GRDTitle, DefaultCatActive, DefaultCatExit);
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public static void geoLayRMasterParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+
+        String AdmCountryCode, GeoLayRCode, GeoLayRName;
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+                AdmCountryCode = jsonObject.getString(Parser.ADM_COUNTRY_CODE);
+                GeoLayRCode = jsonObject.getString(Parser.GEO_LAY_R_CODE);
+                GeoLayRName = jsonObject.getString(Parser.GEO_LAY_R_NAME);
+
+                sqlH.addGeoLayRMaster(AdmCountryCode, GeoLayRCode, GeoLayRName);
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public static void geoLayR1ListParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+        String AdmCountryCode, GeoLayRCode, LayRListCode, LayRListName;
+
+        Log.d(TAG, " geoLayR1List size :" + size);
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+                AdmCountryCode = jsonObject.getString(Parser.ADM_COUNTRY_CODE);
+                GeoLayRCode = jsonObject.getString(Parser.GEO_LAY_R_CODE);
+                LayRListCode = jsonObject.getString(Parser.LAY_R_LIST_CODE);
+                LayRListName = jsonObject.getString(Parser.LAY_R_LIST_NAME);
+
+                sqlH.addGeoLayR1List(AdmCountryCode, GeoLayRCode, LayRListCode, LayRListName);
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void geoLayR2ListParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+        String AdmCountryCode, GeoLayRCode, LayR1ListCode, LayR2ListCode, LayR2ListName;
+
+        Log.d(TAG, " geoLayR2List size :" + size);
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+                AdmCountryCode = jsonObject.getString(Parser.ADM_COUNTRY_CODE);
+                GeoLayRCode = jsonObject.getString(Parser.GEO_LAY_R_CODE);
+                LayR1ListCode = jsonObject.getString(Parser.LAY_R_1_LIST_CODE);
+                LayR2ListCode = jsonObject.getString(Parser.LAY_R_2_LIST_CODE);
+                LayR2ListName = jsonObject.getString(Parser.LAY_R_2_LIST_NAME);
+
+                sqlH.addGeoLayR2List(AdmCountryCode, GeoLayRCode, LayR1ListCode, LayR2ListCode, LayR2ListName);
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public static void geoLayR3ListParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+
+        String AdmCountryCode, GeoLayRCode, LayR1ListCode, LayR2ListCode, LayR3ListCode, LayR3ListName;
+        Log.d(TAG, " geoLayR3List size :" + size);
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+                AdmCountryCode = jsonObject.getString(Parser.ADM_COUNTRY_CODE);
+                GeoLayRCode = jsonObject.getString(Parser.GEO_LAY_R_CODE);
+                LayR1ListCode = jsonObject.getString(Parser.LAY_R_1_LIST_CODE);
+                LayR2ListCode = jsonObject.getString(Parser.LAY_R_2_LIST_CODE);
+                LayR3ListCode = jsonObject.getString(Parser.LAY_R_3_LIST_CODE);
+                LayR3ListName = jsonObject.getString(Parser.LAY_R_3_LIST_NAME);
+
+                sqlH.addGeoLayR3List(AdmCountryCode, GeoLayRCode, LayR1ListCode, LayR2ListCode, LayR3ListCode, LayR3ListName);
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void geoLayR4ListParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+
+        String AdmCountryCode, GeoLayRCode, LayR1ListCode, LayR2ListCode, LayR3ListCode, LayR4ListCode, LayR4ListName, HHCount;
+        Log.d(TAG, " geoLayR4List size :" + size);
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+                AdmCountryCode = jsonObject.getString(Parser.ADM_COUNTRY_CODE);
+                GeoLayRCode = jsonObject.getString(Parser.GEO_LAY_R_CODE);
+                LayR1ListCode = jsonObject.getString(Parser.LAY_R_1_LIST_CODE);
+                LayR2ListCode = jsonObject.getString(Parser.LAY_R_2_LIST_CODE);
+                LayR3ListCode = jsonObject.getString(Parser.LAY_R_3_LIST_CODE);
+                LayR4ListCode = jsonObject.getString(Parser.LAY_R_4_LIST_CODE);
+                LayR4ListName = jsonObject.getString(Parser.LAY_R_4_LIST_NAME);
+                HHCount = jsonObject.getString(Parser.HH_COUNT);
+
+                sqlH.addGeoLayR4List(AdmCountryCode, GeoLayRCode, LayR1ListCode, LayR2ListCode, LayR3ListCode, LayR4ListCode, LayR4ListName, HHCount);
+
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void lupRegNHHRelationParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+        String Relation_Code, RelationName;
+
+        Log.d(TAG, " lupRegNHHRelation size :" + size);
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+                Relation_Code = jsonObject.getString(Parser.HH_RELATION_CODE);
+                RelationName = jsonObject.getString(Parser.RELATION_NAME);
+
+                sqlH.addLupRegNHHRelation(Relation_Code, RelationName);
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public static void rptTemplateParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+        String AdmCountryCode, RptLabel, Code;
+
+        Log.d(TAG, " rptTemplateReport size :" + size);
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject report_template = jsonArrayData.getJSONObject(i);
+
+                AdmCountryCode = report_template.getString(Parser.ADM_COUNTRY_CODE);
+                RptLabel = report_template.getString(Parser.RPT_LABEL);
+                Code = report_template.getString(Parser.RPT_G_N_CODE);
+
+                sqlH.addRptTemplate(AdmCountryCode, RptLabel, Code);
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void lupRegNCardPrintReasonParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+        String ReasonCode, ReasonTitle;
+        Log.d(TAG, " LupRegNCardPrintReason size :" + size);
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+                ReasonCode = jsonObject.getString(Parser.REASON_CODE);
+                ReasonTitle = jsonObject.getString(Parser.REASON_TITLE);
+
+                sqlH.addLupRegNCardPrintReason(ReasonCode, ReasonTitle);
+
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+    }
 
     public static void staff_srv_center_accessParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
 
@@ -2942,6 +3188,38 @@ public class Parser extends Parse {
 
     }
 
+
+    public static void srvCenterParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+        int size = jsonArrayData.length();
+        String AdmCountryCode, SrvCenterCode, SrvCenterName, SrvCenterAddress, SrvCenterCatCode;
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject dob_service_center = jsonArrayData.getJSONObject(i);
+
+                AdmCountryCode = dob_service_center.getString(Parser.ADM_COUNTRY_CODE);
+                SrvCenterCode = dob_service_center.getString(Parser.SRV_CENTER_CODE);
+                SrvCenterName = dob_service_center.getString(Parser.SRV_CENTER_NAME);
+                //  SrvCenterAddress = dob_service_center.getString("SrvCenterAddress");
+                //    SrvCenterCatCode = dob_service_center.getString("SrvCenterCatCode");
+
+                String FDPCode = dob_service_center.getString(Parser.FDP_CODE);
+
+
+                sqlH.addServiceCenter(AdmCountryCode, SrvCenterCode, SrvCenterName, FDPCode);
+
+//                        Log.d("NIR1", "In Service Center Table - AdmCountryCode :" + AdmCountryCode + " SrvCenterCode : " + SrvCenterCode + " SrvCenterName : " + SrvCenterName);
+                //+ " SrvCenterAddress : " + SrvCenterAddress + " SrvCenterCatCode  : " + SrvCenterCatCode + " FDPCode  : " + FDPCode );
+
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+
+    }
+
     public static void T_A_topicMaster_Parser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
 
         int size = jsonArrayData.length();
@@ -2969,4 +3247,6 @@ public class Parser extends Parse {
         }
 
     }
+
+
 }// end of the class

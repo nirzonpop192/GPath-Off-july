@@ -18,7 +18,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -655,13 +654,13 @@ public class Register extends BaseActivity {
 
 
     /**
-     * LOAD :: DISTRICT: loadLayR1List
+     * LOAD :: DISTRICT_JSON_A: loadLayR1List
      */
     private void loadLayR1List(String cCode) {
 
         criteria = SQLiteQuery.getDistrictJoinQuery(idCountry);
 
-        List<SpinnerHelper> listDistrict = sqlH.getListAndID(SQLiteHandler.DISTRICT_TABLE, criteria, cCode, false);
+        List<SpinnerHelper> listDistrict = sqlH.getListAndID(SQLiteHandler.GEO_LAY_R1_LIST_TABLE, criteria, cCode, false);
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listDistrict);
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
 
@@ -698,14 +697,14 @@ public class Register extends BaseActivity {
 
 
     /**
-     * LOAD :: UPAZILLA=loadLayR2List
+     * LOAD :: UPAZILLA_JSON_A=loadLayR2List
      */
     private void loadLayR2List(String cCode) {
 
         criteria = SQLiteQuery.getUpzillaJoinQuery(idCountry, idDist);
 
 
-        List<SpinnerHelper> listUpazilla = sqlH.getListAndID(SQLiteHandler.UPAZILLA_TABLE, criteria, cCode, false);
+        List<SpinnerHelper> listUpazilla = sqlH.getListAndID(SQLiteHandler.GEO_LAY_R2_LIST_TABLE, criteria, cCode, false);
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listUpazilla);
 
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);

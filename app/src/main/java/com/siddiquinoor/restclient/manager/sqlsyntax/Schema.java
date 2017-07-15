@@ -68,39 +68,39 @@ public class Schema {
 
     // Layer Label schema
     public static String sqlCreateLayerLabel() {
-        return CREATE_TABLE_IF_NOT_EXISTS + LAYER_LABEL_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + GEO_LAY_R_MASTER_TABLE + "("
                 + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + LAYER_LAVLE_COUNTRY_CODE + " VARCHAR(4), "
-                + LAYER_CODE_COL + " VARCHAR(1), "
-                + LAYER_NAME_COL + " VARCHAR(50))";
+                + GEO_LAY_R_CODE_COL + " VARCHAR(1), "
+                + GEO_LAY_R_NAME_COL + " VARCHAR(50))";
     }
 
     // District
     public static String sqlCreateDistrict() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.DISTRICT_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.GEO_LAY_R1_LIST_TABLE + "("
                 + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(5), "
-                + LAYER_CODE_COL + " VARCHAR(2),"
+                + GEO_LAY_R_CODE_COL + " VARCHAR(2),"
                 + LAY_R_LIST_CODE_COL + " VARCHAR(5), "
-                + DISTRICT_NAME_COL + " VARCHAR(50))";
+                + LAY_R_LIST_NAME_COL + " VARCHAR(50))";
     }
 
     // upazilla
     public static String sqlCreateUpazilla() {
-        return CREATE_TABLE_IF_NOT_EXISTS + UPAZILLA_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + GEO_LAY_R2_LIST_TABLE + "("
                 + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(50), "
-                + LAYER_CODE_COL + " VARCHAR(2),"
+                + GEO_LAY_R_CODE_COL + " VARCHAR(2),"
                 + LAY_R1_LIST_CODE_COL + " VARCHAR(50), "
                 + LAY_R2_LIST_CODE_COL + " VARCHAR(50), "
-                + UPZILLA_NAME_COL + " VARCHAR(50))";
+                + LAY_R2_LIST_NAME_COL + " VARCHAR(50))";
     }
 
     public static String sqlCreateUnit() {
         return "CREATE TABLE IF NOT EXISTS " + GEO_LAY_R3_LIST_TABLE + "("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT" +
                 ", " + ADM_COUNTRY_CODE_COL + " VARCHAR(4)" +
-                ", " + LAYER_CODE_COL + " VARCHAR(2)" +
+                ", " + GEO_LAY_R_CODE_COL + " VARCHAR(2)" +
                 ", " + LAY_R1_LIST_CODE_COL + " VARCHAR(2)" +
                 ", " + LAY_R2_LIST_CODE_COL + " VARCHAR(2)" +
                 ", " + LAY_R3_LIST_CODE_COL + " VARCHAR(2)" +
@@ -177,8 +177,8 @@ public class Schema {
         return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.REGISTRATION_MEMBER_TABLE + "("
                 + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT "
                 + " , " + ADM_COUNTRY_CODE_COL + " VARCHAR(5) "
-                + " , " + SQLiteHandler.DISTRICT_NAME_COL + " VARCHAR(5) "
-                + " , " + SQLiteHandler.UPZILLA_NAME_COL + " VARCHAR(5) "
+                + " , " + SQLiteHandler.LAY_R_LIST_NAME_COL + " VARCHAR(5) "
+                + " , " + SQLiteHandler.LAY_R2_LIST_NAME_COL + " VARCHAR(5) "
                 + " , " + LAY_R3_LIST_NAME + " VARCHAR(5) "
                 + " , " + LAY_R4_LIST_NAME_COL + " VARCHAR(5) "
                 + " , " + HHID_COL + " VARCHAR(7) "
@@ -276,7 +276,7 @@ public class Schema {
      *
      */
     public static String sqlCreateCardPrintReasonTable() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.CARD_PRINT_REASON_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.LUP_REGN_CARD_PRINT_REASON_TABLE + "("
                 + SQLiteHandler.CARD_PRINT_REASON_CODE_COL + " VARCHAR(10), "
                 + SQLiteHandler.CARD_PRINT_REASON_TITLE_COL + " VARCHAR(50) )";
     }
@@ -297,10 +297,10 @@ public class Schema {
      */
 
     public static String sqlCreateVillage() {
-        return CREATE_TABLE_IF_NOT_EXISTS + VILLAGE_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + GEO_LAY_R4_LIST_TABLE + "("
                 + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(50), "
-                + LAYER_CODE_COL + " VARCHAR(2),"
+                + GEO_LAY_R_CODE_COL + " VARCHAR(2),"
                 + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " VARCHAR(10), "
                 + LAY_R2_LIST_CODE_COL + " VARCHAR(10), "
                 + LAY_R3_LIST_CODE_COL + " VARCHAR(10), "
@@ -449,7 +449,7 @@ public class Schema {
     }
 
     public static String sqlCreateServiceCenterTable() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SERVICE_CENTER_TABLE + " ( "
+        return CREATE_TABLE_IF_NOT_EXISTS + SRV_CENTER_TABLE + " ( "
                 + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(20), "
                 + SERVICE_CENTER_CODE_COL + " VARCHAR(20), "
@@ -965,7 +965,7 @@ public class Schema {
 
     // Creating RegNHHMember Schema
     public static String sqlCreateRegRelation() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.RELATION_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.LUP_REG_NHH_RELATION_TABLE + "("
                 + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + SQLiteHandler.RELATION_CODE + " VARCHAR(10), "
                 + SQLiteHandler.RELATION_NAME + " VARCHAR(100)"
@@ -1138,7 +1138,7 @@ public class Schema {
                 + " UpazillaCode VARCHAR(2), "
                 + " UnitCode VARCHAR(2), "
                 + " VillageCode VARCHAR(2), "
-                + LAYER_CODE_COL + " VARCHAR(2), "
+                + GEO_LAY_R_CODE_COL + " VARCHAR(2), "
                 + " VillageName VARCHAR(100), "
                 + REGN_ADDRESS_LOOKUP_CODE_COL + " VARCHAR(4) "
 

@@ -351,7 +351,7 @@ public class SpinnerLoader {
 
 
         String criteria = " WHERE " + SQLiteHandler.LUP_REGNH_HEAD_CATEGORY_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "' ";
-        //GROUP BY "+sqlH.DISTRICT_TABLE+"."+sqlH.LAY_R_LIST_CODE_COL+", "+sqlH.DISTRICT_TABLE+"."+sqlH.DISTRICT_NAME_COL;
+        //GROUP BY "+sqlH.GEO_LAY_R1_LIST_TABLE+"."+sqlH.LAY_R_LIST_CODE_COL+", "+sqlH.GEO_LAY_R1_LIST_TABLE+"."+sqlH.LAY_R_LIST_NAME_COL;
 
         List<SpinnerHelper> listHHCategory = sqlH.getListAndID(SQLiteHandler.LUP_REGNH_HEAD_CATEGORY_TABLE, criteria, cCode, false);
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(context, R.layout.spinner_layout, listHHCategory);
@@ -393,13 +393,13 @@ public class SpinnerLoader {
 //        String criteria = "SELECT " + " v." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " || '' ||  v." + LAY_R_LIST_CODE_COL + " || '' || v." + LAY_R2_LIST_CODE_COL + " || '' || v." +
 //                LAY_R3_LIST_CODE_COL + " || '' || v." + LAY_R4_LIST_CODE_COL + " AS v_code," +
 //                " v." + LAY_R4_LIST_NAME_COL + " AS Vill_Name " +
-//                     /*   " COUNT("+PID_COL+") AS records"*/" FROM " + VILLAGE_TABLE + " AS v" +
+//                     /*   " COUNT("+PID_COL+") AS records"*/" FROM " + GEO_LAY_R4_LIST_TABLE + " AS v" +
 //                " LEFT JOIN " + SQLiteHandler.REG_N_HH_TABLE + " AS r" +
 //                " ON r." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "= v." + SQLiteHandler.ADM_COUNTRY_CODE_COL
 //                + " AND " +
-//                "r." + SQLiteHandler.DISTRICT_NAME_COL + "= v." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
+//                "r." + SQLiteHandler.LAY_R_LIST_NAME_COL + "= v." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
 //                + " AND " +
-//                "r." + SQLiteHandler.UPZILLA_NAME_COL + "= v." + LAY_R2_LIST_CODE_COL
+//                "r." + SQLiteHandler.LAY_R2_LIST_NAME_COL + "= v." + LAY_R2_LIST_CODE_COL
 //                + " AND " +
 //                "r." + SQLiteHandler.LAY_R3_LIST_NAME + "= v." + LAY_R3_LIST_CODE_COL
 //                + " AND " +
@@ -638,7 +638,7 @@ public class SpinnerLoader {
         // joining query for test purpose .
 //        String criteria = SQLiteQuery.getVillageJoinQuery(cCode, idDist, idUP, idUnion);
 
-        List<SpinnerHelper> listVillage = sqlH.getListAndID(SQLiteHandler.VILLAGE_TABLE, SQLiteQuery.getVillageJoinQuery(cCode, idDist, idUP, idUnion), cCode, false);
+        List<SpinnerHelper> listVillage = sqlH.getListAndID(SQLiteHandler.GEO_LAY_R4_LIST_TABLE, SQLiteQuery.getVillageJoinQuery(cCode, idDist, idUP, idUnion), cCode, false);
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(context, R.layout.spinner_layout, listVillage);
 
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);

@@ -464,7 +464,7 @@ public class OldAssignActivity extends BaseActivity implements AdapterView.OnIte
         int position = 0;
         //  String criteria=" WHERE "+SQLiteHandler.ADM_COUNTRY_CODE_COL +" = '"+idcCode+"' ";
         String criteria = " AS v   INNER JOIN " + SQLiteHandler.SELECTED_VILLAGE_TABLE + " as S "
-                + " ON S." + SQLiteHandler.LAYER_CODE_COL + "  = v." + SQLiteHandler.ADM_COUNTRY_CODE_COL
+                + " ON S." + SQLiteHandler.GEO_LAY_R_CODE_COL + "  = v." + SQLiteHandler.ADM_COUNTRY_CODE_COL
                 + " ||''|| v." + SQLiteHandler.LAY_R_LIST_CODE_COL
                 + " ||''|| v." + SQLiteHandler.LAY_R2_LIST_CODE_COL
                 + " ||''|| v." + SQLiteHandler.LAY_R3_LIST_CODE_COL

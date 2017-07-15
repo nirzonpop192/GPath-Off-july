@@ -677,7 +677,7 @@ public class GDistributionActivity {
 
 
         *//**
-         * LOAD :: UPAZILLA
+         * LOAD :: UPAZILLA_JSON_A
          *
          *//*
         private void loadLayR2List(String cCode) {

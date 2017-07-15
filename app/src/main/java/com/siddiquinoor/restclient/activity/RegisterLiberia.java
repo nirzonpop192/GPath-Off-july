@@ -622,14 +622,14 @@ public class RegisterLiberia extends BaseActivity implements View.OnClickListene
     }
 
     /**
-     * LOAD :: DISTRICT: loadLayR1List
+     * LOAD :: DISTRICT_JSON_A: loadLayR1List
      */
     private void loadLayR1List(String cCode) {
         position = 0;
 
         String criteria = SQLiteQuery.getDistrictJoinQuery(idCountry);
         // Spinner Drop down elements for District
-        List<SpinnerHelper> listDistrict = sqlH.getListAndID(sqlH.DISTRICT_TABLE, criteria, cCode, false);
+        List<SpinnerHelper> listDistrict = sqlH.getListAndID(sqlH.GEO_LAY_R1_LIST_TABLE, criteria, cCode, false);
 
         // Creating adapter for spinner
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listDistrict);
@@ -668,7 +668,7 @@ public class RegisterLiberia extends BaseActivity implements View.OnClickListene
     } // end Load Spinner District
 
     /**
-     * LOAD :: UPAZILLA
+     * LOAD :: UPAZILLA_JSON_A
      */
     private void loadLayR2List(final String cCode, final String disCode) {
 
@@ -676,7 +676,7 @@ public class RegisterLiberia extends BaseActivity implements View.OnClickListene
 
 
         // Spinner Drop down elements for District
-        List<SpinnerHelper> listUpazilla = sqlH.getListAndID(sqlH.UPAZILLA_TABLE, criteria, cCode, false);
+        List<SpinnerHelper> listUpazilla = sqlH.getListAndID(sqlH.GEO_LAY_R2_LIST_TABLE, criteria, cCode, false);
 
         // Creating adapter for spinner
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listUpazilla);
@@ -782,7 +782,7 @@ public class RegisterLiberia extends BaseActivity implements View.OnClickListene
         String criteria = SQLiteQuery.getVillageJoinQuery(cCode, distCode, upCode, unitCode);
 
         // Spinner Drop down elements for District
-        List<SpinnerHelper> listVillage = sqlH.getListAndID(sqlH.VILLAGE_TABLE, criteria, cCode, false);
+        List<SpinnerHelper> listVillage = sqlH.getListAndID(sqlH.GEO_LAY_R4_LIST_TABLE, criteria, cCode, false);
 
         // Creating adapter for spinner
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listVillage);

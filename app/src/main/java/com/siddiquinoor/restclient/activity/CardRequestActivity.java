@@ -465,7 +465,7 @@ public class CardRequestActivity extends BaseActivity  implements View.OnClickLi
         int position=0;
         String criteria ="";
         // Spinner Drop down elements for District
-        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.CARD_PRINT_REASON_TABLE, criteria, null,false);
+        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.LUP_REGN_CARD_PRINT_REASON_TABLE, criteria, null,false);
 
         // Creating adapter for spinner
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listProgram);

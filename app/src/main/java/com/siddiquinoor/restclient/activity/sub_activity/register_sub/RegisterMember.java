@@ -1,7 +1,6 @@
 package com.siddiquinoor.restclient.activity.sub_activity.register_sub;
 
 import android.annotation.TargetApi;
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -13,7 +12,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -528,7 +526,7 @@ public class RegisterMember extends BaseActivity {
     private void loadRelation() {
 
         // Spinner Drop down elements for District
-        List<SpinnerHelper> listRelation = sqlH.getListAndID(sqlH.RELATION_TABLE, criteria, null, false);
+        List<SpinnerHelper> listRelation = sqlH.getListAndID(sqlH.LUP_REG_NHH_RELATION_TABLE, criteria, null, false);
 
         // Creating adapter for spinner
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listRelation);

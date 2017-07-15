@@ -653,7 +653,7 @@ public class SyncDatabase {
                                 String HHHeadCatCode = lb_reg_hh_category.getString(Parser.HH_HEAD_CAT_CODE);
                                 String CatName = lb_reg_hh_category.getString(Parser.CAT_NAME);
 
-                                sqlH.addHHCategory(AdmCountryCode, HHHeadCatCode, CatName);
+                                sqlH.addLupRegNHHCategory(AdmCountryCode, HHHeadCatCode, CatName);
 
 
                             }
@@ -674,7 +674,7 @@ public class SyncDatabase {
                                 String DefaultCatExit = reg_lup_graduation.getString(Parser.DEFAULT_CAT_EXIT);
 
 
-                                sqlH.addGraduation(AdmProgCode, AdmSrvCode, GRDCode, GRDTitle, DefaultCatActive, DefaultCatExit);
+                                sqlH.addRegNLupGraduation(AdmProgCode, AdmSrvCode, GRDCode, GRDTitle, DefaultCatActive, DefaultCatExit);
 
 
                             }
@@ -690,7 +690,7 @@ public class SyncDatabase {
                                 String AdmCountryCode = layer_label.getString(Parser.ADM_COUNTRY_CODE);
                                 String GeoLayRCode = layer_label.getString(Parser.GEO_LAY_R_CODE);
                                 String GeoLayRName = layer_label.getString(Parser.GEO_LAY_R_NAME);
-                                sqlH.addLayerLabel(AdmCountryCode, GeoLayRCode, GeoLayRName);
+                                sqlH.addGeoLayRMaster(AdmCountryCode, GeoLayRCode, GeoLayRName);
 
 
                             }
@@ -714,15 +714,15 @@ public class SyncDatabase {
                                 String Relation_Code = rel.getString(Parser.HH_RELATION_CODE);
                                 String RelationName = rel.getString(Parser.RELATION_NAME);
 
-                                sqlH.addRelation(Relation_Code, RelationName);
+                                sqlH.addLupRegNHHRelation(Relation_Code, RelationName);
 
 
                             }
                         }
 
 
-                        if (!jObj.isNull(Parser.REPORT_TEMPLATE)) {
-                            JSONArray report_templates = jObj.getJSONArray(Parser.REPORT_TEMPLATE);
+                        if (!jObj.isNull(Parser.REPORT_TEMPLATE_JSON_A)) {
+                            JSONArray report_templates = jObj.getJSONArray(Parser.REPORT_TEMPLATE_JSON_A);
                             size = report_templates.length();
                             for (int i = 0; i < size; i++) {
                                 JSONObject report_template = report_templates.getJSONObject(i);
@@ -731,15 +731,15 @@ public class SyncDatabase {
                                 String RptLabel = report_template.getString(Parser.RPT_LABEL);
                                 String Code = report_template.getString(Parser.RPT_G_N_CODE);
 
-                                sqlH.addCardType(AdmCountryCode, RptLabel, Code);
+                                sqlH.addRptTemplate(AdmCountryCode, RptLabel, Code);
 
 
                             }
                         }
 
 
-                        if (!jObj.isNull(Parser.CARD_PRINT_REASON)) {
-                            JSONArray card_print_reasons = jObj.getJSONArray(Parser.CARD_PRINT_REASON);
+                        if (!jObj.isNull(Parser.CARD_PRINT_REASON_JSON_A)) {
+                            JSONArray card_print_reasons = jObj.getJSONArray(Parser.CARD_PRINT_REASON_JSON_A);
                             size = card_print_reasons.length();
                             for (int i = 0; i < size; i++) {
                                 JSONObject card_print_reason = card_print_reasons.getJSONObject(i);
@@ -747,7 +747,7 @@ public class SyncDatabase {
                                 String ReasonCode = card_print_reason.getString(Parser.REASON_CODE);
                                 String ReasonTitle = card_print_reason.getString(Parser.REASON_TITLE);
 
-                                sqlH.addCardPrintReason(ReasonCode, ReasonTitle);
+                                sqlH.addLupRegNCardPrintReason(ReasonCode, ReasonTitle);
 
 
                             }
