@@ -125,6 +125,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public static final String ASSIGN_SUMMARY_PROGRAM_DETAILS = "assignSummaryProgramDetails";
     public static final String FDP_LAY_R2 = "FdpLayR2";
     private static final String DROP_TABLE_IF_EXISTS = "DROP TABLE IF EXISTS ";
+    public static final String DISTRICT_CODE_COL = "DistrictCode";
+    public static final String UPAZILLA_CODE_COL = "UpazillaCode";
+    public static final String UNIT_CODE_COL = "UnitCode";
+    public static final String VILLAGE_CODE_COL = "VillageCode";
+    public static final String VILLAGE_NAME_COL = "VillageName";
 
 
     private String next_id = "";

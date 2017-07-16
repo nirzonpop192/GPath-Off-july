@@ -155,7 +155,7 @@ public class SQLiteQuery {
     }
 
     public static String loadTaSummaryCategory_sql(final String cCode, final String eventCode) {
-        return  " select " + TA_CATEGORY_TABLE + "." + TA_CAT_CODE_COL + " AS code "
+        return " select " + TA_CATEGORY_TABLE + "." + TA_CAT_CODE_COL + " AS code "
                 + " , " + TA_CATEGORY_TABLE + "." + TA_CAT_NAME_COL + " AS title " +
                 "    , " + "   (Select count(  " + TA_PARTICIPANTS_LIST_TABLE + "." + ID_CATEGORY_COL + " )  " +
                 "from " + TA_PARTICIPANTS_LIST_TABLE + " where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + "='" + cCode + "' " +
@@ -4787,7 +4787,7 @@ public class SQLiteQuery {
 
     public static String getSelectedVillageList_sql() {
         return "SELECT " + GEO_LAY_R_CODE_COL
-                + " , " + LAY_R4_LIST_NAME_COL + " FROM " + SELECTED_VILLAGE_TABLE
+                + " , " + VILLAGE_NAME_COL + " FROM " + SELECTED_VILLAGE_TABLE
                 + " GROUP BY " + GEO_LAY_R_CODE_COL;
     }
 

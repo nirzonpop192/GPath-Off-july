@@ -290,21 +290,25 @@ public class SyncDatabase {
                         if (counter > data_size) {
                             AppController.getInstance().getRequestQueue().getCache().clear();
                             Log.d(TAG, "Finally  Registration Task Completed");
-                            data_size = 33; // no of table
+
+
+                            if (pDialogUpload.isShowing())
+                                pDialogUpload.dismiss();
+                           /* data_size = 33; // no of table
                             counter = 0;
 
 
-                            pDialogUpload.setMessage("Downloading data ...");
+//                            pDialogUpload.setMessage("Downloading data ...");
                             pDialogUpload.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
-                            /** set json array for selected village */
+                            *//** set json array for selected village *//*
 
 
                             SharedPreferences settings;
 
                             settings = my_activity.getSharedPreferences(MainActivity.APP_PREFERENCES, Context.MODE_PRIVATE); //1
                             int operationMode = settings.getInt(UtilClass.OPERATION_MODE, 0);
-                            /** for sefty rea SON*/
+                            *//** for sefty rea SON*//*
                             JSONArray array = UtilClass.layR4CodeJSONConverter("SyncDatabase", sqlH.getSelectedVillageList(), sqlH);
 
                             switch (operationMode) {
@@ -326,7 +330,7 @@ public class SyncDatabase {
                                     break;
                             }
 
-
+*/
                             // don't delete below code '
 //                            checkLoginAndDowenReftData(username, password, array, String.valueOf(operationMode));
 
@@ -417,11 +421,11 @@ public class SyncDatabase {
                         //setLogin(true); // user successfully logged in Create login session
 
                         /**       delete ONLY REFERENCE  */
-                        sqlH.deleteReferenceTable();
+//                        sqlH.deleteReferenceTable();
 
 
                         // Adding data into Country Table
-                        if (!jObj.isNull(Parser.COUNTRIES_JSON_A)) {
+                    /*    if (!jObj.isNull(Parser.COUNTRIES_JSON_A)) {
                             JSONArray countries = jObj.getJSONArray(Parser.COUNTRIES_JSON_A);
                             size = countries.length();
                             //   lunchBarDialog("countries",size);
@@ -456,55 +460,7 @@ public class SyncDatabase {
                         }
 
 
-//                        if (!jObj.isNull(Parser.GPS_GROUP_JSON_A)) {
-//                            JSONArray gps_groups = jObj.getJSONArray(Parser.GPS_GROUP_JSON_A);
-//                            size = gps_groups.length();
-//
-//                            for (int i = 0; i < size; i++) {
-//                                JSONObject gps_group = gps_groups.getJSONObject(i);
-//                                String GrpCode = gps_group.getString(Parser.GRP_CODE);
-//                                String GrpName = gps_group.getString(Parser.GRP_NAME);
-//                                String Description = gps_group.getString(Parser.DESCRIPTION);
-//
-//                                sqlH.addGpsGroup(GrpCode, GrpName, Description);
-//
-//                            }
-//                        }
-//
-//                        if (!jObj.isNull(Parser.GPS_SUBGROUP_JSON_A)) {
-//                            JSONArray gps_subgroups = jObj.getJSONArray(Parser.GPS_SUBGROUP_JSON_A);
-//                            size = gps_subgroups.length();
-//                            for (int i = 0; i < size; i++) {
-//                                JSONObject gps_subgroup = gps_subgroups.getJSONObject(i);
-//                                String GrpCode = gps_subgroup.getString(Parser.GRP_CODE);
-//                                String SubGrpCode = gps_subgroup.getString(Parser.SUB_GRP_CODE);
-//                                String SubGrpName = gps_subgroup.getString(Parser.SUB_GRP_NAME);
-//                                String Description = gps_subgroup.getString(Parser.DESCRIPTION);
-//                                sqlH.addGpsSubGroup(GrpCode, SubGrpCode, SubGrpName, Description);
-//
-//
-//                            }
-//                        }
-                        // * Adding data into GPS Location Table
 
-//                        if (!jObj.isNull(Parser.GPS_LOCATION_JSON_A)) {
-//                            JSONArray gps_locations = jObj.getJSONArray(Parser.GPS_LOCATION_JSON_A);
-//                            size = gps_locations.length();
-//                            for (int i = 0; i < size; i++) {
-//                                JSONObject gps_location = gps_locations.getJSONObject(i);
-//                                String AdmCountryCode = gps_location.getString(Parser.ADM_COUNTRY_CODE);
-//                                String GrpCode = gps_location.getString(Parser.GRP_CODE);
-//                                String SubGrpCode = gps_location.getString(Parser.SUB_GRP_CODE);
-//                                String LocationCode = gps_location.getString("LocationCode");
-//                                String LocationName = gps_location.getString("LocationName");
-//                                String Long = gps_location.getString("Long");
-//                                String Latd = gps_location.getString("Latd");
-//
-//
-//                                sqlH.addGpsLocation(AdmCountryCode, GrpCode, SubGrpCode, LocationCode, LocationName, Long, Latd);
-//
-//                            }
-//                        }
 
 
 
@@ -582,64 +538,6 @@ public class SyncDatabase {
 
 
 
-                        // * Adding data into  dob_service_center  Table
-
-
-//                        if (!jObj.isNull(Parser.DOB_SERVICE_CENTER_JSON_A)) {// this is not servie
-//                            JSONArray dob_service_centers = jObj.getJSONArray(Parser.DOB_SERVICE_CENTER_JSON_A);
-//                            size = dob_service_centers.length();
-//                            for (int i = 0; i < size; i++) {
-//                                JSONObject dob_service_center = dob_service_centers.getJSONObject(i);
-//
-//                                String AdmCountryCode = dob_service_center.getString(Parser.ADM_COUNTRY_CODE);
-//                                String SrvCenterCode = dob_service_center.getString(Parser.SRV_CENTER_CODE);
-//                                String SrvCenterName = dob_service_center.getString(Parser.SRV_CENTER_NAME);
-//
-//                                // String SrvCenterAddress = dob_service_center.getString("SrvCenterAddress");
-//                                //   String SrvCenterCatCode = dob_service_center.getString("SrvCenterCatCode");
-//
-//                                String FDPCode = dob_service_center.getString(Parser.FDP_CODE);
-//
-//                                // db.addServiceCenter(AdmCountryCode, SrvCenterCode, SrvCenterName, SrvCenterAddress, SrvCenterCatCode, FDPCode);
-//                                sqlH.addServiceCenter(AdmCountryCode, SrvCenterCode, SrvCenterName, FDPCode);
-//
-//                            }
-//                        }
-
-
-
-                        // bellow code are not needed u can  delete it but after remove the php code first
-
-//                        if (!jObj.isNull(Parser.STAFF_ACCESS_INFO_JSON_A)) {// this is not servie
-//                            JSONArray staff_access_info_accesses = jObj.getJSONArray(Parser.STAFF_ACCESS_INFO_JSON_A);
-//                            size = staff_access_info_accesses.length();
-//                            for (int i = 0; i < size; i++) {
-//                                JSONObject staff_access_info_access = staff_access_info_accesses.getJSONObject(i);
-//
-//                                String StfCode = staff_access_info_access.getString(Parser.STF_CODE);
-//                                String AdmCountryCode = staff_access_info_access.getString(Parser.ADM_COUNTRY_CODE);
-//                                String AdmDonorCode = staff_access_info_access.getString(Parser.ADM_DONOR_CODE);
-//                                String AdmAwardCode = staff_access_info_access.getString(Parser.ADM_AWARD_CODE);
-//                                String LayRListCode = staff_access_info_access.getString(Parser.LAY_R_LIST_CODE);
-//                                String btnNew = staff_access_info_access.getString(Parser.BTN_NEW1);
-//                                String btnSave = staff_access_info_access.getString(Parser.BTN_SAVE);
-//                                String btnDel = staff_access_info_access.getString(Parser.BTN_DEL);
-//                                String btnPepr = staff_access_info_access.getString(Parser.BTN_PEPR);
-//                                String btnAprv = staff_access_info_access.getString(Parser.BTN_APRV);
-//                                String btnRevw = staff_access_info_access.getString(Parser.BTN_REVW);
-//                                String btnVrfy = staff_access_info_access.getString(Parser.BTN_VRFY);
-//                                String btnDTran = staff_access_info_access.getString(Parser.BTN_D_TRAN);
-//
-//
-//                                //String FDPCode = dbo_staff_geo_info_access.getString("FDPCode");
-//                                String disCode = LayRListCode.substring(0, 2);
-//                                String upCode = LayRListCode.substring(2, 4);
-//                                String unCode = LayRListCode.substring(4, 6);
-//                                String vCode = LayRListCode.substring(6);
-//                                sqlH.addStaffGeoAccessInfo(StfCode, AdmCountryCode, AdmDonorCode, AdmAwardCode, LayRListCode, disCode, upCode, unCode, vCode, btnNew, btnSave, btnDel, btnPepr, btnAprv, btnRevw, btnVrfy, btnDTran);//, SrvCenterCatCode, FDPCode);
-//
-//                            }
-//                        }
 
 
                         if (!jObj.isNull(Parser.LB_REG_HH_CATEGORY_JSON_A)) {
@@ -770,8 +668,8 @@ public class SyncDatabase {
 
                                 sqlH.addStaffFDPAccess(StfCode, AdmCountryCode, FDPCode, btnNew, btnSave, btnDel);
 
-                           /*     Log.d(TAG, "In addStaff FDP Access : StfCode : " + AdmCountryCode + " StfCode : " + StfCode + " LayR1ListCode : " + FDPCode + " btnNew : "
-                                        + btnNew + " btnDel : " + btnDel);*/
+                           *//*     Log.d(TAG, "In addStaff FDP Access : StfCode : " + AdmCountryCode + " StfCode : " + StfCode + " LayR1ListCode : " + FDPCode + " btnNew : "
+                                        + btnNew + " btnDel : " + btnDel);*//*
                             }
                         }
 
@@ -798,9 +696,9 @@ public class SyncDatabase {
                             }
                         }
 
-                        /**
+                        *//**
                          * SrvTable for Service Data
-                         */
+                         *//*
 
                         if (!jObj.isNull(Parser.SERVICE_TABLE_JSON_A)) {
                             JSONArray services_table = jObj.getJSONArray(Parser.SERVICE_TABLE_JSON_A);
@@ -809,14 +707,14 @@ public class SyncDatabase {
                         }
 
 
-                        /**
+                        *//**
                          * The total string Convert into JSON object
-                         * */
+                         * *//*
 
 
-                        /**
+                        *//**
                          * Below Cod eis Ok By For performance issue we use parsing class
-                         */
+                         *//*
 
                         // publishProgress(++progressIncremental);
 
@@ -872,7 +770,7 @@ public class SyncDatabase {
 
                             }
                         }
-
+*/
 
                         if (pDialogUpload.isShowing())
                             pDialogUpload.dismiss();

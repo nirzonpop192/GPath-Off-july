@@ -730,7 +730,7 @@ public class Schema {
     /**
      * added by Faisal Mohammad
      * create GPS_GROUP_TABLE table
-     * <p/>
+     * <p>
      * remarks-
      */
     public static String sqlCreateGpsGroupTable() {
@@ -744,7 +744,7 @@ public class Schema {
     /**
      * added by Faisal Mohammad
      * create Registration Assign Program Srv table
-     * <p/>
+     * <p>
      * remarks-
      */
     public static String sqlCreateRegNAssignPrgSrvTable() {
@@ -1133,13 +1133,13 @@ public class Schema {
 
                 + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
 
-                + " CountryCode VARCHAR(4), "
-                + " DistrictCode VARCHAR(2), "
-                + " UpazillaCode VARCHAR(2), "
-                + " UnitCode VARCHAR(2), "
-                + " VillageCode VARCHAR(2), "
+                + COUNTRY_CODE_COL + "  VARCHAR(4), "
+                + DISTRICT_CODE_COL + " VARCHAR(2), "
+                + UPAZILLA_CODE_COL + " VARCHAR(2), "
+                + UNIT_CODE_COL + " VARCHAR(2), "
+                + VILLAGE_CODE_COL + " VARCHAR(2), "
                 + GEO_LAY_R_CODE_COL + " VARCHAR(2), "
-                + " VillageName VARCHAR(100), "
+                + VILLAGE_NAME_COL + " VARCHAR(100), "
                 + REGN_ADDRESS_LOOKUP_CODE_COL + " VARCHAR(4) "
 
                 + " )";

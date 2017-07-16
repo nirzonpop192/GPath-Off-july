@@ -558,12 +558,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    private void synchronizeData(View v) {
-        final AppController globalVariable = (AppController) getApplicationContext();
-        globalVariable.setMainViewContext(v);
-        MainTask main_task = new MainTask();
-        main_task.execute();
-    }
+
 
     @Override
     public void onClick(View v) {
@@ -603,37 +598,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 //main_activity.finish();
                 break;
             case R.id.btnSyncRecord:
-                /**
-                 * check the on line mode is on or not
-                 */
-                SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-                boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
-                if (syncMode) {
-                    my_view = v;
-                    isInternetPresent = cd.isConnectingToInternet();
+                synchronizationProcess(v);
 
-                    if (isInternetPresent)
-                        synchronizeData(my_view);
-                    else {
-
-                        showAlert("Check your internet connectivity!!");
-                    }
-                    /**
-                     * save the
-                     */
-                    SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH);
-                    Date now = new Date();
-                    String SyncDate = date.format(now);
-                    db.insertIntoLastSyncTraceStatus(getUserID(), getUserName(), SyncDate);
-
-                    tvSyncRequired.setText(N);
-                    if (db.getLastSyncStatus().equals("")) {
-                        tvLastSync.setText("N/A");
-                    } else {
-                        tvLastSync.setText(db.getLastSyncStatus());
-                    }
-                } else
-                    showAlert("Device is not configure for internet connectivity !!");
                 break;
 
             case R.id.btnCardRequest:
@@ -719,6 +685,50 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
+    private void synchronizeData(View v) {
+        final AppController globalVariable = (AppController) getApplicationContext();
+        globalVariable.setMainViewContext(v);
+        MainTask main_task = new MainTask();
+        main_task.execute();
+    }
+    private void synchronizationProcess(View v) {
+        /**
+         * check the on line mode is on or not
+         */
+        SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
+        if (syncMode) {
+            my_view = v;
+            isInternetPresent = cd.isConnectingToInternet();
+
+            if (isInternetPresent) {
+                synchronizeData(my_view);
+
+                /**
+                 * save the synchronize time
+                 */
+                SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH);
+                Date now = new Date();
+                String SyncDate = date.format(now);
+                db.insertIntoLastSyncTraceStatus(getUserID(), getUserName(), SyncDate);
+
+                tvSyncRequired.setText(N);
+                if (db.getLastSyncStatus().equals("")) {
+                    tvLastSync.setText("N/A");
+                } else {
+                    tvLastSync.setText(db.getLastSyncStatus());
+                }
+
+            }
+            else {
+
+                showAlert("Check your internet connectivity!!");
+            }
+
+        } else
+            showAlert("Device is not configure for internet connectivity !!");
+    }
+
     private class MainTask extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... params) {
@@ -736,7 +746,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             sync.startTask();
         }
 
-        ;
+
 
         @Override
         protected void onPostExecute(String result) {
@@ -801,8 +811,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             String retrieveData = readDataFromFile("reg_ass_prog_srv_data");
             try {
 
-
-                int size;
 
                 JSONObject jObj = new JSONObject(retrieveData);
 
@@ -1458,7 +1466,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (!jObj.isNull(Parser.REPORT_TEMPLATE_JSON_A)) {
                     Parser.rptTemplateParser(jObj.getJSONArray(Parser.REPORT_TEMPLATE_JSON_A), db);
                 }
-
 
 
                 publishProgress(++progressIncremental);

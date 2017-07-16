@@ -16,15 +16,16 @@ public class AppConfig {
      * UAT
      * //Windows Server Azure VM Live Server
      */
-    //public static final String API_LINK = "http://pciapp.cloudapp.net/datacraft/api/";
-    //public static final String API_LINK_ENU = "http://pciapp.cloudapp.net/datacraft/api/index.php?enu";
+    public static final String API_LINK = "http://pciapp.cloudapp.net/datacraft/api/";
+    public static final String API_LINK_ENU = "http://pciapp.cloudapp.net/datacraft/api/index.php?enu";
+    public static final String API_LINK_VER = "http://pciapp.cloudapp.net/datacraft/apilive/index.php?ver";
     //LIVE LINK
     //  public static final String API_LINK = "http://pciapp.cloudapp.net/apilive/";
     /************************************************************************/
     //LIVE LINK
-    public static final String API_LINK = "http://pciapp.cloudapp.net/datacraft/apilive/";
-    public static final String API_LINK_ENU = "http://pciapp.cloudapp.net/datacraft/apilive/index.php?enu";
-    public static final String API_LINK_VER = "http://pciapp.cloudapp.net/datacraft/apilive/index.php?ver";
+    // public static final String API_LINK = "http://pciapp.cloudapp.net/datacraft/apilive/";
+    // public static final String API_LINK_ENU = "http://pciapp.cloudapp.net/datacraft/apilive/index.php?enu";
+    // public static final String API_LINK_VER = "http://pciapp.cloudapp.net/datacraft/apilive/index.php?ver";
 
     /*********************************************************************
      * apk download link from Azure
@@ -54,8 +55,8 @@ public class AppConfig {
     public static Boolean DEV_ENVIRONMENT = false; // false / true
 
     /**
-     *  new version apk name apk
+     * new version apk name apk
      */
-    public static final String DOWNLOADED_APK_NAME="Gpath.apk";
+    public static final String DOWNLOADED_APK_NAME = "Gpath.apk";
 
 }
