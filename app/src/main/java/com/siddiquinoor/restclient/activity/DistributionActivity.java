@@ -343,11 +343,28 @@ public class DistributionActivity extends BaseActivity {
         setUpSaveButton();
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpSaveButton() {
         btnSave.setText("");
         Drawable saveImage = getResources().getDrawable(R.drawable.save_b);
         btnSave.setCompoundDrawablesRelativeWithIntrinsicBounds(saveImage, null, null, null);
-        btnSave.setPadding(380, 30, 380, 30);
+//        btnSave.setPadding(380, 30, 380, 30);
+
+        /**
+         * calculate padding in pixel
+         */
+        int leftPadd, rightPadd, topPadd, bottomPadd;
+        CalculationPadding calPadd = new CalculationPadding();
+
+        leftPadd = rightPadd = calPadd.calculateViewPadding(mContext, saveImage, btnSummary);
+        /**
+         * set the value in resource
+         */
+        topPadd = bottomPadd = getResources().getInteger(R.integer.top_bottom_icon_pad_int_5);
+
+        btnSave.setPadding(leftPadd, topPadd, rightPadd, bottomPadd);
+
+//        btnSave.setCompoundDrawablesRelativeWithIntrinsicBounds(summeryImage, null, null, null);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -557,8 +574,8 @@ public class DistributionActivity extends BaseActivity {
                 if (Integer.parseInt(idFDP) > 0) {
 
                          // for loading time
-/*                    LoadingList ld = new LoadingList(idCountry, idDonor, idAward, idProgram, idServiceMonth, idFDP, idDisMonth, "");
-                    ld.execute();*/
+                   LoadingList ld = new LoadingList(idCountry, idDonor, idAward, idProgram, idServiceMonth, idFDP, idDisMonth, "");
+                    ld.execute();
 
                     /**                     * For test*/
 

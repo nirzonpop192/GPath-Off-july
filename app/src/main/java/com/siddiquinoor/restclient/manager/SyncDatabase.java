@@ -29,6 +29,7 @@ import com.siddiquinoor.restclient.controller.AppConfig;
 import com.siddiquinoor.restclient.controller.AppController;
 import com.siddiquinoor.restclient.controller.SessionManager;
 
+import com.siddiquinoor.restclient.fragments.BaseActivity;
 import com.siddiquinoor.restclient.network.ConnectionDetector;
 import com.siddiquinoor.restclient.parse.Parser;
 import com.siddiquinoor.restclient.utils.UtilClass;
@@ -77,7 +78,8 @@ public class SyncDatabase {
     private boolean isDownloadNeeded;
     private ConnectionDetector cd;
 
-
+    private SharedPreferences settings;
+   private SharedPreferences.Editor editor;
     public void setDownloadNeeded(boolean downloadNeeded) {
         isDownloadNeeded = downloadNeeded;
     }
@@ -92,10 +94,18 @@ public class SyncDatabase {
         password = session.getUserPassword();
         sqlH = new SQLiteHandler(m_context);
         setDownloadNeeded(false);
+
+
+        settings = m_context.getSharedPreferences(BaseActivity.APP_PREFERENCES, Context.MODE_PRIVATE);
+        editor = settings.edit(); //2
+
+        editor.putBoolean(UtilClass.PROCESS_ON_GOING_KEY, true);
     }
 
     // here collect the data
     public void startTask() {
+
+
         /** here check the is available or not */
         queryData = sqlH.getUploadSyntaxData();
         Collections.sort(queryData);
@@ -112,7 +122,7 @@ public class SyncDatabase {
 
             } else {
 
-                /** set json array for selected village */
+             /*   *//** set json array for selected village *//*
 
 
                 pDialogUpload.setMessage("Downloading data ");
@@ -131,7 +141,7 @@ public class SyncDatabase {
 // TODO: 11/28/2016   orther
                 settings = my_activity.getSharedPreferences(MainActivity.APP_PREFERENCES, Context.MODE_PRIVATE); //1
                 int operationMode = settings.getInt(UtilClass.OPERATION_MODE, 0);
-                /** for sefty rea JSON*/
+                *//** for sefty rea JSON*//*
                 JSONArray array = UtilClass.layR4CodeJSONConverter("SyncDatabase", sqlH.getSelectedVillageList(), sqlH);
 
                 switch (operationMode) {
@@ -155,7 +165,7 @@ public class SyncDatabase {
                 // don't delete below code '
 //                checkLoginAndDowenReftData(username, password, array, String.valueOf(operationMode));
 
-
+*/
             }
 
         } else {
@@ -247,6 +257,7 @@ public class SyncDatabase {
 
             } catch (Exception e) {
                 pDialogUpload.dismiss();
+                editor.putBoolean(UtilClass.PROCESS_ON_GOING_KEY, false);
                 return "UNKNOWN";
             }
             return null;
@@ -286,54 +297,15 @@ public class SyncDatabase {
                         ac.updateRecord();
 
                         pDialogUpload.setProgress(ac.getCurrentRecord());
-                        // when all the unsync data upload  than it wiil dowenload
+                        // when all the unsync data upload  than it will download
                         if (counter > data_size) {
                             AppController.getInstance().getRequestQueue().getCache().clear();
                             Log.d(TAG, "Finally  Registration Task Completed");
 
+                            editor.putBoolean(UtilClass.PROCESS_ON_GOING_KEY, false);
 
                             if (pDialogUpload.isShowing())
                                 pDialogUpload.dismiss();
-                           /* data_size = 33; // no of table
-                            counter = 0;
-
-
-//                            pDialogUpload.setMessage("Downloading data ...");
-                            pDialogUpload.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-
-                            *//** set json array for selected village *//*
-
-
-                            SharedPreferences settings;
-
-                            settings = my_activity.getSharedPreferences(MainActivity.APP_PREFERENCES, Context.MODE_PRIVATE); //1
-                            int operationMode = settings.getInt(UtilClass.OPERATION_MODE, 0);
-                            *//** for sefty rea SON*//*
-                            JSONArray array = UtilClass.layR4CodeJSONConverter("SyncDatabase", sqlH.getSelectedVillageList(), sqlH);
-
-                            switch (operationMode) {
-                                case UtilClass.REGISTRATION_OPERATION_MODE:
-                                    array = UtilClass.layR4CodeJSONConverter("SyncDatabase", sqlH.getSelectedVillageList(), sqlH);
-                                    break;
-                                case UtilClass.DISTRIBUTION_OPERATION_MODE:
-
-                                    array = UtilClass.fdpCodeJSONConverter("SyncDatabase", sqlH.getSelectedFDPList(), sqlH);
-                                    break;
-
-                                case UtilClass.SERVICE_OPERATION_MODE:
-
-                                    array = UtilClass.srvCenterCodeJSONConverter("SyncDatabase", sqlH.getSelectedServiceCenterList(), sqlH);
-                                    break;
-
-// // TODO: 11/28/2016  for Other operation
-                                default:
-                                    break;
-                            }
-
-*/
-                            // don't delete below code '
-//                            checkLoginAndDowenReftData(username, password, array, String.valueOf(operationMode));
-
 
                         }
 
@@ -342,6 +314,8 @@ public class SyncDatabase {
                         String errorMsg = jObj.getString("error_msg");
                         pDialogUpload.dismiss();
                         alert.showAlertDialog(my_activity, "Synchronize Status", errorMsg, true);
+
+                        editor.putBoolean(UtilClass.PROCESS_ON_GOING_KEY, false);
                     }
                 } catch (JSONException e) {
                     // JSON error

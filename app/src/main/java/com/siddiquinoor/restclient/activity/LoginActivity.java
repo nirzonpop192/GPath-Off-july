@@ -797,7 +797,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
             }
         }) {
@@ -946,7 +946,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
                 // hide the mdialog
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
             }
         }) {
@@ -1075,7 +1075,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
                 // hide the mdialog
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
             }
         }) {
@@ -1187,7 +1187,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
             }
         }) {
@@ -1290,7 +1290,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
                 // hide the mdialog
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
             }
         }) {
@@ -2036,7 +2036,7 @@ public class LoginActivity extends BaseActivity {
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
             }
         }) {
@@ -2113,7 +2113,7 @@ public class LoginActivity extends BaseActivity {
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
 
             }
@@ -2191,7 +2191,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
                 // hide the mdialog
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
 
             }
@@ -2266,7 +2266,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
                 // hide the mdialog
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
 
             }
@@ -2342,7 +2342,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
             }
         }) {
 
@@ -2422,7 +2422,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
                 // hide the mdialog
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
 
             }
@@ -2492,7 +2492,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
                 // hide the mdialog
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
 
             }
@@ -2561,7 +2561,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
                 // hide the mdialog
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
 
             }
@@ -2646,7 +2646,7 @@ public class LoginActivity extends BaseActivity {
                 Log.e(TAG, "Login Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
                 // hide the mdialog
                 hideDialog();
-                showAlert("Failed to retrieve data\r\nPlease try again checking your internet connectivity, Username and Password.");
+                showAlert("Error: " + error + " Stack Tracr = " + error.getStackTrace() + " Detail = " + error.getMessage());
 
 
             }

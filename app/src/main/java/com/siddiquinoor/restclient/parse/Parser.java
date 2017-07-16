@@ -928,6 +928,8 @@ public class Parser extends Parse {
                 // Adding data into Registration Table
                 size = members.length();
 
+                Log.d(TAG,"RegNHHMem :" +size);
+
                 for (int i = 0; i < size; i++) {
 
                     JSONObject member = members.getJSONObject(i);
@@ -987,7 +989,9 @@ public class Parser extends Parse {
                     P_BSCMemName2_Last = member.getString(P_BSC_MEM_NAME_2_LAST);
                     P_BSCMem2_TitlePosition = member.getString(P_BSC_MEM_2_TITLE_POSITION);
                     GrpCode = member.getString(GRP_CODE);
-                    memTypeFlag = member.getString(MEM_TYPE_FLAG);
+
+
+                   memTypeFlag = member.getString(MEM_TYPE_FLAG);
 
 
                     sqlH.addMemberData(AdmCountryCode, DistrictName, UpazillaName, UnitName, VillageName, hhID, HHMemID,

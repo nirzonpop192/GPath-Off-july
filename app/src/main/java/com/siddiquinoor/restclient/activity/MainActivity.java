@@ -63,6 +63,7 @@ import java.util.Locale;
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     public static final String LIBERIA_COUNTRY_CODE = "0004";
+    public static final int TOTAL_NO_OF_TABLE = 94;
     private static ProgressDialog pDialog;
 
     private final String TAG = MainActivity.class.getSimpleName();
@@ -183,7 +184,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         final Button restorDb = (Button) findViewById(R.id.btnRestoreDB);
 
         // for test disable it
-        restorDb.setVisibility(View.GONE);                                                          //no dded this button any more
+//        restorDb.setVisibility(View.GONE);                                                          //no dded this button any more
         restorDb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -559,7 +560,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -598,7 +598,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 //main_activity.finish();
                 break;
             case R.id.btnSyncRecord:
-                synchronizationProcess(v);
+
+
+                SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+                boolean syncProcessOnGoing = settings.getBoolean(UtilClass.PROCESS_ON_GOING_KEY, false);
+                if (!syncProcessOnGoing)
+                    synchronizationProcess(v);
 
                 break;
 
@@ -691,6 +696,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         MainTask main_task = new MainTask();
         main_task.execute();
     }
+
     private void synchronizationProcess(View v) {
         /**
          * check the on line mode is on or not
@@ -719,8 +725,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     tvLastSync.setText(db.getLastSyncStatus());
                 }
 
-            }
-            else {
+            } else {
 
                 showAlert("Check your internet connectivity!!");
             }
@@ -745,7 +750,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             SyncDatabase sync = new SyncDatabase(getApplicationContext(), main_activity);
             sync.startTask();
         }
-
 
 
         @Override
@@ -1679,12 +1683,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                                 DistributionDate, DeliveryDate, Status, PreparedBy, VerifiedBy, ApproveBy);
 
 
-                      /*  Log.d(TAG, "AdmCountryCode: " + AdmCountryCode + AdmDonorCode + AdmAwardCode + ProgCode +
-                                OpCode + SrvOpMonthCode + DisOpMonthCode + FDPCode + DistFlag + OrgCode + Distributor +
-                                DistributionDate + DeliveryDate + Status + PreparedBy + VerifiedBy + ApproveBy);*/
-
-                        //  Log.d(TAG, "In Reg Mem Card Request Table: AdmCountryCode : " + AdmCountryCode + " AdmDonorCode : " + AdmDonorCode + " LayR1ListCode : " + LayR1ListCode + " LayR2ListCode : "
-                        //        + LayR2ListCode + " LayR3ListCode : " + LayR3ListCode + " LayR4ListCode : " + LayR4ListCode+ " HHID : " + HHID);
                     }
                 }
 
@@ -1734,7 +1732,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     }
                 }
 
-//                publishProgress(39);
+
                 publishProgress(++progressIncremental);
 
                 if (!jObj.isNull(Parser.VO_ITM_MEAS_TABLE_JSON_A)) {
@@ -2090,7 +2088,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void showProgressDialog() {
         progressDialog = new ProgressDialog(MainActivity.this);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progressDialog.setMax(88);
+        progressDialog.setMax(TOTAL_NO_OF_TABLE);
         progressDialog.setMessage("Retrieving...");
         progressDialog.setCancelable(false);
         progressDialog.show();

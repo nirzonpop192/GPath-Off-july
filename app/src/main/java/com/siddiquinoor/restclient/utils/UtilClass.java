@@ -72,6 +72,8 @@ public class UtilClass {
     public static final String OPERATION_MODE = "OPERATION_MODE";
 
     public static final String SYNC_MODE_KEY = "SYNC_MODE";
+
+    public static final String PROCESS_ON_GOING_KEY = "PROCESS_ON_GOING";
     public static final String IMPORT_DATE_TIME_KEY = "IMPORT_DATETIME";
 
     public String setDateFormatFromTV(TextView tv) {
