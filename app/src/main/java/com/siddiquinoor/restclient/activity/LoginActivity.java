@@ -67,6 +67,7 @@ import java.util.List;
 import java.util.Map;
 
 import static com.siddiquinoor.restclient.utils.UtilClass.DISTRIBUTION_OPERATION_MODE_NAME;
+import static com.siddiquinoor.restclient.utils.UtilClass.OTHER_OPERATION_MODE;
 import static com.siddiquinoor.restclient.utils.UtilClass.OTHER_OPERATION_MODE_NAME;
 import static com.siddiquinoor.restclient.utils.UtilClass.REGISTRATION_OPERATION_MODE_NAME;
 import static com.siddiquinoor.restclient.utils.UtilClass.SERVICE_OPERATION_MODE_NAME;
@@ -134,7 +135,7 @@ public class LoginActivity extends BaseActivity {
     //progress mdialog
     private ProgressDialog pDialog;
     // size  = 0, int type
-    private int size = 0;
+//    private int size = 0;
     //mContext
     private final Context mContext = LoginActivity.this;
     //exit button
@@ -1772,7 +1773,7 @@ public class LoginActivity extends BaseActivity {
                                 if (((AlertDialog) dialog).getListView().getCheckedItemCount() <= 2) {
                                     itemChecked[selectedItemId] = isSelected;
 
-                                    //   Log.d("REFAT----> position ", "" + selectedItemId);
+
                                 } else {
                                     Toast.makeText(LoginActivity.this, "You can not permitted to select more than Two ServiceCenter ", Toast.LENGTH_SHORT).show();
 
@@ -2089,12 +2090,37 @@ public class LoginActivity extends BaseActivity {
 
                 String errorResult = response.substring(9, 14);
 
+                int size = 0;
 
                 boolean error = !errorResult.equals("false");
 
                 if (!error) {
-                    Log.d("TAG", "Before downLoad RegNMembers 5" + "  user_Name:" + user_Name + " pass_word :" + pass_word + " selectedVilJArry:" + selectedVilJArry + "operationMode:" + operationMode);
-                    downLoadRegNMembers(user_Name, pass_word, selectedVilJArry, operationMode);
+
+                    /**
+                     * if registration json size is equal zero than this
+                     * method call itself recursively
+                     */
+                    try {
+                        JSONObject jObj = new JSONObject(response);
+
+                        if (!jObj.isNull(Parser.REGISTRATION_JSON_A)) {
+
+                            JSONArray registration = jObj.getJSONArray(Parser.REGISTRATION_JSON_A);
+
+
+                            size = registration.length();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if (size == 0 && !operationMode.equals("4")) {
+                        downLoadRegNHouseHold(user_Name, pass_word, selectedVilJArry, operationMode);
+                        Log.e(TAG, " house hold member is not found ");
+                    } else {
+                        Log.d("TAG", "Before downLoad RegNMembers 5" + "  user_Name:" + user_Name + " pass_word :" + pass_word + " selectedVilJArry:" + selectedVilJArry + "operationMode:" + operationMode);
+                        downLoadRegNMembers(user_Name, pass_word, selectedVilJArry, operationMode);
+
+                    }
 
                 } else {
                     // Error in login. Invalid UserName or Password
@@ -2169,10 +2195,33 @@ public class LoginActivity extends BaseActivity {
  */
                 boolean error = !errorResult.equals("false");
 
+                int size = 0;
 
                 if (!error) {
-                    Log.d("TAG", "Before downLoad RegNMemberProgGroup 4" + "  user_Name:" + user_Name + " pass_word :" + pass_word + " selectedVilJArry:" + selectedVilJArry + "operationMode:" + operationMode);
-                    downLoadRegNMemberProgGroup(user_Name, pass_word, selectedVilJArry, operationMode);
+
+                    JSONObject jObj = null;
+                    try {
+                        jObj = new JSONObject(response);
+
+                        // Adding existing members data into local database
+                        if (!jObj.isNull(Parser.MEMBERS_JSON_A)) {
+
+                            JSONArray members = jObj.getJSONArray(Parser.MEMBERS_JSON_A);
+                            size = members.length();
+
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if (size == 0 && !operationMode.equals("4")) {
+                        downLoadRegNMembers(user_Name, pass_word, selectedVilJArry, operationMode);
+
+                        Log.e(TAG, "member data no download ");
+                    } else {
+                        Log.d("TAG", "Before downLoad RegNMemberProgGroup 4" + "  user_Name:" + user_Name + " pass_word :" + pass_word + " selectedVilJArry:" + selectedVilJArry + "operationMode:" + operationMode);
+                        downLoadRegNMemberProgGroup(user_Name, pass_word, selectedVilJArry, operationMode);
+                    }
+
 
                 } else {
                     // Error in login. Invalid UserName or Password

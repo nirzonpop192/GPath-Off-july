@@ -975,7 +975,7 @@
     <string name="lmp_date">LMP Date</string>
     <string name="loading_msg">Loading Records </string>
     <string name="location_name">Location Name</string>
-    <string name="log_in_version_lable">GPath-OFF-21</string>
+    <string name="log_in_version_lable">GPath-OFF-22</string>
     <string name="longTitle">Longitude</string>
     <string name="map_mode">Map Source</string>
     <string name="mapbox">MapBox</string>

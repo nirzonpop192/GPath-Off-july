@@ -437,6 +437,8 @@ public class CU2 extends BaseActivity {
                     assign_cu2.setSrvCode(assignMem.getService_code());
                     assign_cu2.setEntryBy(assignMem.getEntryBy());
                     assign_cu2.setEntryDate(assignMem.getEntryDate());
+                    assign_cu2.setChildName(childName);
+                    assign_cu2.setChildSex(strChildGender);
 
 
                     /***
@@ -483,7 +485,7 @@ public class CU2 extends BaseActivity {
 
                     // update block
                     if (sqlH.ifExistsInCU2Table(assignMem)) {
-                        long id = sqlH.editMemberDataIn_CU2(assignMem, dobDate);
+                        long id = sqlH.editMemberDataIn_CU2(assignMem, dobDate, childName, strChildGender);
                         sqlH.insertIntoUploadTable(assign_cu2.updateRegNCU2ForChildUnder());
 
 

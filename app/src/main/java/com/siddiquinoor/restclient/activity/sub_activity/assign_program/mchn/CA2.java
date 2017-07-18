@@ -441,6 +441,9 @@ public class CA2 extends BaseActivity {
                     assign_ca2.setActive(idActive);
                     assign_ca2.setGrpCode(idGroup);
 
+                    assign_ca2.setChildName(childName);
+                    assign_ca2.setChildSex(strChildGender);
+
 
                     /**
                      * check RegNAssProgSrv

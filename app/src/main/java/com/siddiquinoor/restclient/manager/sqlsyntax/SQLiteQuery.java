@@ -2901,7 +2901,7 @@ public class SQLiteQuery {
 
 
         String sql = "SELECT "
-//                + REG_N_HH_TABLE + "." + SQLiteHandler.ID_COL + ", "
+
                 + REG_N_HH_TABLE + "." + REG_DATE_COL + ", "
                 + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + ", "
                 + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + " AS R_District, "
@@ -2922,34 +2922,34 @@ public class SQLiteQuery {
                 + REG_N_HH_TABLE + "." + AG_LAND + ","
                 + "(" + " CASE WHEN " + V_STATUS + "==" + "'Y'" + " THEN " + "'Yes'" + " ELSE " + "'No'" + " END " + ") AS VStatus" + ","
                 + " " + SQLiteHandler.M_STATUS + " AS MStatus " + ","
-                + REG_N_HH_TABLE + "." + SQLiteHandler.ENTRY_BY + ","
-                + REG_N_HH_TABLE + "." + SQLiteHandler.ENTRY_DATE + " , "
-                + REG_N_HH_TABLE + "." + SQLiteHandler.VSLA_GROUP + " , "
-                + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + SQLiteHandler.REGN_ADDRESS_LOOKUP_NAME_COL + " as addname , "//25
-                + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_REGN_ADDRESS_LOOKUP_CODE_COL + " as addcode ,"//26
-                + REG_N_HH_TABLE + "." + SQLiteHandler.W_RANK_COL + " as wRank ,"//26
-                + REG_N_HH_TABLE + "." + SQLiteHandler.M_STATUS + " as status "//26
+                + REG_N_HH_TABLE + "." + ENTRY_BY + ","
+                + REG_N_HH_TABLE + "." + ENTRY_DATE + " , "
+                + REG_N_HH_TABLE + "." + VSLA_GROUP + " , "
+                + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + REGN_ADDRESS_LOOKUP_NAME_COL + " as addname , "//25
+                + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_REGN_ADDRESS_LOOKUP_CODE_COL + " as addcode ,"//26
+                + REG_N_HH_TABLE + "." + W_RANK_COL + " as wRank ,"//26
+                + REG_N_HH_TABLE + "." + M_STATUS + " as status "//26
                 + " FROM " + REG_N_HH_TABLE
-                + " LEFT JOIN " + SQLiteHandler.COUNTRY_TABLE
-                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + SQLiteHandler.COUNTRY_TABLE + "." + COUNTRY_COUNTRY_CODE
-                + " LEFT JOIN " + SQLiteHandler.GEO_LAY_R1_LIST_TABLE
-                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R1_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE + "=" + SQLiteHandler.GEO_LAY_R1_LIST_TABLE + "." + LAY_R_LIST_CODE_COL
-                + " LEFT JOIN " + SQLiteHandler.GEO_LAY_R2_LIST_TABLE
-                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R2_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE + "=" + SQLiteHandler.GEO_LAY_R2_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " LEFT JOIN " + COUNTRY_TABLE
+                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + COUNTRY_TABLE + "." + COUNTRY_COUNTRY_CODE
+                + " LEFT JOIN " + GEO_LAY_R1_LIST_TABLE
+                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + GEO_LAY_R1_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + GEO_LAY_R1_LIST_TABLE + "." + LAY_R_LIST_CODE_COL
+                + " LEFT JOIN " + GEO_LAY_R2_LIST_TABLE
+                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + GEO_LAY_R2_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + GEO_LAY_R2_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
                 + " LEFT JOIN " + GEO_LAY_R3_LIST_TABLE
                 + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
                 + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R3_LIST_CODE_COL
-                + " LEFT JOIN " + SQLiteHandler.GEO_LAY_R4_LIST_TABLE
-                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + LAY_R3_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_VILLAGE_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + LAY_R4_LIST_CODE_COL
+                + " LEFT JOIN " + GEO_LAY_R4_LIST_TABLE
+                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + GEO_LAY_R4_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + GEO_LAY_R4_LIST_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + GEO_LAY_R4_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + "=" + GEO_LAY_R4_LIST_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_VILLAGE_CODE_COL + "=" + GEO_LAY_R4_LIST_TABLE + "." + LAY_R4_LIST_CODE_COL
 
 
                 + " LEFT JOIN " + LUP_REGN_ADDRESS_LOOKUP_TABLE
@@ -2960,13 +2960,13 @@ public class SQLiteQuery {
                 + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_VILLAGE_CODE_COL + "=" + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R4_LIST_CODE_COL
                 + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_REGN_ADDRESS_LOOKUP_CODE_COL + " = " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + SQLiteHandler.REGN_ADDRESS_LOOKUP_CODE_COL
 
-                + " WHERE " +// + LAY_R4_LIST_CODE_COL + "='" + ext_village +" AND "+
+                + " WHERE " +
                 REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + " || '' || " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + " || '' || "
                 + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + " || '' || " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + " || '' || "
                 + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_VILLAGE_CODE_COL + " = '" + ext_village + "' "
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_HHID + " LIKE '%" + hhId + "%' ";
-        //    + " GROUP BY " + REG_N_HH_TABLE + "." + SQLiteHandler.ID_COL /// this GROUP BY PREVENT TO SHOW DUPLICATED VALUES // Faisal Mohammad  @email:nirzon192@gmail.com @email:nirzon192@gmail.com @email:nirzon192@gmail.com @email:nirzon192@gmail.commodify
-        //   + " ORDER BY " + REG_N_HH_TABLE + "." + SQLiteHandler.ID_COL + " DESC";
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HHID + " LIKE '%" + hhId + "%' "
+            + " GROUP BY " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HHID                      /// this GROUP BY PREVENT TO SHOW DUPLICATED VALUES // Faisal Mohammad  @email:nirzon192@gmail.com @email:nirzon192@gmail.com @email:nirzon192@gmail.com @email:nirzon192@gmail.commodify
+           + " ORDER BY " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HHID + " DESC";
         Log.d("MAR", sql);
         return sql;
 
@@ -3015,9 +3015,9 @@ public class SQLiteQuery {
                 + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
                 + " LEFT JOIN " + GEO_LAY_R3_LIST_TABLE
                 + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R2_LIST_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R3_LIST_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R3_LIST_CODE_COL
                 + " LEFT JOIN " + SQLiteHandler.GEO_LAY_R4_LIST_TABLE
                 + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
                 + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
@@ -3051,24 +3051,24 @@ public class SQLiteQuery {
 
 
         return "SELECT "
-//                + REG_N_HH_TABLE + "." + SQLiteHandler.ID_COL + ", "
+
                 + REG_N_HH_TABLE + "." + SQLiteHandler.REG_DATE_COL + ", "
                 + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + ", "
-                + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE + " AS R_District, "
-                + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL + " AS R_Upazilla, "
+                + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + " AS R_District, "
+                + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + " AS R_Upazilla, "
                 + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + " AS R_Union, "
-                + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_VILLAGE_CODE_COL + " AS R_Village, "
-                + SQLiteHandler.COUNTRY_TABLE + "." + SQLiteHandler.COUNTRY_COUNTRY_NAME + ", "
-                + SQLiteHandler.GEO_LAY_R1_LIST_TABLE + "." + SQLiteHandler.LAY_R_LIST_NAME_COL + ", "
-                + SQLiteHandler.GEO_LAY_R2_LIST_TABLE + "." + SQLiteHandler.LAY_R2_LIST_NAME_COL + ","
+                + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_VILLAGE_CODE_COL + " AS R_Village, "
+                + COUNTRY_TABLE + "." + SQLiteHandler.COUNTRY_COUNTRY_NAME + ", "
+                + GEO_LAY_R1_LIST_TABLE + "." + SQLiteHandler.LAY_R_LIST_NAME_COL + ", "
+                + GEO_LAY_R2_LIST_TABLE + "." + SQLiteHandler.LAY_R2_LIST_NAME_COL + ","
                 + GEO_LAY_R3_LIST_TABLE + "." + LAY_R3_LIST_NAME + ", "
-                + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + SQLiteHandler.LAY_R4_LIST_NAME_COL + ","
-                + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_HHID + ","
+                + GEO_LAY_R4_LIST_TABLE + "." + SQLiteHandler.LAY_R4_LIST_NAME_COL + ","
+                + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HHID + ","
                 + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_HH_HEAD_NAME + ","
                 + "(" + " CASE WHEN " + SQLiteHandler.REGISTRATION_TABLE_HH_HEAD_SEX + "==" + "'F'" + " THEN " + "'Female'" + " ELSE " + "'Male'" + " END " + ")  AS Sex" + ","
-                + REG_N_HH_TABLE + "." + SQLiteHandler.HH_SIZE + ","
-                + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_GPS_LAT + ","
-                + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_GPS_LONG + ","
+                + REG_N_HH_TABLE + "." + HH_SIZE + ","
+                + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_GPS_LAT + ","
+                + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_GPS_LONG + ","
                 + REG_N_HH_TABLE + "." + SQLiteHandler.AG_LAND + ","
                 + "(" + " CASE WHEN " + SQLiteHandler.V_STATUS + "==" + "'Y'" + " THEN " + "'Yes'" + " ELSE " + "'No'" + " END " + ") AS VStatus" + ","
                 + " " + SQLiteHandler.M_STATUS + " AS MStatus" + ","
@@ -3082,42 +3082,42 @@ public class SQLiteQuery {
 
                 + " FROM " + REG_N_HH_TABLE
                 + " LEFT JOIN " + SQLiteHandler.COUNTRY_TABLE
-                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + SQLiteHandler.COUNTRY_TABLE + "." + COUNTRY_COUNTRY_CODE
+                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + COUNTRY_TABLE + "." + COUNTRY_COUNTRY_CODE
                 + " LEFT JOIN " + GEO_LAY_R1_LIST_TABLE
-                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R1_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + SQLiteHandler.GEO_LAY_R1_LIST_TABLE + "." + LAY_R_LIST_CODE_COL
+                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + GEO_LAY_R1_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + GEO_LAY_R1_LIST_TABLE + "." + LAY_R_LIST_CODE_COL
                 + " LEFT JOIN " + GEO_LAY_R2_LIST_TABLE
-                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R2_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + SQLiteHandler.GEO_LAY_R2_LIST_TABLE + "." + LAY_R_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + GEO_LAY_R2_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + GEO_LAY_R2_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
                 + " LEFT JOIN " + GEO_LAY_R3_LIST_TABLE
                 + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
                 + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + "=" + GEO_LAY_R3_LIST_TABLE + "." + LAY_R3_LIST_CODE_COL
                 + " LEFT JOIN " + GEO_LAY_R4_LIST_TABLE
                 + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + LAY_R3_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_VILLAGE_CODE_COL + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + LAY_R4_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + "= " + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + " = " + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_VILLAGE_CODE_COL + " =" + SQLiteHandler.GEO_LAY_R4_LIST_TABLE + "." + LAY_R4_LIST_CODE_COL
                 + " LEFT JOIN " + LUP_REGN_ADDRESS_LOOKUP_TABLE
                 + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + "=" + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + ADM_COUNTRY_CODE_COL
                 + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + "=" + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + "=" + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R2_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + "=" + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R3_LIST_CODE_COL
-                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_VILLAGE_CODE_COL + "=" + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R4_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + " = " + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + " = " + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_VILLAGE_CODE_COL + " = " + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R4_LIST_CODE_COL
                 + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_REGN_ADDRESS_LOOKUP_CODE_COL + " = " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + SQLiteHandler.REGN_ADDRESS_LOOKUP_CODE_COL
 
                 + " WHERE " +// + LAY_R4_LIST_CODE_COL + "='" + ext_village +" AND "+
                 REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + " || '' || "
-                + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE + " || '' || "
-                + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL + " || '' || "
+                + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + " || '' || "
+                + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + " || '' || "
                 + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + " || '' || "
                 + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_VILLAGE_CODE_COL + " = '" + ext_village + "' "
                 + " AND " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_HH_HEAD_NAME + " LIKE '%" + hhName + "%' "
-                + " GROUP BY " + REG_N_HH_TABLE + "." + SQLiteHandler.ID_COL /// this GROUP BY PREVENT TO SHOW DUPLICATED VALUES // Faisal Mohammad  @email:nirzon192@gmail.com @email:nirzon192@gmail.com @email:nirzon192@gmail.com @email:nirzon192@gmail.commodify
-                + " ORDER BY " + REG_N_HH_TABLE + "." + SQLiteHandler.ID_COL + " DESC";
+                + " GROUP BY " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HHID                     /// this GROUP BY PREVENT TO SHOW DUPLICATED VALUES // Faisal Mohammad  @email:nirzon192@gmail.com @email:nirzon192@gmail.com @email:nirzon192@gmail.com @email:nirzon192@gmail.commodify
+                + " ORDER BY " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HHID + " DESC";
         //   Log.d("MAR",sql);
         // return sql;
 
@@ -5321,5 +5321,16 @@ public class SQLiteQuery {
                 " and " + LAY_R4_LIST_CODE_COL + " = '" + layR4Code + "'" +
                 " and " + HHID_COL + " = '" + hhID + "'" +
                 " and " + HH_MEM_ID + " = '" + memId + "'";
+    }
+
+
+    public static String getHouseHoldRegistrationIsChecked_sql(String columnName, String c_code, String dname, String upname, String uname, String vname, String pid){
+        return "SELECT " + columnName + " FROM " + REG_N_HH_TABLE
+                + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + c_code + "'" // country name
+                + " AND " + LAY_R1_LIST_CODE + " = '" + dname + "'" // district name
+                + " AND " + LAY_R2_LIST_CODE_COL + " = '" + upname + "'" // upazilla name
+                + " AND " + LAY_R3_LIST_CODE_COL + " = '" + uname + "'" // Unit name
+                + " AND " + REGISTRATION_TABLE_VILLAGE_CODE_COL + " = '" + vname + "'" // Unit name
+                + " AND " + REGISTRATION_TABLE_HHID + " = '" + pid + "'"; // Personal code
     }
 }//end of class

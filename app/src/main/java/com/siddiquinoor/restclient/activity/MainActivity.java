@@ -63,7 +63,7 @@ import java.util.Locale;
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     public static final String LIBERIA_COUNTRY_CODE = "0004";
-    public static final int TOTAL_NO_OF_TABLE = 94;
+    public static final int TOTAL_NO_OF_TABLE = 88;
     private static ProgressDialog pDialog;
 
     private final String TAG = MainActivity.class.getSimpleName();
@@ -239,7 +239,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     String startDate = settings.getString(UtilClass.IMPORT_DATE_TIME_KEY, "");
 
 //                String backupdbName = FileUtils.EXPORT_GOF_FILE;                                  // don't delete the code  eta o lagte pare
-                    String backupdbName = subNpubId + "_" + startDate + "_" + endDate + ".gof";
+                    String backupdbName = subNpubId + "_" + getStaffID() + "_" + startDate + "_" + endDate + ".gof";
                     FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext, currentDBPath, backupdbName, "Export Successful! ");
 
 //                db.clearUploadSyntaxTable();                                                      // ei method tha na delete kora valo kokhon er projon pore buja jaitese na

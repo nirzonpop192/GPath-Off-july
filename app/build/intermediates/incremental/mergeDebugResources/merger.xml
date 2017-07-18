@@ -5599,7 +5599,7 @@ Otherwise, initiate to sync and login again.</string><string name="cb_label_Home
         <item>Service</item>
         <item>Summary Option</item>
         <item>Registration</item>
-    </string-array><string name="label_date_comp_feeding">Child age at start of complementary feeding </string><string name="title_activity_card_request">CardRequest</string><string name="pigeons">Pigeons</string><string name="app_name">GPath</string><string name="log_in_version_lable">GPath-OFF-21</string><string name="txt_title_summaryOp">Summary Option</string><string-array name="cameraOption_2">
+    </string-array><string name="label_date_comp_feeding">Child age at start of complementary feeding </string><string name="title_activity_card_request">CardRequest</string><string name="pigeons">Pigeons</string><string name="app_name">GPath</string><string name="log_in_version_lable">GPath-OFF-22</string><string name="txt_title_summaryOp">Summary Option</string><string-array name="cameraOption_2">
         <item>Capture</item>
         <item>Cancel</item>
     </string-array><string name="label_HomeSupport24H">Home support visit PT/LBW within 24 hours after hospital</string><string name="btn_ServiceLabel">Service Record</string><string name="label_HomeSupport48H">Home support visit PT/LBW within 25 — 48 hours</string><string name="label_MaternalComplications">Maternal Complications</string><string-array name="arrCA2">

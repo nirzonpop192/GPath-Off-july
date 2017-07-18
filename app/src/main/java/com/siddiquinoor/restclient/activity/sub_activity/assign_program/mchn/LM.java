@@ -436,6 +436,9 @@ public class LM extends BaseActivity {
                     assign_lm.setEntryBy(assignMem.getEntryBy());
                     assign_lm.setEntryDate(assignMem.getEntryDate());
 
+                    assign_lm.setChildName(childName);
+                    assign_lm.setChildSex(strChildGender);
+
                     if (sqlH.ifExistsInRegNAssProgSrv(assignMem)) {
                         /** this member exits
                          * Update  operation RegNAssProgSrv

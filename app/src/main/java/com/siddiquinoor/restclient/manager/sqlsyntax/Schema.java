@@ -828,14 +828,14 @@ public class Schema {
 
     public static String sqlCreateRegistration() {
         return CREATE_TABLE_IF_NOT_EXISTS + REG_N_HH_TABLE + "("
-                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+//                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(10), "
                 + LAY_R1_LIST_CODE + " VARCHAR(10), "
-                + REGISTRATION_TABLE_UPZILLA_CODE_COL + " VARCHAR(10), "
-                + REGISTRATION_TABLE_UNION_CODE_COL + " VARCHAR(10), "
-                + REGISTRATION_TABLE_VILLAGE_CODE_COL + " VARCHAR(10), "
+                + LAY_R2_LIST_CODE_COL + " VARCHAR(10), "
+                + LAY_R3_LIST_CODE_COL + " VARCHAR(10), "
+                + LAY_R4_LIST_CODE_COL + " VARCHAR(10), "
                 + REGISTRATION_TABLE_REGN_ADDRESS_LOOKUP_CODE_COL + " VARCHAR(3), "
-                + REGISTRATION_TABLE_HHID + " VARCHAR(10), " // pid
+                + HHID_COL + " VARCHAR(10), " // pid
                 + REG_DATE_COL + " DATE, "
                 + REGISTRATION_TABLE_HH_HEAD_NAME + " VARCHAR(50), "                                /// pname
                 + REGISTRATION_TABLE_HH_HEAD_SEX + " VARCHAR(8), "
@@ -916,9 +916,10 @@ public class Schema {
                 + NO_MAJOR_COMMON_LIVE_STOCK_COL + " VARCHAR(2), "
                 + RECEIVE_NO_FORMAL_WAGES_COL + " VARCHAR(2), "
                 + NO_IGA_COL + " VARCHAR(2) , "
-                + RELY_PICE_EORK_COL + " VARCHAR(2) ,"
+                + RELY_PICE_EORK_COL + " VARCHAR(2) "//+","
 
-                + SYNC_COL + " BOOLEAN DEFAULT 0 )";
+//                + SYNC_COL + " BOOLEAN DEFAULT 0" +
+                +" )";
     }
 
     /**
@@ -1787,6 +1788,7 @@ public class Schema {
                 "     , " + QRES_LUP_TEXT_COL + "       TEXT   " +
                 "     , " + DTA_LABEL_COL + "       TEXT   " +
                 "     , " + COMPLETENESS_COL + "       TEXT   " +
+                "     , " + ID_COL + "       INTEGER   " +
 
                 "  , " + PRIMARY_KEY + "(" + DT_BASIC_COL + "," + COUNTRY_CODE_COL + ", " + DONOR_CODE_COL + " ," + AWARD_CODE_COL + " ," + PROGRAM_CODE_COL
                 + "," + DT_ENU_ID_COL + "," + DTQ_CODE_COL + "," + DTA_CODE_COL + " ," + DT_R_SEQ_COL + ")   " +

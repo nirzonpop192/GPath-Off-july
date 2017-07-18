@@ -241,13 +241,13 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
     /**
      * Freeze flag
      * 2. all variables that remains on or before the selected question "serial" will be stored with the "same" value that has been saved until Freeze = True.
-     * <p>
+     * <p/>
      * 3. If user want to continue (Yes) at the end of the responses then if Freeze = true then the interface will take the user to the next question serial after the Freeze point.
-     * <p>
+     * <p/>
      * 4. If user do not want to continue (No) at the end of the responses then set Freeze =false and then interface will take the user to the first question serial.
-     * <p>
+     * <p/>
      * 5. point 4 will be effective if user want to quite in the middle of saving responses then set Freeze =false.
-     * <p>
+     * <p/>
      * 6. If there are skip rules associated with the selected question then it will return a message saying "Freeze will not be possible at this point."
      */
     private boolean isFreeze = false;
@@ -1348,8 +1348,8 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         } else {
 
 
-            sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, imageString, true);
-            sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString, mResponseController, mDTQResMode.getDtQResLupText(), dtATable.getDt_ALabel());
+            long uploadSyntaxId = sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, imageString, true);
+            sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString, mResponseController, mDTQResMode.getDtQResLupText(), dtATable.getDt_ALabel(), uploadSyntaxId);
 
 //            Log.i(TAG, "DTBasic :" + DTBasic + " AdmCountryCode: " + AdmCountryCode + " AdmDonorCode: " + AdmDonorCode + " AdmAwardCode: " + AdmAwardCode + " AdmProgCode:" + AdmProgCode + " DTEnuID: " + DTEnuID + " DTQCode: " + DTQCode + " DTACode: " + DTACode + " DTRSeq: " + String.valueOf(DTRSeq) + " DTAValue:" + DTAValue
 //                    + " ProgActivityCode :" + ProgActivityCode + " DTTimeString:" + DTTimeString + " OpMode: " + OpMode + "OpMonthCode :" + OpMonthCode + " DataType: " + DataType + " imageString :" + imageString);
@@ -1408,6 +1408,10 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         mSyntaxGenerator.setOpMonthCode(dyIndex.getOpMonthCode());
         mSyntaxGenerator.setDTEnuID(getStaffID());
         mSyntaxGenerator.setDTRSeq(String.valueOf(mDTRSeq));
+
+        // update
+        mSyntaxGenerator.setCompleteness("Y");
+        sqlH.insertIntoUploadTable(mSyntaxGenerator.updateCompileteStatusDTResponseTable());
 
         /**
          * if the device is on On-line mode than all sp will be saved
@@ -1581,16 +1585,16 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
                     // it's all about  check box
                     if (!presentQuesCode.equals(previousQuesCode)) {
-                        sqlH.addIntoDTResponseTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
-                        sqlH.addIntoDTSurveyTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DT_QText, surveyNumber, imageString, DT_responseController, DT_resLupTxt, DT_ALabel);
+                        long uploadSyntaxId = sqlH.addIntoDTResponseTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
+                        sqlH.addIntoDTSurveyTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DT_QText, surveyNumber, imageString, DT_responseController, DT_resLupTxt, DT_ALabel, uploadSyntaxId);
 
                         // uses suffix in increments
                         mQusIndex++;
                     }
                 } else if (i == 0) {
                     // saved the first freeze question
-                    sqlH.addIntoDTResponseTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
-                    sqlH.addIntoDTSurveyTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DT_QText, surveyNumber, imageString, DT_responseController, DT_resLupTxt, DT_ALabel);
+                    long uploadSyntaxId = sqlH.addIntoDTResponseTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
+                    sqlH.addIntoDTSurveyTable(dt_Basic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DT_QText, surveyNumber, imageString, DT_responseController, DT_resLupTxt, DT_ALabel, uploadSyntaxId);
 
                 }
 

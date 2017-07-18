@@ -224,7 +224,7 @@ public class SQLServerSyntaxGenerator {
                  * Rectify issues causing Unclosed quotation marks
                  * by replacing double  single quotation 
                  */
-                tem=tem.replace("'","''");
+                tem = tem.replace("'", "''");
 
                 tem = "'" + tem + "'";
             }
@@ -2233,7 +2233,7 @@ public class SQLServerSyntaxGenerator {
         return "UPDATE [dbo].[RegNAssignProgSrv] " +
                 "SET [RegNDate] = " + getRegNDate() +
                 " ,[GRDDate] = " + getGRDDate() +
-                " WHERE   [AdmCountryCode] = " + getAdmCountryCode() +
+                "  WHERE   [AdmCountryCode] = " + getAdmCountryCode() +
                 "        AND [LayR1ListCode] = " + getLayR1ListCode() +
                 "        AND [LayR2ListCode] = " + getLayR2ListCode() +
                 "        AND [LayR3ListCode] = " + getLayR3ListCode() +
@@ -2316,6 +2316,8 @@ public class SQLServerSyntaxGenerator {
                 "        ,[AdmSrvCode]" +
                 "        ,[GRDCode]" +
                 "        ,[LMGRDDate]" +
+                "        ,[ChildName]" +
+                "        ,[ChildSex]" +
                 "        ,[EntryBy]" +
                 "        ,[EntryDate])" +
                 "        VALUES " +
@@ -2332,6 +2334,8 @@ public class SQLServerSyntaxGenerator {
                 " , " + getSrvCode() +
                 " , " + getGRDCode() +
                 " , " + getLMGRDDate() +
+                " , " + getChildName() +
+                " , " + getChildSex() +
                 " , " + getEntryBy() +
                 " , " + getEntryDate() +
                 " ) ";
@@ -2344,9 +2348,11 @@ public class SQLServerSyntaxGenerator {
                 " , [LMDOB] = " + getLMDOB() +
                 " , [GRDCode] = " + getGRDCode() +
                 " , [LMGRDDate] = " + getLMGRDDate() +
+                " , [ChildName] = " + getChildName() +
+                " , [ChildSex] = " + getChildSex() +
                 " , [EntryBy] = " + getEntryBy() +
                 " , [EntryDate] = " + getEntryDate() +
-                "WHERE   [AdmCountryCode] = " + getAdmCountryCode() +
+                " WHERE   [AdmCountryCode] = " + getAdmCountryCode() +
                 "        AND [LayR1ListCode] = " + getLayR1ListCode() +
                 "        AND [LayR2ListCode] = " + getLayR2ListCode() +
                 "        AND [LayR3ListCode] = " + getLayR3ListCode() +
@@ -2373,6 +2379,8 @@ public class SQLServerSyntaxGenerator {
                 "        ,[AdmSrvCode]" +
                 "        ,[GRDCode]" +
                 "        ,[CA2GRDDate]" +
+                "        ,[ChildName]" +
+                "        ,[ChildSex]" +
                 "        ,[EntryBy]" +
                 "        ,[EntryDate])" +
                 "        VALUES " +
@@ -2389,6 +2397,8 @@ public class SQLServerSyntaxGenerator {
                 " , " + getSrvCode() +
                 " , " + getGRDCode() +
                 " , " + getCA2GRDDate() +
+                " , " + getChildName() +
+                " , " + getChildSex() +
                 " , " + getEntryBy() +
                 " , " + getEntryDate() +
                 " ) ";
@@ -2401,9 +2411,11 @@ public class SQLServerSyntaxGenerator {
                 " , [CA2DOB] = " + getCA2DOB() +
                 " , [GRDCode] = " + getGRDCode() +
                 " , [CA2GRDDate] = " + getCA2GRDDate() +
+                " , [ChildName] = " + getChildName() +
+                " , [ChildSex] = " + getChildSex() +
                 " , [EntryBy] = " + getEntryBy() +
                 " , [EntryDate] = " + getEntryDate() +
-                "WHERE   [AdmCountryCode] = " + getAdmCountryCode() +
+                " WHERE   [AdmCountryCode] = " + getAdmCountryCode() +
                 "        AND [LayR1ListCode] = " + getLayR1ListCode() +
                 "        AND [LayR2ListCode] = " + getLayR2ListCode() +
                 "        AND [LayR3ListCode] = " + getLayR3ListCode() +
@@ -2412,6 +2424,25 @@ public class SQLServerSyntaxGenerator {
                 "        AND [MemID] = " + getMemID();
 
 
+    }
+
+    private String ChildName;
+    private String ChildSex;
+
+    public String getChildName() {
+        return ChildName;
+    }
+
+    public void setChildName(String childName) {
+        ChildName = checkStringNull(childName);
+    }
+
+    public String getChildSex() {
+        return ChildSex;
+    }
+
+    public void setChildSex(String childSex) {
+        ChildSex = checkStringNull(childSex);
     }
 
     public String insertIntoRegNCU2ForChildUnder() {
@@ -2429,6 +2460,8 @@ public class SQLServerSyntaxGenerator {
                 "        ,[AdmSrvCode]" +
                 "        ,[GRDCode]" +
                 "        ,[CU2GRDDate]" +
+                "        ,[ChildName] " +
+                "        ,[ChildSex]" +
                 "        ,[EntryBy]" +
                 "        ,[EntryDate])" +
                 "        VALUES " +
@@ -2445,6 +2478,8 @@ public class SQLServerSyntaxGenerator {
                 " , " + getSrvCode() +
                 " , " + getGRDCode() +
                 " , " + getCU2GRDDate() +
+                " , " + getChildName() +
+                " , " + getChildSex() +
                 " , " + getEntryBy() +
                 " , " + getEntryDate() +
                 " ) ";
@@ -2453,13 +2488,15 @@ public class SQLServerSyntaxGenerator {
 
     public String updateRegNCU2ForChildUnder() {
         return "UPDATE [dbo].[RegN_CU2] " +
-                "SET [RegNDate] = " + getRegNDate() +
-                " , [CU2DOB] = " + getCA2DOB() +
+                " SET [RegNDate] = " + getRegNDate() +
+                " , [CU2DOB] = " + getCU2DOB() +
                 " , [GRDCode] = " + getGRDCode() +
-                " , [CU2GRDDate] = " + getCA2GRDDate() +
+                " , [CU2GRDDate] = " + getCU2GRDDate() +
+                " , [ChildName] = " + getChildName() +
+                " , [ChildSex] = " + getChildSex() +
                 " , [EntryBy] = " + getEntryBy() +
                 " , [EntryDate] = " + getEntryDate() +
-                "WHERE   [AdmCountryCode] = " + getAdmCountryCode() +
+                " WHERE   [AdmCountryCode] = " + getAdmCountryCode() +
                 "        AND [LayR1ListCode] = " + getLayR1ListCode() +
                 "        AND [LayR2ListCode] = " + getLayR2ListCode() +
                 "        AND [LayR3ListCode] = " + getLayR3ListCode() +
@@ -2654,7 +2691,7 @@ public class SQLServerSyntaxGenerator {
     public String updateRegNMemberForMalawi() {
         String up = "UPDATE [dbo].[RegNHHMem] " +
                 "    SET " +
-                "    ,[MemName] = " + getMmMemName() +
+                "    [MemName] = " + getMmMemName() +
                 "            ,[MemSex] = " + getMmMemSex() +
                 "            ,[HHRelation] = " + getMmHHRelation() +
                 "            ,[MemAge] = " + getMmMemAge() +
@@ -5399,32 +5436,32 @@ public class SQLServerSyntaxGenerator {
 
     public String insertIntoRegNHHtableForMalawi() {
         return "INSERT INTO [dbo].[RegNHHTable]" +
-                "           ([AdmCountryCode]" +
-                "           ,[LayR1ListCode]" +
-                "           ,[LayR2ListCode]" +
-                "           ,[LayR3ListCode]" +
-                "           ,[LayR4ListCode]" +
-                "           ,[HHID]" +
-                "           ,[RegNDate]" +
-                "           ,[HHHeadName]" +
-                "           ,[HHHeadSex]" +
-                "           ,[HHSize]" +
-                "           ,[GPSLat]" +
-                "           ,[GPSLong]" +
-                "           ,[AGLand]" +
-                "           ,[VStatus]" +
-                "           ,[MStatus]" +
-                "           ,[RegNAddLookupCode]" +
-                "           ,[WRank]" +
-                "           ,[EntryBy]" +
-                "           ,[EntryDate]" +
-                "           ,[VSLAGroup]" +
-                "           ,[LTp2Hectres]" +
-                "           ,[LT3mFoodStock]" +
-                "           ,[NoMajorCommonLiveStock]" +
-                "           ,[ReceiveNoFormalWages]" +
-                "           ,[NoIGA]" +
-                "           ,[RelyPiecework]" +
+                "([AdmCountryCode]" +
+                " ,[LayR1ListCode]" +
+                " ,[LayR2ListCode]" +
+                " ,[LayR3ListCode]" +
+                " ,[LayR4ListCode]" +
+                " ,[HHID]" +
+                " ,[RegNDate]" +
+                " ,[HHHeadName]" +
+                " ,[HHHeadSex]" +
+                " ,[HHSize]" +
+                " ,[GPSLat]" +
+                " ,[GPSLong]" +
+                " ,[AGLand]" +
+                " ,[VStatus]" +
+                " ,[MStatus]" +
+                " ,[RegNAddLookupCode]" +
+                " ,[WRank]" +
+                " ,[EntryBy]" +
+                " ,[EntryDate]" +
+                " ,[VSLAGroup]" +
+                " ,[LTp2Hectres]" +
+                " ,[LT3mFoodStock]" +
+                " ,[NoMajorCommonLiveStock]" +
+                " ,[ReceiveNoFormalWages]" +
+                " ,[NoIGA]" +
+                " ,[RelyPiecework]" +
                 ")" +
                 "VALUES " +
                 "("
@@ -5800,41 +5837,54 @@ public class SQLServerSyntaxGenerator {
 
 
     public String updateIntoDTResponseTable() {
-        return " UPDATE [dbo].[DTResponseTable]\n" +
-                "        SET " +
-                "        [DTAValue] = " + getDTAValue() +
-                "        ,[ProgActivityCode] =  " + getProgActivityCode() +
-                "        ,[DTTimeString] =  " + getDTTimeString() +
-                "        ,[OpMode] =  " + getOpMode() +
-                "        ,[OpMonthCode] =  " + getOpMonthCode() +
-                "        ,[DataType] = " + getDataType() +
-                "        ,[Completeness] = " + getCompleteness() +
-                "        ,[UFILE] = " + getUFILE() +
-                "        WHERE DTBasic =  " + getDTBasic()
-                + "          AND AdmCountryCode =  " + getAdmCountryCode()
-                + "          AND AdmDonorCode =  " + getAdmDonorCode()
-                + "          AND AdmAwardCode =  " + getAdmAwardCode()
-                + "          AND AdmProgCode =  " + getAdmProgCode()
-                + "          AND DTEnuID =  " + getDTEnuID()
-                + "          AND DTQCode =  " + getDTQCode()
-                + "          AND DTACode =  " + getDTACode()
-                + "          AND DTRSeq =  " + getDTRSeq();
-
-
+        return " UPDATE [dbo].[DTResponseTable] " +
+                " SET " +
+                " [DTAValue] = " + getDTAValue() +
+                " ,[ProgActivityCode] =  " + getProgActivityCode() +
+                " ,[DTTimeString] =  " + getDTTimeString() +
+                " ,[OpMode] =  " + getOpMode() +
+                " ,[OpMonthCode] =  " + getOpMonthCode() +
+                " ,[DataType] = " + getDataType() +
+                " ,[Completeness] = " + getCompleteness() +
+                " ,[UFILE] = " + getUFILE() +
+                " WHERE DTBasic =  " + getDTBasic()
+                + " AND AdmCountryCode =  " + getAdmCountryCode()
+                + " AND AdmDonorCode =  " + getAdmDonorCode()
+                + " AND AdmAwardCode =  " + getAdmAwardCode()
+                + " AND AdmProgCode =  " + getAdmProgCode()
+                + " AND DTEnuID =  " + getDTEnuID()
+                + " AND DTQCode =  " + getDTQCode()
+                + " AND DTACode =  " + getDTACode()
+                + " AND DTRSeq =  " + getDTRSeq();
     }
+
+
+    public String updateCompileteStatusDTResponseTable() {
+        return " UPDATE [dbo].[DTResponseTable] " +
+                " SET " +
+                " [Completeness] = " + getCompleteness() +
+                " WHERE DTBasic =  " + getDTBasic()
+                + " AND AdmCountryCode =  " + getAdmCountryCode()
+                + " AND AdmDonorCode =  " + getAdmDonorCode()
+                + " AND AdmAwardCode =  " + getAdmAwardCode()
+                + " AND AdmProgCode =  " + getAdmProgCode()
+                + " AND DTEnuID =  " + getDTEnuID()
+                + " AND DTRSeq =  " + getDTRSeq();
+    }
+
 
     public String deleteFromDTResponseTable() {
         return
-                "DELETE FROM [dbo].[DTResponseTable] " +
-                        "       WHERE DTBasic =  " + getDTBasic()
-                        + "          AND AdmCountryCode =  " + getAdmCountryCode()
-                        + "          AND AdmDonorCode =  " + getAdmDonorCode()
-                        + "          AND AdmAwardCode =  " + getAdmAwardCode()
-                        + "          AND AdmProgCode =  " + getAdmProgCode()
-                        + "          AND DTEnuID =  " + getDTEnuID()
-                        + "          AND DTRSeq =  " + getDTRSeq()
-                        + "          AND OpMode =  " + getOpMode()
-                        + "          AND OpMonthCode =  " + getOpMonthCode();
+                " DELETE FROM [dbo].[DTResponseTable] " +
+                        "   WHERE DTBasic =  " + getDTBasic()
+                        + " AND AdmCountryCode =  " + getAdmCountryCode()
+                        + " AND AdmDonorCode =  " + getAdmDonorCode()
+                        + " AND AdmAwardCode =  " + getAdmAwardCode()
+                        + " AND AdmProgCode =  " + getAdmProgCode()
+                        + " AND DTEnuID =  " + getDTEnuID()
+                        + " AND DTRSeq =  " + getDTRSeq()
+                        + " AND OpMode =  " + getOpMode()
+                        + " AND OpMonthCode = " + getOpMonthCode();
 
 
     }
