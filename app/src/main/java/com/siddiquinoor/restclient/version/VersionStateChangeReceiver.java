@@ -10,6 +10,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -76,11 +77,16 @@ public class VersionStateChangeReceiver extends BroadcastReceiver {
 
 
                                     ADNotificationManager dialog = new ADNotificationManager();
-                                    String msg = "New Apk version available for Download.You will get less than 5 minutes.\nInstall the apk by FileExplorer or FileManager apps in Download Folder";
-
+//                                    String msg = "New Apk version available for Download.You will get less than 5 minutes.\nInstall the apk by FileExplorer or FileManager apps in Download Folder";
+//                                    String msg = "Download new version of GPath Apk.\n" +
+//                                            "  Click OK to start downloading.\n" +
+//                                            " Click on the GPath icon in the File explorer in the " +
+//                                            "mobile to complete installation of the new GPath version. ";
+                                    String msg = "New  version is available.\n" +
+                                            " Download will start automatically. Upon download go to File explorer to click the GPath icon and complete installation";
+//                                    Download new version of GPath Apk. It will start automatically. Click on the GPath icon in the File explorer in the mobile to complete installation of the new GPath version.
                                     CustomToast.show(context, msg);
                                     CustomToast.show(context, msg);
-
 
 
                                     //get destination to update file and set Uri
@@ -116,7 +122,6 @@ public class VersionStateChangeReceiver extends BroadcastReceiver {
 //set BroadcastReceiver to install app when .apk is downloaded
                                     BroadcastReceiver onComplete = new BroadcastReceiver() {
                                         public void onReceive(Context ctxt, Intent intent) {
-
 
 
                                             Intent install = new Intent(Intent.ACTION_GET_CONTENT);
@@ -186,7 +191,7 @@ public class VersionStateChangeReceiver extends BroadcastReceiver {
 
                 } else {
                     String errorMsg = response.substring(response.indexOf("error_msg") + 11);       // Error in login. Invalid UserName or Password
-                    Log.e(TAG,errorMsg);
+                    Log.e(TAG, errorMsg);
                 }
 
 

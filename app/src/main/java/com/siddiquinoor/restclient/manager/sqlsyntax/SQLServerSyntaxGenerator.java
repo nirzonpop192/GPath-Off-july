@@ -5884,7 +5884,8 @@ public class SQLServerSyntaxGenerator {
                         + " AND DTEnuID =  " + getDTEnuID()
                         + " AND DTRSeq =  " + getDTRSeq()
                         + " AND OpMode =  " + getOpMode()
-                        + " AND OpMonthCode = " + getOpMonthCode();
+                        + " AND OpMonthCode = " + getOpMonthCode()
+                        + " AND ( Completeness is null OR Completeness = '' OR Completeness='N' )";
 
 
     }
