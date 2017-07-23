@@ -536,12 +536,12 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_metlakatla"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_adak",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_adak"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_atlantic_azores",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_atlantic_azores"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_adak",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_adak"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_indiana_vincennes",

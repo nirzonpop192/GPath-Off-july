@@ -2218,6 +2218,7 @@ public class LoginActivity extends BaseActivity {
 
                         Log.e(TAG, "member data no download ");
                     } else {
+                        System.setProperty("http.keepAlive", "false");
                         Log.d("TAG", "Before downLoad RegNMemberProgGroup 4" + "  user_Name:" + user_Name + " pass_word :" + pass_word + " selectedVilJArry:" + selectedVilJArry + "operationMode:" + operationMode);
                         downLoadRegNMemberProgGroup(user_Name, pass_word, selectedVilJArry, operationMode);
                     }
@@ -2294,6 +2295,7 @@ public class LoginActivity extends BaseActivity {
                 boolean error = !errorResult.equals("false");
 
                 if (!error) {
+                    System.setProperty("http.keepAlive", "false");
                     Log.d("TAG", "Before downLoad ServiceData 3" + "  user_Name:" + user_Name + " pass_word :" + pass_word + " selectedVilJArry:" + selectedVilJArry + "operationMode:" + operationMode);
                     downLoadServiceData(user_Name, pass_word, selectedVilJArry, operationMode);
 
@@ -2370,7 +2372,7 @@ public class LoginActivity extends BaseActivity {
 
                 if (!error) {
 
-
+                    System.setProperty("http.keepAlive", "false");
                     Log.d("TAG", "Before downLoad AssignProgSrv 2" + "  user_Name:" + user_Name + " pass_word :" + pass_word + " selectedVilJArry:" + selectedVilJArry + "operationMode:" + operationMode);
                     downLoadAssignProgSrv(user_Name, pass_word, selectedVilJArry, operationMode);
 
