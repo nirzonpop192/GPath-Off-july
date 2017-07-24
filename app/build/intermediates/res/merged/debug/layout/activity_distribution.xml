@@ -35,8 +35,7 @@
         android:layout_below="@+id/page_title"
         android:fadeScrollbars="false"
         android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
-        android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track"
-        >
+        android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track">
 
         <!-- VIEW CONTROLLER LAYOUT -->
         <LinearLayout
@@ -141,10 +140,10 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:layout_alignParentLeft="true"
                     android:id="@+id/btn_distribution_search"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
                     android:layout_marginRight="@dimen/l_pad_15"
 
                     android:background="@drawable/search_20_20"
@@ -157,13 +156,13 @@
 
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_toLeftOf="@+id/btn_dist_qr"
+                    android:layout_toEndOf="@+id/btn_distribution_search"
 
+                    android:layout_toLeftOf="@+id/btn_dist_qr"
+                    android:layout_toRightOf="@+id/btn_distribution_search"
                     android:background="@drawable/edit_box_background"
                     android:hint="Search Member ID"
-                    android:padding="5dp"
-                    android:layout_toRightOf="@+id/btn_distribution_search"
-                    android:layout_toEndOf="@+id/btn_distribution_search" />
+                    android:padding="5dp" />
 
                 <!-- ne w search button -->
 
@@ -212,11 +211,12 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:paddingTop="10dp"
             android:background="@drawable/button_style_inner"
-            android:text="@string/btn_label_submit"
-            android:textStyle="bold"
+            android:drawableTop="@drawable/save_b"
             android:textColor="@color/green"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

@@ -112,14 +112,14 @@ public class GPSLocationSearchPage extends BaseActivity {
         String locationName = edt_seLocName.getText().toString().trim();
         if (locationName.length() == 0) {
 
-            //anonymous object
-            new LoadListView(idCountry, "").execute();
 
-            // for test purpose
-            //loadLocation(idCountry, locationName);
+            new LoadListView(idCountry, "").execute();                                              //anonymous object
+
+
+            //loadLocation(idCountry, locationName);                                                 // for test purpose
         } else {
-            //anonymous object
-            new LoadListView(idCountry, locationName).execute();
+
+            new LoadListView(idCountry, locationName).execute();                                    //anonymous object
 
             // for test purpose
             //loadLocation(idCountry, locationName);

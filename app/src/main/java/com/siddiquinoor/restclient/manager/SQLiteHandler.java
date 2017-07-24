@@ -103,7 +103,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     // All Static variables
 
     // Database Version
-    private static final int DATABASE_VERSION = 21;
+    private static final int DATABASE_VERSION = 22;
     // Database Name
     public static final String DATABASE_NAME = "PCI.db";
 
@@ -3256,8 +3256,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R2_LIST_CODE_COL, distData.getUpCode());
         values.put(LAY_R3_LIST_CODE_COL, distData.getUniteCode());
         values.put(LAY_R4_LIST_CODE_COL, distData.getVillageCode());
-        values.put(ADM_PROG_CODE_COL, distData.getProgCode());
-        values.put(ADM_SRV_CODE_COL, distData.getSrvCode());
+        values.put(PROG_CODE_COL, distData.getProgCode());
+        values.put(SRV_CODE_COL, distData.getSrvCode());
         values.put(OP_MONTH_CODE_COL, distData.getOpMonthCode());
         values.put(FDP_CODE_COL, distData.getFDPCode());
         values.put(MEM_ID_15_D_COL, distData.getID());
@@ -7561,26 +7561,18 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * @return An array of GPS Location
      */
 
-    public ArrayList<GPS_LocationDataModel> getSubGroupSpecificLatLongCoordinates(String cCode, String groupCode, String subGroupCode) {
+    public ArrayList<GPS_LocationDataModel> getSubGroupSpecificLatLongCoordinates(String cCode,
+                                                                                  String groupCode,
+                                                                                  String subGroupCode) {
 
         ArrayList<GPS_LocationDataModel> gpsList = new ArrayList<GPS_LocationDataModel>();
 
 
-        String selectQuery = " SELECT "
-                + LOCATION_CODE_COL
-                + " , " + LOCATION_NAME_COL
-                + " , " + LATITUDE_COL
-
-                + " , " + LONGITUDE_COL
-                + " FROM " + GPS_LOCATION_TABLE
-                + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + GROUP_CODE_COL + " ='" + groupCode + "' "
-                + " AND " + SUB_GROUP_CODE_COL + " ='" + subGroupCode + "' "
-                + " AND (" + LATITUDE_COL + " != '' " + " OR  " + LONGITUDE_COL + " != '' )";
+        String sql = SQLiteQuery.getSubGroupSpecificLatLongCoordinates_sql(cCode, groupCode, subGroupCode);
 
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
+        Cursor cursor = db.rawQuery(sql, null);
 
 
         if (cursor.moveToFirst()) {
@@ -7594,9 +7586,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 data.setLocationName(cursor.getString(1));
                 data.setLat(cursor.getString(2));
                 data.setLng(cursor.getString(3));
-                gpsList.add(data);
 
 
+                gpsList.add(data);                                                                  // add to the list
             } while (cursor.moveToNext());
 
             cursor.close();
@@ -8454,7 +8446,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String selectQuery = "-";
 
         String status = "";
-        selectQuery = SQLiteQuery.getDistributionStatusFromDistributionTableQuery(cCode, donorCode, awardCode, districtCode, upCode, unCode, vilCode, progCode, srvCode, distMonthCode, fdpCode, distFlag, id);
+        selectQuery = SQLiteQuery.getDistributionStatusFromDistributionTableQuery(cCode, donorCode,
+                awardCode, districtCode, upCode, unCode, vilCode, progCode, srvCode, distMonthCode,
+                fdpCode, distFlag, id);
 
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor != null) {
@@ -8489,7 +8483,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String selectQuery = "";
 
 
-        selectQuery = SQLiteQuery.getDistributionGridShowData(cCode, donorCode, awardCode, progCode, srvOpMonthCode, fdpCode, searchMem);
+        selectQuery = SQLiteQuery.getDistributionGridShowData(cCode, donorCode, awardCode, progCode,
+                srvOpMonthCode, fdpCode, searchMem);
 
         Cursor c1 = db.rawQuery(selectQuery, null);
 
@@ -12636,15 +12631,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND " + LAY_R2_LIST_CODE_COL + " = '" + distData.getUpCode() + "' " +
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + distData.getUniteCode() + "' " +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + distData.getVillageCode() + "' " +
-                " AND " + ADM_PROG_CODE_COL + " = '" + distData.getProgCode() + "' " +
-                " AND " + ADM_SRV_CODE_COL + " = '" + distData.getSrvCode() + "' " +
+                " AND " + PROG_CODE_COL + " = '" + distData.getProgCode() + "' " +
+                " AND " + SRV_CODE_COL + " = '" + distData.getSrvCode() + "' " +
                 " AND " + OP_MONTH_CODE_COL + " = '" + distData.getOpMonthCode() + "' " +
 
                 " AND " + MEM_ID_15_D_COL + " = '" + distData.getID() + "' ";
 
         int id = db.delete(DISTRIBUTION_TABLE, where, null);
 
-//        Log.d(TAG, "DELETE Distribution data  id: " + distData.getID());
+
         db.close();
         return id;
 

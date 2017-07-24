@@ -16,12 +16,7 @@ import com.siddiquinoor.restclient.R;
 
 public class CustomToast {
 
-    // class variable
-//    private Context mContext;
-//
-//    public CustomToast(Context mContext) {
-//        this.mContext = mContext;
-//    }
+
 
     public static void show(Context mContext,String msg) {
 

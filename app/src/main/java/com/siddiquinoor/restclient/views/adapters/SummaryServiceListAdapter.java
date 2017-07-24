@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.siddiquinoor.restclient.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by USER on 9/4/2015.
@@ -20,10 +21,10 @@ public class SummaryServiceListAdapter extends BaseAdapter {
 
     Activity activity;
     private LayoutInflater inflater;
-    private ArrayList<SummaryServiceListModel> srvListData=new ArrayList<SummaryServiceListModel>();
+    private List<SummaryServiceListModel> srvListData=new ArrayList<SummaryServiceListModel>();
     ViewHolderS holder;
 
-    public SummaryServiceListAdapter(Activity activity, ArrayList<SummaryServiceListModel> srvListData) {
+    public SummaryServiceListAdapter(Activity activity, List<SummaryServiceListModel> srvListData) {
         this.activity = activity;
         this.srvListData = srvListData;
     }

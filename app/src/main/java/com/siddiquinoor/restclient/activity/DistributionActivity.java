@@ -141,21 +141,7 @@ public class DistributionActivity extends BaseActivity {
 
 
             loadAward(idCountry);
-     /*       *//**
-             * FOR TEST PURPOSE
-             *//*
-            Log.d(TAG, "From the Distribution  Dir page idCountry:" + idCountry
-                    + " idAward : " + idAward + " strAward: " + strAward
-                    + " idDonor : " + idDonor + " idProgram: " + idProgram
-                    + " strProgram : " + strProgram + " idDistributionType: " + idDistributionType
-                    + " strDistType : " + strDistType + " idServiceMonth: " + idServiceMonth
-                    + " strServiceMonth : " + strServiceMonth + " idDisMonth: " + idDisMonth
-                    + " strDistMonth : " + strDistMonth + " idUP: " + idUP
-                    + " strUpazilla : " + strUpazilla + " idFDP: " + idFDP
-                    + " strFDP : " + strFDP + " idFDP: " + idFDP  );*/
 
-       /*     loadDistributionListView(String cCode, String donorCode, String awardCode,
-                    String srvOpMCode, String fdpCode, String distOpMCode, String mem)*/
 
         } else {
 
@@ -302,8 +288,6 @@ public class DistributionActivity extends BaseActivity {
     }
 
 
-
-
     private void viewReference() {
         spAward = (Spinner) findViewById(R.id.sp_dist_awardList);
         spProgram = (Spinner) findViewById(R.id.sp_dist_Program);
@@ -324,7 +308,6 @@ public class DistributionActivity extends BaseActivity {
         tvLayR2Label = (TextView) findViewById(R.id.tv_layR2Label);
 
 
-
     }
 
 
@@ -340,32 +323,10 @@ public class DistributionActivity extends BaseActivity {
         super.onWindowFocusChanged(hasFocus);
         setUpGpsButton();
         setUpSummaryButton();
-        setUpSaveButton();
+
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    private void setUpSaveButton() {
-        btnSave.setText("");
-        Drawable saveImage = getResources().getDrawable(R.drawable.save_b);
-        btnSave.setCompoundDrawablesRelativeWithIntrinsicBounds(saveImage, null, null, null);
-//        btnSave.setPadding(380, 30, 380, 30);
 
-        /**
-         * calculate padding in pixel
-         */
-        int leftPadd, rightPadd, topPadd, bottomPadd;
-        CalculationPadding calPadd = new CalculationPadding();
-
-        leftPadd = rightPadd = calPadd.calculateViewPadding(mContext, saveImage, btnSummary);
-        /**
-         * set the value in resource
-         */
-        topPadd = bottomPadd = getResources().getInteger(R.integer.top_bottom_icon_pad_int_5);
-
-        btnSave.setPadding(leftPadd, topPadd, rightPadd, bottomPadd);
-
-//        btnSave.setCompoundDrawablesRelativeWithIntrinsicBounds(summeryImage, null, null, null);
-    }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
 
@@ -573,16 +534,15 @@ public class DistributionActivity extends BaseActivity {
 
                 if (Integer.parseInt(idFDP) > 0) {
 
-                         // for loading time
-                   LoadingList ld = new LoadingList(idCountry, idDonor, idAward, idProgram, idServiceMonth, idFDP, idDisMonth, "");
+                    // for loading time
+                    LoadingList ld = new LoadingList(idCountry, idDonor, idAward, idProgram, idServiceMonth, idFDP, idDisMonth, "");
                     ld.execute();
 
-                    /**                     * For test*/
-
-
-                 /*   loadDistributionListView(idCountry, idDonor, idAward, idProgram, idServiceMonth, idFDP, idDisMonth, "");*/
+                    /**         For test*/
+                  /*  testLoadDistributionListView(idCountry, idDonor, idAward, idProgram,
+                            idServiceMonth, idFDP, idDisMonth, "");*/
                 }
-                Log.d(TAG, "FDPCode :" + idFDP + " FDPName :" + strFDP);
+
             }
 
             @Override
@@ -743,11 +703,8 @@ public class DistributionActivity extends BaseActivity {
                     idDisMonth = idDisMonth.substring(8);
                     Log.d(TAG, "Distributration Month Code :" + idDisMonth);
                     loadLayR2List(idCountry);
-                    //loadServiceSummaryCriteriaList(idCountry, donorId, awardId, opMonthId);
-                }
 
-                Log.d(TAG, "idServiceMonth : " + idServiceMonth + " strServiceMonth :" + strDistMonth);
-                //Log.d(TAG, "ID is: " + idDist);
+                }
             }
 
             @Override
@@ -757,7 +714,6 @@ public class DistributionActivity extends BaseActivity {
         });
 
     } // end Load Spinner
-
 
 
     private void loadLayR2List(String cCode) {
@@ -777,12 +733,12 @@ public class DistributionActivity extends BaseActivity {
 
                         + " INNER JOIN " + SELECTED_FDP_TABLE + " ON "
                         + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = " + SELECTED_FDP_TABLE + "." + ADM_COUNTRY_CODE_COL
-                        + " AND " + STAFF_FDP_ACCESS_TABLE + "." + FDP_CODE_COL + " = " + SELECTED_FDP_TABLE + "." + FDP_CODE_COL+
+                        + " AND " + STAFF_FDP_ACCESS_TABLE + "." + FDP_CODE_COL + " = " + SELECTED_FDP_TABLE + "." + FDP_CODE_COL +
 
-        " WHERE " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = '" + idCountry + "'"
-                + " AND " + STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.STAFF_CODE + " = '" + getStaffID() + "'"
-                + " AND " + STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.BTN_NEW_COL + " = '1'"
-                + " ORDER BY  "+ GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL ;
+                        " WHERE " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = '" + idCountry + "'"
+                        + " AND " + STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.STAFF_CODE + " = '" + getStaffID() + "'"
+                        + " AND " + STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.BTN_NEW_COL + " = '1'"
+                        + " ORDER BY  " + GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL;
 
 
         List<SpinnerHelper> listUpazilla = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, cCode, false);
@@ -849,9 +805,9 @@ public class DistributionActivity extends BaseActivity {
         protected String doInBackground(Void... params) {
 
 
-                loadDistributionListView(country, donor, award, program, serviceMonth, fDP, disMonth, memSearch);
+            loadDistributionListView(country, donor, award, program, serviceMonth, fDP, disMonth, memSearch);
 
-            return "sucess";
+            return "success";
 
 
             //return "";
@@ -915,28 +871,42 @@ public class DistributionActivity extends BaseActivity {
      */
     public void loadDistributionListView(String cCode, String donorCode, String awardCode, String progCode, String srvOpMCode, String fdpCode, String distOpMCode, String mem) {
 
-        // use veriable to like operation
+        // use variable to like operation
         List<DistributionGridDataModel> distributedListData = sqlH.getDistributionDataList(cCode, donorCode, awardCode, progCode, srvOpMCode, fdpCode, mem);
 
 
-      /*  if (distributedListData.size() != 0) {*/
-           /* distributedArray.clear();
+        adapter = new DistributionDataListAdapter(this, distributedListData, distOpMCode, fdpCode, idProgram, idServiceMonth);
+
+    }
+
+    /**
+     *  this is only for test to load grid
+
+     */
+    public void testLoadDistributionListView(String cCode, String donorCode, String awardCode, String progCode, String srvOpMCode, String fdpCode, String distOpMCode, String mem) {
+
+        // use variable to like operation
+        List<DistributionGridDataModel> distributedListData = sqlH.getDistributionDataList(cCode, donorCode, awardCode, progCode, srvOpMCode, fdpCode, mem);
+
+
+        if (distributedListData.size() != 0) {
+            distributedArray.clear();
             for (DistributionGridDataModel data : distributedListData) {
 
                 distributedArray.add(data);
-            }*/
+            }
 
             adapter = new DistributionDataListAdapter(this, distributedListData, distOpMCode, fdpCode, idProgram, idServiceMonth);
 
-   /*     } else {
-            *//** clean the list view *//*
+        } else {
+            /** clean the list view */
             distributedArray.clear();
             adapter = new DistributionDataListAdapter(this, distributedArray, distOpMCode, fdpCode, idProgram, idServiceMonth);
 
 
-        }*/
-//        mListView.setAdapter(adapter);
-//
+        }
+        mListView.setAdapter(adapter);
+
     }
 
 
@@ -953,7 +923,7 @@ public class DistributionActivity extends BaseActivity {
 
             List<DistributionGridDataModel> alist = new ArrayList<DistributionGridDataModel>();
             alist = adapter.distributData;
-            Log.d(TAG, "distributData size " + alist.size());
+
             /** set  if condition */
 
             if (adapter.distributData.isEmpty()) {
@@ -1131,14 +1101,18 @@ public class DistributionActivity extends BaseActivity {
             holder.memSrvShortName.setText(disPeople.getServiceShortName());
 
 
-            String memDistStatus = sqH.getDistributionStatusFromDistributionTable(disPeople.getC_code(), disPeople.getDonorCode(), disPeople.getAwardCode(), disPeople.getDistrictCode(), disPeople.getUpazillaCode(), disPeople.getUnitCode(), disPeople.getVillageCode(), disPeople.getProgram_code(), disPeople.getService_code(), distOpMonthCode, fdpCode, idDistributionType, disPeople.getRpt_id());
-        /*    Log.d("All", disPeople.getRpt_id() + " Name :" + disPeople.getRpt_name() +
-                    "\n Service Code:" + disPeople.getService_code() + "\n memDistStatus:" + memDistStatus
-            );*/
+            /**
+             * get recipient receive status
+             */
+            String memDistStatus = sqH.getDistributionStatusFromDistributionTable(
+                    disPeople.getC_code(), disPeople.getDonorCode(), disPeople.getAwardCode(),
+                    disPeople.getDistrictCode(), disPeople.getUpazillaCode(), disPeople.getUnitCode(),
+                    disPeople.getVillageCode(), disPeople.getProgram_code(), disPeople.getService_code(),
+                    distOpMonthCode, fdpCode, idDistributionType, disPeople.getRpt_id());
 
 
             holder.memDistStatus.setText(memDistStatus);
-         /*   Log.d(TAG, "mem dist status :" + memDistStatus + " position : " + position);*/
+
             /** For 2nd Check Box */
 
 

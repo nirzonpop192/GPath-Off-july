@@ -7,7 +7,8 @@
 
     >
     <!-- Header aligned to top -->
-    <include layout="@layout/header" />
+    <include layout="@layout/header"
+        android:id="@+id/header"/>
 
     <RelativeLayout
         android:id="@+id/page_title"
@@ -29,13 +30,13 @@
         android:layout_below="@+id/page_title"
         android:orientation="horizontal"
 
-       >
+        >
 
         <LinearLayout
-            android:paddingLeft="10dp"
             android:layout_width="164dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
 
             <TextView
                 style="@style/txt_label"
@@ -58,8 +59,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:paddingTop="2dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="2dp">
 
             <Spinner
 
@@ -70,18 +71,18 @@
 
             <TextView
                 android:id="@+id/tv_GroupName"
-                style="@style/spinner_style"
-               />
+                style="@style/spinner_style" />
 
             <TextView
                 android:id="@+id/tv_SubGroupName"
-                style="@style/spinner_style"
-              />
+                style="@style/spinner_style" />
         </LinearLayout>
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="92dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <ImageButton
                 android:id="@+id/ibtn_setAttributes"
                 android:layout_width="40dp"
@@ -91,9 +92,7 @@
             <ImageButton
                 android:id="@+id/ibtn_nofunc"
                 android:layout_width="40dp"
-                android:layout_height="45dp"
-           />
-
+                android:layout_height="45dp" />
 
 
             <ImageButton
@@ -104,12 +103,7 @@
         </LinearLayout>
 
 
-
     </LinearLayout>
-
-
-
-
 
 
     <LinearLayout
@@ -117,7 +111,9 @@
         android:layout_width="fill_parent"
         android:layout_height="30dp"
         android:layout_below="@+id/rlay_controller"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp">
 
         <TextView
 
@@ -173,7 +169,9 @@
         android:layout_width="fill_parent"
         android:layout_height="30dp"
         android:layout_below="@+id/llay_exit_latLong_Display"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp">
 
         <TextView
 

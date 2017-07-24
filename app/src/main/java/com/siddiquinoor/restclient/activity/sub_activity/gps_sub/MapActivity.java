@@ -36,6 +36,7 @@ import com.siddiquinoor.restclient.utils.KEY;
 import com.siddiquinoor.restclient.views.adapters.GPSLocationLatLong;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 import com.siddiquinoor.restclient.views.notifications.ADNotificationManager;
+import com.siddiquinoor.restclient.views.notifications.CustomToast;
 import com.siddiquinoor.restclient.views.spinner.SpinnerLoader;
 
 import org.osmdroid.api.IMapController;
@@ -59,14 +60,13 @@ import java.util.List;
 
 public class MapActivity extends BaseActivity {
     private static final String TAG = "MapActivity";
+    public static final int NEAR_BY_VIEW_ZOOM_LEVEL = 17;
 
     MapView mMapView;
     IMapController mapViewController;
 
 
-
     private ArrayList<OverlayItem> anotherOverlayItemArray;
-    MyLocationNewOverlay myLocationNewOverlay = null;
 
 
     double longitude = 0;
@@ -81,7 +81,7 @@ public class MapActivity extends BaseActivity {
     private TextView tvLat;
     private TextView tvLong, tvGroupName, tvSubGroupName, tv_exitLong, tv_exitLat;
 
-   private LocationManager mLManager;
+    private LocationManager mLManager;
     private GPS_LocationDataModel gpsData;
     private SQLiteHandler sqlH;
     private Spinner spLocation;
@@ -102,24 +102,19 @@ public class MapActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        /**
-         *
-         */
+
         initialize();
 
         Intent intent = getIntent();
         idCountry = intent.getExtras().getString(KEY.COUNTRY_ID);
         String dir = intent.getStringExtra(KEY.DIR_CLASS_NAME_KEY);
+
         if (dir.equals("SearchSubGroup")) {
+
             idLocation = intent.getStringExtra(KEY.LOCATION_CODE);
             strLocation = intent.getStringExtra(KEY.LOCATION_NAME);
         } else if (dir.equals("GPSActivity")) {
-            /**
-             * to get previous state
-             */
 
-        /*    idLocation = intent.getExtras().getString(KEY.LOCATION_CODE);
-            strLocation = intent.getExtras().getString(KEY.LOCATION_NAME);*/
 
             GPS_LocationDataModel gpsData = intent.getExtras().getParcelable(KEY.GPS_DATA_OBJECT_KEY);
             if (gpsData != null) {
@@ -153,9 +148,6 @@ public class MapActivity extends BaseActivity {
         setNearByListener();
 
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        //   client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }// end of onCreate
 
     private void setNearByListener() {
@@ -276,17 +268,16 @@ public class MapActivity extends BaseActivity {
      * @param cCode        Country Code
      * @param groupCode    Gps Location Group Code
      * @param subGroupCode Gps Location Sub GroupCode
-     *                     <p> This method ploit the Coordinate near by location </p>
+     *                     <p> This method plot the Coordinate near by location </p>
      * @since 02040215
      */
 
     private void setNearByCoordinates(final String cCode, final String groupCode, final String subGroupCode) {
 
-        ArrayList<GPS_LocationDataModel> listOfGpsData = sqlH.getSubGroupSpecificLatLongCoordinates(cCode, groupCode, subGroupCode);
-        /**
-         * clear the previous marker
-         */
-        clearMapScreen();
+        ArrayList<GPS_LocationDataModel> listOfGpsData =
+                sqlH.getSubGroupSpecificLatLongCoordinates(cCode, groupCode, subGroupCode);
+
+        clearMapScreen();                                                                           //clear the previous marker
 
         InfoWindow.closeAllInfoWindowsOn(mMapView);
 
@@ -294,11 +285,16 @@ public class MapActivity extends BaseActivity {
         if (lastLocation != null) {
             GeoPoint locGeoPoint = new GeoPoint(lastLocation.getLatitude(), lastLocation.getLongitude());
             mapViewController.setCenter(locGeoPoint);
-            mapViewController.setZoom(8);
+            mapViewController.setZoom(NEAR_BY_VIEW_ZOOM_LEVEL);
             for (int i = 0; i < listOfGpsData.size(); i++) {
                 GPS_LocationDataModel data = listOfGpsData.get(i);
 
-                if (calculateDistanceBetween2Point(lastLocation.getLatitude(), lastLocation.getLongitude(), Double.valueOf(data.getLat()), Double.valueOf(data.getLng())) < 500)
+                /**
+                 * search the place within 500 meter radius
+                 */
+                if (calculateDistanceBetween2Point(lastLocation.getLatitude(),
+                        lastLocation.getLongitude(), Double.valueOf(data.getLat()),
+                        Double.valueOf(data.getLng())) < 500)
                     setMarker(data.getLocationName(), Double.valueOf(data.getLat()), Double.valueOf(data.getLng()));
 
 
@@ -359,14 +355,14 @@ public class MapActivity extends BaseActivity {
         dalLat = radEndLat - radStartLat;
         dalLong = radEndLong - radStartLong;
 
-        double a = Math.sin(dalLat / 2) * Math.sin(dalLat / 2) + Math.cos(radStartLat) * Math.cos(radEndLat) *
-                Math.sin(dalLong / 2) * Math.sin(dalLong / 2);
+        double a = Math.sin(dalLat / 2) * Math.sin(dalLat / 2) + Math.cos(radStartLat) *
+                Math.cos(radEndLat) * Math.sin(dalLong / 2) * Math.sin(dalLong / 2);
 
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         distance = earthR * c;
 
-        // distance=distance/1000;
-        Log.d("DIS", "distance:" + distance);
+
+//        Log.d("DIS", "distance:" + distance);
         return distance;
     }
 
@@ -464,22 +460,34 @@ public class MapActivity extends BaseActivity {
                     gpsData.setLng(String.valueOf(longitude));
                     gpsData.setEntryBy(entryBy);
                     gpsData.setEntryDate(entryDate);
-                   //                    * set marker in map here in save                     */
-                    initializeMap();
 
-                    setMarker(gpsData.getLocationName(), latitude, longitude);
+                    /** scope variable is use for code simplicity */
 
-                    //                     * for local data base and Syntax for  server                      */
-                    sqlH.updateGpsLocation(gpsData.getAdmCountryCode(), gpsData.getGroupCode(), gpsData.getSubGroupCode(), gpsData.getLocationCode(), gpsData.getLat(), gpsData.getLng(), entryBy, entryDate);
+                    String cCode = gpsData.getAdmCountryCode();
+                    String grpCode = gpsData.getGroupCode();
+                    String subGrpCode = gpsData.getSubGroupCode();
+                    String locCode = gpsData.getLocationCode();
+                    String lat = gpsData.getLat();
+                    String lng = gpsData.getLng();
 
-                    Toast.makeText(context, "save successfully", Toast.LENGTH_SHORT).show();
 
-                    GPSLocationLatLong data = sqlH.getLocationSpecificLatLong(idCountry, gpsData.getGroupCode(), gpsData.getSubGroupCode(), gpsData.getLocationCode());
-                 //                  * if data exits in data base                     */
+                    refreshMapView(new GeoPoint(latitude, longitude));                              // refresh the map
+
+                    setMarker(gpsData.getLocationName(), latitude, longitude);                      // set a mark on the map view
+
+
+                    sqlH.updateGpsLocation(cCode, grpCode, subGrpCode, locCode, lat, lng, entryBy,
+                            entryDate);                                                             // save into local data base & create update syntax for sql server
+
+
+                    GPSLocationLatLong data = sqlH.getLocationSpecificLatLong(cCode, grpCode,
+                            subGrpCode, locCode);                                                  // if data exits in data base
+
 
                     tv_exitLat.setText(data.getLatitude());
                     tv_exitLong.setText(data.getLongitude());
 
+                    CustomToast.show(context, "save successfully");
 
                 } else {
                     ADNotificationManager dialog = new ADNotificationManager();
@@ -686,6 +694,23 @@ public class MapActivity extends BaseActivity {
      */
 
     private void initializeMap() {
+        mapViewSetup(new GeoPoint(-14.9805, 34.9559), 8);
+
+    }
+
+    /**
+     * @param geoPoint save coordinates
+     *                 refresh the map view every times it call
+     */
+    private void refreshMapView(GeoPoint geoPoint) {
+        mapViewSetup(geoPoint, 20);
+    }
+
+    /**
+     * @param geoPoint  coordinates
+     * @param zoomLevel zooming level of map
+     */
+    private void mapViewSetup(GeoPoint geoPoint, int zoomLevel) {
         mMapView = (MapView) findViewById(R.id.mapView);
         mapViewController = mMapView.getController();
         mMapView.setClickable(true);
@@ -693,11 +718,10 @@ public class MapActivity extends BaseActivity {
         mMapView.setMultiTouchControls(true);
         mMapView.setUseDataConnection(true);
         mMapView.setTileSource(TileSourceFactory.HIKEBIKEMAP);
-        mapViewController.setCenter(new GeoPoint(-14.9805, 34.9559));
-        mapViewController.setZoom(8);
+        mapViewController.setCenter(geoPoint);
+        mapViewController.setZoom(zoomLevel);
         InfoWindow.closeAllInfoWindowsOn(mMapView);
     }
-
 
     private boolean isLongPress = false;
     ItemizedIconOverlay.OnItemGestureListener<OverlayItem> myOnItemGestureListener = new ItemizedIconOverlay.OnItemGestureListener<OverlayItem>() {
@@ -827,8 +851,6 @@ public class MapActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
-
     }
 
 
@@ -839,7 +861,7 @@ public class MapActivity extends BaseActivity {
  * if data exits in data base
  */
 
-        if (data.getLatitude()!=null&&data.getLongitude()!=null&& data.getLatitude().length() > 1 && data.getLongitude().length() > 1) {
+        if (data.getLatitude() != null && data.getLongitude() != null && data.getLatitude().length() > 1 && data.getLongitude().length() > 1) {
             if (!data.getLatitude().equals("null") && !data.getLongitude().equals("null"))
                 setMarker(locationName, Double.valueOf(data.getLatitude()), Double.valueOf(data.getLongitude()));
 
@@ -849,7 +871,9 @@ public class MapActivity extends BaseActivity {
              * center of the location
              * */
             if (!data.getLatitude().equals("null") && !data.getLongitude().equals("null")) {
-                GeoPoint center = new GeoPoint(Double.valueOf(data.getLatitude()), Double.valueOf(data.getLongitude()));
+
+                GeoPoint center = new GeoPoint(Double.valueOf(data.getLatitude()),
+                        Double.valueOf(data.getLongitude()));
 
                 mapViewController.setCenter(center);
                 mMapView.invalidate();
@@ -864,9 +888,6 @@ public class MapActivity extends BaseActivity {
         }
 
 
-        //  Log.d(TAG + 1, " Location name : " + locationName + " lat: " + data.getLatitude() + " long :" + data.getLongitude());
-
-
     }
 
 
@@ -877,7 +898,7 @@ public class MapActivity extends BaseActivity {
      */
 
     private void loadLocation(final String cCode) {
-        SpinnerLoader.loadLocationLoader(mContext, sqlH, spLocation,  idLocation, strLocation, SQLiteQuery.loadLocationLoader_sql(cCode));
+        SpinnerLoader.loadLocationLoader(mContext, sqlH, spLocation, idLocation, strLocation, SQLiteQuery.loadLocationLoader_sql(cCode));
 
 
         spLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -886,7 +907,7 @@ public class MapActivity extends BaseActivity {
                 strLocation = ((SpinnerHelper) spLocation.getSelectedItem()).getValue();
                 String idSpinner = ((SpinnerHelper) spLocation.getSelectedItem()).getId();
 
-//                Log.d(TAG, " strLocation :" + strLocation + " idSpinner : " + idSpinner);
+
                 if (!idSpinner.equals("00")) {
                     gpsData = new GPS_LocationDataModel();
                     gpsData.setAdmCountryCode(cCode);

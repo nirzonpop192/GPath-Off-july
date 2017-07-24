@@ -1,8 +1,12 @@
 package com.siddiquinoor.restclient.activity.sub_activity.summary_sub;
 
+import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,10 +44,10 @@ public class SumSrvOrDistAttendance extends BaseActivity {
     private String idCriteria;
     private String strCriteria;
 
-    private ListView lv_summaryList;
-    private SummaryServiceListAdapter adapterServiceAttendance;
-    private SummaryDistributionListAttendanceAdapter adapterDistAttendance;
-    private ArrayList<SummaryServiceListModel> srvListArray = new ArrayList<SummaryServiceListModel>();
+    private ListView listView;
+    private SummaryServiceListAdapter mAdapterSrvAtten;
+    private SummaryDistributionListAttendanceAdapter mAdapterDistAtten;
+    //    private ArrayList<SummaryServiceListModel> srvListArray = new ArrayList<SummaryServiceListModel>();
     private Button btn_home;
     private Button btn_sammary;
     private final Context mContext = SumSrvOrDistAttendance.this;
@@ -53,8 +57,8 @@ public class SumSrvOrDistAttendance extends BaseActivity {
 
     private String idDonor;
     private String idAward, strAward, strProgram, idProgram;
-    // private String idProg;
-    private ADNotificationManager dialog;
+
+    private ADNotificationManager mDialog;
     private String flag;
     private TextView tv_pageTitle;
     private TextView tv_listTitle_statusNserl;
@@ -62,6 +66,7 @@ public class SumSrvOrDistAttendance extends BaseActivity {
     private Spinner spDistributionType;
     private String idDistributionType;
     private String strDistType;
+    private static ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +81,7 @@ public class SumSrvOrDistAttendance extends BaseActivity {
         }
 
         sqlH = new SQLiteHandler(this);
-        dialog = new ADNotificationManager();
+        mDialog = new ADNotificationManager();
         viewReference();
 
         setAllButtonListener();
@@ -107,8 +112,8 @@ public class SumSrvOrDistAttendance extends BaseActivity {
             log();
 
             loadAward(idCountry);
-            loadCriteria(idCountry, idDonor, idAward, idSrvMonth_Code, idProgram, flag);
-            // }
+            loadCriteria(idCountry, idDonor, idAward, idProgram, idDistributionType, idSrvMonth_Code, flag);          // call this create busy thread for ui to handel
+
 
         } else if (dir.equals("ServiceSummaryMenu")) {
 
@@ -126,7 +131,7 @@ public class SumSrvOrDistAttendance extends BaseActivity {
 
             log();
             loadAward(idCountry);
-            loadCriteria(idCountry, idDonor, idAward, idSrvMonth_Code, idProgram, flag);
+            loadCriteria(idCountry, idDonor, idAward, idSrvMonth_Code, idProgram,"", flag);          // call this create busy thread for ui to handel
 
         }
         // not work with it yet
@@ -181,7 +186,7 @@ public class SumSrvOrDistAttendance extends BaseActivity {
 
 
     private void log() {
-        Log.d("SummaryService2",
+        Log.d(TAG,
                 "idCountry : " + idCountry + " idDonor :" + idDonor
                         + "idAward : " + idAward + " strAward :" + strAward
                         + " idProgram :" + idProgram
@@ -200,64 +205,41 @@ public class SumSrvOrDistAttendance extends BaseActivity {
         spDistributionType = (Spinner) findViewById(R.id.sp_srv_sum_distF_TypeSSA);
 
         spCriteriaS = (Spinner) findViewById(R.id.sp_criteriaListSum);
-        lv_summaryList = (ListView) findViewById(R.id.lv_ServiceSumList);
+        listView = (ListView) findViewById(R.id.lv_ServiceSumList);
         btn_home = (Button) findViewById(R.id.btnHomeFooter);
         btn_sammary = (Button) findViewById(R.id.btnRegisterFooter);
 
         tv_pageTitle = (TextView) findViewById(R.id.srv_distAttendance);
         tv_listTitle_statusNserl = (TextView) findViewById(R.id.list_title_sl_N_count);
 
-        setUpGoBackButton();
-        setUpHomeButton();
+
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        setUpGoBackButton();
+    }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpGoBackButton() {
         btn_sammary.setText("");
-        Drawable imageGoto = getResources().getDrawable(R.drawable.goto_back);
-        btn_sammary.setCompoundDrawablesRelativeWithIntrinsicBounds(imageGoto, null, null, null);
-        btn_sammary.setPadding(180, 10, 180, 10);
+        Drawable imageBack = getResources().getDrawable(R.drawable.goto_back);
+        btn_sammary.setCompoundDrawablesRelativeWithIntrinsicBounds(imageBack, null, null, null);
+        setPaddingButton(mContext, imageBack, btn_sammary);
     }
 
-    private void setUpHomeButton() {
-
-        btn_home.setText("");
-        Drawable imageHome = getResources().getDrawable(R.drawable.home_b);
-        btn_home.setCompoundDrawablesRelativeWithIntrinsicBounds(imageHome, null, null, null);
-        btn_home.setPadding(180, 10, 180, 10);
-    }
 
     /**
      * Load: Award
      *
-     * @param idCountry
+     * @param cCode
      */
 
-    private void loadAward(final String idCountry) {
-
-        int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + idCountry + "'";
-
-        List<SpinnerHelper> listAward = sqlH.getListAndID(SQLiteHandler.ADM_COUNTRY_AWARD_TABLE, criteria, null, false);
+    private void loadAward(final String cCode) {
 
 
-        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listAward);
-
-        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-
-        spAward.setAdapter(dataAdapter);
-
-
-        if (idAward != null) {
-            for (int i = 0; i < spAward.getCount(); i++) {
-                String award = spAward.getItemAtPosition(i).toString();
-                if (award.equals(strAward)) {
-                    position = i;
-                }
-            }
-            spAward.setSelection(position);
-        }
-
+        SpinnerLoader.loadAwardLoader(mContext, sqlH, spAward, cCode, idAward, strAward);
 
         spAward.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -265,14 +247,16 @@ public class SumSrvOrDistAttendance extends BaseActivity {
                 strAward = ((SpinnerHelper) spAward.getSelectedItem()).getValue();
                 String awardCode = ((SpinnerHelper) spAward.getSelectedItem()).getId();
 
-                idAward = awardCode;
+
                 if (awardCode.length() > 2) {
                     idDonor = awardCode.substring(0, 2);
                     idAward = awardCode.substring(2);
-                    loadDistributionType(idCountry, idDonor, idAward);
-                    Log.d(TAG, "idAward : " + idAward + " donor id :" + idAward.substring(0, 2));
+
+                    loadDistributionType(cCode, idDonor, idAward);
+
+                    Log.d(TAG, "idAward : " + idAward + " donor id :" + idDonor);
                 }
-                Log.d(TAG, "awardCode : " + awardCode);
+
             }
 
 
@@ -282,7 +266,7 @@ public class SumSrvOrDistAttendance extends BaseActivity {
             }
         });
 
-    } // end Load Award Spinner
+    }                                                                                               // end Load Award Spinner
 
 
     /***
@@ -309,8 +293,6 @@ public class SumSrvOrDistAttendance extends BaseActivity {
         }
 
 
-        /*** Experiments*/
-
         spDistributionType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -333,7 +315,8 @@ public class SumSrvOrDistAttendance extends BaseActivity {
                     strDistType = "Voucher";
                     idDistributionType = DistributionActivity.VOUCHER_TYPE;
                 }
-                loadProgram(idAward, idDonor, idCountry);
+
+                loadProgram(cCode, donorCode, awardCode, idDistributionType);
 
 
             }
@@ -349,31 +332,9 @@ public class SumSrvOrDistAttendance extends BaseActivity {
     /**
      * LOAD :: Program
      */
-    private void loadProgram(final String idAward, final String donorId, final String idcCode) {
+    private void loadProgram(final String cCode, final String donorCode, final String awardCode, final String distTypeFlag) {
 
-        int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_AWARD_CODE_COL + "='" + idAward + "'"
-                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorId + "'";
-
-        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.COUNTRY_PROGRAM_TABLE, criteria, null, false);
-
-
-        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listProgram);
-
-        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-
-        spProgram.setAdapter(dataAdapter);
-
-
-        if (idProgram != null) {
-            for (int i = 0; i < spProgram.getCount(); i++) {
-                String prog = spProgram.getItemAtPosition(i).toString();
-                if (prog.equals(strProgram)) {
-                    position = i;
-                }
-            }
-            spProgram.setSelection(position);
-        }
+        SpinnerLoader.loadProgramLoader(mContext, sqlH, spProgram, idProgram, strProgram, SQLiteQuery.loadProgram_sql(awardCode, donorCode), false, false);
 
 
         spProgram.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -381,11 +342,13 @@ public class SumSrvOrDistAttendance extends BaseActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 strProgram = ((SpinnerHelper) spProgram.getSelectedItem()).getValue();
                 idProgram = ((SpinnerHelper) spProgram.getSelectedItem()).getId();
-                // if(idProgram.length()>2){
-                Log.d(TAG, "load Prog data " + idProgram);
+
+                if (idProgram.length() > 2) {
 
 
-                loadServiceMonth(idcCode);
+                    loadServiceMonth(cCode, donorCode, awardCode, idProgram, distTypeFlag);
+                    Log.d(TAG, "load Prog data " + idProgram);
+                }
 
             }
 
@@ -395,19 +358,19 @@ public class SumSrvOrDistAttendance extends BaseActivity {
             }
         });
 
-    } // end Load Spinner
+    }                                                                                               // end Load Spinner
 
     /**
      * LOAD :: load operation Month
      */
-    private void loadServiceMonth(String countryCode) {//final String idCountry){
+    private void loadServiceMonth(final String cCode, final String donorCode, final String awardCode, final String progCode, final String distTypeFlag) {
 
         int position = 0;
         String criteria;
         if (flag.equals(KEY.DIST_FLAG))
-            criteria = SQLiteQuery.getDistributionMonths_WHERE_Condition(countryCode);
+            criteria = SQLiteQuery.getDistributionMonths_WHERE_Condition(cCode);
         else
-            criteria = SQLiteQuery.getServiceMonths_WHERE_Service_Open_Condition(countryCode);
+            criteria = SQLiteQuery.getServiceMonths_WHERE_Service_Open_Condition(cCode);
 
         List<SpinnerHelper> listMonth = sqlH.getListAndID(SQLiteHandler.OP_MONTH_TABLE, criteria, null, false);
 
@@ -429,9 +392,6 @@ public class SumSrvOrDistAttendance extends BaseActivity {
             spServiceMonth.setSelection(position);
         }
 
-       /* if (!idDist.isEmpty()) {
-            spDistrict.setSelection( getSpinnerIndex(spDistrict,idDist) );
-        }*/
 
         spServiceMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -448,12 +408,11 @@ public class SumSrvOrDistAttendance extends BaseActivity {
                     idSrvMonth_Code = srvMonth_Code.substring(8);
                     Log.d(TAG, "In the Service Attendance " +
                             " idCountry :" + idCountry + " donorId : " + id + " idSrvMonth_Code : " + idSrvMonth_Code);
-                    loadCriteria(idCountry, idDonor, idAward, idSrvMonth_Code, idProgram, flag);
-//                    loadServiceSummaryCriteriaList(idCountry, idDonor, idAward, idOpMonthCode, idProgram, flag);
+                    loadCriteria(cCode, donorCode, awardCode, progCode, distTypeFlag, idSrvMonth_Code, flag);
+
                 }
-                // loadCriteria(idServiceMonth.substring(2),idServiceMonth.substring(0,2),idCountry);
-//                Log.d(TAG, "idServiceMonth : " + idServiceMonth + " strSrvMonth :" + strSrvMonth);
-                //Log.d(TAG, "ID is: " + idDist);
+
+
             }
 
             @Override
@@ -469,7 +428,7 @@ public class SumSrvOrDistAttendance extends BaseActivity {
      * LOAD :: Criteria
      */
     private void loadCriteria(final String cCode, final String donorCode, final String awardCord,
-                              final String opMCode, final String progCode, final String srvDsFlag) {
+                              final String progCode, final String distTypeFlag, final String opMCode, final String srvDsFlag) {
 
         SpinnerLoader.loadCriteriaLoader(mContext, sqlH, spCriteriaS, idCriteria, strCriteria,
                 SQLiteQuery.loadCriteriaForDistributionSummary(cCode, donorCode, awardCord,
@@ -485,12 +444,16 @@ public class SumSrvOrDistAttendance extends BaseActivity {
                     String progCode = idCriteria.substring(0, 3);
                     String srvCode = idCriteria.substring(3);
 
+                    new LoadListView(cCode, donorCode, awardCord,
+                            opMCode, progCode, srvCode, idDistributionType, srvDsFlag).execute();
 
-                    loadServiceNDistributionSummaryAttendanceList(cCode, donorCode, awardCord,
-                            opMCode, progCode, srvCode, idDistributionType, srvDsFlag);
+                    /**
+                     * for test purpose
+                     */
+               /*     testLoadServNDistSummaryAttendanceList(cCode, donorCode, awardCord,
+                            opMCode, progCode, srvCode, idDistributionType, srvDsFlag);*/
                 }
 
-//                Log.d(TAG, "idCriteria : " + idCriteria + " strCriteria :" + strCriteria);
 
             }
 
@@ -500,62 +463,183 @@ public class SumSrvOrDistAttendance extends BaseActivity {
             }
         });
 
-    } // end Load Spinner
+    }                                                                                               // end Load Spinner
 
 
-    public void loadServiceNDistributionSummaryAttendanceList(String idCountry, String idDonor, String idAwarad, String idOpMonth, String idProgram, String idService, String distFlag, String srvORDistFlag) {
-        Log.d(TAG, "In load service List ");
-        // use veriable to like operation
+    public void loadSrvNDistSummaryAttendanceList(String idCountry, String idDonor, String idAwarad, String idOpMonth, String idProgram, String idService, String distFlag, String srvORDistFlag) {
+
+
+        // use variable to like operation
         List<SummaryServiceListModel> srvList = sqlH.getTotalServiceNDistributionAttendanceSummary(idCountry, idDonor, idAwarad, idOpMonth, idProgram, idService, distFlag, srvORDistFlag);//SQHandler 783:Line
+
         if (srvList.size() != 0) {
-            srvListArray.clear();
-            for (SummaryServiceListModel data : srvList) {
-                // add contacts data in arrayList
-                srvListArray.add(data);
-            }
+
             if (srvORDistFlag.equals(KEY.SRV_FLAG)) {
-                adapterServiceAttendance = new SummaryServiceListAdapter(this, srvListArray);
-                adapterServiceAttendance.notifyDataSetChanged();
-                lv_summaryList.setAdapter(adapterServiceAttendance);
-
-                lv_summaryList.setFocusableInTouchMode(true);
-            } else {
-                adapterDistAttendance = new SummaryDistributionListAttendanceAdapter(this, srvListArray);
-
-                adapterDistAttendance.notifyDataSetChanged();
-                lv_summaryList.setAdapter(adapterDistAttendance);
-
-                lv_summaryList.setFocusableInTouchMode(true);
-            }
-
-        } else {
-            /** clean the list view */
-            srvListArray.clear();
-            if (srvORDistFlag.equals(KEY.SRV_FLAG)) {
-                adapterServiceAttendance = new SummaryServiceListAdapter(this, srvListArray);
-                adapterServiceAttendance.notifyDataSetChanged();
-                lv_summaryList.setAdapter(adapterServiceAttendance);
+                mAdapterSrvAtten = new SummaryServiceListAdapter(this, srvList);
 
             } else {
-
-                adapterDistAttendance = new SummaryDistributionListAttendanceAdapter(this, srvListArray);
-
-                adapterDistAttendance.notifyDataSetChanged();
-                lv_summaryList.setAdapter(adapterDistAttendance);
+                mAdapterDistAtten = new SummaryDistributionListAttendanceAdapter(this, srvList);
 
 
             }
 
-
-            dialog.showInfromDialog(mContext, "No Data", "No Data found");
         }
     }
 
+    private class LoadListView extends AsyncTask<Void, Integer, String> {
+
+        private String a_cCode, a_donorCode, a_awardCord,
+                a_opMCode, a_progCode, a_srvCode, a_idDistributionType, a_srvDsFlag;
+
+        public LoadListView(String a_cCode, String a_donorCode, String a_awardCord,
+                            String a_opMCode, String a_progCode, String a_srvCode,
+                            String a_idDistributionType, String a_srvDsFlag) {                      // construct ter
+
+            this.a_cCode = a_cCode;
+            this.a_donorCode = a_donorCode;
+            this.a_awardCord = a_awardCord;
+            this.a_opMCode = a_opMCode;
+            this.a_progCode = a_progCode;
+            this.a_srvCode = a_srvCode;
+            this.a_idDistributionType = a_idDistributionType;
+            this.a_srvDsFlag = a_srvDsFlag;
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            loadSrvNDistSummaryAttendanceList(a_cCode, a_donorCode, a_awardCord,
+                    a_opMCode, a_progCode, a_srvCode, a_idDistributionType, a_srvDsFlag);
+            return "successes";
+        }
+
+        /**
+         * Initiate the mDialog
+         */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            startProgressBar(mContext.getResources().getString(R.string.loading_msg));
+
+        }
+
+
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            hideProgressBar();
+            if (a_srvDsFlag.equals(KEY.SRV_FLAG)) {
+
+                if (mAdapterSrvAtten != null) {
+                    mAdapterSrvAtten.notifyDataSetChanged();
+
+                    listView.setAdapter(mAdapterSrvAtten);
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        }
+                    });
+                    listView.setFocusableInTouchMode(true);
+
+                } else {
+                    Log.d(TAG, "Adapter Is Empty ");
+                    mDialog.showInfromDialog(mContext, "No Data", "No Data found");
+                }
+
+            } else {
+
+                if (mAdapterDistAtten != null) {
+                    mAdapterDistAtten.notifyDataSetChanged();
+
+                    listView.setAdapter(mAdapterDistAtten);
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        }
+                    });
+                    listView.setFocusableInTouchMode(true);
+
+                } else {
+                    Log.d(TAG, "Adapter Is Empty ");
+                    mDialog.showInfromDialog(mContext, "No Data", "No Data found");
+                }
+            }
+
+
+        }
+    }
+
+    private void hideProgressBar() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
+    /**
+     * @param msg text massage
+     */
+    private void startProgressBar(String msg) {
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage(msg);
+        pDialog.setCancelable(true);
+        pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pDialog.show();
+    }
 
 
     @Override
     public void onBackPressed() {
+    }
 
-        //super.onBackPressed();
+
+    public void testLoadServNDistSummaryAttendanceList(String idCountry, String idDonor, String idAwarad, String idOpMonth, String idProgram, String idService, String distFlag, String srvORDistFlag) {
+
+
+        // use variable to like operation
+        List<SummaryServiceListModel> srvList = sqlH.getTotalServiceNDistributionAttendanceSummary(idCountry, idDonor, idAwarad, idOpMonth, idProgram, idService, distFlag, srvORDistFlag);//SQHandler 783:Line
+
+        if (srvList.size() != 0) {
+    /*        srvListArray.clear();
+            for (SummaryServiceListModel data : srvList) {
+                // add contacts data in arrayList
+                srvListArray.add(data);
+            }*/
+            if (srvORDistFlag.equals(KEY.SRV_FLAG)) {
+                mAdapterSrvAtten = new SummaryServiceListAdapter(this, srvList);
+                mAdapterSrvAtten.notifyDataSetChanged();
+                listView.setAdapter(mAdapterSrvAtten);
+
+                listView.setFocusableInTouchMode(true);
+            } else {
+                mAdapterDistAtten = new SummaryDistributionListAttendanceAdapter(this, srvList);
+
+                mAdapterDistAtten.notifyDataSetChanged();
+                listView.setAdapter(mAdapterDistAtten);
+
+                listView.setFocusableInTouchMode(true);
+            }
+
+        } else {
+            /** clean the list view */
+            srvList.clear();
+            if (srvORDistFlag.equals(KEY.SRV_FLAG)) {
+                mAdapterSrvAtten = new SummaryServiceListAdapter(this, srvList);
+                mAdapterSrvAtten.notifyDataSetChanged();
+                listView.setAdapter(mAdapterSrvAtten);
+
+            } else {
+
+                mAdapterDistAtten = new SummaryDistributionListAttendanceAdapter(this, srvList);
+
+                mAdapterDistAtten.notifyDataSetChanged();
+                listView.setAdapter(mAdapterDistAtten);
+
+
+            }
+
+
+            mDialog.showInfromDialog(mContext, "No Data", "No Data found");
+        }
     }
 }
