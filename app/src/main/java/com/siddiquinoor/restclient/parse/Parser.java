@@ -495,7 +495,7 @@ public class Parser extends Parse {
 
     public static void SrvTableParser(JSONArray services_table, SQLiteHandler sqlH) {
 
-        String AdmCountryCode, AdmDonorCode, AdmAwardCode, LayR1ListCode, LayR2ListCode, LayR3ListCode, LayR4ListCode, hhID, MemID, ProgCode, SrvCode, OpCode, OpMonthCode, SrvSL, SrvCenterCode, SrvDT, SrvStatus, DistStatus, DistDT, fdpCode, GrpCode, WD, DistFlag;
+        String AdmCountryCode, AdmDonorCode, AdmAwardCode, LayR1ListCode, LayR2ListCode, LayR3ListCode, LayR4ListCode, hhID, MemID, ProgCode, SrvCode, OpCode, OpMonthCode, SrvSL, SrvCenterCode, SrvDT, SrvStatus, DistStatus, DistDT, fdpCode, /*GrpCode,*/ WD, DistFlag;
 
 
         int size;
@@ -525,11 +525,14 @@ public class Parser extends Parse {
                 DistStatus = service.getString(DIST_STATUS);
                 DistDT = service.getString(DIST_DT);
                 fdpCode = service.getString(FDP_CODE);
-                GrpCode = service.getString("GrpCode");
+//                GrpCode = service.getString("GrpCode");
                 WD = service.getString("WD");
                 DistFlag = service.getString("DistFlag");
 
-                sqlH.addServiceFromOnline(AdmCountryCode, AdmDonorCode, AdmAwardCode, LayR1ListCode, LayR2ListCode, LayR3ListCode, LayR4ListCode, hhID, MemID, ProgCode, SrvCode, OpCode, OpMonthCode, SrvSL, SrvCenterCode, SrvDT, SrvStatus, DistStatus, DistDT, fdpCode, WD, DistFlag, GrpCode, "1");
+                sqlH.addServiceFromOnline(AdmCountryCode, AdmDonorCode, AdmAwardCode, LayR1ListCode,
+                        LayR2ListCode, LayR3ListCode, LayR4ListCode, hhID, MemID, ProgCode, SrvCode,
+                        OpCode, OpMonthCode, SrvSL, SrvCenterCode, SrvDT, SrvStatus, DistStatus,
+                        DistDT, fdpCode, WD, DistFlag/*, GrpCode, "1"*/);
 
 
               /*  Log.d(TAG, "In Service Table- AdmCountryCode :" + AdmCountryCode + " AdmDonorCode : " + AdmDonorCode + " AdmAwardCode : " + AdmAwardCode + " LayR1ListCode : " + LayR1ListCode + " LayR2ListCode : " + LayR2ListCode + " LayR3ListCode : " + LayR3ListCode + " LayR4ListCode : " + LayR4ListCode + " hhID : " + hhID + " MemID : " + MemID + " ProgCode : " + ProgCode + " SrvCode : " + SrvCode + " OpCode : " + OpCode + " OpMonthCode : " + OpMonthCode +

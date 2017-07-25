@@ -11001,13 +11001,20 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
 
-    public void addServiceFromOnline(String c_code, String donorCode, String awardCode, String districtCode, String upzellaCode, String uname, String vname, String hhid, String memid, String program, String service, String opCode, String opMonth, String serviceSl, String srvCenterCode,
-                                     String serviceDt, String SrvStatus, String distStatus, String distDate, String fdpCode, String wd, String distFlag, String groupCode, String is_online) {
+    public void addServiceFromOnline(String c_code, String donorCode, String awardCode,
+                                     String districtCode, String upzellaCode, String uname,
+                                     String vname, String hhid, String memid, String program,
+                                     String service, String opCode, String opMonth, String serviceSl,
+                                     String srvCenterCode, String serviceDt, String SrvStatus,
+                                     String distStatus, String distDate, String fdpCode, String wd,
+                                     String distFlag/*, String groupCode*//*, String is_online*/) {
 
 
         String entryBy = "";
         String entryDate = "";
-        insertIntoSrvTable(c_code, donorCode, awardCode, districtCode, upzellaCode, uname, vname, hhid, memid, program, service, opCode, opMonth, serviceSl, srvCenterCode, serviceDt, SrvStatus, distStatus, distDate, fdpCode, wd, distFlag, groupCode, is_online, entryBy, entryDate);
+        insertIntoSrvTable(c_code, donorCode, awardCode, districtCode, upzellaCode, uname, vname,
+                hhid, memid, program, service, opCode, opMonth, serviceSl, srvCenterCode, serviceDt,
+                SrvStatus, distStatus, distDate, fdpCode, wd, distFlag/*, groupCode, is_online,*/, entryBy, entryDate);
 
 
     }
@@ -11075,13 +11082,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
          * there is no use of group code just for test
          */
         String distFlag = srvData.getDistFlag();
-        String groupCode = "";
+//        String groupCode = "";
         String srvCenterCode = srvData.getServiceCenterCode();
-        String is_online = "0";
+//        String is_online = "0";
         insertIntoSrvTable(srvData.getC_code(), srvData.getDonor_code(), srvData.getAward_code(), srvData.getDistrictCode(), srvData.getUpazillaCode()
                 , srvData.getUnitCode(), srvData.getVillageCode(), srvData.getHHID(),
                 srvData.getMemberId(), srvData.getProgram_code(), srvData.getService_code(), srvData.getOpCode(), srvData.getOpMontheCode(), srvData.getServiceSLCode()
-                , srvCenterCode, srvData.getServiceDTCode(), SrvStatus, distStatus, distDate, fdpCode, wd, distFlag, groupCode, is_online, entryBy, entryDate);
+                , srvCenterCode, srvData.getServiceDTCode(), SrvStatus, distStatus, distDate, fdpCode, wd, distFlag/*, groupCode, is_online*/, entryBy, entryDate);
 
 
     }
@@ -11118,7 +11125,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      */
 
     public void insertIntoSrvTable(String c_code, String donorCode, String awardCode, String layR1Code, String layR2Code, String layR3Code, String layR4Code, String hhid, String memId, String progCode, String srvCode, String opCode, String opMonthCode, String srvSl, String srvCenterCode,
-                                   String srvDate, String srvStatus, String distributionStatus, String distributionDate, String fdpCode, String wd, String distFlag, String groupCode, String is_online, String entryBy, String entryDate) {
+                                   String srvDate, String srvStatus, String distributionStatus, String distributionDate, String fdpCode, String wd, String distFlag/*, String groupCode*//*, String is_online*/, String entryBy, String entryDate) {
 
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -11154,10 +11161,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         values.put(WORK_DAY_COL, wd);
         values.put(DIST_FLAG_COL, distFlag);
-        /**
-         * Group Code is not necessary to insert by Mobile Device
-         */
-        values.put(GROUP_CODE_COL, groupCode);
 
         values.put(ENTRY_BY, entryBy);
         values.put(ENTRY_DATE, entryDate);

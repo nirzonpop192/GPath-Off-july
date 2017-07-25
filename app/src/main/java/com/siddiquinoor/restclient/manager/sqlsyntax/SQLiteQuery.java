@@ -2046,7 +2046,7 @@ public class SQLiteQuery {
                 ADM_COUNTRY_CODE_COL + " = '" + countryCode + "'"
                 + " AND " + STATUS + " = '" + "C" + "' "
                 + " AND " + SQLiteHandler.OPERATION_CODE_COL + " = '2' "
-                + " ORDER BY OpMonthID   DESC   "
+                + " ORDER BY OpMonthID   DESC   LIMIT 1 "
                 ;
 
 
@@ -2057,8 +2057,8 @@ public class SQLiteQuery {
         return " WHERE " +
                 ADM_COUNTRY_CODE_COL + " = '" + countryCode + "'"
                 + " AND " + STATUS + " = '" + "A" + "' "
-                + " AND " + SQLiteHandler.OPERATION_CODE_COL + " = '3' "
-                + " ORDER BY OpMonthID   DESC "
+                + " AND " + OPERATION_CODE_COL + " = '3' "
+                + " ORDER BY OpMonthID   DESC  LIMIT 1 "
                 + "        ";
     }
 

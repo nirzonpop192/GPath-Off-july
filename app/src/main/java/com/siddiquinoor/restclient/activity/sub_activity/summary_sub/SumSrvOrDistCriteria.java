@@ -163,7 +163,7 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
         }
 
         if (flag.equals(KEY.DIST_FLAG)) {
-            tvPageTitle.setText("SumRegLay4TotalHHRecords");
+            tvPageTitle.setText("Distribution Summary");
 
         }
 

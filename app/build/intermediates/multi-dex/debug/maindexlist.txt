@@ -605,7 +605,6 @@ com/siddiquinoor/restclient/activity/LoginActivity$4.class
 com/siddiquinoor/restclient/activity/sub_activity/summary_sub/SummaryAssignBaseCriteria$1.class
 com/siddiquinoor/restclient/views/adapters/DistributionSummaryCriteriaListAdapter.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/ddr/FFA$3.class
-com/siddiquinoor/restclient/activity/sub_activity/summary_sub/SumSrvOrDistAttendance$LoadListView.class
 com/google/android/gms/auth/api/signin/internal/zzi.class
 com/siddiquinoor/restclient/activity/LoginActivity$53.class
 com/siddiquinoor/restclient/activity/GroupSearchPage$2.class
