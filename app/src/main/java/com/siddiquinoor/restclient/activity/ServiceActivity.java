@@ -1084,13 +1084,16 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                     idGrpLayR3Code = groupCodeWithlayer.substring(4, 6);
                     idGroup = groupCodeWithlayer.substring(6);
 
-//                    Log.d("MOR22", "grpLayR1Code:" + idGrpLayR2Code + "\n" + "grpLayR2Code:" + idGrpLayR2Code + "\n" +                            "grpLayR3Code:" + idGrpLayR2Code + "\n" + "idGroup:" + idGroup);
+
                     /**   working*/
-                    LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, strSrvDate, idSrvCenter, idGroup);
-                    loadlist.execute();
+//                    LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, strSrvDate, idSrvCenter, idGroup);
+//                    loadlist.execute();
 
                     //  for test query
-//                    loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, strSrvDate, idSrvCenter, idGroup);
+                    testLoadServiceListView(idCountry, idDonor, idAward, idProgram, idService,
+                            idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode,
+                            strSrvDate, idSrvCenter, idGroup);
+
                 }
 
 
@@ -1345,32 +1348,32 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                     case "None":
                         strDistType = "None";
                         idDistributionType = DistributionActivity.NONE;
-                        foodFlagQuary = " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.FOOD_FLAG + "= '0' "
-                                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.NON_FOOD_FLAG + "= '0' "
-                                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.CASH_FLAG + "= '0' "
-                                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.VOUCHER_FLAG + "= '0' ";
+                        foodFlagQuary = " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.FOOD_FLAG + "= '0' "
+                                + " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.NON_FOOD_FLAG + "= '0' "
+                                + " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.CASH_FLAG + "= '0' "
+                                + " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.VOUCHER_FLAG + "= '0' ";
                         break;
                     case "Food":
                         strDistType = "Food";
                         idDistributionType = DistributionActivity.FOOD_TYPE;
-                        foodFlagQuary = " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.FOOD_FLAG + "= '1' ";
+                        foodFlagQuary = " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.FOOD_FLAG + "= '1' ";
                         break;
                     case "Non Food":
 
                         strDistType = "Non Food";
                         idDistributionType = DistributionActivity.NON_FOOD_TYPE;
-                        foodFlagQuary = " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.NON_FOOD_FLAG + "= '1' ";
+                        foodFlagQuary = " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.NON_FOOD_FLAG + "= '1' ";
                         break;
 
                     case "Cash":
                         strDistType = "Cash";
                         idDistributionType = DistributionActivity.CASH_TYPE;
-                        foodFlagQuary = " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.CASH_FLAG + "= '1' ";
+                        foodFlagQuary = " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.CASH_FLAG + "= '1' ";
                         break;
                     case "Voucher":
                         strDistType = "Voucher";
                         idDistributionType = DistributionActivity.VOUCHER_TYPE;
-                        foodFlagQuary = " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.VOUCHER_FLAG + "= '1' ";
+                        foodFlagQuary = " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.VOUCHER_FLAG + "= '1' ";
                         break;
                 }
 
@@ -1605,16 +1608,78 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
         }
 
+
+    }
+
+
+
+    public void testLoadServiceListView(final String cCode, String donorCode, String awardCode, String prgCode, String srvCode, String memSearchId, String opMonthLable, String opCode, String opMCode, String srvDate, String srvCenterCode, String grpCode) {
+
+        List<ServiceDataModel> srvMemberList = null;
+
+        /**
+         *  get program Name  Service name
+         */
+        String srvName = sqlH.getServiceShortName(prgCode, srvCode);
+        String progName = sqlH.getProgramShortName(awardCode, donorCode, prgCode);
+
+
+        switch (srvName) {
+            case C1:
+            case C2:
+            case C3:
+            case FFA:
+                switch (progName) {
+                    case CFWS:
+                    case CFWU:
+                    case DRR:
+                        tv_srvTitleCount.setText(R.string.wd);
+                        srvMemberList = sqlH.getFFAMemberListForService(cCode, donorCode, awardCode, prgCode, srvCode, memSearchId, opCode, opMCode, grpCode, idDistributionType);
+                        break;
+
+                }
+                break;
+            default:
+                // use variable to like operation
+                if (idGrpLayR1Code != null && idGrpLayR1Code.length() > 0 && idGrpLayR2Code != null && idGrpLayR2Code.length() > 0 && idGrpLayR3Code != null && idGrpLayR3Code.length() > 0)
+                    srvMemberList = sqlH.getRptMemberServiceList(cCode, donorCode, awardCode, prgCode, srvCode, memSearchId, opCode, opMCode, grpCode, idDistributionType, idGrpLayR1Code, idGrpLayR2Code, idGrpLayR3Code);
+
+                break;
+        }
+
+        if (srvMemberList != null) {
+            Log.d(TAG, "srvMemberList size : " + srvMemberList.size());
+            if (srvMemberList.size() != 0) {
+                serviceArray.clear();
+                for (ServiceDataModel data : srvMemberList) {
+
+                    serviceArray.add(data);
+                }
+//                Log.d(TAG, "serviceArray size : " + serviceArray.size() + "");
+                adapter = new ServiceDataListAdapter(this, serviceArray, strAward, idCriteria, strCriteria, opMonthLable, opCode, opMCode, srvDate, srvCenterCode, progName, srvName);
+
+            } else {
+                // this statements clear the list view
+                serviceArray.clear();
+                adapter = new ServiceDataListAdapter(this, serviceArray, strAward, idCriteria, strCriteria, opMonthLable, opCode, opMCode, srvDate, srvCenterCode, progName, srvName);
+
+            }
+        } else {
+            serviceArray.clear();
+            adapter = new ServiceDataListAdapter(this, serviceArray, strAward, idCriteria, strCriteria, opMonthLable, opCode, opMCode, srvDate, srvCenterCode, progName, srvName);
+
+        }
+
 /**
  *  set adpater
  */
 
- /*       if (!adapter.isEmpty()) {
+       if (!adapter.isEmpty()) {
             adapter.notifyDataSetChanged();
             mListView.setAdapter(adapter);
-            *//**
+           /**
          * Notify the use no data available
-         *//*
+         */
             if (adapter.getCount() == 0) {
                 erroDialog.showInfromDialog(mContext, "No Data Found", "No Data found");
             }
@@ -1623,7 +1688,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
         } else {
             erroDialog.showInfromDialog(mContext, "No Data Found", "No Data found");
         }
-*/
+
 
     }
 

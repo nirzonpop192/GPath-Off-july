@@ -584,10 +584,10 @@ public class AssignActivity extends BaseActivity {
     private void loadProgram(final String cCode, final String awardCode, final String donorCode) {
 
         int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_AWARD_CODE_COL + "='" + awardCode + "'"
-                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorCode + "'";
+        String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_AWARD_CODE_COL + "='" + awardCode + "'"
+                + " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorCode + "'";
 
-        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.COUNTRY_PROGRAM_TABLE, criteria, null, false);
+        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE, criteria, null, false);
 
 
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listProgram);

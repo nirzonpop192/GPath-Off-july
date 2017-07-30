@@ -90,9 +90,10 @@
                 android:src="@drawable/attributes" />
 
             <ImageButton
-                android:id="@+id/ibtn_nofunc"
+                android:id="@+id/ibtn_refresh"
                 android:layout_width="40dp"
-                android:layout_height="45dp" />
+                android:layout_height="45dp"
+                android:src="@drawable/refresh_24"/>
 
 
             <ImageButton

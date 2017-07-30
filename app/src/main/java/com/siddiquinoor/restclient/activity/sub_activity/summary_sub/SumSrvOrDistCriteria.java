@@ -1,8 +1,10 @@
 package com.siddiquinoor.restclient.activity.sub_activity.summary_sub;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import com.siddiquinoor.restclient.activity.DistributionActivity;
 import com.siddiquinoor.restclient.activity.MainActivity;
 import com.siddiquinoor.restclient.R;
+import com.siddiquinoor.restclient.activity.SummaryMenuActivity;
 import com.siddiquinoor.restclient.fragments.BaseActivity;
 import com.siddiquinoor.restclient.manager.SQLiteHandler;
 //import com.siddiquinoor.restclient.views.adapters.ServiceDataModel;
@@ -57,7 +60,7 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
     private ListView lv_CriteriaSummary;
     private Button btn_home;
     private Button btn_sammary;
-    private final Context mcontext = SumSrvOrDistCriteria.this;
+    private final Context mContext = SumSrvOrDistCriteria.this;
     private ADNotificationManager dialog;
     private TextView tvPageTitle;
     private Spinner spAward, spProgram, spServiceMonth;
@@ -66,6 +69,7 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
     private Spinner spDistributionType;
     private String idDistributionType;
     private String strDistType;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,21 +80,20 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
         flag = intent.getStringExtra(KEY.FLAG);
 
 
-
         viewReference();
         dialog = new ADNotificationManager();
-        //mcontext=SummaryServiceCriteria.this;
-        sqlH = new SQLiteHandler(mcontext);
+        //mContext=SummaryServiceCriteria.this;
+        sqlH = new SQLiteHandler(mContext);
 
         if (flag.equals(KEY.SRV_FLAG)) {
 
-            Log.d("NIR","In the service Criteria ");
+            Log.d("NIR", "In the service Criteria ");
             rl_dist_table_title.setVisibility(View.GONE);
         } else {
 
             ll_table_title.setVisibility(View.GONE);
 
-            Log.d("NIR","In the Distribution Criteria ");
+            Log.d("NIR", "In the Distribution Criteria ");
         }
         btn_home.setOnClickListener(this);
         btn_sammary.setOnClickListener(this);
@@ -181,29 +184,28 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
         btn_sammary = (Button) findViewById(R.id.btnRegisterFooter);
         tvPageTitle = (TextView) findViewById(R.id.tv_srv_distCriPageTitle);
 
-        rl_dist_table_title= (RelativeLayout) findViewById(R.id.dist_table_title);
-        ll_table_title= (LinearLayout) findViewById(R.id.table_title);
-        btn_sammary.setText("Service SumRegLay4TotalHHRecords");
+        rl_dist_table_title = (RelativeLayout) findViewById(R.id.dist_table_title);
+        ll_table_title = (LinearLayout) findViewById(R.id.table_title);
 
-        setUpGoBackButton();
-        setUpHomeButton();
+
+
+
 
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        setUpGoBackButton();
+    }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpGoBackButton() {
         btn_sammary.setText("");
-        Drawable imageGoto = getResources().getDrawable(R.drawable.goto_back);
-        btn_sammary.setCompoundDrawablesRelativeWithIntrinsicBounds(imageGoto, null, null, null);
-        btn_sammary.setPadding(180, 10, 180, 10);
-    }
+        Drawable imageback = getResources().getDrawable(R.drawable.goto_back);
+        btn_sammary.setCompoundDrawablesRelativeWithIntrinsicBounds(null, imageback, null, null);
+        btn_sammary.setPadding(-1, 15, -1, 15);
 
-    private void setUpHomeButton() {
-
-        btn_home.setText("");
-        Drawable imageHome = getResources().getDrawable(R.drawable.home_b);
-        btn_home.setCompoundDrawablesRelativeWithIntrinsicBounds(imageHome, null, null, null);
-        btn_home.setPadding(180, 10, 180, 10);
     }
 
 
@@ -212,12 +214,13 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
         switch (v.getId()) {
             case R.id.btnHomeFooter:
                 finish();
-                Intent iHome = new Intent(mcontext, MainActivity.class);
+                Intent iHome = new Intent(mContext, MainActivity.class);
                 startActivity(iHome);
 
                 break;
             case R.id.btnRegisterFooter:
-                Intent i = new Intent(mcontext, ServiceSummaryMenu.class);
+                Intent i = new Intent(mContext, SummaryMenuActivity.class);
+
                 i.putExtra(KEY.COUNTRY_ID, idCountry);
                 i.putExtra(KEY.FLAG, flag);
                 i.putExtra(KEY.DIR_CLASS_NAME_KEY, "SummaryServiceItemize");
@@ -225,14 +228,13 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
                 i.putExtra(KEY.AWARD_NAME, strAward);
                 i.putExtra(KEY.PROGRAM_CODE, idProgram);
                 i.putExtra(KEY.PROGRAM_NAME, strProgram);
-                i.putExtra(KEY.SERVICE_MONTH_CODE, idOpMonthCode); // HERE SERVICE MONTH KEY IS ALSO DISTRUBUTION MONTH KEY
-                i.putExtra(KEY.SERVICE_MONTH_NAME, strSrvMonth);// HERE SERVICE MONTH KEY IS ALSO DISTRUBUTION MONTH KEY
+                i.putExtra(KEY.SERVICE_MONTH_CODE, idOpMonthCode);                                  // HERE SERVICE MONTH KEY IS ALSO DISTRUBUTION MONTH KEY
+                i.putExtra(KEY.SERVICE_MONTH_NAME, strSrvMonth);                                    // HERE SERVICE MONTH KEY IS ALSO DISTRUBUTION MONTH KEY
 
                 startActivity(i);
                 break;
         }
     }
-
 
 
     @Override
@@ -245,7 +247,7 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
         else
             criteriaS = (SummaryCriteriaModel) adapterDistSumCriteria.getItem(position);
 
-        Intent iServSummaryCri = new Intent(mcontext, SumSrvOrDistAttendance.class);
+        Intent iServSummaryCri = new Intent(mContext, SumSrvOrDistAttendance.class);
         iServSummaryCri.putExtra(KEY.COUNTRY_ID, idCountry);
         iServSummaryCri.putExtra(KEY.DIR_CLASS_NAME_KEY, "SummaryServiceCriteria");
         iServSummaryCri.putExtra(KEY.DONOR_CODE, idDonor);
@@ -268,16 +270,19 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
     private void loadAward(final String idCountry) {
 
         int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + idCountry + "'";
-        // Spinner Drop down elements for District
-        List<SpinnerHelper> listAward = sqlH.getListAndID(SQLiteHandler.ADM_COUNTRY_AWARD_TABLE, criteria, null, false);
+        String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "."
+                + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + idCountry + "'";
 
-        // Creating adapter for spinner
-        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listAward);
-        // Drop down layout style
-        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        // attaching data adapter to spinner
-        spAward.setAdapter(dataAdapter);
+        List<SpinnerHelper> listAward = sqlH.getListAndID(SQLiteHandler.ADM_COUNTRY_AWARD_TABLE,
+                criteria, null, false);                                                             // Spinner Drop down elements for District
+
+
+        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout,
+                listAward);                                                                          // Creating adapter for spinner
+
+        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);                               // Drop down layout style
+
+        spAward.setAdapter(dataAdapter);                                                            // attaching data adapter to spinner
 
 
         if (idAward != null) {
@@ -302,7 +307,7 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
                     idDonor = awardCode.substring(0, 2);
                     idAward = awardCode.substring(2);
 
-                    loadDistributionType(idCountry,idDonor,idAward);
+                    loadDistributionType(idCountry, idDonor, idAward);
                     Log.d(TAG, "idAward : " + idAward + " donor id :" + idAward.substring(0, 2));
                 }
                 Log.d(TAG, "awardCode : " + awardCode);
@@ -324,10 +329,10 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
     private void loadProgram(final String idAward, final String donorId, final String idcCode) {
 
         int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_AWARD_CODE_COL + "='" + idAward + "'"
-                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorId + "'";
+        String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_AWARD_CODE_COL + "='" + idAward + "'"
+                + " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorId + "'";
         // Spinner Drop down elements for District
-        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.COUNTRY_PROGRAM_TABLE, criteria, null, false);
+        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE, criteria, null, false);
 
         // Creating adapter for spinner
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listProgram);
@@ -370,13 +375,9 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
     } // end Load Spinner
 
 
-
-
-
-
-
- /*** LOAD:: DistributionType
-    */
+    /***
+     * LOAD:: DistributionType
+     */
     private void loadDistributionType(final String cCode, final String donorCode, final String awardCode) {
         int position = 0;
 
@@ -406,10 +407,10 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
 
                 String type = parent.getItemAtPosition(position).toString();
 
-                if(type.equals("None")){
+                if (type.equals("None")) {
                     strDistType = "None";
                     idDistributionType = DistributionActivity.NONE;
-                }else if (type.equals("Food")) {
+                } else if (type.equals("Food")) {
                     strDistType = "Food";
                     idDistributionType = DistributionActivity.FOOD_TYPE;
                 } else if (type.equals("Non Food")) {
@@ -486,7 +487,7 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
                     idOpMonthCode = idServiceMonth.substring(8);
                     Log.d(TAG, "in if condition sERVICE sUMMARY bY cRITERIA \n" +
                             " idCountry :" + idCountry + " donorId : " + id + " idOpMonthCode : " + idOpMonthCode);
-                    loadServiceSummaryCriteriaList(idCountry, idDonor, idAward, idOpMonthCode, idProgram,idDistributionType, flag);
+                    loadServiceSummaryCriteriaList(idCountry, idDonor, idAward, idOpMonthCode, idProgram, idDistributionType, flag);
                 }
                 // String donorId=idServiceMonth.substring(0,1)
                 // loadCriteria(idServiceMonth.substring(2),idServiceMonth.substring(0,2),idCountry);
@@ -503,23 +504,22 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
     } // end Load Spinner
 
 
-
     /**
      * LOAD :: SumRegLay4TotalHHRecords of Criteria for Service
      */
-    public void loadServiceSummaryCriteriaList(String idCountry, String idDonor, String idAwarad, String idOpMonth, String idProg,String distFlag, String srvDistFlag) {
+    public void loadServiceSummaryCriteriaList(String idCountry, String idDonor, String idAwarad, String idOpMonth, String idProg, String distFlag, String srvDistFlag) {
 //        Log.d(TAG, "In load service List ");
 
 
         // use veriable to like operation
         List<SummaryCriteriaModel> srvCriteriaList;
         if (flag.equals(KEY.SRV_FLAG))
-            srvCriteriaList = sqlH.getServiceSummaryCriteriaList(idCountry, idDonor, idAwarad, idOpMonth, idProg,distFlag);//SQHandler 783:Line
+            srvCriteriaList = sqlH.getServiceSummaryCriteriaList(idCountry, idDonor, idAwarad, idOpMonth, idProg, distFlag);//SQHandler 783:Line
         else {
-            srvCriteriaList = sqlH.getDistributionSummaryCriteriaList(idCountry, idDonor, idAwarad, idOpMonth, idProg,distFlag);//SQHandler 783:Line
+            srvCriteriaList = sqlH.getDistributionSummaryCriteriaList(idCountry, idDonor, idAwarad, idOpMonth, idProg, distFlag);//SQHandler 783:Line
         }
 
-        Log.d(TAG,"Distbution size :"+srvCriteriaList.size());
+        Log.d(TAG, "Distbution size :" + srvCriteriaList.size());
 
         if (srvCriteriaList.size() != 0) {
 
@@ -561,10 +561,9 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
                 lv_CriteriaSummary.setAdapter(adapterDistSumCriteria);
 
             }
-            dialog.showInfromDialog(mcontext, "NO Data", "No Data Found !");
+            dialog.showInfromDialog(mContext, "NO Data", "No Data Found !");
         }
     }
-
 
 
 }

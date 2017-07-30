@@ -247,7 +247,6 @@ public class MemberSearchPage extends BaseActivity {
         btnHome.setText("");
         Drawable imageHome = getResources().getDrawable(R.drawable.home_b);
         btnHome.setCompoundDrawablesRelativeWithIntrinsicBounds(null, imageHome, null, null);
-//        setPaddingButton(mContext, imageHome, btnHome);
         btnHome.setPadding(-1, 5, -1, 5);
     }
 
@@ -427,6 +426,6 @@ public class MemberSearchPage extends BaseActivity {
      */
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
+
     }
 }

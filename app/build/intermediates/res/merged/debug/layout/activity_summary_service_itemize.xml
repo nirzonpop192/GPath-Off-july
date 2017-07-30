@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
 
 
-    tools:context=".activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemize">
+    tools:context=".activity.sub_activity.summary_sub.SrvOrDistItemize">
     <!-- Header aligned to top -->
     <include layout="@layout/header" />
     <RelativeLayout

@@ -355,10 +355,10 @@ public class OldAssignActivity extends BaseActivity implements AdapterView.OnIte
     private void loadProgram(final String cCode, final String awardCode, final String donorCode) {
 
         int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_AWARD_CODE_COL + "='" + awardCode + "'"
-                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorCode + "'";
+        String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_AWARD_CODE_COL + "='" + awardCode + "'"
+                + " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorCode + "'";
         // Spinner Drop down elements for District
-        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.COUNTRY_PROGRAM_TABLE, criteria, null, false);
+        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE, criteria, null, false);
 
         // Creating adapter for spinner
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listProgram);
@@ -406,9 +406,9 @@ public class OldAssignActivity extends BaseActivity implements AdapterView.OnIte
     private void loadCriteria(final String idAward, final String donorId, final String idProgram, final String cCode) {
 
         int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_AWARD_CODE_COL + "='" + idAward + "'"
-                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorId + "'"
-                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_PROG_CODE_COL + "='" + idProgram + "'";
+        String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_AWARD_CODE_COL + "='" + idAward + "'"
+                + " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorId + "'"
+                + " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_PROG_CODE_COL + "='" + idProgram + "'";
         // Spinner Drop down elements for District
         List<SpinnerHelper> listCriteria = sqlH.getListAndID(SQLiteHandler.SERVICE_MASTER_TABLE, criteria, null, false);
 

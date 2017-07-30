@@ -50,6 +50,7 @@ import com.siddiquinoor.restclient.utils.KEY;
 import com.siddiquinoor.restclient.views.adapters.GPSLocationLatLong;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 import com.siddiquinoor.restclient.views.notifications.ADNotificationManager;
+import com.siddiquinoor.restclient.views.notifications.CustomToast;
 import com.siddiquinoor.restclient.views.spinner.SpinnerLoader;
 
 import java.io.ByteArrayOutputStream;
@@ -119,7 +120,7 @@ public class PointAttributes extends BaseActivity {
     ImageView mImageView5;
 
     // Activity request codes
-    private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
+
 
     public static final int MEDIA_TYPE_IMAGE = 1;
 
@@ -142,7 +143,7 @@ public class PointAttributes extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point_attributes);
-        intili();
+        initial();
 
         Intent intent = getIntent();
         // get Country Code
@@ -237,12 +238,9 @@ public class PointAttributes extends BaseActivity {
             public void onClick(View v) {
 
 
-                ArrayList<GPS_SubGroupAttributeDataModel> attList = sqlH.getGpsSubGroupAttributes(idGroup, idSubGroup);
-                /**
-                 * count the total attribute size
-                 */
+                ArrayList<GPS_SubGroupAttributeDataModel> attList =
+                        sqlH.getGpsSubGroupAttributes(idGroup, idSubGroup);
 
-                int size = attList.size();
 
                 String entryBy = getStaffID();
                 String entryDate = "";
@@ -252,24 +250,19 @@ public class PointAttributes extends BaseActivity {
                     e.printStackTrace();
                 }
 
-
-                for (int j = 0; j < size; j++) {
+                int xxx_i = 0;
+                int yyy_i = 0;
+                for (int j = 0; j < attList.size(); j++) {
 
                     GPS_SubGroupAttributeDataModel subAtt = attList.get(j);
 
-                    /**
-                     * if the attribute is not lookup
-                     */
 
-
-                    if (attList.get(j).getLookUpCode().equals(NO_LOOK_UP)) {
+                    if (attList.get(j).getLookUpCode().equals(NO_LOOK_UP)) {                        // check is the attribute is look up
+                        /**
+                         * attribute is not lookup
+                         */
                         if (attList.get(j).getDataType().equals(IMAGE_TYPE)) {
 
-                      /*      Log.d(TAG, " in save method \n "
-                                    + "idCountry : " + idCountry + "idGroup : " + idGroup
-                                    + "idSubGroup : " + idSubGroup + "idLocation : " + idLocation
-                                    + "AttributeCode : " + subAtt.getAttributeCode() + "AttributeValue : photo"
-                                    + "entryBy : " + entryBy + "entryDate : " + entryDate);*/
 
                             if (getmEncodedImageString() != null) {
 
@@ -284,9 +277,12 @@ public class PointAttributes extends BaseActivity {
                                 sqlServer.setEntryBy(entryBy);
                                 sqlServer.setEntryDate(entryDate);
 
-                                sqlH.addGPSLocationAttributes(idCountry, idGroup, idSubGroup, idLocation, subAtt.getAttributeCode(), null, getmEncodedImageString(), entryBy, entryDate);
+                                sqlH.addGPSLocationAttributes(idCountry, idGroup, idSubGroup,
+                                        idLocation, subAtt.getAttributeCode(), null,
+                                        getmEncodedImageString(), entryBy, entryDate);
 
-                                sqlH.insertIntoUploadTable(sqlServer.insertIntoGPSLocationAttributesTable());
+                                sqlH.insertIntoUploadTable(
+                                        sqlServer.insertIntoGPSLocationAttributesTable());
 
                             }
                         } else {
@@ -295,14 +291,7 @@ public class PointAttributes extends BaseActivity {
 
                             for (int i = 0; i < allEdt.size(); i++) {
                                 string[i] = allEdt.get(i).getText().toString();
-                         /*       Log.d(TAG, "Attributes " + string[i]);*/
 
-/*
-                                Log.d(TAG, " in save method \n "
-                                        + "idCountry : " + idCountry + "idGroup : " + idGroup
-                                        + "idSubGroup : " + idSubGroup + "idLocation : " + idLocation
-                                        + "AttributeCode : " + subAtt.getAttributeCode() + "AttributeValue : " + string[i]
-                                        + "entryBy : " + entryBy + "entryDate : " + entryDate);*/
                                 SQLServerSyntaxGenerator sqlServer = new SQLServerSyntaxGenerator();
                                 sqlServer.setAdmCountryCode(idCountry);
                                 sqlServer.setGrpCode(idGroup);
@@ -313,9 +302,12 @@ public class PointAttributes extends BaseActivity {
                                 sqlServer.setEntryBy(entryBy);
                                 sqlServer.setEntryDate(entryDate);
 
-                                sqlH.addGPSLocationAttributes(idCountry, idGroup, idSubGroup, idLocation, subAtt.getAttributeCode(), string[i], null, entryBy, entryDate);
+                                sqlH.addGPSLocationAttributes(idCountry, idGroup, idSubGroup,
+                                        idLocation, subAtt.getAttributeCode(), string[i], null,
+                                        entryBy, entryDate);
 
-                                sqlH.insertIntoUploadTable(sqlServer.insertIntoGPSLocationAttributesTable());
+                                sqlH.insertIntoUploadTable(
+                                        sqlServer.insertIntoGPSLocationAttributesTable());
                             }
 
 
@@ -323,20 +315,17 @@ public class PointAttributes extends BaseActivity {
 
                     } else {
 
-                        for (int i = 0; i < allistedRadioButton.size(); i++) {
+                        for (int i = xxx_i; i < allistedRadioButton.size(); i++) {
+                            yyy_i++;
                             if (allistedRadioButton.get(i).isChecked()) {
 
-                                Log.d("MOR", "lupCode value :00" + allistedRadioButton.get(i).getId());
 
-                                String attValue = String.valueOf(allistedRadioButton.get(i).getId());
+
+                                String text = (String) allistedRadioButton.get(i).getText();
+
+                                String attValue = sqlH.getLupGPSCode(idGroup,idSubGroup,subAtt.getAttributeCode(),text);
                                 attValue = getPadding(attValue.length(), attValue);
 
-
-                             /*   Log.d(TAG, " in save method \n "
-                                        + "idCountry : " + idCountry + "idGroup : " + idGroup
-                                        + "idSubGroup : " + idSubGroup + "idLocation : " + idLocation
-                                        + "AttributeCode : " + subAtt.getAttributeCode() + "AttributeValue : " + 1
-                                        + "entryBy : " + entryBy + "entryDate : " + entryDate);*/
 
                                 SQLServerSyntaxGenerator sqlServer = new SQLServerSyntaxGenerator();
                                 sqlServer.setAdmCountryCode(idCountry);
@@ -349,17 +338,24 @@ public class PointAttributes extends BaseActivity {
                                 sqlServer.setEntryDate(entryDate);
 
 
-                                sqlH.addGPSLocationAttributes(idCountry, idGroup, idSubGroup, idLocation, subAtt.getAttributeCode(), attValue, null, entryBy, entryDate);
+                                sqlH.addGPSLocationAttributes(idCountry, idGroup, idSubGroup,
+                                        idLocation, subAtt.getAttributeCode(), attValue, null,
+                                        entryBy, entryDate);
+
                                 sqlH.insertIntoUploadTable(sqlServer.insertIntoGPSLocationAttributesTable());
 
 
+                                break;
                             }
+
+
                         }
-                        break;
+                        xxx_i = yyy_i;
                     }
                 }
 
-                Toast.makeText(mContext, "Save successfully ", Toast.LENGTH_SHORT).show();
+                CustomToast.show(mContext,"Save successfully ");
+//                Toast.makeText(mContext, , Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -383,11 +379,8 @@ public class PointAttributes extends BaseActivity {
         return padded_id;
     }
 
-    /**
-     *
-     */
 
-    private void intili() {
+    private void initial() {
         sqlH = new SQLiteHandler(this);
         mContext = PointAttributes.this;
         viewReference();
@@ -439,14 +432,16 @@ public class PointAttributes extends BaseActivity {
         mImageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                captureOrViewImageOption(CAMERA_REQUEST_1, idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_1);
+                captureOrViewImageOption(CAMERA_REQUEST_1, idCountry, idGroup, idSubGroup,
+                        idLocation, IMG_CONTENT_CODE_1);
             }
         });
         //image 2
         mImageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                captureOrViewImageOption(CAMERA_REQUEST_2, idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_2);
+                captureOrViewImageOption(CAMERA_REQUEST_2, idCountry, idGroup, idSubGroup,
+                        idLocation, IMG_CONTENT_CODE_2);
 
             }
         });
@@ -454,14 +449,16 @@ public class PointAttributes extends BaseActivity {
         mImageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                captureOrViewImageOption(CAMERA_REQUEST_3, idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_3);
+                captureOrViewImageOption(CAMERA_REQUEST_3, idCountry, idGroup, idSubGroup,
+                        idLocation, IMG_CONTENT_CODE_3);
             }
         });
         //image 4
         mImageView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                captureOrViewImageOption(CAMERA_REQUEST_4, idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_4);
+                captureOrViewImageOption(CAMERA_REQUEST_4, idCountry, idGroup, idSubGroup,
+                        idLocation, IMG_CONTENT_CODE_4);
             }
         });
 
@@ -469,7 +466,8 @@ public class PointAttributes extends BaseActivity {
         mImageView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                captureOrViewImageOption(CAMERA_REQUEST_5, idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_5);
+                captureOrViewImageOption(CAMERA_REQUEST_5, idCountry, idGroup, idSubGroup,
+                        idLocation, IMG_CONTENT_CODE_5);
             }
         });
 
@@ -582,11 +580,14 @@ public class PointAttributes extends BaseActivity {
                 strLocation = ((SpinnerHelper) spLocation.getSelectedItem()).getValue();
                 idLocation = ((SpinnerHelper) spLocation.getSelectedItem()).getId();
 
-              /*  Log.d(TAG, " strLocation :" + strLocation + " idLocation : " + idLocation);*/
+
                 if (!idLocation.equals("00")) {
                     permissionForGoMap = true;
                     setVisibletyLatLongViews(View.VISIBLE);
-                    GPSLocationLatLong latLong = sqlH.getLocationSpecificLatLong(idCountry, groupCode, subGroupCode, idLocation);
+
+                    GPSLocationLatLong latLong = sqlH.getLocationSpecificLatLong(idCountry,
+                            groupCode, subGroupCode, idLocation);
+
                     setLatLongInTextView(latLong);
 
                     createDynamicViews(idCountry, idGroup, idSubGroup, idLocation);
@@ -616,24 +617,6 @@ public class PointAttributes extends BaseActivity {
     Uri fileUri;
 
 
-
-
-
-
-    /*
- * Capturing Camera Image will lauch camera app requrest image capture
- */
- /*   private void captureImage() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
-
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-
-        // start the image capture Intent
-        startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
-    }*/
-
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void createDynamicViews(String cCode, String groupCode, String subGroupCode, String locationCode) {
 
@@ -647,7 +630,8 @@ public class PointAttributes extends BaseActivity {
          *  connect database
          *  */
 
-        ArrayList<GPS_SubGroupAttributeDataModel> attList = sqlH.getGpsSubGroupAttributes(groupCode, subGroupCode);
+        ArrayList<GPS_SubGroupAttributeDataModel> attList =
+                sqlH.getGpsSubGroupAttributes(groupCode, subGroupCode);
         int size = attList.size();
 
 
@@ -668,9 +652,13 @@ public class PointAttributes extends BaseActivity {
 
                     LinearLayout parent = new LinearLayout(this);
 
-                    parent.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                    parent.setLayoutParams(new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT));
+
                     parent.setOrientation(LinearLayout.HORIZONTAL);
                     TextView textView = new TextView(this);
+
                     String imageName = idGroup + idSubGroup + attList.get(i).getAttributeCode() + idLocation;
                     textView.setText(imageName);
                     setImageName(imageName);
@@ -685,16 +673,28 @@ public class PointAttributes extends BaseActivity {
                             Toast.makeText(mContext, "Take photo ", Toast.LENGTH_SHORT).show();
 
                             if (!CameraUtils.isDeviceSupportCamera(getApplicationContext())) {
-                                Toast.makeText(getApplicationContext(), "Sorry! Your device doesn't support camera", Toast.LENGTH_LONG).show();
+
+                                Toast.makeText(getApplicationContext(),
+                                        "Sorry! Your device doesn't support camera",
+                                        Toast.LENGTH_LONG).show();
 
                             } else {
                                 horizontalScrollView.setVisibility(View.VISIBLE);
 
-                                viewImageFromDatabase(idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_1, mImageView1);
-                                viewImageFromDatabase(idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_2, mImageView2);
-                                viewImageFromDatabase(idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_3, mImageView3);
-                                viewImageFromDatabase(idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_4, mImageView4);
-                                viewImageFromDatabase(idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_5, mImageView5);
+                                viewImageFromDatabase(idCountry, idGroup, idSubGroup, idLocation,
+                                        IMG_CONTENT_CODE_1, mImageView1);
+
+                                viewImageFromDatabase(idCountry, idGroup, idSubGroup, idLocation,
+                                        IMG_CONTENT_CODE_2, mImageView2);
+
+                                viewImageFromDatabase(idCountry, idGroup, idSubGroup, idLocation,
+                                        IMG_CONTENT_CODE_3, mImageView3);
+
+                                viewImageFromDatabase(idCountry, idGroup, idSubGroup, idLocation,
+                                        IMG_CONTENT_CODE_4, mImageView4);
+
+                                viewImageFromDatabase(idCountry, idGroup, idSubGroup, idLocation,
+                                        IMG_CONTENT_CODE_5, mImageView5);
 
 
                             }
@@ -740,8 +740,12 @@ public class PointAttributes extends BaseActivity {
 
             } else {
                 RadioGroup radGroup = new RadioGroup(this);
+
                 radGroup.setOrientation(RadioGroup.VERTICAL);
-                List<Lup_gpsListDataModel> lookupList = sqlH.getLupGPSList(groupCode, subGroupCode, attList.get(i).getAttributeCode());
+
+                List<Lup_gpsListDataModel> lookupList = sqlH.getLupGPSLists(groupCode, subGroupCode,
+                        attList.get(i).getAttributeCode());
+
                 if (lookupList.size() > 0) {
 
                     for (int lookupCount = 0; lookupCount < lookupList.size(); lookupCount++) {
@@ -749,12 +753,14 @@ public class PointAttributes extends BaseActivity {
                         final RadioButton rbtn = new RadioButton(this);
                         rbtn.setText(lookupList.get(lookupCount).getLupValueText());
                         rbtn.setId(Integer.parseInt(lookupList.get(lookupCount).getLupValueCode()));
+
                         /**
                          * if data exit data will be restore
                          */
-                        if (sqlH.isDataExistsInGpsLocationAttributesTable(cCode, groupCode, subGroupCode, locationCode, attList.get(i).getAttributeCode())) {
-                            rbtn.setChecked(true);
+                        if (sqlH.isDataExistsInGpsLocationAttributesTable(cCode, groupCode,
+                                subGroupCode, locationCode, attList.get(i).getAttributeCode())) {
 
+                            rbtn.setChecked(true);
 
                         } else {
                             rbtn.setChecked(false);

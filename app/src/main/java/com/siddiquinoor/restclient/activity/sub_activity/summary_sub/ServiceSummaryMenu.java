@@ -134,7 +134,7 @@ public class ServiceSummaryMenu extends BaseActivity {
             intent.putExtra(KEY.SERVICE_MONTH_CODE, idOpMonthCode);
             intent.putExtra(KEY.SERVICE_MONTH_NAME, strSrvMonth);
         } else if (rbItemSummary.isChecked()) {
-            intent = new Intent(mContext, SummaryServiceOrDistributionItemize.class);
+            intent = new Intent(mContext, SrvOrDistItemize.class);
             intent.putExtra(KEY.DIR_CLASS_NAME_KEY, "ServiceSummaryMenu");
             intent.putExtra(KEY.FLAG, flag);
             intent.putExtra(KEY.COUNTRY_ID, idCountry);
@@ -158,7 +158,7 @@ public class ServiceSummaryMenu extends BaseActivity {
             intent.putExtra(KEY.SERVICE_MONTH_CODE, idOpMonthCode);
             intent.putExtra(KEY.SERVICE_MONTH_NAME, strSrvMonth);
         } else if (rbItemAttendance.isChecked()) {
-            intent = new Intent(mContext, SummaryServiceOrDistributionItemizeAttendance.class);
+            intent = new Intent(mContext, SrvOrDistItemizeAttendance.class);
             intent.putExtra(KEY.DIR_CLASS_NAME_KEY, "ServiceSummaryMenu");
             intent.putExtra(KEY.FLAG, flag);
             intent.putExtra(KEY.COUNTRY_ID, idCountry);
@@ -255,10 +255,10 @@ public class ServiceSummaryMenu extends BaseActivity {
     private void loadProgram(final String idAward, final String donorId, final String idcCode) {
 
         int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_AWARD_CODE_COL + "='" + idAward + "'"
-                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorId + "'";
+        String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_AWARD_CODE_COL + "='" + idAward + "'"
+                + " AND " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorId + "'";
         // Spinner Drop down elements for District
-        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.COUNTRY_PROGRAM_TABLE, criteria, null, false);
+        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE, criteria, null, false);
 
         // Creating adapter for spinner
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listProgram);

@@ -48,9 +48,10 @@ import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.ScaleBarOverlay;
+import org.osmdroid.views.overlay.compass.CompassOverlay;
+import org.osmdroid.views.overlay.compass.InternalCompassOrientationProvider;
 import org.osmdroid.views.overlay.infowindow.InfoWindow;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
-import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 
 import java.text.ParseException;
@@ -90,14 +91,13 @@ public class MapActivity extends BaseActivity {
     private String idCountry;
     private boolean locationSelected = false;
 
-    private ImageButton ibtnSetAttributes, ibtnSetNearBy;
+    private ImageButton iBtnSetAttributes,                                                          // set Attributes button
+            iBtnSetNearBy,                                                                          // near by button
+            iBtnRefresh;                                                                            // refresh map
     private Context mContext;
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    // private GoogleApiClient client;
+    private CompassOverlay mCompassOverlay;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,6 +128,7 @@ public class MapActivity extends BaseActivity {
 
         setAttributes();
         saveCoordinate();
+        refreshMap();
 
         mLManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -150,8 +151,31 @@ public class MapActivity extends BaseActivity {
 
     }// end of onCreate
 
+    private void refreshMap() {
+        iBtnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String crood_X = tvLat.getText().toString();
+                String crood_Y = tvLong.getText().toString();
+
+                if (crood_X != null && crood_Y != null && crood_X.length() > 0 &&
+                        crood_Y.length() > 0){
+
+                    refreshMap();
+                    double latitude = Double.valueOf(crood_X);
+                    double longitude = Double.valueOf(crood_Y);
+
+
+                    refreshMapView(new GeoPoint(latitude, longitude));
+                }
+
+
+            }
+        });
+    }
+
     private void setNearByListener() {
-        ibtnSetNearBy.setOnClickListener(new View.OnClickListener() {
+        iBtnSetNearBy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -237,7 +261,7 @@ public class MapActivity extends BaseActivity {
      * to  click necessary action(Image need all code) button s
      */
     private void setAttributes() {
-        ibtnSetAttributes.setOnClickListener(new View.OnClickListener() {
+        iBtnSetAttributes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (idLocation != null) {
@@ -473,6 +497,9 @@ public class MapActivity extends BaseActivity {
 
                     refreshMapView(new GeoPoint(latitude, longitude));                              // refresh the map
 
+                    removeMarker();
+
+
                     setMarker(gpsData.getLocationName(), latitude, longitude);                      // set a mark on the map view
 
 
@@ -503,6 +530,14 @@ public class MapActivity extends BaseActivity {
             dialog.showErrorDialog(MapActivity.this, "Select Location");
         }
 
+    }
+
+    /**
+     * remove the old marker
+     */
+    private void removeMarker() {
+        mMapView.getOverlays().clear();
+        mMapView.invalidate();
     }
 
     /**
@@ -578,8 +613,9 @@ public class MapActivity extends BaseActivity {
         tvGroupName = (TextView) findViewById(R.id.tv_GroupName);
         tvSubGroupName = (TextView) findViewById(R.id.tv_SubGroupName);
         spLocation = (Spinner) findViewById(R.id.spMap_location);
-        ibtnSetAttributes = (ImageButton) findViewById(R.id.ibtn_setAttributes);
-        ibtnSetNearBy = (ImageButton) findViewById(R.id.ibtn_setNearby);
+        iBtnSetAttributes = (ImageButton) findViewById(R.id.ibtn_setAttributes);
+        iBtnRefresh = (ImageButton) findViewById(R.id.ibtn_refresh);
+        iBtnSetNearBy = (ImageButton) findViewById(R.id.ibtn_setNearby);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -648,14 +684,10 @@ public class MapActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         Log.d(TAG, "in onResume method");
-        Log.d(TAG, "id Country : id " + idCountry);
 
-        //   if (ContextCompat..c.checkSelfPermission(MapActivity.this, Manifest.permission.WRITE_CALENDAR))
         mLManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mLocationListener);
-//        mLManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, mLocationListener);
-
-
     }
 
     private LocationListener mLocationListener = new LocationListener() {
@@ -721,6 +753,13 @@ public class MapActivity extends BaseActivity {
         mapViewController.setCenter(geoPoint);
         mapViewController.setZoom(zoomLevel);
         InfoWindow.closeAllInfoWindowsOn(mMapView);
+        addCompassOverlay();
+    }
+
+    private void addCompassOverlay() {
+        this.mCompassOverlay = new CompassOverlay(context, new InternalCompassOrientationProvider(context), mMapView);
+        this.mCompassOverlay.enableCompass();
+        mMapView.getOverlays().add(this.mCompassOverlay);
     }
 
     private boolean isLongPress = false;
@@ -854,16 +893,21 @@ public class MapActivity extends BaseActivity {
     }
 
 
-    private void setLocationCoordinates(final String locationName, final String cCode, final String groupCode, final String subGroupCode, final String locationCode) {
+    private void setLocationCoordinates(final String locationName, final String cCode,
+                                        final String groupCode, final String subGroupCode,
+                                        final String locationCode) {
 
         GPSLocationLatLong data = sqlH.getLocationSpecificLatLong(cCode, groupCode, subGroupCode, locationCode);
-/**
- * if data exits in data base
- */
+        /**
+         * if data exits in data base
+         */
 
-        if (data.getLatitude() != null && data.getLongitude() != null && data.getLatitude().length() > 1 && data.getLongitude().length() > 1) {
-            if (!data.getLatitude().equals("null") && !data.getLongitude().equals("null"))
-                setMarker(locationName, Double.valueOf(data.getLatitude()), Double.valueOf(data.getLongitude()));
+        if (data.getLatitude() != null && data.getLongitude() != null
+                && data.getLatitude().length() > 1 && data.getLongitude().length() > 1) {
+
+//            if (!data.getLatitude().equals("null") && !data.getLongitude().equals("null"))
+//                setMarker(locationName, Double.valueOf(data.getLatitude()),
+//                        Double.valueOf(data.getLongitude()));
 
             tv_exitLat.setText(data.getLatitude());
             tv_exitLong.setText(data.getLongitude());
@@ -871,6 +915,9 @@ public class MapActivity extends BaseActivity {
              * center of the location
              * */
             if (!data.getLatitude().equals("null") && !data.getLongitude().equals("null")) {
+
+                setMarker(locationName, Double.valueOf(data.getLatitude()),
+                        Double.valueOf(data.getLongitude()));
 
                 GeoPoint center = new GeoPoint(Double.valueOf(data.getLatitude()),
                         Double.valueOf(data.getLongitude()));
@@ -925,6 +972,8 @@ public class MapActivity extends BaseActivity {
                     locationSelected = true;
                     tvGroupName.setText(groupName);
                     tvSubGroupName.setText(subGroupName);
+
+
                     setLocationCoordinates(strLocation, cCode, gpsData.getGroupCode(), gpsData.getSubGroupCode(), idLocation);
                 } else {
                     locationSelected = false;

@@ -525,7 +525,7 @@ public class Parser extends Parse {
                 DistStatus = service.getString(DIST_STATUS);
                 DistDT = service.getString(DIST_DT);
                 fdpCode = service.getString(FDP_CODE);
-//                GrpCode = service.getString("GrpCode");
+
                 WD = service.getString("WD");
                 DistFlag = service.getString("DistFlag");
 
@@ -555,16 +555,11 @@ public class Parser extends Parse {
             int size;
 
 
-            String AdmCountryCode, AdmDonorCode, AdmAwardCode, LayR1ListCode, LayR2ListCode, LayR3ListCode, LayR4ListCode, hhID, MemID, ProgCode, SrvCode, OpCode, OpMonthCode, VOItmSpec, VOItmUnit, VORefNumber, VOItmCost;
+            String AdmCountryCode, AdmDonorCode, AdmAwardCode, LayR1ListCode, LayR2ListCode,
+                    LayR3ListCode, LayR4ListCode, hhID, MemID, ProgCode, SrvCode, OpCode,
+                    OpMonthCode, VOItmSpec, VOItmUnit, VORefNumber, VOItmCost, DistFlag;
 
-            /**
-             * The total string Convert into JSON object
-             * */
 
-//            JSONObject jObj = new JSONObject(jsonString);
-
-     /*       if (!jObj.isNull("service_exe_table")) {// this is not servie
-                JSONArray services_exe_table = jObj.getJSONArray("service_exe_table");*/
             size = jsonArray.length();
             for (int i = 0; i < size; i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -586,11 +581,13 @@ public class Parser extends Parse {
                 VOItmUnit = jsonObject.getString(VO_ITM_UNIT);
                 VORefNumber = jsonObject.getString(VO_REF_NUMBER);
                 VOItmCost = jsonObject.getString(VO_ITM_COST);
-// todo : add dist flag
+                DistFlag = jsonObject.getString("DistFlag");
 
-                sqlH.addServiceExtendedFromOnline(AdmCountryCode, AdmDonorCode, AdmAwardCode, LayR1ListCode, LayR2ListCode, LayR3ListCode,
-                        LayR4ListCode, hhID, MemID, ProgCode, SrvCode, OpCode, OpMonthCode,
-                        VOItmSpec, VOItmUnit, VORefNumber, VOItmCost, "1");
+
+                sqlH.addServiceExtendedFromOnline(AdmCountryCode, AdmDonorCode, AdmAwardCode,
+                        LayR1ListCode, LayR2ListCode, LayR3ListCode, LayR4ListCode, hhID, MemID,
+                        ProgCode, SrvCode, OpCode, OpMonthCode, VOItmSpec, VOItmUnit, VORefNumber,
+                        VOItmCost,DistFlag, "1");
 
 
              /*   Log.d(TAG, "In Service Extendtion - AdmCountryCode :" + AdmCountryCode + " AdmDonorCode : "                        + AdmDonorCode + " AdmAwardCode : " + AdmAwardCode + " LayR1ListCode : "                        + LayR1ListCode + " LayR2ListCode : " + LayR2ListCode + " LayR3ListCode : "                        + LayR3ListCode + " LayR4ListCode : " + LayR4ListCode + " hhID : " + hhID
@@ -931,7 +928,7 @@ public class Parser extends Parse {
                 // Adding data into Registration Table
                 size = members.length();
 
-                Log.d(TAG,"RegNHHMem :" +size);
+                Log.d(TAG, "RegNHHMem :" + size);
 
                 for (int i = 0; i < size; i++) {
 
@@ -994,7 +991,7 @@ public class Parser extends Parse {
                     GrpCode = member.getString(GRP_CODE);
 
 
-                   memTypeFlag = member.getString(MEM_TYPE_FLAG);
+                    memTypeFlag = member.getString(MEM_TYPE_FLAG);
 
 
                     sqlH.addMemberData(AdmCountryCode, DistrictName, UpazillaName, UnitName, VillageName, hhID, HHMemID,

@@ -650,7 +650,7 @@ public class Schema {
     }
 
     public static String sqlCreateADM_CountryProgram() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.COUNTRY_PROGRAM_TABLE + " ( "
+        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + " ( "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(5)"
                 + " , " + ADM_DONOR_CODE_COL + " VARCHAR(5)"
                 + " , " + ADM_AWARD_CODE_COL + " VARCHAR(5)"
@@ -730,7 +730,7 @@ public class Schema {
     /**
      * added by Faisal Mohammad
      * create GPS_GROUP_TABLE table
-     * <p>
+     * <p/>
      * remarks-
      */
     public static String sqlCreateGpsGroupTable() {
@@ -744,7 +744,7 @@ public class Schema {
     /**
      * added by Faisal Mohammad
      * create Registration Assign Program Srv table
-     * <p>
+     * <p/>
      * remarks-
      */
     public static String sqlCreateRegNAssignPrgSrvTable() {
@@ -919,7 +919,7 @@ public class Schema {
                 + RELY_PICE_EORK_COL + " VARCHAR(2) "//+","
 
 //                + SYNC_COL + " BOOLEAN DEFAULT 0" +
-                +" )";
+                + " )";
     }
 
     /**
@@ -1062,9 +1062,7 @@ public class Schema {
 
     public static String sqlCreateServiceExtended_Table() {
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.SERVICE_EXTENDED_TABLE + " ("
-
-                + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+        return CREATE_TABLE_IF_NOT_EXISTS + SERVICE_EXTENDED_TABLE + " ("
 
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4), "
                 + ADM_DONOR_CODE_COL + " VARCHAR(2), "
@@ -1077,17 +1075,25 @@ public class Schema {
                 + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " VARCHAR(2), "
                 + PROG_CODE_COL + " VARCHAR(3), "
                 + SRV_CODE_COL + " VARCHAR(2), "
+                + DIST_FLAG_COL + " VARCHAR(100), "
                 + OPERATION_CODE_COL + " VARCHAR(1), "
                 + OP_MONTH_CODE_COL + " VARCHAR(2), "
-
                 + VOUCHER_ITEM_SPEC_COL + " VARCHAR(15), "
+
                 + VOUCHER_UNIT_COL + " VARCHAR(25), "
                 + VOUCHER_REFERENCE_NUMBER_COL + " VARCHAR(18), "
                 + VOUCHER_ITEM_COST_COL + " VARCHAR(5), "
-                + DIST_FLAG_COL + " VARCHAR(100), "
+
                 + ENTRY_BY + " VARCHAR(5), "
-                + ENTRY_DATE + " VARCHAR(20), "
-                + SYNC_COL + " VARCHAR(5) DEFAULT '0' "
+                + ENTRY_DATE + " VARCHAR(20) "
+                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + ADM_DONOR_CODE_COL
+                + " , " + ADM_AWARD_CODE_COL +" "
+                + " , " + LAY_R1_LIST_CODE_COL + " , " + LAY_R2_LIST_CODE_COL + " "
+                + " , " + LAY_R3_LIST_CODE_COL + " , " + LAY_R4_LIST_CODE_COL + " "
+                + " , " + HHID_COL + " , " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " "
+                + " , " + PROG_CODE_COL + " , " + SRV_CODE_COL + " "
+                + " , " + DIST_FLAG_COL + " , " + OPERATION_CODE_COL + " "
+                + ", " + OP_MONTH_CODE_COL + " , " + VOUCHER_ITEM_SPEC_COL + " )"
                 + " )";
 
 
@@ -1265,10 +1271,10 @@ public class Schema {
 
 
                 + GROUP_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.SUB_GROUP_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.ATTRIBUTE_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.LUP_GPS_TABLE_LOOK_UP_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.GPS_SUB_GROUP_ATTRIBUTES_TABLE_LOOK_UP_NAME_COL + " VARCHAR(4) "
+                + " , " + SUB_GROUP_CODE_COL + " VARCHAR(4) "
+                + " , " + ATTRIBUTE_CODE_COL + " VARCHAR(4) "
+                + " , " + LUP_GPS_TABLE_LOOK_UP_CODE_COL + " VARCHAR(4) "
+                + " , " + GPS_SUB_GROUP_ATTRIBUTES_TABLE_LOOK_UP_NAME_COL + " VARCHAR(4) "
                 + " )";
 
 
@@ -1276,18 +1282,20 @@ public class Schema {
 
     public static String sqlCreateGPSLocationAttributes_Table() {
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.GPS_LOCATION_ATTRIBUTES_TABLE + " ("
+        return CREATE_TABLE_IF_NOT_EXISTS + GPS_LOCATION_ATTRIBUTES_TABLE + " ("
 
 
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "
                 + " , " + GROUP_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.SUB_GROUP_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.LOCATION_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.ATTRIBUTE_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.ATTRIBUTE_VALUE_COL + " VARCHAR(100) "
-                + " , " + SQLiteHandler.ATTRIBUTE_PHOTO_COL + " TEXT "
+                + " , " + SUB_GROUP_CODE_COL + " VARCHAR(4) "
+                + " , " + LOCATION_CODE_COL + " VARCHAR(4) "
+                + " , " + ATTRIBUTE_CODE_COL + " VARCHAR(4) "
+                + " , " + ATTRIBUTE_VALUE_COL + " VARCHAR(100) "
+                + " , " + ATTRIBUTE_PHOTO_COL + " TEXT "
                 + " , " + ENTRY_BY + " VARCHAR(4) "
                 + " , " + ENTRY_DATE + " VARCHAR(20) "
+                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + " , " + GROUP_CODE_COL + " , "
+                + SUB_GROUP_CODE_COL + " , " + LOCATION_CODE_COL + " , " + ATTRIBUTE_CODE_COL + " ) "
                 + " )";
 
 
@@ -1295,20 +1303,20 @@ public class Schema {
 
     // Creating LUP_SrvOptionList Schema
     public static String sqlCreateLUP_GpsList() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.LUP_GPS_LIST_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + LUP_GPS_LIST_TABLE + "("
 
                 + GROUP_CODE_COL + " VARCHAR(5)  , "
-                + SQLiteHandler.SUB_GROUP_CODE_COL + " VARCHAR(4), "
-                + SQLiteHandler.ATTRIBUTE_CODE_COL + " VARCHAR(4), "
-                + SQLiteHandler.LUP_VALUE_CODE_COL + " VARCHAR(4), "
-                + SQLiteHandler.LUP_VALUE_TEXT_COL + " VARCHAR(100) "
+                + SUB_GROUP_CODE_COL + " VARCHAR(4), "
+                + ATTRIBUTE_CODE_COL + " VARCHAR(4), "
+                + LUP_VALUE_CODE_COL + " VARCHAR(4), "
+                + LUP_VALUE_TEXT_COL + " VARCHAR(100) "
                 + " )";
     }
 
 
     public static String sqlCreateServiceSpecification_Table() {
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.SERVICE_SPECIFIC_TABLE + " ("
+        return CREATE_TABLE_IF_NOT_EXISTS + SERVICE_SPECIFIC_TABLE + " ("
 
 
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "

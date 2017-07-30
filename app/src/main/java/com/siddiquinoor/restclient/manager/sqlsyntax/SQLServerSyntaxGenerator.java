@@ -3221,6 +3221,24 @@ public class SQLServerSyntaxGenerator {
                 " )";
     }
 
+    public String distMemAttend_sp() {
+        return " DistMemAtn_Save "
+                + getAdmCountryCode()
+                + " , " + getAdmDonorCode()
+                + " , " + getAdmAwardCode()
+                + " , " + getLayR1ListCode()
+                + " , " + getLayR2ListCode()
+                + " , " + getLayR3ListCode()
+                + " , " + getLayR4ListCode()
+                + " , " + getProgCode()
+                + " , " + getID()
+                + " , " + getDistFlag()
+                + " , " + getEntryBy()
+                + " , " + getEntryDate();
+
+
+    }
+
     String ElderlyYN;
     String LandSize;
     String DependOnGanyu;
@@ -3758,16 +3776,29 @@ public class SQLServerSyntaxGenerator {
     }
 
     public String insertIntoGPSLocationAttributesTable() {
-        return " INSERT INTO [dbo].[GPSLocationAttributes] " +
-                "            ([AdmCountryCode] " +
-                "            ,[GrpCode] " +
-                "            ,[SubGrpCode] " +
-                "            ,[LocationCode] " +
-                "            ,[AttributeCode] " +
-                "            ,[AttributeValue] " +
-                "            ,[AttPhoto] " +
-                "            ,[EntryBy] " +
-                "            ,[EntryDate]) " +
+
+        return " UPDATE GPSLocationAttributes SET "
+                + "        [AttributeValue]= " + getAttributeValue()
+                + " ,[EntryBy] = " + getEntryBy()
+                + " ,[EntryDate] = " + getEntryDate()
+                + " ,[AttPhoto] = " + getAttPhoto()
+                + " WHERE[AdmCountryCode] = " + getAdmCountryCode()
+                + " AND[GrpCode] = " + getGrpCode()
+                + " AND[SubGrpCode] = " + getSubGrpCode()
+                + " AND[LocationCode] = " + getLocationCode()
+                + " AND[AttributeCode] = " + getAttributeCode()
+                + " IF @@ROWCOUNT=0 " +
+
+                " INSERT INTO [dbo].[GPSLocationAttributes] " +
+                "  ([AdmCountryCode] " +
+                "  ,[GrpCode] " +
+                "  ,[SubGrpCode] " +
+                "  ,[LocationCode] " +
+                "  ,[AttributeCode] " +
+                "  ,[AttributeValue] " +
+                "  ,[AttPhoto] " +
+                "  ,[EntryBy] " +
+                "  ,[EntryDate]) " +
                 "    VALUES " +
                 "            ( " + getAdmCountryCode() +
                 "            , " + getGrpCode() +

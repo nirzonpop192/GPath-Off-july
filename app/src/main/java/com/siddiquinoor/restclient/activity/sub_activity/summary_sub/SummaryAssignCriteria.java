@@ -165,7 +165,7 @@ public class SummaryAssignCriteria extends BaseActivity implements AdapterView.O
 
         int position = 0;
 
-        String criteria = " WHERE " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "= '" + idCountry + "'";
+        String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "= '" + idCountry + "'";
         // Spinner Drop down elements for District
         List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.ASSIGN_SUMMARY_PROGRAM_DETAILS, criteria, null, false);
 

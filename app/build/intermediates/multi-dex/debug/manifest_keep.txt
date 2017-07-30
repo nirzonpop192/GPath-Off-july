@@ -38,8 +38,8 @@
 -keep class com.siddiquinoor.restclient.activity.sub_activity.dist_sub.DistrubutionVoucherActivity { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.ServiceSummaryMenu { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.DistributionSummaryMenu { <init>(); }
--keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemize { <init>(); }
--keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemizeAttendance { <init>(); }
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SrvOrDistItemize { <init>(); }
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SrvOrDistItemizeAttendance { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceSpecification { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.gps_sub.PointAttributes { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.GPSLocationSearchPage { <init>(); }

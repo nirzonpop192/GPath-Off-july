@@ -3213,7 +3213,7 @@ ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:279:9-283:
 		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:281:13-48
 	android:name
 		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:280:13-86
-activity#com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemize
+activity#com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SrvOrDistItemize
 ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:285:9-289:70
 	android:screenOrientation
 		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:288:13-49
@@ -3222,8 +3222,8 @@ ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:285:9-289:
 	android:configChanges
 		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:287:13-48
 	android:name
-		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:286:13-98
-activity#com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemizeAttendance
+		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:286:13-79
+activity#com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SrvOrDistItemizeAttendance
 ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:290:9-294:70
 	android:screenOrientation
 		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:293:13-49
@@ -3232,7 +3232,7 @@ ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:290:9-294:
 	android:configChanges
 		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:292:13-48
 	android:name
-		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:291:13-108
+		ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:291:13-89
 activity#com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceSpecification
 ADDED from D:\Android\GPath-Off-july\app\src\main\AndroidManifest.xml:295:9-301:67
 	android:screenOrientation

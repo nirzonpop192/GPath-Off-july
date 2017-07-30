@@ -54,19 +54,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.ADM_COUNTRY_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.FDP_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.FDP_MASTER_COUNTRY_CODE;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.FDP_MASTER_LAY_R1_LIST_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.FDP_MASTER_LAY_R2_LIST_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.FDP_MASTER_TABLE;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.LAY_R1_LIST_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.LAY_R2_LIST_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.SELECTED_FDP_TABLE;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.STAFF_FDP_ACCESS_COUNTRY_CODE;
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.STAFF_FDP_ACCESS_TABLE;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.GEO_LAY_R2_LIST_TABLE;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.LAY_R2_LIST_NAME_COL;
 
 public class DistributionActivity extends BaseActivity {
     private static final int ONCE = 1;
@@ -327,7 +315,6 @@ public class DistributionActivity extends BaseActivity {
     }
 
 
-
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
 
     private void setUpSummaryButton() {
@@ -456,13 +443,14 @@ public class DistributionActivity extends BaseActivity {
         }
 
         // Spinner Drop down elements for District
-        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.COUNTRY_PROGRAM_TABLE, criteria, null, false);
+        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.ADM_COUNTRY_PROGRAM_TABLE,
+                criteria, null, false);
 
-        // Creating adapter for spinner
+
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listProgram);
-        // Drop down layout style
+
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        // attaching data adapter to spinner
+
         spProgram.setAdapter(dataAdapter);
 
 
@@ -535,7 +523,8 @@ public class DistributionActivity extends BaseActivity {
                 if (Integer.parseInt(idFDP) > 0) {
 
                     // for loading time
-                    LoadingList ld = new LoadingList(idCountry, idDonor, idAward, idProgram, idServiceMonth, idFDP, idDisMonth, "");
+                    LoadingList ld = new LoadingList(idCountry, idDonor, idAward, idProgram,
+                            idServiceMonth, idFDP, idDisMonth, "");
                     ld.execute();
 
                     /**         For test*/
@@ -718,31 +707,11 @@ public class DistributionActivity extends BaseActivity {
 
     private void loadLayR2List(String cCode) {
         int position = 0;
-        String criteria =
-                " Select DISTINCT  " + GEO_LAY_R2_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL + " || " + GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL + " AS code "
-                        + " , " + GEO_LAY_R2_LIST_TABLE + " ." + LAY_R2_LIST_NAME_COL + " AS Name "
-                        + " FROM  " + STAFF_FDP_ACCESS_TABLE
-                        + "  INNER JOIN         " + FDP_MASTER_TABLE
-                        + "   ON         " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = " + FDP_MASTER_TABLE + "." + ADM_COUNTRY_CODE_COL
-                        + "   AND         " + STAFF_FDP_ACCESS_TABLE + "." + FDP_CODE_COL + " = " + FDP_MASTER_TABLE + "." + FDP_CODE_COL
-                        + "   INNER JOIN    " + GEO_LAY_R2_LIST_TABLE
-                        + "   ON    " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = " + GEO_LAY_R2_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
-                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_COUNTRY_CODE + " = " + GEO_LAY_R2_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL
-                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_LAY_R1_LIST_CODE_COL + " = " + GEO_LAY_R2_LIST_TABLE + "." + LAY_R1_LIST_CODE_COL
-                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_LAY_R2_LIST_CODE_COL + " = " + GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL
-
-                        + " INNER JOIN " + SELECTED_FDP_TABLE + " ON "
-                        + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = " + SELECTED_FDP_TABLE + "." + ADM_COUNTRY_CODE_COL
-                        + " AND " + STAFF_FDP_ACCESS_TABLE + "." + FDP_CODE_COL + " = " + SELECTED_FDP_TABLE + "." + FDP_CODE_COL +
-
-                        " WHERE " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = '" + idCountry + "'"
-                        + " AND " + STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.STAFF_CODE + " = '" + getStaffID() + "'"
-                        + " AND " + STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.BTN_NEW_COL + " = '1'"
-                        + " ORDER BY  " + GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL;
+        String criteria = SQLiteQuery.loadLayR2List_sql(idCountry, getStaffID());
 
 
-        List<SpinnerHelper> listUpazilla = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, cCode, false);
-        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listUpazilla);
+        List<SpinnerHelper> listlayr2 = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, cCode, false);
+        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listlayr2);
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
         spUpazilla.setAdapter(dataAdapter);
 
@@ -790,7 +759,9 @@ public class DistributionActivity extends BaseActivity {
 
         private String country, donor, award, program, serviceMonth, fDP, disMonth, memSearch;
 
-        public LoadingList(String country, String donor, String award, String program, String serviceMonth, String fDP, String disMonth, String memSearch) {
+        public LoadingList(String country, String donor, String award, String program,
+                           String serviceMonth, String fDP, String disMonth, String memSearch) {
+
             this.country = country;
             this.donor = donor;
             this.award = award;
@@ -805,7 +776,8 @@ public class DistributionActivity extends BaseActivity {
         protected String doInBackground(Void... params) {
 
 
-            loadDistributionListView(country, donor, award, program, serviceMonth, fDP, disMonth, memSearch);
+            loadDistributionListView(country, donor, award, program, serviceMonth, fDP, disMonth,
+                    memSearch);
 
             return "success";
 
@@ -880,8 +852,7 @@ public class DistributionActivity extends BaseActivity {
     }
 
     /**
-     *  this is only for test to load grid
-
+     * this is only for test to load grid
      */
     public void testLoadDistributionListView(String cCode, String donorCode, String awardCode, String progCode, String srvOpMCode, String fdpCode, String distOpMCode, String mem) {
 
@@ -948,30 +919,7 @@ public class DistributionActivity extends BaseActivity {
                             distDataP.setSrvOpMonthCode(idServiceMonth);
                             distDataP.setDistFlag(idDistributionType);
 
-                            long id = sqlH.addInDistributionTable(distDataP);
-
-
-                            /** upload syntax*/
-                            SQLServerSyntaxGenerator distributedData = new SQLServerSyntaxGenerator();
-                            distributedData.setAdmCountryCode(distDataP.getCountryCode());
-                            distributedData.setAdmDonorCode(distDataP.getAdmDonorCode());
-                            distributedData.setAdmAwardCode(distDataP.getAdmAwardCode());
-                            distributedData.setLayR1ListCode(distDataP.getDistrictCode());
-                            distributedData.setLayR2ListCode(distDataP.getUpCode());
-                            distributedData.setLayR3ListCode(distDataP.getUniteCode());
-                            distributedData.setLayR4ListCode(distDataP.getVillageCode());
-                            distributedData.setProgCode(distDataP.getProgCode());
-                            distributedData.setSrvCode(distDataP.getSrvCode());
-                            distributedData.setOpMonthCode(distDataP.getOpMonthCode());
-                            distributedData.setFDPCode(distDataP.getFDPCode());
-                            distributedData.setID(distDataP.getID());
-                            distributedData.setDistStatus(distDataP.getDistStatus());
-                            distributedData.setSrvOpMonthCode(distDataP.getSrvOpMonthCode());
-                            distributedData.setDistFlag(distDataP.getDistFlag());
-                            distributedData.setWD(distDataP.getWd());
-                            distributedData.setEntryBy(EntryBy);
-                            distributedData.setEntryDate(EntryDate);
-                            sqlH.insertIntoUploadTable(distributedData.insertIntoDistributionTable());
+                            long id = sqlH.addInDistributionTable(distDataP, false);
 
 
                             count++;
@@ -981,7 +929,8 @@ public class DistributionActivity extends BaseActivity {
                     Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_LONG).show();
 
 
-                    LoadingList ld = new LoadingList(idCountry, idDonor, idAward, idProgram, idServiceMonth, idFDP, idDisMonth, "");
+                    LoadingList ld = new LoadingList(idCountry, idDonor, idAward, idProgram,
+                            idServiceMonth, idFDP, idDisMonth, "");
                     ld.execute();
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -991,10 +940,10 @@ public class DistributionActivity extends BaseActivity {
             }
             Log.d(TAG, "Count all  : " + count);
             //}
-        }// end of else
+        }                                                                                           // end of else
 
 
-    }// end of save method
+    }                                                                                               // end of save method
 
 
     private DistributionSaveDataModel convertGridDataIntoSaveDataModel(DistributionGridDataModel gridData) {
@@ -1268,18 +1217,18 @@ public class DistributionActivity extends BaseActivity {
                                         dsM.setOpMonthCode(disPeople.getDistOpMonthCode());
                                         /***  delete for of line  */
 
-
-                                        Log.d("NIR", " for  Distribution Delete data :" +
-                                                " dsM.getCountryCode() :" + dsM.getCountryCode() +
-                                                " dsM.getAdmAwardCode() :" + dsM.getAdmAwardCode() +
-                                                " dsM.getAdmDonorCode() ;" + dsM.getAdmDonorCode() +
-                                                " dsM.getDistrictCode() ;" + dsM.getDistrictCode() +
-                                                " dsM.getUpCode() :" + dsM.getUpCode() +
-                                                " dsM.getUniteCode() :" + dsM.getUniteCode() +
-                                                " dsM.getVillageCode() :" + dsM.getVillageCode() +
-                                                " dsM.getProgCode() :" + dsM.getProgCode() +
-                                                " dsM.getSrvCode() :" + dsM.getSrvCode() +
-                                                " dsM.disPeople.setnMId() :" + disPeople.getnMId());
+//
+//                                        Log.d("NIR", " for  Distribution Delete data :" +
+//                                                " dsM.getCountryCode() :" + dsM.getCountryCode() +
+//                                                " dsM.getAdmAwardCode() :" + dsM.getAdmAwardCode() +
+//                                                " dsM.getAdmDonorCode() ;" + dsM.getAdmDonorCode() +
+//                                                " dsM.getDistrictCode() ;" + dsM.getDistrictCode() +
+//                                                " dsM.getUpCode() :" + dsM.getUpCode() +
+//                                                " dsM.getUniteCode() :" + dsM.getUniteCode() +
+//                                                " dsM.getVillageCode() :" + dsM.getVillageCode() +
+//                                                " dsM.getProgCode() :" + dsM.getProgCode() +
+//                                                " dsM.getSrvCode() :" + dsM.getSrvCode() +
+//                                                " dsM.disPeople.setnMId() :" + disPeople.getnMId());
 
                                         sqH.deleteDistribution(dsM);
 

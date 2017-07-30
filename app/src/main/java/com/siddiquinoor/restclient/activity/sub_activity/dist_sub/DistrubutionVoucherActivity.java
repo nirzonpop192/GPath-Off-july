@@ -1,9 +1,12 @@
 package com.siddiquinoor.restclient.activity.sub_activity.dist_sub;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -98,15 +101,12 @@ public class DistrubutionVoucherActivity extends BaseActivity {
         distDataP.setDistFlag(distData.getDistFlag());
 
 
-        /** to chek service value */
-        testLogDebug();
+
 
         tv_MemberId.setText(distData.getRpt_id());
         tv_MemberName.setText(distData.getRpt_name());
 
-        if (sqlH.isDataExitedDistExtendedTable(distData.getC_code(), distData.getDistrictCode(), distData.getUpazillaCode(), distData.getUnitCode(),
-                distData.getVillageCode(), distData.getRpt_id(), distData.getDonorCode()
-                , distData.getAwardCode(), distData.getProgram_code(), distData.getService_code(), distData.getDistOpMonthCode(), distData.getFdpCode())) {
+        if (sqlH.isDataExitedDistExtendedTable(distData)) {
 
             String vioRefetNumber = sqlH.getVoucherRefNoFromDistExted(distData.getC_code(), distData.getDistrictCode(), distData.getUpazillaCode(), distData.getUnitCode(),
                     distData.getVillageCode(), distData.getRpt_id(), distData.getDonorCode()
@@ -118,7 +118,7 @@ public class DistrubutionVoucherActivity extends BaseActivity {
 
 
         loadDistExtVoucherListView(distData.getC_code(), distData.getDistrictCode(), distData.getUpazillaCode(), distData.getUnitCode()
-                , distData.getVillageCode(), distData.getRpt_id(), distData.getDonorCode(), distData.getAwardCode(), distData.getProgram_code(), distData.getService_code(), distData.getSrvMonthCode(), distData.getFdpCode());
+                , distData.getVillageCode(), distData.getRpt_id(), distData.getDonorCode(), distData.getAwardCode(), distData.getProgram_code(), distData.getService_code(), distData.getDistOpMonthCode(), distData.getFdpCode());
 
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -140,20 +140,20 @@ public class DistrubutionVoucherActivity extends BaseActivity {
                 iDistActivity.putExtra(KEY.AWARD_CODE, distData.getAwardCode());
                 iDistActivity.putExtra(KEY.AWARD_NAME, distData.getTempAwardString());
                 iDistActivity.putExtra(KEY.DONOR_CODE, distData.getDonorCode());
-                iDistActivity.putExtra(KEY.PROGRAM_CODE,distData.getProgram_code());
-                iDistActivity.putExtra(KEY.PROGRAM_NAME,distData.getTempProgString());
-                iDistActivity.putExtra(KEY.DISTRIBUTION_TYPE_CODE,distData.getTempDistTypeId());
-                iDistActivity.putExtra(KEY.DISTRIBUTION_TYPE_NAME,distData.getTempDistTypeString());
-                iDistActivity.putExtra(KEY.SERVICE_MONTH_CODE,distData.getSrvMonthCode());
-                iDistActivity.putExtra(KEY.SERVICE_MONTH_NAME,distData.getTempsrvMonthName());
-                iDistActivity.putExtra(KEY.DISTRIBUTION_MONTH_CODE,distData.getDistOpMonthCode());
-                iDistActivity.putExtra(KEY.DISTRIBUTION_MONTH_NAME,distData.getTempDistMonthName());
+                iDistActivity.putExtra(KEY.PROGRAM_CODE, distData.getProgram_code());
+                iDistActivity.putExtra(KEY.PROGRAM_NAME, distData.getTempProgString());
+                iDistActivity.putExtra(KEY.DISTRIBUTION_TYPE_CODE, distData.getTempDistTypeId());
+                iDistActivity.putExtra(KEY.DISTRIBUTION_TYPE_NAME, distData.getTempDistTypeString());
+                iDistActivity.putExtra(KEY.SERVICE_MONTH_CODE, distData.getSrvMonthCode());
+                iDistActivity.putExtra(KEY.SERVICE_MONTH_NAME, distData.getTempsrvMonthName());
+                iDistActivity.putExtra(KEY.DISTRIBUTION_MONTH_CODE, distData.getDistOpMonthCode());
+                iDistActivity.putExtra(KEY.DISTRIBUTION_MONTH_NAME, distData.getTempDistMonthName());
 
 
-                iDistActivity.putExtra(KEY.LAYER_2_CODE,distData.getUpazillaCode());// in liberia & layer2  is District  & in malawin Upzaller
-                iDistActivity.putExtra(KEY.LAYER_2_NAME,distData.getTempUpazillaName());
-                iDistActivity.putExtra(KEY.FDP_CODE,distData.getFdpCode());
-                iDistActivity.putExtra(KEY.FDP_NAME,distData.getTempFDPName());
+                iDistActivity.putExtra(KEY.LAYER_2_CODE, distData.getUpazillaCode());// in liberia & layer2  is District  & in malawin Upzaller
+                iDistActivity.putExtra(KEY.LAYER_2_NAME, distData.getTempUpazillaName());
+                iDistActivity.putExtra(KEY.FDP_CODE, distData.getFdpCode());
+                iDistActivity.putExtra(KEY.FDP_NAME, distData.getTempFDPName());
 //                iService.putExtra(KEY.SERVICE_CENTER_CODE,srvData.getServiceCenterCode());
 //                iService.putExtra(KEY.SERVICE_CENTER_CODE,srvData.getServiceCenterCode());
 //                iService.putExtra(KEY.SERVICE_CENTER_NAME,srvData.getTemServiceCenterName());
@@ -196,7 +196,7 @@ public class DistrubutionVoucherActivity extends BaseActivity {
 
             distDataP.setDistStatus("R");
 
-            long id = sqlH.addInDistributionTable(distDataP);
+            long id = sqlH.addInDistributionTable(distDataP, false);
             // todo : dclare  SQLServerSyntax object in once
             SQLServerSyntaxGenerator distributedData = new SQLServerSyntaxGenerator();
             distributedData.setAdmCountryCode(distDataP.getCountryCode());
@@ -218,7 +218,7 @@ public class DistrubutionVoucherActivity extends BaseActivity {
 
             distributedData.setEntryBy(EntryBy);
             distributedData.setEntryDate(EntryDate);
-            sqlH.insertIntoUploadTable(distributedData.insertIntoDistributionTable());
+//
 
 
             ArrayList<VouItemServiceExtDataModel> alist = new ArrayList<VouItemServiceExtDataModel>();
@@ -239,28 +239,24 @@ public class DistrubutionVoucherActivity extends BaseActivity {
 
                         VouItemServiceExtDataModel dstE = alist.get(i);
 
-                        Log.d("NIR2","edtVoItmUnitCode["+i+"]="+edtVoItmUnitCode[i]);
-
-                        /** setup SQL Server Syntax variable*/
+                        Log.d("NIR2", "edtVoItmUnitCode[" + i + "]=" + edtVoItmUnitCode[i]);
 
 
-                        if ((sqlH.isDataExitedDistExtendedTable(distData.getC_code(), distData.getDistrictCode(), distData.getUpazillaCode(), distData.getUnitCode(),
-                                distData.getVillageCode(), distData.getRpt_id(), distData.getDonorCode()
-                                , distData.getAwardCode(), distData.getProgram_code(), distData.getService_code(), distData.getDistOpMonthCode(), distData.getFdpCode())) && i == 0) {
+                        if ((sqlH.isDataExitedDistExtendedTable(distData)) && i == 0) {
 
                             sqlH.deleteFromDistExtendedTable(distData.getC_code(), distData.getDistrictCode(), distData.getUpazillaCode(), distData.getUnitCode(),
                                     distData.getVillageCode(), distData.getRpt_id(), distData.getDonorCode()
                                     , distData.getAwardCode(), distData.getProgram_code(), distData.getService_code(), distData.getDistOpMonthCode(), distData.getFdpCode());
-                            Log.d(TAG, " Delete data from DistExtend table SQLite  ");
-//
-//                            /** todo:  setup upload  delete syntax for Srv extended table*/
-//
+
+
+//                            /**   setup upload  delete syntax for Srv extended table*/
+
                             sqlH.insertIntoUploadTable(distributedData.deleteFromDistExtendedTable());
                         }
                         sqlH.addInDistributionExtendedTable(distData.getC_code(), distData.getDonorCode(), distData.getAwardCode(),
                                 distData.getDistrictCode(), distData.getUpazillaCode(), distData.getUnitCode(), distData.getVillageCode(), distData.getProgram_code(),
                                 distData.getService_code(), distData.getDistOpMonthCode(), distData.getFdpCode(), distData.getRpt_id(), voItmIDInListView[i], edtVoItmUnitCode[i],
-                                voRefNo,distData.getSrvOpMonthCode(),distData.getDistFlag(), EntryBy, EntryDate, "0");
+                                voRefNo, distData.getSrvOpMonthCode(), distData.getDistFlag(), EntryBy, EntryDate, "0");
 
                         distributedData.setvOItmUnit(edtVoItmUnitCode[i]);
                         distributedData.setvOItmSpec(voItmIDInListView[i]);
@@ -288,64 +284,65 @@ public class DistrubutionVoucherActivity extends BaseActivity {
     }
 
 
-    private void testLogDebug() {
 
-
-        Log.d("Nirzon", "Service Data"
-                + " distData.getHh_name() :" + distData.getRpt_name()
-                + " distData.getMem_name() :" + distData.getRpt_name()
-                + " distData.getC_code() :" + distData.getC_code()
-                + " distData.getDistrictCode() :" + distData.getDistrictCode()
-                + " distData.getUpazillaCode() :" + distData.getUpazillaCode()
-                + " distData.getUnitCode() :" + distData.getUnitCode()
-                + " distData.getVillageCode() :" + distData.getVillageCode()
-                + " distData.getDonorCode() :" + distData.getDonorCode()
-                + " distData.getAwardCode() :" + distData.getAwardCode()
-                + " distData.getProgram_code() :" + distData.getProgram_code()
-                + " distData.getService_code() :" + distData.getService_code()
-                + " distData.getHh_id() :" + distData.getRpt_id()
-                + " distData.getMem_id() :" + distData.getRpt_id()
-                + " distData.getSrvMonthCode() :" + distData.getSrvMonthCode()
-                + " distData.getServiceCenter() :" + distData.getServiceCenter()
-                + " distData.getServiceShortName() :" + distData.getServiceShortName()
-                + " distData.getDistOpMonthCode() :" + distData.getDistOpMonthCode()
-                + " distData.getFdpCode() :" + distData.getFdpCode()
-                + " distData.getSrvOpMonthCode() :" + distData.getSrvOpMonthCode()
-                + " distData.getDistFlag() :" + distData.getDistFlag()
-
-        );
-
-    }
 
     private void viewReference() {
 
-
         btnSave = (Button) findViewById(R.id.btnHomeFooter);
-        btnSave.setText("Save");
         btnDistributionPage = (Button) findViewById(R.id.btnRegisterFooter);
-
-        btnDistributionPage.setText("Distribution");
         lv_distExtVou = (ListView) findViewById(R.id.lv_DistExtVoucher);
         tv_MemberId = (TextView) findViewById(R.id.tv_dist_vouMemberId);
         tv_MemberName = (TextView) findViewById(R.id.tv_dist_vouMemberName);
         edt_vouReference = (EditText) findViewById(R.id.edt_dist_vio_refNumber);
     }
 
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void addIconSaveButton() {
+        btnSave.setText("");
+        Drawable drawable = getResources().getDrawable(R.drawable.save_b);
+        btnSave.setCompoundDrawablesRelativeWithIntrinsicBounds(null, drawable, null, null);
+        btnSave.setPadding(-1, 15, -1, 15);
+    }
+
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void addIconBackButton() {
+        btnDistributionPage.setText("");
+        Drawable drawable = getResources().getDrawable(R.drawable.goto_back);
+        btnDistributionPage.setCompoundDrawablesRelativeWithIntrinsicBounds(null, drawable, null, null);
+        btnDistributionPage.setPadding(-1, 15, -1, 15);
+    }
+
+    /**
+     * calling getWidth() and getHeight() too early:
+     * When  the UI has not been sized and laid out on the screen yet..
+     *
+     * @param hasFocus the value will be true when UI is focus
+     */
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        addIconSaveButton();
+        addIconBackButton();
+    }
+
+
+
     public void loadDistExtVoucherListView(String cCode, String discode, String upCode, String unCode, String vCode, String memId, String donorCode, String awardCode, String programCode,
                                            String serviceCode, String opMonthCode, String fdpCode) {
         Log.d(TAG, "In load Dist Extention List ");
 
+        distData.setFdpCode(fdpCode);
 
 
-        if (sqlH.isDataExitedDistExtendedTable(distData.getC_code(), distData.getDistrictCode(), distData.getUpazillaCode(), distData.getUnitCode(),
-                distData.getVillageCode(), distData.getRpt_id(), distData.getDonorCode()
-                , distData.getAwardCode(), distData.getProgram_code(), distData.getService_code(), distData.getDistOpMonthCode(), fdpCode)) {
-            dataExitsInDistExtenTable = true;
-        } else {
-            dataExitsInDistExtenTable = false;
-        }
+        dataExitsInDistExtenTable = sqlH.isDataExitedDistExtendedTable(distData);
+
         // use veriable to like operation
-        List<VouItemServiceExtDataModel> itemlistData = sqlH.getDistExtedVoucherDataList(cCode, discode, upCode, unCode, vCode, memId, donorCode, awardCode, programCode, serviceCode, opMonthCode, fdpCode, dataExitsInDistExtenTable);
+        List<VouItemServiceExtDataModel> itemlistData = sqlH.getDistExtedVoucherDataList(cCode,
+                discode, upCode, unCode, vCode, memId, donorCode, awardCode, programCode,
+                serviceCode, opMonthCode, fdpCode, dataExitsInDistExtenTable);
         /** @date: 2015-10-13
          * @description: Make a provision where if there is not data for the selected criteria then grid will be empty.*//*
 */
@@ -384,7 +381,7 @@ public class DistrubutionVoucherActivity extends BaseActivity {
         private LayoutInflater inflater;
         private DistributionGridDataModel distData;
         private int count = 0;
-         viewHolder holder;
+        viewHolder holder;
 
         public DistExtVoucherAdapter(Activity activity, ArrayList<VouItemServiceExtDataModel> distExtendedData/*, DistributionGridDataModel distData*/) {
             this.activity = activity;
@@ -468,10 +465,7 @@ public class DistrubutionVoucherActivity extends BaseActivity {
                     addDataToArrayList(personToBeServicedExtedS,
                             true);
 
-                    /** OLD cODE
-                     *  addDataToArrayList(personToBeServicedExtedS,
-                     mChecked.get(position));
-                     */
+
 
 
                     Log.d(TAG, " list size :" + listOFWant2Save.size());
@@ -493,7 +487,7 @@ public class DistrubutionVoucherActivity extends BaseActivity {
 //            }
 
 
-            if (dataExitsInDistExtenTable){
+            if (dataExitsInDistExtenTable) {
                 if (personToBeServicedExtedS.getVoItmUnit() != null) {
                     if (!personToBeServicedExtedS.getVoItmUnit().equals("")) {
                         edtVoItmUnitCode[position] = personToBeServicedExtedS.getVoItmUnit();
@@ -522,7 +516,7 @@ public class DistrubutionVoucherActivity extends BaseActivity {
 
                 }
             });
-                /** set the color of bg && text*/
+            /** set the color of bg && text*/
             if (position % 2 == 0) {
                 row.setBackgroundColor(Color.WHITE);
                 changeTextColor(activity.getResources().getColor(R.color.blue));

@@ -162,11 +162,11 @@
     <init>();
 }
 
--keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemize {
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SrvOrDistItemize {
     <init>();
 }
 
--keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemizeAttendance {
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SrvOrDistItemizeAttendance {
     <init>();
 }
 
