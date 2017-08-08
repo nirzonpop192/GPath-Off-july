@@ -961,12 +961,12 @@ public final class R {
 		public static final int place_autocomplete_clear_button = 0x7f090041;
 		public static final int place_autocomplete_search_hint = 0x7f090042;
 		public static final int status_bar_notification_info_overflow = 0x7f090043;
-		public static final int store_picture_message = 0x7f090198;
-		public static final int store_picture_title = 0x7f090199;
-		public static final int tagmanager_preview_dialog_button = 0x7f09019b;
-		public static final int tagmanager_preview_dialog_message = 0x7f09019c;
-		public static final int tagmanager_preview_dialog_title = 0x7f09019d;
-		public static final int wallet_buy_button_place_holder = 0x7f0901ca;
+		public static final int store_picture_message = 0x7f090199;
+		public static final int store_picture_title = 0x7f09019a;
+		public static final int tagmanager_preview_dialog_button = 0x7f09019c;
+		public static final int tagmanager_preview_dialog_message = 0x7f09019d;
+		public static final int tagmanager_preview_dialog_title = 0x7f09019e;
+		public static final int wallet_buy_button_place_holder = 0x7f0901cb;
 	}
 	public static final class style {
 		public static final int AlertDialog_AppCompat = 0x7f0c0088;

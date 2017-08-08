@@ -5,10 +5,12 @@ package com.siddiquinoor.restclient.activity.sub_activity.service_sub;
  * This class show the Record Details
  */
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -208,34 +210,39 @@ public class ServiceRecordDetails extends BaseActivity implements AdapterView.On
         // btnGoToService = (Button) findViewById(R.id.btn_goServicePage);
 
 
+
+
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
         setUpHomeButton();
         setUpSummaryButton();
         setUpGoToServiceButton();
-
     }
-
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpGoToServiceButton() {
         btnGoToService.setText("");
         Drawable saveImage = getResources().getDrawable(R.drawable.goto_back);
-        btnGoToService.setCompoundDrawablesRelativeWithIntrinsicBounds(saveImage, null, null, null);
-        btnGoToService.setPadding(180, 10, 180, 10);
+        btnGoToService.setCompoundDrawablesRelativeWithIntrinsicBounds(null, saveImage, null, null);
+        btnGoToService.setPadding(-1, 15, -1, 15);
     }
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpSummaryButton() {
         btnSummary.setText("");
         Drawable summeryImage = getResources().getDrawable(R.drawable.summession_b);
-        btnSummary.setCompoundDrawablesRelativeWithIntrinsicBounds(summeryImage, null, null, null);
-        btnSummary.setPadding(380, 10, 380, 10);
+        btnSummary.setCompoundDrawablesRelativeWithIntrinsicBounds(null, summeryImage, null, null);
+        btnSummary.setPadding(-1, 15, -1, 15);
     }
 
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpHomeButton() {
 
         btn_home.setText("");
         Drawable imageHome = getResources().getDrawable(R.drawable.home_b);
-        btn_home.setCompoundDrawablesRelativeWithIntrinsicBounds(imageHome, null, null, null);
-        btn_home.setPadding(180, 10, 180, 10);
+        btn_home.setCompoundDrawablesRelativeWithIntrinsicBounds(null, imageHome, null, null);
+        btn_home.setPadding(-1, 15, -1, 15);
     }
 
     @Override

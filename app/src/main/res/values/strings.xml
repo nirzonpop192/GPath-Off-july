@@ -639,4 +639,5 @@ Otherwise, initiate to sync and login again.</string>
     <string name="organization">Organization</string>
     <string name="participant_name">Participant Name</string>
     <string name="search_id_or_name">Search ID or Name</string>
+    <string name="layr4">layR4</string>
 </resources>

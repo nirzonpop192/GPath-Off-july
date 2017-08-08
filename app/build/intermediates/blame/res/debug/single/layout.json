@@ -16,28 +16,28 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\layout\\activity_service.xml"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_row_dynamic_table_question.xml",
-        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\layout\\list_row_dynamic_table_question.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_view.xml"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_row_search_location.xml",
         "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\layout\\list_row_search_location.xml"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_view.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_row_dynamic_table_question.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\layout\\list_row_dynamic_table_question.xml"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_community_grp_details.xml",
-        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\layout\\activity_community_grp_details.xml"
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_graduation_update.xml",
         "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\layout\\activity_graduation_update.xml"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_community_grp_details.xml",
+        "source": "D:\\Android\\GPath-Off-july\\app\\src\\main\\res\\layout\\activity_community_grp_details.xml"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_row_training_activity_event_index.xml",

@@ -3,9 +3,13 @@ package com.siddiquinoor.restclient.activity.sub_activity.service_sub;
  * This Class
  */
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -39,6 +43,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class ServiceVoucherDetails extends BaseActivity {
 
@@ -52,8 +57,8 @@ public class ServiceVoucherDetails extends BaseActivity {
     TextView tvhouseHoldName;
     TextView tvhouseMemberID;
     TextView tvMemberName;
-    Button btn_Save;
-    Button btn_Service;
+    Button btnSave;
+    Button btnService;
     ServiceDataModel srvData;
     EditText edtVoucherRef;
     /**
@@ -66,7 +71,7 @@ public class ServiceVoucherDetails extends BaseActivity {
      */
     private String[] edtVoItmUnitCode;
     private String[] voItmIDInListView;
-
+    private ArrayList<TemTestUnit> mEdtUnit = new ArrayList<TemTestUnit>();
 
     private final String TAG = ServiceVoucherDetails.class.getName();
 
@@ -83,11 +88,18 @@ public class ServiceVoucherDetails extends BaseActivity {
 
         Intent i = getIntent();
         srvData = (ServiceDataModel) i.getParcelableExtra(KEY.SERVICE_DATA_OBJECT_KEY);
-        /** to chek service value */
-        testLogDebug();
+
+        String tem = sqlH.getVoucherReferenceNumberCol(srvData.getC_code(), srvData.getDistrictCode(), srvData.getUpazillaCode(), srvData.getUnitCode(),
+                srvData.getVillageCode(), srvData.getHHID(), srvData.getMemberId(), srvData.getDonor_code(),
+                srvData.getAward_code(), srvData.getProgram_code(), srvData.getService_code(),
+                srvData.getOpMontheCode());
+
+
+        edtVoucherRef.setText(tem);
+
         /**
          *  set op Code to service because in some way op month String set up in OpCode  */
-        //   srvData.setOpCode("2");
+
 
         tvhouseHoldName.setText(srvData.getHh_name());
         String newId = srvData.getDistrictCode() + srvData.getUpazillaCode() + srvData.getUnitCode() + srvData.getVillageCode() + srvData.getHHID() + srvData.getMemberId();
@@ -101,13 +113,13 @@ public class ServiceVoucherDetails extends BaseActivity {
                 srvData.getOpMontheCode()
         );
 
-        btn_Save.setOnClickListener(new View.OnClickListener() {
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveServicedData();
             }
         });
-        btn_Service.setOnClickListener(new View.OnClickListener() {
+        btnService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //onBackPressed();
@@ -158,6 +170,8 @@ public class ServiceVoucherDetails extends BaseActivity {
             e.printStackTrace();
         }
 
+        srvData.setWorkingDay("1");
+        srvData.setServiceDTCode(srvData.getTemServiceDate());
 
         SQLServerSyntaxGenerator srvTableNsrvExtendedTable = new SQLServerSyntaxGenerator();
         srvTableNsrvExtendedTable.setAdmCountryCode(srvData.getC_code());
@@ -176,17 +190,18 @@ public class ServiceVoucherDetails extends BaseActivity {
         srvTableNsrvExtendedTable.setSrvSL(srvData.getServiceSLCode());
         srvTableNsrvExtendedTable.setSrvCenterCode(srvData.getServiceCenterCode());
         srvTableNsrvExtendedTable.setSrvDT(srvData.getServiceDTCode());
-        srvTableNsrvExtendedTable.setSrvStatus("O");    /** service status Open  */
+        srvTableNsrvExtendedTable.setSrvStatus("O");                                                /** service status Open  */
         srvTableNsrvExtendedTable.setEntryBy(EntryBy);
         srvTableNsrvExtendedTable.setEntryDate(EntryDate);
-        srvTableNsrvExtendedTable.setEntryDate(srvData.getDistFlag());
+        srvTableNsrvExtendedTable.setDistFlag(srvData.getDistFlag());
+        srvTableNsrvExtendedTable.setWD(srvData.getWorkingDay());
 
         srvTableNsrvExtendedTable.setvORefNumber(voRefNo);// Voucher reference
 
 
         ArrayList<VouItemServiceExtDataModel> alist = new ArrayList<VouItemServiceExtDataModel>();
         alist = adapter.servicedExtendedData;
-        Log.d(TAG, "alit size " + alist.size());
+
         /** set  if condition */
 
         if (adapter.isArrayListNull()) {
@@ -195,30 +210,31 @@ public class ServiceVoucherDetails extends BaseActivity {
         } else {
             /** if the array list is not null */
 
+            boolean isDataDeleted = false;
             for (int i = 0; i < lvVoucher.getAdapter().getCount(); i++) {
                 if (mChecked.get(i)) {
-                    // Do something
-//                    Log.d("END_OH", "the number of Check ite :" + i);
+
                     VouItemServiceExtDataModel srvE = alist.get(i);
                     srvE.setOpCode("2");
                     /** setup SQL Server Syntax variable*/
-                    if ((sqlH.isDataExitedServiceExtendedTable(srvData.getC_code(), srvData.getDistrictCode(), srvData.getUpazillaCode(), srvData.getUnitCode(),
-                            srvData.getVillageCode(), srvData.getHHID(), srvData.getMemberId(), srvData.getDonor_code()
-                            , srvData.getAward_code(), srvData.getProgram_code(), srvData.getService_code(), srvData.getOpMontheCode())) && i == 0) {
+                    if (!isDataDeleted && (sqlH.isDataExitedServiceExtendedTable(srvData))) {
 
                         sqlH.deleteFromServiceExtendedTable(srvData.getC_code(), srvData.getDistrictCode(), srvData.getUpazillaCode(), srvData.getUnitCode(),
                                 srvData.getVillageCode(), srvData.getHHID(), srvData.getMemberId(), srvData.getDonor_code()
                                 , srvData.getAward_code(), srvData.getProgram_code(), srvData.getService_code(), srvData.getOpMontheCode());
-                        Log.d(TAG, " Delete data from SrvExtended table SQLite  ");
+
 
                         /**  setup upload  delete syntax for Srv extended table*/
 
                         sqlH.insertIntoUploadTable(srvTableNsrvExtendedTable.deleteMemberFromSrvExtendedTable());
+                        isDataDeleted = true;
                     }
+
+
                     sqlH.addServiceExtendedTable(srvE.getC_code(), srvE.getDistrictCode(), srvE.getUpazillaCode(), srvE.getUnitCode(),
                             srvE.getVillageCode(), srvE.getHHID(), srvE.getHh_mm_id(), srvE.getDonor_code(), srvE.getAward_code(),
                             srvE.getProgram_code(), srvE.getService_code(), srvE.getOpCode(), srvE.getOpMontheCode(),
-                            voItmIDInListView[i]/*vOItmSpec*/, edtVoItmUnitCode[i]/* Unite Code */, voRefNo, srvE.getVoItemCost(),"", EntryBy, EntryDate,"0");
+                            voItmIDInListView[i], edtVoItmUnitCode[i], voRefNo, srvE.getVoItemCost(), "", EntryBy, EntryDate);
                     /** set the variable than insert  upload Table*/
 
                     srvTableNsrvExtendedTable.setvOItmUnit(edtVoItmUnitCode[i]);
@@ -233,7 +249,8 @@ public class ServiceVoucherDetails extends BaseActivity {
             String lastDate = sqlH.getLastServiceDate(srvData);
 
             long diff = 0;
-            SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+            SimpleDateFormat myFormat_2 = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
 
             if (!lastDate.equals("")) {
                 try {
@@ -241,68 +258,65 @@ public class ServiceVoucherDetails extends BaseActivity {
                     Date date2 = myFormat.parse(lastDate);
                     diff = date2.getTime() - date1.getTime();
 
-                    //  Toast.makeText(mcontext, "Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS)+" diff :"+diff, Toast.LENGTH_SHORT).show();
+
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
 
 
                 if (diff != 0) {
-                    // insert for local device
-                    //testLogDebug();
+
 
                     if (sqlH.isMemberExitsSrvTable(srvData)) {
-                        /** update for local device */
-                        sqlH.updateMemberIntoServiceTable(srvData, EntryBy, EntryDate);
 
-                        /** update Syntax for upload in Sync process */
-                        sqlH.insertIntoUploadTable(srvTableNsrvExtendedTable.updateInToSrvTable());
-                    }
-                    else {
-                        /** insert for local device */
-                        sqlH.addMemberIntoServiceTable(srvData, EntryBy, EntryDate);
-                        /** insert for upload in Sync process */
-                        sqlH.insertIntoUploadTable(srvTableNsrvExtendedTable.insertInToSrvTable());
+                        sqlH.updateMemberIntoServiceTable(srvData, EntryBy, EntryDate);             /** update for local device */
+
+
+                        sqlH.insertIntoUploadTable(srvTableNsrvExtendedTable.updateInToSrvTable());  /** update Syntax for upload in Sync process */
+                    } else {
+
+                        sqlH.addMemberIntoServiceTable(srvData, EntryBy, EntryDate);                /** insert for local device */
+
+                        sqlH.insertIntoUploadTable(srvTableNsrvExtendedTable.insertInToSrvTable());   /** insert for upload in Sync process */
                     }
 
 
                     /**                                         * min Srv Date                                         */
-                    ServiceActivity.saveServiceMinumDate(srvData, srvData.getServiceDTCode(), srvTableNsrvExtendedTable,sqlH);
+                    ServiceActivity.saveServiceMinumDate(srvData, srvData.getServiceDTCode(), srvTableNsrvExtendedTable, sqlH);
 
                     /**                                         * max date                                         */
-                    ServiceActivity.saveServiceMaxDate(srvData, srvData.getServiceDTCode(), srvTableNsrvExtendedTable,sqlH);
+                    ServiceActivity.saveServiceMaxDate(srvData, srvData.getServiceDTCode(), srvTableNsrvExtendedTable, sqlH);
 
 
                 }
 
 
             } else {
-               // testLogDebug();
-                if (sqlH.isMemberExitsSrvTable(srvData)) {
-                    /** update for local device */
-                    sqlH.updateMemberIntoServiceTable(srvData, EntryBy, EntryDate);
 
-                    /** update Syntax for upload in Sync process */
-                    sqlH.insertIntoUploadTable(srvTableNsrvExtendedTable.updateInToSrvTable());
-                }
-                else {
-                    /** insert for local device */
-                    sqlH.addMemberIntoServiceTable(srvData, EntryBy, EntryDate);
-                    /** insert for upload in Sync process */
-                    sqlH.insertIntoUploadTable(srvTableNsrvExtendedTable.insertInToSrvTable());
+                if (sqlH.isMemberExitsSrvTable(srvData)) {
+
+
+                    sqlH.updateMemberIntoServiceTable(srvData, EntryBy, EntryDate);                   /** update for local device */
+
+
+                    sqlH.insertIntoUploadTable(srvTableNsrvExtendedTable.updateInToSrvTable());      /** update Syntax for upload in Sync process */
+                } else {
+
+                    sqlH.addMemberIntoServiceTable(srvData, EntryBy, EntryDate);                     /** insert for local device */
+
+                    sqlH.insertIntoUploadTable(srvTableNsrvExtendedTable.insertInToSrvTable());        /** insert for upload in Sync process */
                 }
 
                 /**                                         * min Srv Date                                         */
-                ServiceActivity.saveServiceMinumDate(srvData, srvData.getServiceDTCode(), srvTableNsrvExtendedTable,sqlH);
+                ServiceActivity.saveServiceMinumDate(srvData, srvData.getServiceDTCode(), srvTableNsrvExtendedTable, sqlH);
 
                 /**                                         * max date                                         */
-                ServiceActivity.saveServiceMaxDate(srvData, srvData.getServiceDTCode(), srvTableNsrvExtendedTable,sqlH);
+                ServiceActivity.saveServiceMaxDate(srvData, srvData.getServiceDTCode(), srvTableNsrvExtendedTable, sqlH);
 
 
             }
 
             Toast.makeText(this, "save successfully", Toast.LENGTH_LONG).show();
-
 
 
         }
@@ -315,33 +329,6 @@ public class ServiceVoucherDetails extends BaseActivity {
         super.onBackPressed();
     }
 
-    private void testLogDebug() {
-        Log.d("Nirzon", "Service Data"
-                        + " srvData.getHh_name() :" + srvData.getHh_name()
-                        + " srvData.getHh_mm_name() :" + srvData.getHh_mm_name()
-                        + " srvData.getC_code() :" + srvData.getC_code()
-                        + " srvData.getDistrictCode() :" + srvData.getDistrictCode()
-                        + " srvData.getUpazillaCode() :" + srvData.getUpazillaCode()
-                        + " srvData.getUnitCode() :" + srvData.getUnitCode()
-                        + " srvData.getVillageCode() :" + srvData.getVillageCode()
-                        + " srvData.getAward_code() :" + srvData.getAward_code()
-                        + " srvData.getDonor_code() :" + srvData.getDonor_code()
-                        + " srvData.getProgram_code() :" + srvData.getProgram_code()
-                        + " srvData.getService_code() :" + srvData.getService_code()
-                        + " srvData.getHHID() :" + srvData.getHHID()
-                        + " srvData.getMemberId() :" + srvData.getMemberId()
-                        + "\n srvData.getOpCode() :" + srvData.getOpCode()
-                        + "\n srvData.getOpMontheCode() :" + srvData.getOpMontheCode()
-                        + "\n srvData.getServiceSLCode() :" + srvData.getServiceSLCode()
-                        + "\n srvData.getServiceCenterCode() :" + srvData.getServiceCenterCode()
-                        + "\n srvData.getServiceDate() :" + srvData.getServiceDTCode()
-                        + "\n srvData.getTemIdServiceMonth() :" + srvData.getTemIdServiceMonth()
-                        + "\n srvData.getTemStrSrvMonth() :" + srvData.getTemStrSrvMonth()
-//                + "\n srvData.getServiceDate() :" + srvData.getServiceDTCode()
-//
-        );
-
-    }
 
     private void viewReference() {
         lvVoucher = (ListView) findViewById(R.id.lv_Voucher);
@@ -350,19 +337,53 @@ public class ServiceVoucherDetails extends BaseActivity {
         tvhouseMemberID = (TextView) findViewById(R.id.tv_srv_vouMemberId);
         tvMemberName = (TextView) findViewById(R.id.tv_srv_vouMemberName);
         edtVoucherRef = (EditText) findViewById(R.id.edt_vio_refNumber);
-        btn_Save = (Button) findViewById(R.id.btnHomeFooter);
-        btn_Save.setText("Save");
-        btn_Service = (Button) findViewById(R.id.btnRegisterFooter);
-        btn_Service.setText("Service");
+        btnSave = (Button) findViewById(R.id.btnHomeFooter);
 
+        btnService = (Button) findViewById(R.id.btnRegisterFooter);
+
+
+    }
+
+
+    /**
+     * calling getWidth() and getHeight() too early:
+     * When  the UI has not been sized and laid out on the screen yet..
+     *
+     * @param hasFocus the value will be true when UI is focus
+     */
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+
+        addIconServiceButton();
+        setUpSaveButton();
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void setUpSaveButton() {
+        btnSave.setText("");
+        Drawable saveImage = getResources().getDrawable(R.drawable.save_b);
+        btnSave.setCompoundDrawablesRelativeWithIntrinsicBounds(null, saveImage, null, null);
+        btnSave.setPadding(-1, 20, -1, 20);
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void addIconServiceButton() {
+        btnService.setText("");
+        Drawable imageHome = getResources().getDrawable(R.drawable.service);
+        btnService.setCompoundDrawablesRelativeWithIntrinsicBounds(null, imageHome, null, null);
+        btnService.setPadding(-1, 20, -1, 20);
     }
 
 
     public void loadVoucherListView(String cCode, String discode, String upCode, String unCode, String vCode, String hhId, String memId, String donorCode, String awardCode, String programCode,
                                     String serviceCode, String opMonthCode) {
-        Log.d(TAG, "In load service List ");
-        // use veriable to like operation
-        List<VouItemServiceExtDataModel> itemlistData = sqlH.getSrvExtedVoucherDataList(cCode, discode, upCode, unCode, vCode, hhId, memId, donorCode, awardCode, programCode, serviceCode, opMonthCode);
+
+
+        List<VouItemServiceExtDataModel> itemlistData = sqlH.getSrvExtVoucherList(cCode, discode,
+                upCode, unCode, vCode, hhId, memId, donorCode, awardCode, programCode, serviceCode,
+                opMonthCode);
         /** @date: 2015-10-13
          * @description: Make a provision where if there is not data for the selected criteria then grid will be empty.*/
 
@@ -392,7 +413,8 @@ public class ServiceVoucherDetails extends BaseActivity {
         /***
          * for Edit Text
          *
-         * @link: http://www.webplusandroid.com/creating-listview-with-edittext-and-textwatcher-in-android/
+         * @link {http://www.webplusandroid.com/creating-listview-with-edittext-and-textwatcher-in-android/}
+         * @see {@link {https://vikaskanani.wordpress.com/2011/07/27/android-focusable-edittext-inside-listview/}}
          */
 
         ArrayList<VouItemServiceExtDataModel> servicedExtendedData;
@@ -407,6 +429,7 @@ public class ServiceVoucherDetails extends BaseActivity {
         private int count = 0;
 
         private ServiceDataModel srvDetails;
+        ViewHolder holder;
 
         public VoucherChartAdapter(Activity activity, ArrayList<VouItemServiceExtDataModel> servicedExtendedData, ServiceDataModel srvDetails) {
             this.activity = activity;
@@ -443,29 +466,24 @@ public class ServiceVoucherDetails extends BaseActivity {
             final VouItemServiceExtDataModel personToBeServicedExted = servicedExtendedData.get(position);
             View row = convertView;
 
-            final viewHolder holder;
-
 
             if (inflater == null)
                 inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             if (convertView == null) {
                 row = inflater.inflate(R.layout.list_row_voucher, null);
-                holder = new viewHolder();
+                holder = new ViewHolder();
                 holder.edtUnit = (EditText) row.findViewById(R.id.row_voucherQuantity);
                 holder.txtItemName = (TextView) row.findViewById(R.id.row_txt_itemName);
-//                holder.txtItemID = (TextView) row.findViewById(R.id.row_txt_voID);
 
 
                 row.setTag(holder);
 
             } else {
-                holder = (viewHolder) row.getTag();
+                holder = (ViewHolder) row.getTag();
             }
 
             holder.txtItemName.setText(personToBeServicedExted.getItemName());
-            // to check
-//            holder.txtItemID.setText(personToBeServicedExted.getVoItmSpec());
 
 
             voItmIDInListView[position] = personToBeServicedExted.getVoItmSpec();
@@ -486,28 +504,10 @@ public class ServiceVoucherDetails extends BaseActivity {
             personToBeServicedExted.setHh_mm_id(srvDetails.getMemberId());
             personToBeServicedExted.setOpMontheCode(srvDetails.getOpMontheCode());
             String cost = sqlH.get_VOUnitCost(srvDetails.getC_code(), srvDetails.getDonor_code(), srvDetails.getAward_code(), srvDetails.getProgram_code(), srvDetails.getService_code(), personToBeServicedExted.getVoItmSpec());
-            Log.d("Arpon", "cost " + cost);
+
             personToBeServicedExted.setVoItemCost(cost);
 
 
-          /*  Log.d(TAG, "ServiceExted Data"
-                    // + " personToBeServicedExted.getHh_name() :" + personToBeServicedExted.getHh_name()
-                    //   + " personToBeServicedExted.getHh_mm_name() :" + personToBeServicedExted.getHh_mm_name()
-                    + " personToBeServicedExted.getC_code() :" + personToBeServicedExted.getC_code()
-                    + " personToBeServicedExted.getDistrictCode() :" + personToBeServicedExted.getDistrictCode()
-                    + " personToBeServicedExted.getUpazillaCode() :" + personToBeServicedExted.getUpazillaCode()
-                    + " personToBeServicedExted.getUnitCode() :" + personToBeServicedExted.getUnitCode()
-                    + " personToBeServicedExted.getVillageCode() :" + personToBeServicedExted.getVillageCode()
-                    + " personToBeServicedExted.getAward_code() :" + personToBeServicedExted.getAward_code()
-                    + " srvpersonToBeServicedExtedData.getDonor_code() :" + personToBeServicedExted.getDonor_code()
-                    + " personToBeServicedExted.getProgram_code() :" + personToBeServicedExted.getProgram_code()
-                    + " personToBeServicedExted.getService_code() :" + personToBeServicedExted.getService_code()
-                    + " personToBeServicedExted.getHHID() :" + personToBeServicedExted.getHHID()
-                    + "\n personToBeServicedExted.getMemberId() :" + personToBeServicedExted.getHh_mm_id()
-                    + "\n personToBeServicedExted.getOpMontheCode() :" + personToBeServicedExted.getOpMontheCode()
-                    + "\n personToBeServicedExted.getVoItmSpec() :" + personToBeServicedExted.getVoItmSpec()
-
-            );*/
             // set checked change listener
             cbId_holder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -518,17 +518,13 @@ public class ServiceVoucherDetails extends BaseActivity {
                     mChecked.put(position, isChecked);
 
 
-                    // get the object of sepecific row & set the value of the
-                    // save the chekbox of that particular state
+                    // get the object of specific row & set the value of the
+                    // save the checkbox of that particular state
 
                     int getPosition = (Integer) buttonView.getTag();
                     getServicedPerson(getPosition).setCheckBox(isChecked);
                     addDataToArrayList(personToBeServicedExted,
                             mChecked.get(position));
-
-
-                    Log.d(TAG, " list size :" + listOFWant2Save.size());
-                    /** old state*/
 
 
                 }
@@ -546,8 +542,6 @@ public class ServiceVoucherDetails extends BaseActivity {
                 mChecked.put(position, true);
             }
 
-            //     Log.d(TAG, " position " + position + " the check box  is svaved " + cbId_holder.isChecked());
-//            Log.d(TAG, " position " + position + " Does he have this service : " + personToBeServicedExted.isCheckBox());
 
             if (personToBeServicedExted.isCheckBox()) {
                 mChecked.put(position, true);
@@ -558,26 +552,36 @@ public class ServiceVoucherDetails extends BaseActivity {
                 }
             }
             holder.reference = position;
+
             holder.edtUnit.setText(edtVoItmUnitCode[position]);
-            holder.edtUnit.addTextChangedListener(new TextWatcher() {
+            holder.edtUnit.setId(position);
+
+            holder.edtUnit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (!hasFocus) {
+                        final int position = v.getId();
+                        final EditText Caption = (EditText) v;
+                        edtVoItmUnitCode[position] = Caption.getText().toString();
 
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    edtVoItmUnitCode[holder.reference] = s.toString();
-
+                    }
                 }
             });
 
+
+            if (position % 2 == 0) {
+                row.setBackgroundColor(Color.WHITE);
+                changeTextColor(activity.getResources().getColor(R.color.blue));
+            } else {
+                row.setBackgroundColor(activity.getResources().getColor(R.color.list_divider));
+                changeTextColor(activity.getResources().getColor(R.color.black));
+            }
+
             return row;
+        }
+
+        private void changeTextColor(int color) {
+            holder.txtItemName.setTextColor(color);
         }
 
         VouItemServiceExtDataModel getServicedPerson(int position) {
@@ -601,18 +605,9 @@ public class ServiceVoucherDetails extends BaseActivity {
 
                 listOFWant2Save.add(s);
 
-             /*   Log.d("ARRAY_LIST", " In the array list s Data to save" + "\n is CheckBox() :" + s.isCheckBox()
-                                + " \nsrvE.getC_code() :" + s.getC_code() + " srvE.getDistrictCode() :" + s.getDistrictCode()
-                                + " srvE.getUpazillaCode() :" + s.getUpazillaCode() + " srvE.getUnitCode() :" + s.getUnitCode()
-                                + " srvE.getVillageCode() :" + s.getVillageCode() + " srvE.getAward_code() :" + s.getAward_code()
-                                + " srvE.getDonor_code() :" + s.getDonor_code() + " srvE.getProgram_code() :" + s.getProgram_code()
-                                + " srvE.getService_code() :" + s.getService_code() + " srvE.getHHID() :" + s.getHHID() + " srvE.getMemberId() :" + s.getMemberId()
-                                + " srvE.getOpMontheCode() :" + s.getOpMontheCode() + " srvE.setOpCode() :" + s.getOpCode()
-//
-                );
-                Log.d("ARRAY_SIZE", "listOFWant2Save size :" + listOFWant2Save.size());*/
+
             } else {
-                if (listOFWant2Save.contains(s)) {// first check the data is exits ing or not
+                if (listOFWant2Save.contains(s)) {                                                  // first check the data is exits ing or not
 
                     listOFWant2Save.remove(s);
 
@@ -627,14 +622,31 @@ public class ServiceVoucherDetails extends BaseActivity {
             return listOFWant2Save;
         }
 
-        class viewHolder {
+        private class ViewHolder {
             EditText edtUnit;
             TextView txtItemName;
-            //            TextView txtItemID;
-            // for save the state of current senario
-            int reference;
+
+            int reference;                                                                           // for save the state of current state
 
 
+        }
+    }
+
+    class TemTestUnit {
+        int pos;
+        String unit;
+
+        public TemTestUnit(int pos, String unit) {
+            this.pos = pos;
+            this.unit = unit;
+        }
+
+        public int getPos() {
+            return pos;
+        }
+
+        public String getUnit() {
+            return unit;
         }
     }
 }

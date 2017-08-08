@@ -1,5 +1,7 @@
 package com.siddiquinoor.restclient.manager.sqlsyntax;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DTResponseRecordingActivity;
@@ -1116,37 +1118,86 @@ public class SQLiteQuery {
                 + " AND " + MEM_ID_COL + " = " + memId + "  ";
     }
 
-    public static String dbo_Get_dayDifference(String cCode, String donorCode, String awardCode, String opMonthCode, String tableName, String columnName) {
-        return "CAST ( ( (" +
-                "SELECT julianday(date(substr(" + END_DATE_COL + ", 1, 4) || '-' || substr(" + END_DATE_COL + ", 6, 2) || '-' || substr(" + END_DATE_COL + ", 9, 2) ) ) AS d " +
-                "        FROM " + OP_MONTH_TABLE +
-                "        WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'" +
-                " AND " + "" + ADM_DONOR_CODE_COL + " = '" + donorCode + "'" +
-                " AND " + "" + ADM_AWARD_CODE_COL + " = '" + awardCode + "'" +
-                " AND " + "" + OPERATION_CODE_COL + " = '2' " +
-                " AND " + "" + OP_MONTH_CODE_COL + " = '" + opMonthCode + "'" +
-                "  )" +
-                "   - (" +
-                "    SELECT julianday(date(substr(" + columnName + ", 1, 4) || '-' || substr(" + columnName + ", 6, 2) || '-' || substr(" + columnName + ", 9, 2) ) ) AS dd " +
-                "  FROM " + tableName + " " +
-                "  WHERE " + ADM_COUNTRY_CODE_COL + " = regAss." + ADM_COUNTRY_CODE_COL + " AND" +
-                " " + LAY_R1_LIST_CODE_COL + " = regAss." + LAY_R1_LIST_CODE_COL + " AND " +
-                " " + LAY_R2_LIST_CODE_COL + " = regAss." + LAY_R2_LIST_CODE_COL + " AND " +
-                " " + LAY_R3_LIST_CODE_COL + " = regAss." + LAY_R3_LIST_CODE_COL + " AND" +
-                " " + LAY_R4_LIST_CODE_COL + " = regAss." + LAY_R4_LIST_CODE_COL + " AND" +
-                " " + HHID_COL + " = regAss." + HHID_COL + " AND" +
-                " " + MEM_ID_COL + " = regAss." + MEM_ID_COL + "" +
-                "  )" +
-                "  ) AS INTEGER) AS daydiffernce";
+    public static String dbo_Get_dayDifference(String cCode, String donorCode, String awardCode,
+                                               String opMonthCode, String tableName,
+                                               String columnName, boolean syncMode) {
+        String tem = "";
+        if (syncMode) {
+            tem = "CAST ( ( (" +
+                    "SELECT julianday(date(substr(" + END_DATE_COL + ", 1, 4) || '-' || substr(" + END_DATE_COL + ", 6, 2) || '-' || substr(" + END_DATE_COL + ", 9, 2) ) ) AS d " +
+                    "        FROM " + OP_MONTH_TABLE +
+                    "        WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'" +
+                    " AND " + "" + ADM_DONOR_CODE_COL + " = '" + donorCode + "'" +
+                    " AND " + "" + ADM_AWARD_CODE_COL + " = '" + awardCode + "'" +
+                    " AND " + "" + OPERATION_CODE_COL + " = '2' " +
+                    " AND " + "" + OP_MONTH_CODE_COL + " = '" + opMonthCode + "'" +
+                    "  )" +
+                    "   - (" +
+                    "    SELECT julianday(date(substr(" + columnName + ", 7, 4) || '-' || substr(" + columnName + ", 1, 2) || '-' || substr(" + columnName + ", 4, 2) ) ) AS dd " +
+                    "  FROM " + tableName + " " +
+                    "  WHERE " + ADM_COUNTRY_CODE_COL + " = regAss." + ADM_COUNTRY_CODE_COL + " AND" +
+                    " " + LAY_R1_LIST_CODE_COL + " = regAss." + LAY_R1_LIST_CODE_COL + " AND " +
+                    " " + LAY_R2_LIST_CODE_COL + " = regAss." + LAY_R2_LIST_CODE_COL + " AND " +
+                    " " + LAY_R3_LIST_CODE_COL + " = regAss." + LAY_R3_LIST_CODE_COL + " AND" +
+                    " " + LAY_R4_LIST_CODE_COL + " = regAss." + LAY_R4_LIST_CODE_COL + " AND" +
+                    " " + HHID_COL + " = regAss." + HHID_COL + " AND" +
+                    " " + MEM_ID_COL + " = regAss." + MEM_ID_COL + "" +
+                    "  )" +
+                    "  ) AS INTEGER) AS daydiffernce";
+        } else {
+            tem = "CAST ( ( (" +
+                    "SELECT julianday(date(substr(" + END_DATE_COL + ", 1, 4) || '-' || substr(" + END_DATE_COL + ", 6, 2) || '-' || substr(" + END_DATE_COL + ", 9, 2) ) ) AS d " +
+                    "        FROM " + OP_MONTH_TABLE +
+                    "        WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'" +
+                    " AND " + "" + ADM_DONOR_CODE_COL + " = '" + donorCode + "'" +
+                    " AND " + "" + ADM_AWARD_CODE_COL + " = '" + awardCode + "'" +
+                    " AND " + "" + OPERATION_CODE_COL + " = '2' " +
+                    " AND " + "" + OP_MONTH_CODE_COL + " = '" + opMonthCode + "'" +
+                    "  )" +
+                    "   - (" +
+                    "    SELECT julianday(date(substr(" + columnName + ", 1, 4) || '-' || substr(" + columnName + ", 6, 2) || '-' || substr(" + columnName + ", 9, 2) ) ) AS dd " +
+                    "  FROM " + tableName + " " +
+                    "  WHERE " + ADM_COUNTRY_CODE_COL + " = regAss." + ADM_COUNTRY_CODE_COL + " AND" +
+                    " " + LAY_R1_LIST_CODE_COL + " = regAss." + LAY_R1_LIST_CODE_COL + " AND " +
+                    " " + LAY_R2_LIST_CODE_COL + " = regAss." + LAY_R2_LIST_CODE_COL + " AND " +
+                    " " + LAY_R3_LIST_CODE_COL + " = regAss." + LAY_R3_LIST_CODE_COL + " AND" +
+                    " " + LAY_R4_LIST_CODE_COL + " = regAss." + LAY_R4_LIST_CODE_COL + " AND" +
+                    " " + HHID_COL + " = regAss." + HHID_COL + " AND" +
+                    " " + MEM_ID_COL + " = regAss." + MEM_ID_COL + "" +
+                    "  )" +
+                    "  ) AS INTEGER) AS daydiffernce";
+        }
+        return tem;
     }
 
 
-    public static String getRptMemberServiceList_cu2_sql(String country, String donor, String award, String program, String srvCode, String opCode, String opMonthCode, String memId, String grpCode, String distFlag,
-                                                         String grpLayR1Code, String grpLayR2Code, String grpLayR3Code
-    ) {
+    public static String getRptMemberServiceList_cu2_sql(String country, String donor, String award,
+                                                         String program, String srvCode,
+                                                         String opCode, String opMonthCode,
+                                                         String memId, String grpCode,
+                                                         String distFlag, String grpLayR1Code,
+                                                         String grpLayR2Code, String grpLayR3Code,
+                                                         boolean syncMode) {
+        String dateCondition = "";
+        if (syncMode)
+            dateCondition = " AND date(substr(regAss." + REG_N_DAT_COL + ", 7, 4) || "
+                    + "'-' || substr(regAss." + REG_N_DAT_COL + ", 1, 2) || '-' || substr(regAss."
+                    + REG_N_DAT_COL + ", 4, 2)) <="
+                    + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
+                    " AND date(substr(regAss." + GRD_DATE_COL + ", 7, 4) || '-' || substr(regAss."
+                    + GRD_DATE_COL + ", 1, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 4, 2)) >="
+                    + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+
+        else
+            dateCondition = " AND date(substr(regAss." + REG_N_DAT_COL + ", 1, 4) || " +
+                    "'-' || substr(regAss." + REG_N_DAT_COL + ", 6, 2) || '-' || substr(regAss." + REG_N_DAT_COL + ", 9, 2)) <="
+                    + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
+                    " AND date(substr(regAss." + GRD_DATE_COL + ", 1, 4) || '-' || substr(regAss." + GRD_DATE_COL + ", 6, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 9, 2)) >="
+                    + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+
 
         String cu2_sql = "SELECT  " +
-                dbo_Get_dayDifference(country, donor, award, opMonthCode, REG_N_CU2_TABLE, CU2DOB_DATE_COL) +
+                dbo_Get_dayDifference(country, donor, award, opMonthCode, REG_N_CU2_TABLE, CU2DOB_DATE_COL, syncMode) +
 
                 ", " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + "," +
                 REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HH_HEAD_NAME + "," +
@@ -1216,16 +1267,12 @@ public class SQLiteQuery {
                 "  AND " + " regAss." + ADM_DONOR_CODE_COL + " = '" + donor + "'" +
                 "  AND " + " regAss." + ADM_AWARD_CODE_COL + " = '" + award + "'" +
                 "  AND " + " regAss." + PROG_CODE_COL + " = '" + program + "'" +
-                "  AND " + " regAss." + SRV_CODE_COL + " = '" + srvCode + "'" +
+                "  AND " + " regAss." + SRV_CODE_COL + " = '" + srvCode + "'"
 
-                " AND date(substr(regAss." + REG_N_DAT_COL + ", 1, 4) || " +
-                "'-' || substr(regAss." + REG_N_DAT_COL + ", 6, 2) || '-' || substr(regAss." + REG_N_DAT_COL + ", 9, 2)) <="
-                + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
-                " AND date(substr(regAss." + GRD_DATE_COL + ", 1, 4) || '-' || substr(regAss." + GRD_DATE_COL + ", 6, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 9, 2)) >="
-                + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")" +
+                + dateCondition
 
 
-                " AND "
+                + " AND "
                 + " daydiffernce <= 720 " +
 
                 " AND " + REG_N_MEM_PROG_GRP_TABLE + "." + GROUP_CODE_COL + " = '" + grpCode + "'" +
@@ -1246,124 +1293,33 @@ public class SQLiteQuery {
 
         Log.d(TAG, cu2_sql);
         return cu2_sql;
-        //  " , "+ REGISTRATION_MEMBER_TABLE+"."+HH_MEM_ID+ "  ORDER BY "+ REGISTRATION_MEMBER_TABLE+"."+HHID_COL+" DESC, RegMembers.RegisterID DESC";
 
-      /*  SELECT CAST (((
-                SELECT
-        julianday(date(substr(usaEndDate, 7, 4) || '-' || substr(usaEndDate, 1, 2) || '-' || substr(usaEndDate, 4, 2)))
-        AS d
-        FROM OpMonthTable
-        WHERE CountryCode = '0002' AND
-                DonorCode = '01' AND
-                AwardCode = '01' AND
-                OpCode = '2' AND
-                OpMonthCode = '15'
-        )
-        -(
-                SELECT
-        julianday(date(substr(CU2Dob, 7, 4) || '-' || substr(CU2Dob, 1, 2) || '-' || substr(CU2Dob, 4, 2)))
-        AS dd
-        FROM RegN_CU2
-        WHERE CountryCode = regAss.CountryCode AND
-                DistrictCode = regAss.DistrictCode AND
-                UpazillaCode = regAss.UpazillaCode AND
-                UnitCode = regAss.UnitCode AND
-                VillageCode = regAss.VillageCode AND
-                RegisterID = regAss.RegisterID AND
-                MemberID = regAss.MemberID
-        )
-        )AS INTEGER)AS daydiffernce,
-        RegMembers.RegisterID,
-                Registration.PersonName,
-                RegMembers.MemberID,
-                RegMembers.MemberName AS memName,
-        RegMembers.Sex,
-                RegMembers.MemAge,
-                regAss.CountryCode,
-                regAss.DonorCode,
-                regAss.AwardCode,
-                regAss.DistrictCode,
-                regAss.UpazillaCode,
-                regAss.UnitCode,
-                regAss.VillageCode,
-                regAss.RegisterID,
-                regAss.ProgramCode,
-                regAss.ServiceCode,
-                (
-                        SELECT COUNT( *)
-        FROM Service
-        WHERE CountryCode = regAss.CountryCode AND
-                DonorCode = regAss.DonorCode AND
-                AwardCode = regAss.AwardCode AND
-                RegisterID = regAss.RegisterID AND
-                MemberID = RegMembers.MemberID AND
-                ProgramCode = regAss.ProgramCode AND
-                ServiceCode = regAss.ServiceCode AND
-                OpCode = '2' AND
-                OpMonthCode = '15' AND
-                DistFLAG = 'FoodFlag'
-        )
-        AS SrvRecieved,
-        regAss.DistrictCode || "" || regAss.UpazillaCode || "" || regAss.UnitCode || "" || regAss.VillageCode || "" || regAss.RegisterID || "" || RegMembers.MemberID
-        AS NewID
-        FROM RegNAssignProgService AS regAss
-        INNER JOIN
-        RegMembers ON regAss.CountryCode = RegMembers.CountryCode AND
-        regAss.DistrictCode = RegMembers.DistrictName AND
-        regAss.UpazillaCode = RegMembers.UpazillaName AND
-        regAss.UnitCode = RegMembers.UnitName AND
-        regAss.VillageCode = RegMembers.VillageName AND
-        regAss.RegisterID = RegMembers.RegisterID AND
-        regAss.MemberID = RegMembers.MemberID
-        INNER JOIN
-        Registration ON regAss.CountryCode = Registration.CountryCode AND
-        regAss.DistrictCode = Registration.DistrictName AND
-        regAss.UpazillaCode = Registration.UpazillaName AND
-        regAss.UnitCode = Registration.UnitName AND
-        regAss.VillageCode = Registration.VillageName AND
-        regAss.RegisterID = Registration.RegistrationID
-        WHERE regAss.CountryCode = '0002' AND
-        regAss.DonorCode = '01' AND
-        regAss.AwardCode = '01' AND
-        regAss.ProgramCode = '001' AND
-        regAss.ServiceCode = '03' AND
-        date(substr(regAss.RegNDate, 7, 4) || '-' || substr(regAss.RegNDate, 1, 2) || '-' || substr(regAss.RegNDate, 4, 2)) <= (
-                SELECT
-        date(substr(usaEndDate, 7, 4) || '-' || substr(usaEndDate, 1, 2) || '-' || substr(usaEndDate, 4, 2))
-        FROM OpMonthTable
-        WHERE CountryCode = '0002' AND
-                DonorCode = '01' AND
-                AwardCode = '01' AND
-                OpCode = '2' AND
-                OpMonthCode = '15'
-        )
-        AND
-        date(substr(regAss.GRDDate, 7, 4) || '-' || substr(regAss.GRDDate, 1, 2) || '-' || substr(regAss.GRDDate, 4, 2)) >= (
-                SELECT
-        date(substr(usaStartDate, 7, 4) || '-' || substr(usaStartDate, 1, 2) || '-' || substr(usaStartDate, 4, 2))
-        FROM OpMonthTable
-        WHERE CountryCode = '0002' AND
-                DonorCode = '01' AND
-                AwardCode = '01' AND
-                OpCode = '2' AND
-                OpMonthCode = '15'
-        )
-        AND
-        daydiffernce <= 720 AND
-        regAss.DistrictCode || "" || regAss.UpazillaCode || "" || regAss.UnitCode || "" || regAss.VillageCode || "" || regAss.RegisterID || "" || RegMembers.MemberID
-        LIKE '%%'
-        GROUP BY RegMembers.RegisterID
-        ORDER BY RegMembers.RegisterID DESC,
-        RegMembers.RegisterID DESC;*/
 
     }
 
 
-    public static String getRptMemberServiceList_ca2_sql(String country, String donor, String award, String program, String srvCode, String opCode, String opMonthCode, String memId, String grpCode, String distFlag, String grpLayR1Code, String grpLayR2Code, String grpLayR3Code) {
+    public static String getRptMemberServiceList_ca2_sql(String country, String donor, String award,
+                                                         String program, String srvCode,
+                                                         String opCode, String opMonthCode,
+                                                         String memId, String grpCode,
+                                                         String distFlag, String grpLayR1Code,
+                                                         String grpLayR2Code, String grpLayR3Code,
+                                                         boolean syncMode) {
+
+        String dateCondition = "";
+        if (syncMode) {
+            dateCondition = " AND date(substr(regAss." + REG_N_DAT_COL + ", 7, 4) || '-' || substr(regAss." + REG_N_DAT_COL + ", 1, 2) || '-' || substr(regAss." + REG_N_DAT_COL + ", 4, 2)) <=" + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
+                    " AND date(substr(regAss." + GRD_DATE_COL + ", 7, 4) || '-' || substr(regAss." + GRD_DATE_COL + ", 1, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 4, 2)) >=" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+
+        } else {
+            dateCondition = " AND date(substr(regAss." + REG_N_DAT_COL + ", 1, 4) || '-' || substr(regAss." + REG_N_DAT_COL + ", 6, 2) || '-' || substr(regAss." + REG_N_DAT_COL + ", 9, 2)) <=" + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
+                    " AND date(substr(regAss." + GRD_DATE_COL + ", 1, 4) || '-' || substr(regAss." + GRD_DATE_COL + ", 6, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 9, 2)) >=" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+
+        }
 
 
         return "SELECT  " +
-                dbo_Get_dayDifference(country, donor, award, opMonthCode, REG_N_CA2_TABLE, CA2DOB_DATE_COL) +
+                dbo_Get_dayDifference(country, donor, award, opMonthCode, REG_N_CA2_TABLE, CA2DOB_DATE_COL, syncMode) +
 
                 ", " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + "," +
                 REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HH_HEAD_NAME + "," +
@@ -1435,10 +1391,8 @@ public class SQLiteQuery {
                 "  AND " + " regAss." + PROG_CODE_COL + " = '" + program + "'" +
                 "  AND " + " regAss." + SRV_CODE_COL + " = '" + srvCode + "'" +
 
-                " AND date(substr(regAss." + REG_N_DAT_COL + ", 1, 4) || '-' || substr(regAss." + REG_N_DAT_COL + ", 6, 2) || '-' || substr(regAss." + REG_N_DAT_COL + ", 9, 2)) <=" + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
-                " AND date(substr(regAss." + GRD_DATE_COL + ", 1, 4) || '-' || substr(regAss." + GRD_DATE_COL + ", 6, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 9, 2)) >=" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")" +
+                dateCondition +
 
-                /**  id Searching  with 15 digit*/
                 " AND "
                 + " daydiffernce <= 1800 " +
 
@@ -1462,10 +1416,27 @@ public class SQLiteQuery {
     }
 
 
-    public static String getRptMemberServiceList_lm_sql(String country, String donor, String award, String program, String srvCode, String opCode, String opMonthCode, String memId, String grpCode, String distFlag, String grpLayR1Code, String grpLayR2Code, String grpLayR3Code) {
+    public static String getRptMemberServiceList_lm_sql(String country, String donor, String award,
+                                                        String program, String srvCode,
+                                                        String opCode, String opMonthCode,
+                                                        String memId, String grpCode,
+                                                        String distFlag, String grpLayR1Code,
+                                                        String grpLayR2Code, String grpLayR3Code,
+                                                        boolean syncMode) {
+
+        String dateCondition = "";
+        if (syncMode) {
+            dateCondition = " AND date(substr(regAss." + REG_N_DAT_COL + ", 7, 4) || '-' || substr(regAss." + REG_N_DAT_COL + ", 1, 2) || '-' || substr(regAss." + REG_N_DAT_COL + ", 4, 2)) <=" + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
+                    " AND date(substr(regAss." + GRD_DATE_COL + ", 7, 4) || '-' || substr(regAss." + GRD_DATE_COL + ", 1, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 4, 2)) >=" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+
+        } else {
+            dateCondition = " AND date(substr(regAss." + REG_N_DAT_COL + ", 1, 4) || '-' || substr(regAss." + REG_N_DAT_COL + ", 6, 2) || '-' || substr(regAss." + REG_N_DAT_COL + ", 9, 2)) <=" + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
+                    " AND date(substr(regAss." + GRD_DATE_COL + ", 1, 4) || '-' || substr(regAss." + GRD_DATE_COL + ", 6, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 9, 2)) >=" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+
+        }
 
         String MorbiTuiLm = "SELECT  " +
-                dbo_Get_dayDifference(country, donor, award, opMonthCode, REG_N_LM_TABLE, LM_DATE_COL) +
+                dbo_Get_dayDifference(country, donor, award, opMonthCode, REG_N_LM_TABLE, LM_DATE_COL, syncMode) +
 
                 ", " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + "," +
                 REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HH_HEAD_NAME + "," +
@@ -1537,9 +1508,7 @@ public class SQLiteQuery {
                 "  AND " + " regAss." + PROG_CODE_COL + " = '" + program + "'" +
                 "  AND " + " regAss." + SRV_CODE_COL + " = '" + srvCode + "'" +
 
-                " AND date(substr(regAss." + REG_N_DAT_COL + ", 1, 4) || '-' || substr(regAss." + REG_N_DAT_COL + ", 6, 2) || '-' || substr(regAss." + REG_N_DAT_COL + ", 9, 2)) <=" + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
-                " AND date(substr(regAss." + GRD_DATE_COL + ", 1, 4) || '-' || substr(regAss." + GRD_DATE_COL + ", 6, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 9, 2)) >=" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")" +
-
+                dateCondition +
                 /**  id Searching  with 15 digit*/
                 " AND "
                 + " daydiffernce <= 180 " +
@@ -1566,11 +1535,24 @@ public class SQLiteQuery {
     }
 
 
-    public static String getRptMemberServiceList_pw_sql(String country, String donor, String award, String program, String srvCode, String opCode, String opMonthCode, String memId, String grpCode, String distFlag, String grpLayR1Code, String grpLayR2Code, String grpLayR3Code) {
+    public static String getRptMemberServiceList_pw_sql(String country, String donor, String award,
+                                                        String program, String srvCode,
+                                                        String opCode, String opMonthCode,
+                                                        String memId, String grpCode,
+                                                        String distFlag, String grpLayR1Code,
+                                                        String grpLayR2Code, String grpLayR3Code,
+                                                        boolean syncMode) {
+        String dateCondition = "";
 
-
+        if (syncMode)
+            dateCondition = " AND date(substr(regAss." + REG_N_DAT_COL + ", 7, 4) || '-' || substr(regAss." + REG_N_DAT_COL + ", 1, 2) || '-' || substr(regAss." + REG_N_DAT_COL + ", 4, 2)) <=" + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
+                    " AND date(substr(regAss." + GRD_DATE_COL + ", 7, 4) || '-' || substr(regAss." + GRD_DATE_COL + ", 1, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 4, 2)) >=" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+        else {
+            dateCondition = " AND date(substr(regAss." + REG_N_DAT_COL + ", 1, 4) || '-' || substr(regAss." + REG_N_DAT_COL + ", 6, 2) || '-' || substr(regAss." + REG_N_DAT_COL + ", 9, 2)) <=" + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
+                    " AND date(substr(regAss." + GRD_DATE_COL + ", 1, 4) || '-' || substr(regAss." + GRD_DATE_COL + ", 6, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 9, 2)) >=" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+        }
         return " SELECT  " +
-                dbo_Get_dayDifference(country, donor, award, opMonthCode, REG_N_PW_TABLE, LMP_DATE_COL) +
+                dbo_Get_dayDifference(country, donor, award, opMonthCode, REG_N_PW_TABLE, LMP_DATE_COL, syncMode) +
 
                 ", " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + "," +
                 REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HH_HEAD_NAME + "," +
@@ -1642,10 +1624,8 @@ public class SQLiteQuery {
                 "  AND " + " regAss." + PROG_CODE_COL + " = '" + program + "'" +
                 "  AND " + " regAss." + SRV_CODE_COL + " = '" + srvCode + "'" +
 
-                " AND date(substr(regAss." + REG_N_DAT_COL + ", 1, 4) || '-' || substr(regAss." + REG_N_DAT_COL + ", 6, 2) || '-' || substr(regAss." + REG_N_DAT_COL + ", 9, 2)) <=" + "(" + dbo_Get_OpMonthEndDate(country, donor, award, "2", opMonthCode) + ")" +
-                " AND date(substr(regAss." + GRD_DATE_COL + ", 1, 4) || '-' || substr(regAss." + GRD_DATE_COL + ", 6, 2) || '-' || substr(regAss." + GRD_DATE_COL + ", 9, 2)) >=" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")" +
+                dateCondition +
 
-                /**  id Searching  with 15 digit*/
                 " AND "
                 + " daydiffernce <= 277 " +
 
@@ -1702,8 +1682,8 @@ public class SQLiteQuery {
                 REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HH_HEAD_NAME + "," +
                 REGISTRATION_MEMBER_TABLE + "." + HH_MEM_ID + ", " +
                 getMemberName + " AS memName ," +
-                REGISTRATION_MEMBER_TABLE + "." + SQLiteHandler.SEX_COL + "," +
-                REGISTRATION_MEMBER_TABLE + "." + SQLiteHandler.MEM_AGE + "," +
+                REGISTRATION_MEMBER_TABLE + "." + SEX_COL + "," +
+                REGISTRATION_MEMBER_TABLE + "." + MEM_AGE + "," +
                 REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_COUNTRY_CODE_COL + "," +
                 REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_DONOR_CODE_COL + "," +
                 REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_AWARD_CODE_COL + "," +
@@ -1785,6 +1765,202 @@ public class SQLiteQuery {
                 //  " , "+ REGISTRATION_MEMBER_TABLE+"."+HH_MEM_ID+
                 "  ORDER BY " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + " DESC";//, RegMembers.RegisterID DESC";
         //  " , "+ REGISTRATION_MEMBER_TABLE+"."+HH_MEM_ID+ "  ORDER BY "+ REGISTRATION_MEMBER_TABLE+"."+HHID_COL+" DESC, RegMembers.RegisterID DESC";
+
+
+    }
+
+
+    public static String getRptMemberServiceList_lb_not01_02_sql(String country, String donor, String award,
+                                                                 String program, String srvCode,
+                                                                 String opCode, String opMonthCode,
+                                                                 String memId, String distFlag,
+                                                                 String layR1Code, String layR2Code,
+                                                                 String layR3Code, String lay4Code,
+                                                                 boolean syncMode) {
+        String getMemberName;
+        if (country.equals("0004")) {
+            getMemberName = REGISTRATION_MEMBER_TABLE + "." + MEM_NAME_FIRST_COL +
+                    "|| ' ' || " + REGISTRATION_MEMBER_TABLE + "." + MEM_NAME_MIDDLE_COL +
+                    "|| ' ' || " + REGISTRATION_MEMBER_TABLE + "." + MEM_NAME_LAST_COL;
+
+        } else
+            getMemberName = REGISTRATION_MEMBER_TABLE + "." + SQLiteHandler.MEM_NAME_COL;
+
+        String dateCondition = "";
+        if (syncMode)
+            dateCondition = " AND date(substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 7, 4) || '-' || substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 1, 2) || '-' || substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 4, 2)) >" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+        else
+            dateCondition = " AND date(substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 1, 4) || '-' || substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 6, 2) || '-' || substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 9, 2)) >" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+
+
+        return "SELECT  " +
+                REGISTRATION_MEMBER_TABLE + "." + HHID_COL + "," +
+                REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HH_HEAD_NAME + "," +
+                REGISTRATION_MEMBER_TABLE + "." + HH_MEM_ID + ", " +
+                getMemberName + " AS memName ," +
+                REGISTRATION_MEMBER_TABLE + "." + SEX_COL + "," +
+                REGISTRATION_MEMBER_TABLE + "." + MEM_AGE + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_COUNTRY_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_DONOR_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_AWARD_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R1_LIST_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + HHID_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + PROG_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + SRV_CODE_COL + "," +
+
+
+                "( " + dbo_Get_SrvMemCount(opMonthCode, distFlag, REG_N_ASSIGN_PROG_SRV_TABLE) + " ) AS SrvRecieved ," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R1_LIST_CODE_COL + " || \"\" || " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL + " || \"\" || " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL + " || \"\" || " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL + " || \"\" || " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + HHID_COL + " || \"\" || " +
+                REGISTRATION_MEMBER_TABLE + "." + HH_MEM_ID + " AS NewID " +
+                /** Add new string  id show ..*/
+
+                "FROM " +
+                REG_N_ASSIGN_PROG_SRV_TABLE +
+                " INNER JOIN " + REGISTRATION_MEMBER_TABLE + "   ON " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + ADM_COUNTRY_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R1_LIST_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R1_LIST_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R4_LIST_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + HHID_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + MEM_ID_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + HH_MEM_ID
+                +
+
+                " INNER JOIN " +
+                REG_N_HH_TABLE + " ON " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R1_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_VILLAGE_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + HHID_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HHID
+
+
+                + " WHERE " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_COUNTRY_CODE_COL + " = '" + country + "' "
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_DONOR_CODE_COL + " = '" + donor + "' "
+                + "  AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_AWARD_CODE_COL + " = '" + award + "' "
+                + "  AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + PROG_CODE_COL + " = '" + program + "' "
+                + "  AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + SRV_CODE_COL + " = '" + srvCode + "' "
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R1_LIST_CODE_COL + " = '" + layR1Code + "'"
+                + " AND  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL + " = '" + layR2Code + "' "
+                + " AND  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL + " = '" + layR3Code + "' "
+                + " AND  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL + " = '" + lay4Code + "' "
+                + dateCondition
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
+                + " ||  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " ||  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " ||  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL
+                + " ||  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + HHID_COL
+                + " ||  " + REG_N_ASSIGN_PROG_SRV_TABLE + " ." + MEM_ID_COL
+                + " LIKE '%" + memId + "%' " +
+                " GROUP BY " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL +
+
+                "  ORDER BY " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + " DESC";
+
+
+    }
+
+    public static String getRptMemberServiceList_lb_02_sql(String country, String donor, String award,
+                                                           String program, String srvCode,
+                                                           String opCode, String opMonthCode,
+                                                           String memId, String distFlag,
+                                                           String layR1Code, String layR2Code,
+                                                           String layR3Code, String lay4Code,
+                                                           boolean syncMode) {
+        String getMemberName;
+        if (country.equals("0004")) {
+            getMemberName = REGISTRATION_MEMBER_TABLE + "." + MEM_NAME_FIRST_COL +
+                    "|| ' ' || " + REGISTRATION_MEMBER_TABLE + "." + MEM_NAME_MIDDLE_COL +
+                    "|| ' ' || " + REGISTRATION_MEMBER_TABLE + "." + MEM_NAME_LAST_COL;
+
+        } else
+            getMemberName = REGISTRATION_MEMBER_TABLE + "." + SQLiteHandler.MEM_NAME_COL;
+
+        String dateCondition = "";
+        if (syncMode)
+            dateCondition = " AND date(substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 7, 4) || '-' || substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 1, 2) || '-' || substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 4, 2)) >" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+        else
+            dateCondition = " AND date(substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 1, 4) || '-' || substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 6, 2) || '-' || substr(" + REG_N_ASSIGN_PROG_SRV_TABLE + "." + GRD_DATE_COL + ", 9, 2)) >" + "(" + dbo_Get_OpMonthStartDate(country, donor, award, "2", opMonthCode) + ")";
+
+        return "SELECT  " +
+                REGISTRATION_MEMBER_TABLE + "." + HHID_COL + "," +
+                REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HH_HEAD_NAME + "," +
+                REGISTRATION_MEMBER_TABLE + "." + HH_MEM_ID + ", " +
+                getMemberName + " AS memName ," +
+                REGISTRATION_MEMBER_TABLE + "." + SEX_COL + "," +
+                REGISTRATION_MEMBER_TABLE + "." + MEM_AGE + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_COUNTRY_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_DONOR_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_AWARD_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R1_LIST_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + HHID_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + PROG_CODE_COL + "," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + SRV_CODE_COL + "," +
+
+
+                "( " + dbo_Get_SrvMemCount(opMonthCode, distFlag, REG_N_ASSIGN_PROG_SRV_TABLE) + " ) AS SrvRecieved ," +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R1_LIST_CODE_COL + " || \"\" || " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL + " || \"\" || " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL + " || \"\" || " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL + " || \"\" || " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + HHID_COL + " || \"\" || " +
+                REGISTRATION_MEMBER_TABLE + "." + HH_MEM_ID + " AS NewID " +
+                /** Add new string  id show ..*/
+
+                "FROM " +
+                REG_N_ASSIGN_PROG_SRV_TABLE +
+                " INNER JOIN " + REGISTRATION_MEMBER_TABLE + "   ON " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + ADM_COUNTRY_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R1_LIST_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R1_LIST_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R4_LIST_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + HHID_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + MEM_ID_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + HH_MEM_ID
+                +
+
+                " INNER JOIN " +
+                REG_N_HH_TABLE + " ON " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R1_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_VILLAGE_CODE_COL
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + HHID_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HHID
+
+
+                + " WHERE " +
+                REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_COUNTRY_CODE_COL + " = '" + country + "' "
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_DONOR_CODE_COL + " = '" + donor + "' "
+                + "  AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + ADM_AWARD_CODE_COL + " = '" + award + "' "
+                + "  AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + PROG_CODE_COL + " = '" + program + "' "
+                + "  AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + SRV_CODE_COL + " = '" + srvCode + "' "
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R1_LIST_CODE_COL + " = '" + layR1Code + "'"
+                + " AND  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL + " = '" + layR2Code + "' "
+                + " AND  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL + " = '" + layR3Code + "' "
+                + " AND  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL + " = '" + lay4Code + "' "
+                + dateCondition
+                + " AND " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
+                + " ||  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " ||  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " ||  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + LAY_R4_LIST_CODE_COL
+                + " ||  " + REG_N_ASSIGN_PROG_SRV_TABLE + "." + HHID_COL
+                + " ||  " + REG_N_ASSIGN_PROG_SRV_TABLE + " ." + MEM_ID_COL
+                + " LIKE '%" + memId + "%' " +
+                " GROUP BY " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL +
+
+                "  ORDER BY " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + " DESC";
 
 
     }
@@ -2000,7 +2176,7 @@ public class SQLiteQuery {
 
                 " FROM  " + REG_N_HH_TABLE +
                 " LEFT JOIN " + LUP_REGNH_HEAD_CATEGORY_TABLE
-                + " ON " + LUP_REGNH_HEAD_CATEGORY_TABLE + "." + CATEGORY_CODE_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HOUSE_HOLD_TYPE_CODE_COL + " " +
+                + " ON " + LUP_REGNH_HEAD_CATEGORY_TABLE + "." + HH_HEAD_CAT_CODE_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HOUSE_HOLD_TYPE_CODE_COL + " " +
                 " WHERE " + REG_N_HH_TABLE + "." +
                 ADM_COUNTRY_CODE_COL + " = '" + countryCode + "' " +
                 " AND " + LAY_R1_LIST_CODE + " = '" + districtCode + "' " +
@@ -2038,7 +2214,8 @@ public class SQLiteQuery {
         return " WHERE " +
                 ADM_COUNTRY_CODE_COL + " = '" + countryCode + "'"
                 + " AND " + STATUS + " = '" + "A" + "' "
-                + " AND " + SQLiteHandler.OPERATION_CODE_COL + " = '2' ";
+                + " AND " + SQLiteHandler.OPERATION_CODE_COL + " = '2' "
+                + " ORDER BY OpMonthID   DESC   LIMIT 1 ";
     }
 
     public static String getServiceMonths_WHERE_Service_Close_Condition(String countryCode) {
@@ -2798,7 +2975,7 @@ public class SQLiteQuery {
     }
 
     public static String getTotal_Service_Itemize_AttendanceSummary_SelectQuery(String cCode, String donorCode, String awardCord, String opMCode, String prgCode/*, String srvCode*/, String vouItSpec) {
-        return " SELECT " + SERVICE_EXTENDED_TABLE + "." + FDP_MASTER_LAY_R1_LIST_CODE_COL + " || '' || "
+        return " SELECT " + SERVICE_EXTENDED_TABLE + "." + LAY_R1_LIST_CODE_COL + " || '' || "
                 + SERVICE_EXTENDED_TABLE + "." + LAY_R2_LIST_CODE_COL + " || '' || "
                 + SERVICE_EXTENDED_TABLE + "." + LAY_R3_LIST_CODE_COL + " || '' || "
                 + SERVICE_EXTENDED_TABLE + "." + LAY_R4_LIST_CODE_COL + " || '' || "
@@ -2807,17 +2984,18 @@ public class SQLiteQuery {
                 +
                 /** HERE COUNT THE SERVICE */
                 SERVICE_EXTENDED_TABLE + "." + VOUCHER_UNIT_COL + "  "
-                + " ," + VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE + "." + SQLiteHandler.UNITE_COST_COL + " AS cost "
+                + " ," + VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE + "." + UNITE_COST_COL + " AS cost "
                 + " FROM " + SERVICE_EXTENDED_TABLE +
-                " JOIN " + SQLiteHandler.SRV_CENTER_TABLE + " ON " + SERVICE_EXTENDED_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + SQLiteHandler.SRV_CENTER_TABLE + "." + ADM_COUNTRY_CODE_COL +
-                " JOIN " + SQLiteHandler.OP_MONTH_TABLE + " ON " + SERVICE_EXTENDED_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + SQLiteHandler.OP_MONTH_TABLE + "." + ADM_COUNTRY_CODE_COL +
-                " AND " + SERVICE_EXTENDED_TABLE + "." + SQLiteHandler.OPERATION_CODE_COL + " = " + SQLiteHandler.OP_MONTH_TABLE + "." + SQLiteHandler.OPERATION_CODE_COL +
-                " AND " + SERVICE_EXTENDED_TABLE + "." + OP_MONTH_CODE_COL + " = " + SQLiteHandler.OP_MONTH_TABLE + "." + OP_MONTH_CODE_COL +
-                " AND " + SERVICE_EXTENDED_TABLE + "." + ADM_DONOR_CODE_COL + " = " + SQLiteHandler.OP_MONTH_TABLE + "." + ADM_DONOR_CODE_COL +
-                " AND " + SERVICE_EXTENDED_TABLE + "." + ADM_AWARD_CODE_COL + " = " + SQLiteHandler.OP_MONTH_TABLE + "." + ADM_AWARD_CODE_COL + "  " +
-                " JOIN " + SQLiteHandler.SERVICE_MASTER_TABLE + " ON " + SERVICE_EXTENDED_TABLE + "." + PROG_CODE_COL + " = " + SQLiteHandler.SERVICE_MASTER_TABLE + "." + ADM_PROG_CODE_COL +
-                " AND " + SERVICE_EXTENDED_TABLE + "." + SRV_CODE_COL + " = " + SQLiteHandler.SERVICE_MASTER_TABLE + "." + SRV_CODE_COL + "  " +
-                " INNER JOIN " + SQLiteHandler.VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE +
+                " JOIN " + SRV_CENTER_TABLE + " ON " + SERVICE_EXTENDED_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + SRV_CENTER_TABLE + "." + ADM_COUNTRY_CODE_COL +
+                " JOIN " + OP_MONTH_TABLE + " ON " + SERVICE_EXTENDED_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + OP_MONTH_TABLE + "." + ADM_COUNTRY_CODE_COL +
+                " AND " + SERVICE_EXTENDED_TABLE + "." + OPERATION_CODE_COL + " = " + OP_MONTH_TABLE + "." + OPERATION_CODE_COL +
+                " AND " + SERVICE_EXTENDED_TABLE + "." + OP_MONTH_CODE_COL + " = " + OP_MONTH_TABLE + "." + OP_MONTH_CODE_COL +
+                " AND " + SERVICE_EXTENDED_TABLE + "." + ADM_DONOR_CODE_COL + " = " + OP_MONTH_TABLE + "." + ADM_DONOR_CODE_COL +
+                " AND " + SERVICE_EXTENDED_TABLE + "." + ADM_AWARD_CODE_COL + " = " + OP_MONTH_TABLE + "." + ADM_AWARD_CODE_COL + "  " +
+                " JOIN " + SERVICE_MASTER_TABLE
+                + " ON " + SERVICE_EXTENDED_TABLE + "." + PROG_CODE_COL + " = " + SERVICE_MASTER_TABLE + "." + ADM_PROG_CODE_COL +
+                " AND " + SERVICE_EXTENDED_TABLE + "." + SRV_CODE_COL + " = " + SERVICE_MASTER_TABLE + "." + ADM_SRV_CODE_COL + "  " +
+                " INNER JOIN " + VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE +
                 " ON " + SERVICE_EXTENDED_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE + "." + ADM_COUNTRY_CODE_COL +
                 " AND  " + SERVICE_EXTENDED_TABLE + "." + ADM_DONOR_CODE_COL + " = " + VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE + "." + ADM_DONOR_CODE_COL +
                 " AND  " + SERVICE_EXTENDED_TABLE + "." + ADM_AWARD_CODE_COL + " = " + VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE + "." + ADM_AWARD_CODE_COL +
@@ -2828,16 +3006,16 @@ public class SQLiteQuery {
                 " AND " + SERVICE_EXTENDED_TABLE + "." + ADM_DONOR_CODE_COL + " = '" + donorCode + "'" +
                 " AND " + SERVICE_EXTENDED_TABLE + "." + ADM_AWARD_CODE_COL + " = '" + awardCord + "'" +
                 " AND " + SERVICE_EXTENDED_TABLE + "." + PROG_CODE_COL + " = '" + prgCode + "'" +
-                //** use it latter    " AND " + SERVICE_EXTENDED_TABLE + "." + ADM_SRV_CODE_COL + " = '" + srvCode + "'" +
+
                 " AND " + SERVICE_EXTENDED_TABLE + "." + OP_MONTH_CODE_COL + " = '" + opMCode + "'  " +
                 " AND " + SERVICE_EXTENDED_TABLE + "." + VOUCHER_ITEM_SPEC_COL + " = '" + vouItSpec + "'  " +
-                " GROUP BY " + SERVICE_EXTENDED_TABLE + "." + FDP_MASTER_LAY_R1_LIST_CODE_COL + " , " +
-                SERVICE_EXTENDED_TABLE + "." + LAY_R2_LIST_CODE_COL + " , " +
-                SERVICE_EXTENDED_TABLE + "." + LAY_R3_LIST_CODE_COL + " , " +
-                SERVICE_EXTENDED_TABLE + "." + LAY_R4_LIST_CODE_COL + " , " +
-                SERVICE_EXTENDED_TABLE + "." + HHID_COL + " , " +
-                SERVICE_EXTENDED_TABLE + "." + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID;
-//                + " , " +               SERVICE_EXTENDED_TABLE + "." + SERVICE_SL_COL + "  ";
+                " GROUP BY " + SERVICE_EXTENDED_TABLE + "." + LAY_R1_LIST_CODE_COL
+                + " , " + SERVICE_EXTENDED_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " , " + SERVICE_EXTENDED_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " , " + SERVICE_EXTENDED_TABLE + "." + LAY_R4_LIST_CODE_COL
+                + " , " + SERVICE_EXTENDED_TABLE + "." + HHID_COL
+                + " , " + SERVICE_EXTENDED_TABLE + "." + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID;
+
 
     }
 
@@ -3840,14 +4018,25 @@ public class SQLiteQuery {
                 + " ORDER BY Criteria ";
     }
 
-    public static String layR4ListServicePage_sql() {
-        return " JOIN " + STAFF_GEO_INFO_ACCESS_TABLE + " AS geoAccess " +
-                " ON " + GEO_LAY_R4_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + "geoAccess." + ADM_COUNTRY_CODE_COL +
-                " AND " + GEO_LAY_R4_LIST_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = " + "geoAccess." + LAY_R_LIST_CODE_COL +
-                " AND " + GEO_LAY_R4_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL + " = " + "geoAccess." + LAY_R2_LIST_CODE_COL +
-                " AND " + GEO_LAY_R4_LIST_TABLE + "." + LAY_R3_LIST_CODE_COL + " = " + "geoAccess." + LAY_R3_LIST_CODE_COL +
-                " AND " + GEO_LAY_R4_LIST_TABLE + "." + LAY_R4_LIST_CODE_COL + " = " + "geoAccess." + LAY_R4_LIST_CODE_COL +
-                " GROUP BY " + GEO_LAY_R4_LIST_TABLE + "." + LAY_R4_LIST_CODE_COL + ", " + GEO_LAY_R4_LIST_TABLE + "." + LAY_R4_LIST_NAME_COL;
+    public static String layR4ListServicePage_sql(String cCode) {
+        return "SELECT "
+                + " geo4Table." + LAY_R1_LIST_CODE_COL +
+                " || " + " geo4Table." + LAY_R2_LIST_CODE_COL +
+                " || " + " geo4Table." + LAY_R3_LIST_CODE_COL +
+                " || " + " geo4Table." + LAY_R4_LIST_CODE_COL
+
+                + ", " + " geo4Table." + LAY_R4_LIST_NAME_COL
+                + " FROM " + GEO_LAY_R4_LIST_TABLE + " AS geo4Table "
+                + " INNER JOIN " + STAFF_GEO_INFO_ACCESS_TABLE + " AS geoAccess " +
+                " ON " + " geo4Table." + ADM_COUNTRY_CODE_COL + " = " + "geoAccess." + ADM_COUNTRY_CODE_COL +
+                " AND " + " geo4Table." + LAY_R1_LIST_CODE_COL +
+                " || " + " geo4Table." + LAY_R2_LIST_CODE_COL +
+                " || " + " geo4Table." + LAY_R3_LIST_CODE_COL +
+                " || " + " geo4Table." + LAY_R4_LIST_CODE_COL + " = " + "geoAccess." + LAY_R_LIST_CODE_COL +
+                " WHERE " + " geo4Table." + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
+                " GROUP BY " + " geo4Table." + LAY_R4_LIST_CODE_COL
+                + ", " + " geo4Table." + LAY_R4_LIST_NAME_COL
+                + " ORDER BY " + " geo4Table." + LAY_R4_LIST_NAME_COL;
     }
 
 //    public static String getHouseHoldData_sql(String hhID, String c_code, String layR1Code, String layR2Code, String layR3Code, String layR4Code) {
@@ -5379,5 +5568,44 @@ public class SQLiteQuery {
                 + " AND " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_CODE + " = '" + staffCode + "'"
                 + " AND " + STAFF_FDP_ACCESS_TABLE + "." + BTN_NEW_COL + " = '1'"
                 + " ORDER BY  " + GEO_LAY_R2_LIST_TABLE + "." + LAY_R2_LIST_CODE_COL;
+    }
+
+    public static String getSrvExtVoucherList_sql(String cCode, String layR1code,
+                                                  String layR2Code, String lay3Code,
+                                                  String lay4Code, String hhId,
+                                                  String memId, String donorCode,
+                                                  String awardCode, String prgCode,
+                                                  String srvCode, String opMonthCode) {
+        return "Select (Select " + ITEM_NAME_COL + " from " + VOUCHER_ITEM_TABLE +
+
+                " where " + VOUCHER_ITEM_CATEGORY_CODE_COL + " || " + ITEM_CODE_COL + " = substr(VOCPI." + VOUCHER_ITEM_SPEC_COL + ",0,8))" +
+                " ||'-'|| (Select " + UNITE_MEAS_COL + " ||' '|| " + MEASE_TITLE_COL + " from " + VOUCHER_ITEM__MEAS_TABLE +
+
+                " where " + MEAS_R_CODE_COL + " = VOCPI." + MEAS_R_CODE_COL + " ) as item " +
+                " ,   (case when SrET." + VOUCHER_ITEM_SPEC_COL + " is null then 'False' else 'True' end ) as checkedItem " +
+                " , SrET." + VOUCHER_UNIT_COL + " AS  " + VOUCHER_UNIT_COL +
+                " , VOCPI." + VOUCHER_ITEM_SPEC_COL + " AS " + VOUCHER_ITEM_SPEC_COL +
+                " from " + VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE + " as VOCPI" +
+                " left join  " + SERVICE_EXTENDED_TABLE + " as  SrET" +
+                "       on " +
+                " SrET." + ADM_COUNTRY_CODE_COL + " = VOCPI." + ADM_COUNTRY_CODE_COL +
+
+                " and  SrET." + ADM_AWARD_CODE_COL + " = VOCPI." + ADM_AWARD_CODE_COL
+                + " and        SrET." + ADM_DONOR_CODE_COL + " = VOCPI." + ADM_DONOR_CODE_COL +
+                " and        SrET." + VOUCHER_ITEM_SPEC_COL + " = VOCPI." + VOUCHER_ITEM_SPEC_COL +
+                " and        SrET." + LAY_R1_LIST_CODE_COL + " = '" + layR1code + "'" +
+                " and SrET." + LAY_R2_LIST_CODE_COL + " = '" + layR2Code + "'" +
+                " and SrET." + LAY_R3_LIST_CODE_COL + " = '" + lay3Code + "'" +
+                " and SrET." + LAY_R4_LIST_CODE_COL + " = '" + lay4Code + "'" +
+                " and SrET." + HHID_COL + " = '" + hhId + "'" +
+                " and SrET." + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + memId + "'" +
+                " and SrET." + PROG_CODE_COL + " = '" + prgCode + "'" +
+                " and SrET." + SRV_CODE_COL + " = '" + srvCode + "'" +
+                " and SrET." + OPERATION_CODE_COL + " = '2'" +      // opcode 2 mean s service
+                " and SrET." + OP_MONTH_CODE_COL + " = '" + opMonthCode + "'" +
+                " where VOCPI." + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'" +
+                " and VOCPI." + ADM_DONOR_CODE_COL + " = '" + donorCode + "'" +
+                " and VOCPI." + ADM_AWARD_CODE_COL + " = '" + awardCode + "'" +
+                " and VOCPI." + ADM_SRV_CODE_COL + " = '" + srvCode + "'";
     }
 }//end of class

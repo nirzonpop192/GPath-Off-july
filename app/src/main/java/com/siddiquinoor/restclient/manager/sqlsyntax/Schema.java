@@ -325,10 +325,10 @@ public class Schema {
 
 
     public static String sqlCreateHouseHoldCategoryTable() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.LUP_REGNH_HEAD_CATEGORY_TABLE + " ( "
-                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+        return CREATE_TABLE_IF_NOT_EXISTS + LUP_REGNH_HEAD_CATEGORY_TABLE + " ( "
+              //  + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(20), "
-                + CATEGORY_CODE_COL + " VARCHAR(20), "
+                + HH_HEAD_CAT_CODE_COL + " VARCHAR(20), "
                 + CATEGORY_NAME_COL + " VARCHAR(120) ) "
 
                 ;
@@ -1011,13 +1011,13 @@ public class Schema {
     // create Vul table schema
     public static String sqlCreateVoucherItem_Table() {
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.VOUCHER_ITEM_TABLE + " ("
+        return CREATE_TABLE_IF_NOT_EXISTS + VOUCHER_ITEM_TABLE + " ("
 
-                + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
 
-                + SQLiteHandler.VOUCHER_ITEM_CATEGORY_CODE_COL + " VARCHAR(4), "
-                + SQLiteHandler.ITEM_CODE_COL + " VARCHAR(5), "
-                + SQLiteHandler.ITEM_NAME_COL + " VARCHAR(100) "
+                + VOUCHER_ITEM_CATEGORY_CODE_COL + " VARCHAR(4), "
+                + ITEM_CODE_COL + " VARCHAR(5), "
+                + ITEM_NAME_COL + " VARCHAR(100) "
 
                 + " )";
 

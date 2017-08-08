@@ -320,10 +320,9 @@ public class PointAttributes extends BaseActivity {
                             if (allistedRadioButton.get(i).isChecked()) {
 
 
-
                                 String text = (String) allistedRadioButton.get(i).getText();
 
-                                String attValue = sqlH.getLupGPSCode(idGroup,idSubGroup,subAtt.getAttributeCode(),text);
+                                String attValue = sqlH.getLupGPSCode(idGroup, idSubGroup, subAtt.getAttributeCode(), text);
                                 attValue = getPadding(attValue.length(), attValue);
 
 
@@ -354,7 +353,7 @@ public class PointAttributes extends BaseActivity {
                     }
                 }
 
-                CustomToast.show(mContext,"Save successfully ");
+                CustomToast.show(mContext, "Save successfully ");
 //                Toast.makeText(mContext, , Toast.LENGTH_SHORT).show();
             }
         });
@@ -835,7 +834,10 @@ public class PointAttributes extends BaseActivity {
 
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            photo.compress(Bitmap.CompressFormat.PNG, 99, stream);
+
+            if (photo != null)
+                photo.compress(Bitmap.CompressFormat.PNG, 99, stream);
+
             byte[] byteArray = stream.toByteArray();
             String base64 = Base64.encodeToString(byteArray, Base64.DEFAULT);
             base64 = base64.trim();
@@ -856,15 +858,21 @@ public class PointAttributes extends BaseActivity {
 
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            photo.compress(Bitmap.CompressFormat.PNG, 99, stream);
+
+            if (photo != null)
+                photo.compress(Bitmap.CompressFormat.PNG, 99, stream);
+
             byte[] byteArray = stream.toByteArray();
             String base64 = Base64.encodeToString(byteArray, Base64.DEFAULT);
             try {
-                sqlH.insertIntoGPSLocationContentTable(idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_2, byteArray, REMARKS_2, getStaffID(), getDateTime());
+                sqlH.insertIntoGPSLocationContentTable(idCountry, idGroup, idSubGroup, idLocation,
+                        IMG_CONTENT_CODE_2, byteArray, REMARKS_2, getStaffID(), getDateTime());
+
                 sqlServer.setAdmCountryCode(idCountry);
                 sqlServer.setContentCode(IMG_CONTENT_CODE_2);
                 sqlServer.setImageFile(base64);
                 sqlServer.setRemarks(REMARKS_2);
+
                 sqlH.insertIntoUploadTable(sqlServer.InsertIntoGPSLocationContentTable());
             } catch (ParseException e) {
                 e.printStackTrace();
@@ -876,15 +884,21 @@ public class PointAttributes extends BaseActivity {
         } else if (requestCode == CAMERA_REQUEST_3 && resultCode == RESULT_OK && data != null) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            photo.compress(Bitmap.CompressFormat.PNG, 99, stream);
+
+            if (photo != null)
+                photo.compress(Bitmap.CompressFormat.PNG, 99, stream);
+
             byte[] byteArray = stream.toByteArray();
             String base64 = Base64.encodeToString(byteArray, Base64.DEFAULT);
             try {
-                sqlH.insertIntoGPSLocationContentTable(idCountry, idGroup, idSubGroup, idLocation, IMG_CONTENT_CODE_3, byteArray, REMARKS_3, getStaffID(), getDateTime());
+                sqlH.insertIntoGPSLocationContentTable(idCountry, idGroup, idSubGroup, idLocation,
+                        IMG_CONTENT_CODE_3, byteArray, REMARKS_3, getStaffID(), getDateTime());
+
                 sqlServer.setAdmCountryCode(idCountry);
                 sqlServer.setContentCode(IMG_CONTENT_CODE_3);
                 sqlServer.setImageFile(base64);
                 sqlServer.setRemarks(REMARKS_3);
+
                 sqlH.insertIntoUploadTable(sqlServer.InsertIntoGPSLocationContentTable());
             } catch (ParseException e) {
                 e.printStackTrace();
@@ -897,7 +911,10 @@ public class PointAttributes extends BaseActivity {
 
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            photo.compress(Bitmap.CompressFormat.PNG, 99, stream);
+
+            if (photo != null)
+                photo.compress(Bitmap.CompressFormat.PNG, 99, stream);
+
             byte[] byteArray = stream.toByteArray();
             String base64 = Base64.encodeToString(byteArray, Base64.DEFAULT);
             try {
@@ -919,7 +936,10 @@ public class PointAttributes extends BaseActivity {
 
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            photo.compress(Bitmap.CompressFormat.PNG, 99, stream);
+
+            if (photo != null)
+                photo.compress(Bitmap.CompressFormat.PNG, 99, stream);
+
             byte[] byteArray = stream.toByteArray();
             String base64 = Base64.encodeToString(byteArray, Base64.DEFAULT);
             try {

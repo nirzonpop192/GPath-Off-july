@@ -47,7 +47,7 @@ public class SrvOrDistItemizeAttendance extends BaseActivity {
     private ArrayList<SummaryServiceListModel> srvListArray = new ArrayList<SummaryServiceListModel>();
     private Button btn_home;
     private Button btn_summaryMenu;
-    private final Context CONTEXT = SrvOrDistItemizeAttendance.this;
+    private final Context mContext = SrvOrDistItemizeAttendance.this;
     private String idCountry;
     private String idOpMonth_Code;
     private String holderMonth_str;
@@ -111,14 +111,14 @@ public class SrvOrDistItemizeAttendance extends BaseActivity {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToMainActivity((Activity) CONTEXT);
+                goToMainActivity((Activity) mContext);
             }
         });
         btn_summaryMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent i = new Intent(CONTEXT, SrvOrDistItemize.class);
+                Intent i = new Intent(mContext, SrvOrDistItemize.class);
                 i.putExtra(KEY.DIR_CLASS_NAME_KEY, "SummaryServiceItemizeAttendance");
                 i.putExtra(KEY.COUNTRY_ID, idCountry);
                 i.putExtra(KEY.DONOR_CODE, idDonor);
@@ -249,7 +249,7 @@ public class SrvOrDistItemizeAttendance extends BaseActivity {
             lv_summaryList.setFocusableInTouchMode(true);
 
         } else {
-            dialog.showInfromDialog(CONTEXT, "No Data", "No Data found");
+            dialog.showInfromDialog(mContext, "No Data", "No Data found");
         }
     }
 

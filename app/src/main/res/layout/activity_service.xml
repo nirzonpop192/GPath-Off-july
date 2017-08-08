@@ -98,7 +98,7 @@
                     <TextView
                         android:id="@+id/tv_service_LayR4Label"
                         style="@style/txt_label"
-                        android:text="layR4" />
+                        android:text="@string/layr4" />
 
 
                 </LinearLayout>

@@ -4781,7 +4781,23 @@ public class SQLServerSyntaxGenerator {
 
 
     public String InsertIntoGPSLocationContentTable() {
-        return "INSERT INTO [dbo].[GPSLocationContent]" +
+
+        return " UPDATE GPSLocationContent SET "
+                + "        [ImageFile]= " + " convert(varbinary(max)," + getImageFile() + ")"
+                + " , [EntryBy] = " + getEntryBy()
+                + " , [EntryDate] = " + getEntryDate()
+                + " , [Remarks] = " + getRemarks()
+                + " , [ImageFileString] = " + getImageFile()
+                + " , [FileType] = '.png' "
+                + " , [FromANdroid] = '1' "
+                + " WHERE[AdmCountryCode] = " + getAdmCountryCode()
+                + " AND [GrpCode] = " + getGrpCode()
+                + " AND [SubGrpCode] = " + getSubGrpCode()
+                + " AND [LocationCode] = " + getLocationCode()
+                + " AND [ContentCode] = " + getContentCode()
+                + " IF @@ROWCOUNT=0 "
+
+                + " INSERT INTO [dbo].[GPSLocationContent]" +
                 "(  [AdmCountryCode] " +
                 ",  [GrpCode] " +
                 ",  [SubGrpCode] " +
@@ -4793,6 +4809,7 @@ public class SQLServerSyntaxGenerator {
                 ",  [EntryDate] " +
                 ",  [ImageFileString] " +
                 ",  [FromANdroid] " +
+                ",  [FileType] " +
                 " ) " +
                 "   VALUES "
                 + "(" + getAdmCountryCode()
@@ -4806,6 +4823,7 @@ public class SQLServerSyntaxGenerator {
                 + " , " + getEntryDate()
                 + " , " + getImageFile()
                 + " , " + "'1'"
+                + " , " + "'.png'"
                 + " ) ";
     }
 

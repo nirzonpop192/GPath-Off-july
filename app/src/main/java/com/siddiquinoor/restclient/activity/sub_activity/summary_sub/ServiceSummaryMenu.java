@@ -1,8 +1,10 @@
 package com.siddiquinoor.restclient.activity.sub_activity.summary_sub;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -65,21 +67,18 @@ public class ServiceSummaryMenu extends BaseActivity {
         idCountry = intent.getStringExtra(KEY.COUNTRY_ID);
         flag = intent.getStringExtra(KEY.FLAG);
         String dir;
-         dir=intent.getStringExtra(KEY.DIR_CLASS_NAME_KEY);
-       if(dir.equals("SummaryMenuActivity")){
-           loadAward(idCountry);
-       }
-        else {
-           idAward=intent.getStringExtra(KEY.AWARD_CODE);
-           strAward=intent.getStringExtra(KEY.AWARD_NAME);
-           idProgram=intent.getStringExtra(KEY.PROGRAM_CODE);
-           strProgram=intent.getStringExtra(KEY.PROGRAM_NAME);
-           idServiceMonth=intent.getStringExtra(KEY.SERVICE_MONTH_CODE);
-           strSrvMonth=intent.getStringExtra(KEY.SERVICE_MONTH_NAME);
-           loadAward(idCountry);
-       }
-
-
+        dir = intent.getStringExtra(KEY.DIR_CLASS_NAME_KEY);
+        if (dir.equals("SummaryMenuActivity")) {
+            loadAward(idCountry);
+        } else {
+            idAward = intent.getStringExtra(KEY.AWARD_CODE);
+            strAward = intent.getStringExtra(KEY.AWARD_NAME);
+            idProgram = intent.getStringExtra(KEY.PROGRAM_CODE);
+            strProgram = intent.getStringExtra(KEY.PROGRAM_NAME);
+            idServiceMonth = intent.getStringExtra(KEY.SERVICE_MONTH_CODE);
+            strSrvMonth = intent.getStringExtra(KEY.SERVICE_MONTH_NAME);
+            loadAward(idCountry);
+        }
 
 
         btnSummary.setOnClickListener(new View.OnClickListener() {
@@ -110,9 +109,9 @@ public class ServiceSummaryMenu extends BaseActivity {
         });
 
 
-        if (flag.equals(KEY.DIST_FLAG)){
-            tvPageTitle.setText("Service Summary");
-            rbServiceSummary.setText("SumRegLay4TotalHHRecords");
+        if (flag.equals(KEY.DIST_FLAG)) {
+            tvPageTitle.setText("Distribution Summary");
+            rbServiceSummary.setText("Distribution Summary");
             rbServiceAttendance.setText("Distribution Attendance");
         }
 
@@ -174,7 +173,7 @@ public class ServiceSummaryMenu extends BaseActivity {
 
 
         if (intent != null) {
-        //    finish();
+            //    finish();
             startActivity(intent);
         }
     }
@@ -193,25 +192,31 @@ public class ServiceSummaryMenu extends BaseActivity {
         rbItemSummary = (RadioButton) findViewById(R.id.rbtn_Itemized_summary);
         rbItemAttendance = (RadioButton) findViewById(R.id.rbtn_itemize_attendance);
         rbServiceAttendance = (RadioButton) findViewById(R.id.rbtn_serv_attendance);
-        setUpGoBackButton();
-        setUpShowButton();
+
 
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        setUpGoBackButton();
+        setUpShowButton();
+    }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpGoBackButton() {
         btnSummary.setText("");
         Drawable imageGoto = getResources().getDrawable(R.drawable.goto_back);
-        btnSummary.setCompoundDrawablesRelativeWithIntrinsicBounds(imageGoto, null, null, null);
-        btnSummary.setPadding(180, 10, 180, 10);
+        btnSummary.setCompoundDrawablesRelativeWithIntrinsicBounds(null, imageGoto, null, null);
+        btnSummary.setPadding(-1, 15, -1, 15);
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpShowButton() {
-
         btnShow.setText("");
         Drawable imageHome = getResources().getDrawable(R.drawable.show);
-        btnShow.setCompoundDrawablesRelativeWithIntrinsicBounds(imageHome, null, null, null);
-        btnShow.setPadding(180, 10, 180, 10);
+        btnShow.setCompoundDrawablesRelativeWithIntrinsicBounds(null, imageHome, null, null);
+        btnShow.setPadding(-1, 15, -1, 15);
     }
 
 
@@ -286,7 +291,7 @@ public class ServiceSummaryMenu extends BaseActivity {
                 idProgram = ((SpinnerHelper) spProgram.getSelectedItem()).getId();
                 // if(idProgram.length()>2){
                 Log.d(TAG, "load Prog data " + idProgram);
-                if (!idProgram.equals("00")){
+                if (!idProgram.equals("00")) {
                     if (sqlH.checkAdmCountryProgramsVoucherFlag(idCountry, idDonor, idAward, idProgram)) {
                         rbItemSummary.setVisibility(View.VISIBLE);
                         rbItemAttendance.setVisibility(View.VISIBLE);
@@ -340,7 +345,6 @@ public class ServiceSummaryMenu extends BaseActivity {
             }
             spServiceMonth.setSelection(position);
         }
-
 
 
         spServiceMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

@@ -16,14 +16,14 @@
        android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:paddingLeft="20dp"
-        android:textSize="@dimen/txt_size_list_row_14sp"
+        android:textSize="20sp"
 
          />
 
 
     <TextView
         android:id="@+id/tv_id_srvAId"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/tv_srvA_SrvSl"
@@ -31,7 +31,7 @@
         android:clickable="true"
         android:hint="010502010000903"
         android:padding="5dp"
-        android:textSize="@dimen/txt_size_list_row_14sp"
+        android:textSize="20sp"
          />
 
     <TextView
@@ -43,7 +43,7 @@
         android:clickable="true"
         android:hint="Name Name "
         android:padding="5dp"
-        android:textSize="@dimen/txt_size_list_row_14sp"
+        android:textSize="20sp"
         android:layout_toRightOf="@+id/tv_id_srvAId"
         android:layout_toEndOf="@+id/tv_id_srvAId" />
 
@@ -57,7 +57,7 @@
         android:clickable="true"
         android:text="Open"
         android:padding="5dp"
-        android:textSize="@dimen/txt_size_list_row_14sp"
+        android:textSize="20sp"
         />
 
 

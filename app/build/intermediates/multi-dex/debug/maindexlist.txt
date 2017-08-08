@@ -810,6 +810,7 @@ android/support/v4/view/ViewCompatHC.class
 com/google/android/gms/internal/zzjn.class
 com/siddiquinoor/restclient/activity/sub_activity/summary_sub/SumSrvOrDistCriteria$4.class
 com/siddiquinoor/restclient/data_model/LayRCodes.class
+com/siddiquinoor/restclient/activity/sub_activity/service_sub/ServiceVoucherDetails$TemTestUnit.class
 com/google/firebase/crash/internal/service/FirebaseCrashReceiverService.class
 com/siddiquinoor/restclient/activity/LoginActivity$44.class
 android/support/v4/media/RatingCompat.class

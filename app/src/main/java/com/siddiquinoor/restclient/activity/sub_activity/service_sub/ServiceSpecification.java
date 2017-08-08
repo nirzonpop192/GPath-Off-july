@@ -1,11 +1,13 @@
 package com.siddiquinoor.restclient.activity.sub_activity.service_sub;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -60,8 +62,7 @@ public class ServiceSpecification extends BaseActivity {
      *
      */
     private Spinner spBabyStatus, spGMPAttendance, spWeightStatus, spNutAttendance,
-            spVitA_Under5, spExclusive_CurrentlyBF, spCMAMRef, spCMAMAdd
-            ,spAnimalType,spCropType, spLeadPosition,spLoanSource;
+            spVitA_Under5, spExclusive_CurrentlyBF, spCMAMRef, spCMAMAdd, spAnimalType, spCropType, spLeadPosition, spLoanSource;
 
     private TextView lbBabyStatus, lbGMPAttendance, lbWeightStatus, lbNutAttendance,
             lbVitA_Under5, lbDateCompFeeding, lbCMAMRef, lbExclusive_CurrentlyBF, lbCMAMAdd, tvDateCompFeeding;
@@ -72,9 +73,7 @@ public class ServiceSpecification extends BaseActivity {
 
     private TextView lbDateANCVisit, tvDateANCVisit, lbFacilityPostnatal, lbDeliveryStaff,
             lbHomeSupport24H, lbHomeSupport48H, lbMaternalComplications, lbNewbornComplications,
-            lbChildhoodIllnesses, lbImmunizations, lbFPCounsel
-            ,lbAnimalType,lbCropType,lbLoanAMT,lbLeadPosition ,lbLoanSource;
-
+            lbChildhoodIllnesses, lbImmunizations, lbFPCounsel, lbAnimalType, lbCropType, lbLoanAMT, lbLeadPosition, lbLoanSource;
 
 
     private RadioGroup rg_DeliveryStaff;
@@ -141,7 +140,7 @@ public class ServiceSpecification extends BaseActivity {
     private String leadCode;
     private boolean mDataExits = false;
     private EditText edtLoanAMT;
-    private String strAnimalType,strCropType,strLoanSource,strLeadCode;
+    private String strAnimalType, strCropType, strLoanSource, strLeadCode;
 
 
     @Override
@@ -156,12 +155,12 @@ public class ServiceSpecification extends BaseActivity {
         Intent i = getIntent();
         srvData = (ServiceDataModel) i.getParcelableExtra(KEY.SERVICE_DATA_OBJECT_KEY);
         String criteriaCode = srvData.getDonor_code() + srvData.getAward_code() + srvData.getProgram_code() + srvData.getService_code();
-        Log.d("NIR0","Service Record: idGroup idGroupCat:"+srvData.getTemIdGroupCat()+" strGroupCat: "+srvData.getTemStrGroupCat()
-                        +"   idGroup:"+srvData.getTemIdGroup()+" strGroup : "+srvData.getTemStrGroup());
+        Log.d("NIR0", "Service Record: idGroup idGroupCat:" + srvData.getTemIdGroupCat() + " strGroupCat: " + srvData.getTemStrGroupCat()
+                + "   idGroup:" + srvData.getTemIdGroup() + " strGroup : " + srvData.getTemStrGroup());
 
         Log.d("Nir", "criteriaCode : " + criteriaCode);
 
-        switch (criteriaCode){
+        switch (criteriaCode) {
             case CA2:
             case CU2:
                 showViewInCA_N_CU();
@@ -307,7 +306,7 @@ public class ServiceSpecification extends BaseActivity {
                                 /**
                                  * for test del log
                                  */
-                               // deleteLog();
+                                // deleteLog();
 
 
                                 ResetViews();
@@ -1108,8 +1107,7 @@ public class ServiceSpecification extends BaseActivity {
 
                     /** update Syntax for upload in Sync process */
                     sqlH.insertIntoUploadTable(serviceTable.updateInToSrvTable());
-                }
-                else {
+                } else {
                     /** insert for local device */
                     sqlH.addMemberIntoServiceTable(srvData, entryBy, entryDate);
                     /** insert for upload in Sync process */
@@ -1117,11 +1115,10 @@ public class ServiceSpecification extends BaseActivity {
                 }
 
                 /**                                         * min Srv Date                                         */
-                ServiceActivity.saveServiceMinumDate(srvData, srvData.getServiceDTCode(), serviceTable,sqlH);
+                ServiceActivity.saveServiceMinumDate(srvData, srvData.getServiceDTCode(), serviceTable, sqlH);
 
                 /**                                         * max date                                         */
-                ServiceActivity.saveServiceMaxDate(srvData, srvData.getServiceDTCode(), serviceTable,sqlH);
-
+                ServiceActivity.saveServiceMaxDate(srvData, srvData.getServiceDTCode(), serviceTable, sqlH);
 
 
             }
@@ -1133,8 +1130,7 @@ public class ServiceSpecification extends BaseActivity {
 
                 /** update Syntax for upload in Sync process */
                 sqlH.insertIntoUploadTable(serviceTable.updateInToSrvTable());
-            }
-            else {
+            } else {
                 /** insert for local device */
                 sqlH.addMemberIntoServiceTable(srvData, entryBy, entryDate);
                 /** insert for upload in Sync process */
@@ -1142,10 +1138,10 @@ public class ServiceSpecification extends BaseActivity {
             }
 
             /**                                         * min Srv Date                                         */
-            ServiceActivity.saveServiceMinumDate(srvData, srvData.getServiceDTCode(), serviceTable,sqlH);
+            ServiceActivity.saveServiceMinumDate(srvData, srvData.getServiceDTCode(), serviceTable, sqlH);
 
             /**                                         * max date                                         */
-            ServiceActivity.saveServiceMaxDate(srvData, srvData.getServiceDTCode(), serviceTable,sqlH);
+            ServiceActivity.saveServiceMaxDate(srvData, srvData.getServiceDTCode(), serviceTable, sqlH);
 
         }
     }
@@ -1179,7 +1175,6 @@ public class ServiceSpecification extends BaseActivity {
         setCMAMAddVisibility(View.VISIBLE);
 
     }
-
 
 
     private void showViewInMG() {
@@ -1384,22 +1379,21 @@ public class ServiceSpecification extends BaseActivity {
         cb_FPCounsel_LongParmanen = (CheckBox) findViewById(R.id.cb_srvSpc_FPCounsel_LongParmanen);
         cb_FPCounsel_NoMethod = (CheckBox) findViewById(R.id.cb_srvSpc_FPCounsel_NoMethod);
 
-        lbAnimalType    = (TextView) findViewById(R.id.tv_srvSpc_spAnimalType);
-        spAnimalType    = (Spinner) findViewById(R.id.srv_spec_spAnimalType);
+        lbAnimalType = (TextView) findViewById(R.id.tv_srvSpc_spAnimalType);
+        spAnimalType = (Spinner) findViewById(R.id.srv_spec_spAnimalType);
 
-        lbCropType      = (TextView) findViewById(R.id.tv_srvSpc_spCropType);
-        spCropType      = (Spinner) findViewById(R.id.srv_spec_spCropType);
+        lbCropType = (TextView) findViewById(R.id.tv_srvSpc_spCropType);
+        spCropType = (Spinner) findViewById(R.id.srv_spec_spCropType);
 
-        lbLoanAMT       = (TextView) findViewById(R.id.tv_srvSpc_spLoanAMT);
-        edtLoanAMT       = (EditText) findViewById(R.id.srv_spec_edtLoanAMT);
+        lbLoanAMT = (TextView) findViewById(R.id.tv_srvSpc_spLoanAMT);
+        edtLoanAMT = (EditText) findViewById(R.id.srv_spec_edtLoanAMT);
 
         lbLoanSource = (TextView) findViewById(R.id.tv_srvSpc_spLoanSource);
-        spLoanSource  = (Spinner) findViewById(R.id.srv_spec_spLoanSource);
+        spLoanSource = (Spinner) findViewById(R.id.srv_spec_spLoanSource);
 
 
-        lbLeadPosition  = (TextView) findViewById(R.id.tv_srvSpc_spLeadPosition);
-        spLeadPosition  = (Spinner) findViewById(R.id.srv_spec_spLeadPosition);
-
+        lbLeadPosition = (TextView) findViewById(R.id.tv_srvSpc_spLeadPosition);
+        spLeadPosition = (Spinner) findViewById(R.id.srv_spec_spLeadPosition);
 
 
         tvId = (TextView) findViewById(R.id.tv_srvSpc_MemberId);
@@ -1416,44 +1410,50 @@ public class ServiceSpecification extends BaseActivity {
 
 
 
+
+
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
         setUpSaveButton();
         setUpGoToServiceButton();
         setUpHomeButton();
         setUpDeleteButton();
-
-
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpSaveButton() {
         btnSave.setText("");
         Drawable saveImage = getResources().getDrawable(R.drawable.save_b);
-        btnSave.setCompoundDrawablesRelativeWithIntrinsicBounds(saveImage, null, null, null);
-        btnSave.setPadding(180, 10, 180, 10);
+        btnSave.setCompoundDrawablesRelativeWithIntrinsicBounds(null, saveImage, null, null);
+        btnSave.setPadding(-1, 15, -1, 15);
     }
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpGoToServiceButton() {
         btnGoToService.setText("");
         Drawable saveImage = getResources().getDrawable(R.drawable.goto_back);
-        btnGoToService.setCompoundDrawablesRelativeWithIntrinsicBounds(saveImage, null, null, null);
-        btnGoToService.setPadding(180, 10, 180, 10);
+        btnGoToService.setCompoundDrawablesRelativeWithIntrinsicBounds(null, saveImage, null, null);
+        btnGoToService.setPadding(-1, 15, -1, 15);
     }
 
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpHomeButton() {
 
         btnHome.setText("");
         Drawable imageHome = getResources().getDrawable(R.drawable.home_b);
-        btnHome.setCompoundDrawablesRelativeWithIntrinsicBounds(imageHome, null, null, null);
-        btnHome.setPadding(180, 10, 180, 10);
+        btnHome.setCompoundDrawablesRelativeWithIntrinsicBounds(null, imageHome, null, null);
+        btnHome.setPadding(-1, 15, -1, 15);
     }
 
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setUpDeleteButton() {
 
         btnDelete.setText("");
         Drawable imageHome = getResources().getDrawable(R.drawable.delete);
-        btnDelete.setCompoundDrawablesRelativeWithIntrinsicBounds(imageHome, null, null, null);
-        btnDelete.setPadding(180, 10, 180, 10);
+        btnDelete.setCompoundDrawablesRelativeWithIntrinsicBounds(null, imageHome, null, null);
+        btnDelete.setPadding(-1, 15, -1, 15);
     }
 
     private void testLogDebug() {
@@ -1485,22 +1485,18 @@ public class ServiceSpecification extends BaseActivity {
     }
 
 
-
-
-
     /**
      * LOAD:: Crop Type
      * <p>
      * Database
-     *
+     * <p/>
      * </p>
      */
     private void loadCropType() {
 
 
-
         int position = 0;
-        String criteria =""; //" WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "'";
+        String criteria = ""; //" WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "'";
         // Spinner Drop down elements for District
         List<SpinnerHelper> listAward = sqlH.getListAndID(SQLiteHandler.LUP_PROG_GROUP_CROP_TABLE, criteria, null, false);
 
@@ -1529,7 +1525,7 @@ public class ServiceSpecification extends BaseActivity {
                 strCropType = ((SpinnerHelper) spCropType.getSelectedItem()).getValue();
                 cropCode = ((SpinnerHelper) spCropType.getSelectedItem()).getId();
 
-                Log.d(TAG, "cropCode" + cropCode + " strCropType : " + strCropType );
+                Log.d(TAG, "cropCode" + cropCode + " strCropType : " + strCropType);
 
             }
 
@@ -1543,20 +1539,18 @@ public class ServiceSpecification extends BaseActivity {
     }
 
 
-
     /**
      * LOAD:: LoanSource
      * <p>
      * Database
-     *
+     * <p/>
      * </p>
      */
     private void loadLoanSource() {
 
 
-
         int position = 0;
-        String criteria =""; //" WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "'";
+        String criteria = ""; //" WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "'";
         // Spinner Drop down elements for District
         List<SpinnerHelper> listAward = sqlH.getListAndID(SQLiteHandler.LUP_COMMUNITY_LOAN_SOURCE_TABLE, criteria, null, false);
 
@@ -1585,7 +1579,7 @@ public class ServiceSpecification extends BaseActivity {
                 strLoanSource = ((SpinnerHelper) spLoanSource.getSelectedItem()).getValue();
                 loanSource = ((SpinnerHelper) spLoanSource.getSelectedItem()).getId();
 
-                Log.d(TAG, "loanSource" + loanSource + " strLoanSource : " + strLoanSource );
+                Log.d(TAG, "loanSource" + loanSource + " strLoanSource : " + strLoanSource);
 
             }
 
@@ -1599,20 +1593,18 @@ public class ServiceSpecification extends BaseActivity {
     }
 
 
-
     /**
      * LOAD:: Lead Position
      * <p>
      * Database
-     *
+     * <p/>
      * </p>
      */
     private void loadLeadPostion() {
 
 
-
         int position = 0;
-        String criteria =""; //" WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "'";
+        String criteria = ""; //" WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "'";
         // Spinner Drop down elements for District
         List<SpinnerHelper> listLeadPos = sqlH.getListAndID(SQLiteHandler.LUP_COMMUNITY_LEAD_POSITION_TABLE, criteria, null, false);
 
@@ -1641,7 +1633,7 @@ public class ServiceSpecification extends BaseActivity {
                 strLeadCode = ((SpinnerHelper) spLeadPosition.getSelectedItem()).getValue();
                 leadCode = ((SpinnerHelper) spLeadPosition.getSelectedItem()).getId();
 
-                Log.d(TAG, "leadCode" + leadCode + " strLeadCode : " + strLeadCode );
+                Log.d(TAG, "leadCode" + leadCode + " strLeadCode : " + strLeadCode);
 
             }
 
@@ -1659,15 +1651,14 @@ public class ServiceSpecification extends BaseActivity {
      * LOAD:: Animal Type
      * <p>
      * Database
-     *
+     * <p/>
      * </p>
      */
     private void loadAnimalType() {
 
 
-
         int position = 0;
-        String criteria =""; //" WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "'";
+        String criteria = ""; //" WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "'";
         // Spinner Drop down elements for District
         List<SpinnerHelper> listAward = sqlH.getListAndID(SQLiteHandler.LUP_COMMUNITY_ANIMAL_TABLE, criteria, null, false);
 
@@ -1696,7 +1687,7 @@ public class ServiceSpecification extends BaseActivity {
                 strAnimalType = ((SpinnerHelper) spAnimalType.getSelectedItem()).getValue();
                 animalCode = ((SpinnerHelper) spAnimalType.getSelectedItem()).getId();
 
-                Log.d(TAG, "animalCode" + animalCode + " strAnimalType : " + strAnimalType );
+                Log.d(TAG, "animalCode" + animalCode + " strAnimalType : " + strAnimalType);
 
             }
 
@@ -2251,8 +2242,6 @@ public class ServiceSpecification extends BaseActivity {
         lbLoanSource.setVisibility(visibility);
         spLoanSource.setVisibility(visibility);
     }
-
-
 
 
     @Override

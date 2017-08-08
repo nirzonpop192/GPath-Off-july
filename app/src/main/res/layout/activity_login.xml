@@ -191,7 +191,7 @@
             android:drawableStart="@drawable/database_import_32"
             android:gravity="left|center_vertical"
             android:paddingBottom="5dp"
-            android:paddingLeft="250dp"
+            android:paddingLeft="200dp"
             android:paddingTop="10dp"
             android:text="  Import Database" />
 

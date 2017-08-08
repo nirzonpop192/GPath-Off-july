@@ -7,6 +7,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -98,7 +99,8 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
     private SQLiteHandler sqlH;
     private String strAward, strCriteria, strSrvMonth, strGroupCat, strGroup, strVLayR4List;
     private String idCountry, idAward, idDonor, idProgram, idCriteria, idService, idOpCode, idOpMonthCode,
-            idSrvCenter, idFdpCode, idMemberSearch, idServiceMonth, idGroupCat, idGroup, idLayR4List;
+            idSrvCenter, idFdpCode, idMemberSearch, idServiceMonth, idGroupCat, idGroup,
+            idLayR1List, idLayR2List, idLayR3List, idLayR4List;
     // private String serviceMonthCode;
     private String strOpMonthLabel = null;
     private TextView tv_srvDate;
@@ -190,9 +192,6 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             idGroupCat = intent.getStringExtra(KEY.GROUP_CATEGORY_CODE);
             strGroupCat = intent.getStringExtra(KEY.GROUP_CATEGORY_NAME);
 
-            //   Log.d("NIR0", "idGroupCat :" + idGroupCat + "strGroupCat: " + strGroupCat + " idGroup :" + idGroup + " strGroup" + strGroup);
-
-            loadindingLog(countryId, srDate);
 
 
             String memSearchId = "";
@@ -231,7 +230,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             Log.d("NIR0", "idGroupCat :" + idGroupCat + "strGroupCat: " + strGroupCat + " idGroup :" + idGroup + " strGroup" + strGroup);
 
             //loadAward(countryId);
-            loadindingLog(countryId, srDate);
+//            loadindingLog(countryId, srDate);
 
             String memSearchId = "";
 
@@ -265,7 +264,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
             /// loadAward(countryId);
 
-            testLogD(countryId, srDate, "ServiceSpecification");
+//            testLogD(countryId, srDate, "ServiceSpecification");
         } else {
 
 
@@ -277,7 +276,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
 
         loadServiceCenter(countryId);
-
+        idCountry = countryId;
         /**             * Select All / None DO NOT USE "setOnCheckedChangeListener" here.             */
         checkBox_header.setOnClickListener(new View.OnClickListener() {
 
@@ -329,7 +328,10 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                     String temId = edt_srvMMSerach.getText().toString().trim();
                     String serviceDate = tv_srvDate.getText().toString();
 
-                    LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward, idProgram, idService, temId, idOpMonthCode, strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
+                    LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward, idProgram,
+                            idService, temId, idOpMonthCode, strOpMonthLabel, idOpMonthCode,
+                            serviceDate, idSrvCenter, idGroup, idLayR1List, idLayR2List, idLayR3List,
+                            idLayR4List);
                     loadlist.execute();
                     // for test purpose
 //                    loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, temId, idOpMonthCode, strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
@@ -345,39 +347,16 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             }
         });
 
+        tv_LayR4Label.setText(UtilClass.getLayR4LabelName(mContext, idCountry));
     }
 
-    private void loadindingLog(String countryId, String srDate) {
-        Log.d("NIR2", "From redrirect from service Record\n"
-                + "countryId : " + countryId + " idAward : " + idAward
-                + " strAward :" + strAward + " idDonor :" + idDonor
-                + " strCriteria: " + strCriteria + " idCriteria : " + idCriteria
-                + " idSrvCenter: " + idSrvCenter + " strServiceCenter : " + strServiceCenter
-                + " serviceDate: " + srDate + " opMonthLable : " + opMonthLable
-                + " serviceDate: " + idOpMonthCode + " idOpCode : " + idOpCode
-                + " idServiceMonth: " + idServiceMonth + " strSrvMonth : " + strSrvMonth
-                + " idGroup: " + idGroup + " strGroup : " + strGroup
-                + " idGroupCat: " + idGroupCat + " strGroupCat : " + strGroupCat
-        );
-    }
-
-    private void testLogD(String countryId, String srDate, String pageName) {
-        Log.d("NIR1", "From redir from " + pageName + "\n"
-                + "countryId : " + countryId + " idAward : " + idAward
-                + " strAward :" + strAward + " idDonor :" + idDonor
-                + " strCriteria: " + strCriteria + " idCriteria : " + idCriteria
-                + " idSrvCenter: " + idSrvCenter + " strServiceCenter : " + strServiceCenter
-                + " serviceDate: " + srDate + " idServiceMonth : " + idServiceMonth
-                + " strSrvMonth: " + strSrvMonth
-        );
-    }
 
     private void initialize() {
         sqlH = new SQLiteHandler(this);
         mContext = ServiceActivity.this;
         viewReference();
         pDialog = new ProgressDialog(mContext);
-        tv_LayR4Label.setText(UtilClass.getLayR4LabelName(mContext, idCountry));
+
 
         hidMemberDetailsLayer();
         showNHideGroupNCat(View.GONE);
@@ -467,7 +446,8 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
                             LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward,
                                     idProgram, idService, idMemberSearch, idOpMonthCode,
-                                    strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
+                                    strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup,
+                                    idLayR1List, idLayR2List, idLayR3List, idLayR4List);
                             loadlist.execute();
                             /// for test purpose don't delete below code
 //                            loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
@@ -540,7 +520,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                     if (!getValidDateRange(serviceDate, start_date, end_date, false)) {
                         erroDialog.showErrorDialog(mContext, "Service date is not within the valid range. Save attempt denied");
 
-                    } else if (adapter.isArrayListNull()) {
+                    } else if (adapter == null || adapter.isArrayListNull()) {
 
                         erroDialog.showErrorDialog(mContext, "No records selected to save.");
 
@@ -610,7 +590,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                         }
 
 
-                        Log.d("MOR11", "wd:" + wd + "\n idDistributionType:" + idDistributionType + " idService: " + idService);
+//                        Log.d("MOR11", "wd:" + wd + "\n idDistributionType:" + idDistributionType + " idService: " + idService);
 
                         try {
                             String EntryBy = getStaffID();
@@ -621,7 +601,6 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                                 srvMemData.setOpCode(idOpCode);
                                 srvMemData.setOpMontheCode(idOpMonthCode);
                                 srvMemData.setWorkingDay(wd);
-//                            Log.d("SAVE", "Working  Daya setWorkingDay:" + srvMemData.getWorkingDay());
 
 
                                 srvMemData.setServiceSLCode(srvMemData.getServiceSLCode());
@@ -764,7 +743,10 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                         idMemberSearch = "";
                         Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_LONG).show();
 
-                        LoadingList loadList = new LoadingList(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, idSrvCenter, serviceDate, idGroup);
+                        LoadingList loadList = new LoadingList(idCountry, idDonor, idAward,
+                                idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel,
+                                idOpMonthCode, idSrvCenter, serviceDate, idGroup, idLayR1List,
+                                idLayR2List, idLayR3List, idLayR4List);
                         loadList.execute();
                         // for test putpose don't delete below code
                         //    loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
@@ -899,7 +881,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                 sqlH.addServiceExtendedTable(srv_memData.getC_code(), srv_memData.getDistrictCode(), srv_memData.getUpazillaCode(), srv_memData.getUnitCode(),
                         srv_memData.getVillageCode(), srv_memData.getHHID(), srv_memData.getMemberId(), srv_memData.getDonor_code(), srv_memData.getAward_code(),
                         srv_memData.getProgram_code(), srv_memData.getService_code(), srv_memData.getOpCode(), srv_memData.getOpMontheCode(),
-                        data.getVoItmSpec() /*vOItmSpec*/, data.getVoItmUnit()/* Unite Code */, voRefNo, data.getVoItemCost(), idDistributionType, entryBy, entryDate, "0");
+                        data.getVoItmSpec() /*vOItmSpec*/, data.getVoItmUnit()/* Unite Code */, voRefNo, data.getVoItemCost(), idDistributionType, entryBy, entryDate);
                 /** set the variable than insert  upload Table*/
 
 
@@ -1075,8 +1057,6 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                 String groupCodeWithlayer = ((SpinnerHelper) spGroup.getSelectedItem()).getId();
 
 
-// for test purpose
-                //  loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, strSrvDate, idSrvCenter, idGroup);
                 if (groupCodeWithlayer.length() > 2) {
 
                     idGrpLayR1Code = groupCodeWithlayer.substring(0, 2);
@@ -1086,13 +1066,15 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
 
                     /**   working*/
-//                    LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, strSrvDate, idSrvCenter, idGroup);
-//                    loadlist.execute();
+                    LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward, idProgram,
+                            idService, idMemberSearch, idOpMonthCode, strOpMonthLabel,
+                            idOpMonthCode, strSrvDate, idSrvCenter, idGroup, "", "", "", "");
+                    loadlist.execute();
 
                     //  for test query
-                    testLoadServiceListView(idCountry, idDonor, idAward, idProgram, idService,
+         /*           testLoadServiceListView(idCountry, idDonor, idAward, idProgram, idService,
                             idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode,
-                            strSrvDate, idSrvCenter, idGroup);
+                            strSrvDate, idSrvCenter, idGroup);*/
 
                 }
 
@@ -1114,7 +1096,9 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
     private void loadLayR4List(String cCode) {
 
         int position = 0;
-        List<SpinnerHelper> listVillage = sqlH.getListAndID(SQLiteHandler.GEO_LAY_R4_LIST_TABLE, SQLiteQuery.layR4ListServicePage_sql(), cCode, false);
+
+
+        List<SpinnerHelper> listVillage = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, SQLiteQuery.layR4ListServicePage_sql(cCode), cCode, false);
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listVillage);
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
         spLayR4List.setAdapter(dataAdapter);
@@ -1134,7 +1118,18 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 strVLayR4List = ((SpinnerHelper) spLayR4List.getSelectedItem()).getValue();
-                idLayR4List = ((SpinnerHelper) spLayR4List.getSelectedItem()).getId();
+                String layRListCode = ((SpinnerHelper) spLayR4List.getSelectedItem()).getId();
+
+                if (layRListCode.length() > 2) {
+                    idLayR1List = layRListCode.substring(0, 2);
+                    idLayR2List = layRListCode.substring(2, 4);
+                    idLayR3List = layRListCode.substring(4, 6);
+                    idLayR4List = layRListCode.substring(6);
+                    LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward, idProgram,
+                            idService, "", idOpMonthCode, strOpMonthLabel, idOpMonthCode, "", "", "",
+                            idLayR1List, idLayR2List, idLayR3List, idLayR4List);
+                    loadlist.execute();
+                }
             }
 
             @Override
@@ -1496,6 +1491,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
     /**
      * LOAD :: Criteria program name and service name
+     *
      * @param cCode             Country Code
      * @param donorCode         Donor Code
      * @param awardCode         award Code
@@ -1551,7 +1547,11 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
      */
 
 
-    public void loadServiceListView(final String cCode, String donorCode, String awardCode, String prgCode, String srvCode, String memSearchId, String opMonthLable, String opCode, String opMCode, String srvDate, String srvCenterCode, String grpCode) {
+    public void loadServiceListView(final String cCode, String donorCode, String awardCode,
+                                    String prgCode, String srvCode, String memSearchId,
+                                    String opMonthLable, String opCode, String opMCode,
+                                    String srvDate, String srvCenterCode, String grpCode,
+                                    String layR1Code, String layR2Code, String layR3Code, String layR4Code) {
 
         List<ServiceDataModel> srvMemberList = null;
 
@@ -1560,6 +1560,8 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
          */
         String srvName = sqlH.getServiceShortName(prgCode, srvCode);
         String progName = sqlH.getProgramShortName(awardCode, donorCode, prgCode);
+        SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
 
 
         switch (srvName) {
@@ -1572,15 +1574,26 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                     case CFWU:
                     case DRR:
                         tv_srvTitleCount.setText(R.string.wd);
-                        srvMemberList = sqlH.getFFAMemberListForService(cCode, donorCode, awardCode, prgCode, srvCode, memSearchId, opCode, opMCode, grpCode, idDistributionType);
+                        srvMemberList = sqlH.getFFAMemberListForService(cCode, donorCode, awardCode,
+                                prgCode, srvCode, memSearchId, opCode, opMCode, grpCode, idDistributionType);
                         break;
-
+                    default:
+                        srvMemberList = sqlH.getRptMemberServiceList(cCode, donorCode, awardCode,
+                                prgCode, srvCode, memSearchId, opCode, opMCode, grpCode,
+                                idDistributionType, idGrpLayR1Code, idGrpLayR2Code, idGrpLayR3Code,
+                                layR1Code, layR2Code, layR3Code, layR4Code,syncMode);
+                        break;
                 }
                 break;
             default:
                 // use variable to like operation
-                if (idGrpLayR1Code != null && idGrpLayR1Code.length() > 0 && idGrpLayR2Code != null && idGrpLayR2Code.length() > 0 && idGrpLayR3Code != null && idGrpLayR3Code.length() > 0)
-                    srvMemberList = sqlH.getRptMemberServiceList(cCode, donorCode, awardCode, prgCode, srvCode, memSearchId, opCode, opMCode, grpCode, idDistributionType, idGrpLayR1Code, idGrpLayR2Code, idGrpLayR3Code);
+                if (idGrpLayR1Code != null && idGrpLayR1Code.length() > 0 &&
+                        idGrpLayR2Code != null && idGrpLayR2Code.length() > 0 &&
+                        idGrpLayR3Code != null && idGrpLayR3Code.length() > 0)
+                    srvMemberList = sqlH.getRptMemberServiceList(cCode, donorCode, awardCode,
+                            prgCode, srvCode, memSearchId, opCode, opMCode, grpCode,
+                            idDistributionType, idGrpLayR1Code, idGrpLayR2Code, idGrpLayR3Code,
+                            layR1Code, layR2Code, layR3Code, layR4Code,syncMode);
 
                 break;
         }
@@ -1612,7 +1625,6 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
     }
 
 
-
     public void testLoadServiceListView(final String cCode, String donorCode, String awardCode, String prgCode, String srvCode, String memSearchId, String opMonthLable, String opCode, String opMCode, String srvDate, String srvCenterCode, String grpCode) {
 
         List<ServiceDataModel> srvMemberList = null;
@@ -1622,6 +1634,8 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
          */
         String srvName = sqlH.getServiceShortName(prgCode, srvCode);
         String progName = sqlH.getProgramShortName(awardCode, donorCode, prgCode);
+        SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
 
 
         switch (srvName) {
@@ -1642,7 +1656,10 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             default:
                 // use variable to like operation
                 if (idGrpLayR1Code != null && idGrpLayR1Code.length() > 0 && idGrpLayR2Code != null && idGrpLayR2Code.length() > 0 && idGrpLayR3Code != null && idGrpLayR3Code.length() > 0)
-                    srvMemberList = sqlH.getRptMemberServiceList(cCode, donorCode, awardCode, prgCode, srvCode, memSearchId, opCode, opMCode, grpCode, idDistributionType, idGrpLayR1Code, idGrpLayR2Code, idGrpLayR3Code);
+                    srvMemberList = sqlH.getRptMemberServiceList(cCode, donorCode, awardCode,
+                            prgCode, srvCode, memSearchId, opCode, opMCode, grpCode,
+                            idDistributionType, idGrpLayR1Code, idGrpLayR2Code, idGrpLayR3Code,
+                            idLayR1List, idLayR2List, idLayR3List, idLayR4List,syncMode);
 
                 break;
         }
@@ -1674,12 +1691,12 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
  *  set adpater
  */
 
-       if (!adapter.isEmpty()) {
+        if (!adapter.isEmpty()) {
             adapter.notifyDataSetChanged();
             mListView.setAdapter(adapter);
-           /**
-         * Notify the use no data available
-         */
+            /**
+             * Notify the use no data available
+             */
             if (adapter.getCount() == 0) {
                 erroDialog.showInfromDialog(mContext, "No Data Found", "No Data found");
             }
@@ -1697,11 +1714,15 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
      */
     private class LoadingList extends AsyncTask<Void, Integer, String> {
         private String countryCode, donorCode, awardCode, programCode,
-                serviceCode, searchID, opMonthLabel, opCode, opMonthCode, srvCenterCode, tserviceDate, groupCode;
+                serviceCode, searchID, opMonthLabel, opCode, opMonthCode, srvCenterCode,
+                tServiceDate, groupCode, temLayR1Code, temLayR2Code, temLayR3Code, temLayR4Code;
 
         public LoadingList(String countryCode, String donorCode, String awardCode,
-                           String programCode, String serviceCode, String searchID, String opMonthLabel,
-                           String opCode, String opMonthCode, String srvCenterCode, String tserviceDate, String groupCode) {
+                           String programCode, String serviceCode, String searchID,
+                           String opMonthLabel, String opCode, String opMonthCode,
+                           String srvCenterCode, String tserviceDate, String groupCode,
+                           String temLayR1Code, String temLayR2Code, String temLayR3Code,
+                           String temLayR4Code) {
             this.countryCode = countryCode;
             this.donorCode = donorCode;
             this.awardCode = awardCode;
@@ -1712,8 +1733,12 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             this.opCode = opCode;
             this.opMonthCode = opMonthCode;
             this.srvCenterCode = srvCenterCode;
-            this.tserviceDate = tserviceDate;
+            this.tServiceDate = tserviceDate;
             this.groupCode = groupCode;
+            this.temLayR1Code = temLayR1Code;
+            this.temLayR2Code = temLayR2Code;
+            this.temLayR3Code = temLayR3Code;
+            this.temLayR4Code = temLayR4Code;
 
 
         }
@@ -1723,8 +1748,10 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             try {
 
 
-                loadServiceListView(countryCode, donorCode, awardCode, programCode, serviceCode, searchID, idOpMonthCode, opMonthLabel, opMonthCode
-                        , tserviceDate, srvCenterCode, groupCode);
+                loadServiceListView(countryCode, donorCode, awardCode, programCode, serviceCode,
+                        searchID, idOpMonthCode, opMonthLabel, opMonthCode, tServiceDate,
+                        srvCenterCode, groupCode, temLayR1Code, temLayR2Code, temLayR3Code,
+                        temLayR4Code);
 
             } catch (Exception e) {
                 pDialog.dismiss();
@@ -1950,7 +1977,10 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                         case DRR:
                             holder.tv_countORwd.setText(personToBeServiced.getWorkingDay());
                             break;
-
+                        default:
+                            int c = Integer.parseInt(personToBeServiced.getGetSrvMemCount());
+                            holder.tv_countORwd.setText(String.valueOf(c));
+                            break;
                     }
                     break;
                 default:
@@ -1977,9 +2007,9 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                      */
                     if (isAllValuesChecked()) {
 
-                                    /*
-                                     * set HeaderCheck box to true
-                                     */
+                        /**
+                         * set HeaderCheck box to true
+                         */
                         checkBox_header.setChecked(isChecked);
                     }
 

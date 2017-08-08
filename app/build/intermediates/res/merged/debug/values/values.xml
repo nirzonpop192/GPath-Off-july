@@ -945,6 +945,7 @@
     <string name="label_weight_status">Weight gain/loss Status </string>
     <string name="latiTitle">Latitude</string>
     <string name="layr3_name">LayR3 Name</string>
+    <string name="layr4">layR4</string>
     <string name="lbl_GVH">GVH :</string>
     <string name="lbl_birthYear">Birth Year</string>
     <string name="lbl_bsc_mem_1">Verified by: BSC Member 1</string>
