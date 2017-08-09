@@ -2696,6 +2696,7 @@ public class SQLServerSyntaxGenerator {
                 "            ,[HHRelation] = " + getMmHHRelation() +
                 "            ,[MemAge] = " + getMmMemAge() +
                 "            ,[MemTypeFlag] = " + getMemTypeFlag() +
+                "            ,[RegNDate] = " + getRegNDate() +
                 "    WHERE " +
 
                 "            [AdmCountryCode] = " + getAdmCountryCode() +

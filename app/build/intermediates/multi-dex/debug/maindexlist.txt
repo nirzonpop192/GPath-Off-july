@@ -666,6 +666,7 @@ com/siddiquinoor/restclient/activity/sub_activity/gps_sub/MapActivity$2.class
 com/siddiquinoor/restclient/views/adapters/GraduationGridAdapter.class
 com/google/android/gms/plus/PlusShare.class
 com/google/android/gms/internal/zzie.class
+com/siddiquinoor/restclient/activity/sub_activity/register_sub/RegisterMember$10.class
 com/siddiquinoor/restclient/activity/DistributionActivity$DistributionDataListAdapter.class
 com/google/android/gms/ads/internal/formats/zzi.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/mchn/CU2$11.class
@@ -1261,6 +1262,7 @@ com/google/android/gms/dynamic/zzg$zza.class
 com/google/android/gms/tagmanager/zzad.class
 com/siddiquinoor/restclient/activity/LoginActivity$6.class
 org/osmdroid/tileprovider/tilesource/TileSourceFactory.class
+com/siddiquinoor/restclient/activity/sub_activity/register_sub/RegisterMember$9.class
 org/joda/time/base/AbstractInstant.class
 com/siddiquinoor/restclient/data_model/adapters/TrainigActivBeneficiaryDataModel$1.class
 com/google/android/gms/wallet/WalletConstants$CardNetwork.class

@@ -192,6 +192,11 @@
                         android:paddingTop="10dp"
                         android:text="Relation "
                         android:textSize="16sp" />
+
+                    <TextView
+                        android:textStyle="normal"
+                        style="@style/txt_label"
+                        android:text="@string/reg_date" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -236,6 +241,27 @@
                     <Spinner
                         android:id="@+id/spRelation"
                         style="@style/registration_spinner_style" />
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/white"
+                        android:padding="10dp">
+
+
+                        <TextView
+                            android:id="@+id/as_PW_edt_regD"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:hint="Registration Date"
+                            android:text="Date"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
+                    </RelativeLayout>
+
                 </LinearLayout>
             </LinearLayout>
             <!-- Views for Liberia -->

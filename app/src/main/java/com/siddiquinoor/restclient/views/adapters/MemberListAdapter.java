@@ -8,8 +8,8 @@ package com.siddiquinoor.restclient.views.adapters;
  * @link www.SiddiquiNoor.com
  * @version 1.6.0
  * @since 1.0
- *
  */
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -66,11 +66,10 @@ public class MemberListAdapter extends BaseAdapter {
     String str_child_dob;
 
     String str_entry_by;
+    String str_regDate;
     String str_entry_date;
 
     private SQLiteHandler sqlH = null;
-
-
 
 
     public MemberListAdapter(Activity activity, ArrayList<MemberModel> MemberData) {
@@ -104,15 +103,14 @@ public class MemberListAdapter extends BaseAdapter {
             inflater = (LayoutInflater) activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        if (convertView == null)
-        {
+        if (convertView == null) {
             row = inflater.inflate(R.layout.list_members, null);
 
             holder = new ListHolder();
 
-            holder.member_ID = (TextView)row.findViewById(R.id.member_id);
-            holder.member_Name = (TextView)row.findViewById(R.id.member_name);
-            holder.memberEdit = (ImageView)row.findViewById(R.id.edit_member);
+            holder.member_ID = (TextView) row.findViewById(R.id.member_id);
+            holder.member_Name = (TextView) row.findViewById(R.id.member_name);
+            holder.memberEdit = (ImageView) row.findViewById(R.id.edit_member);
       /*      holder.memberDelete = (ImageView)row.findViewById(R.id.delete_member);
             holder.memberView = (ImageView)row.findViewById(R.id.memberView);*/
 
@@ -126,8 +124,7 @@ public class MemberListAdapter extends BaseAdapter {
             });*/
 
 
-
-            holder.member_Name.setOnClickListener(new View.OnClickListener(){
+            holder.member_Name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     goToNextPage(position);
@@ -135,8 +132,7 @@ public class MemberListAdapter extends BaseAdapter {
             });
 
 
-
-            holder.memberEdit.setOnClickListener(new View.OnClickListener(){
+            holder.memberEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     goToNextPage(position);
@@ -180,10 +176,8 @@ public class MemberListAdapter extends BaseAdapter {
             });*/
 
             row.setTag(holder);
-        }
-        else
-        {
-            holder = (ListHolder)row.getTag();
+        } else {
+            holder = (ListHolder) row.getTag();
         }
 
 
@@ -193,43 +187,43 @@ public class MemberListAdapter extends BaseAdapter {
         return row;
     }
 
-    private void goToNextPage(int position)
-    {
+    private void goToNextPage(int position) {
 
 
-        pID             = MemberData.get(position).getPID();    // Primary key of Household table
-        mId             = MemberData.get(position).getID();     // Primary key of Member table
-        HhID            = MemberData.get(position).getRegID();  // Household Registration ID
-        Hhname          = MemberData.get(position).getName();
-        MemID           = MemberData.get(position).getMemID();  // Member registration ID
-        MemberName      = MemberData.get(position).getMemberName();
-        gender          = MemberData.get(position).getGender();
-        age             = MemberData.get(position).getMemberAge();
-        relation        = MemberData.get(position).getRelation();
-        relation_code   = MemberData.get(position).getRelationCode();
+        pID = MemberData.get(position).getPID();    // Primary key of Household table
+        mId = MemberData.get(position).getID();     // Primary key of Member table
+        HhID = MemberData.get(position).getRegID();  // Household Registration ID
+        Hhname = MemberData.get(position).getName();
+        MemID = MemberData.get(position).getMemID();  // Member registration ID
+        MemberName = MemberData.get(position).getMemberName();
+        gender = MemberData.get(position).getGender();
+        age = MemberData.get(position).getMemberAge();
+        relation = MemberData.get(position).getRelation();
+        relation_code = MemberData.get(position).getRelationCode();
 
-        str_elderly     = MemberData.get(position).getElderly();
-        str_disabled    = MemberData.get(position).getDisabled();
+        str_elderly = MemberData.get(position).getElderly();
+        str_disabled = MemberData.get(position).getDisabled();
 
-        str_lmp_date    = MemberData.get(position).getLMPDate();
-        str_child_dob    = MemberData.get(position).getChildDOB();
+        str_lmp_date = MemberData.get(position).getLMPDate();
+        str_child_dob = MemberData.get(position).getChildDOB();
 
-        cCode           = MemberData.get(position).getCountryCode();
-        dName           = MemberData.get(position).getDistrict();
-        dCode           = MemberData.get(position).getDistrictCode();
-        upName          = MemberData.get(position).getUpazilla();
-        upCode          = MemberData.get(position).getUpazillaCode();
-        uName           = MemberData.get(position).getUnitName();
-        uCode           = MemberData.get(position).getUnitNameCode();
-        vName           = MemberData.get(position).getVillage();
-        vCode           = MemberData.get(position).getVillageCode();
+        cCode = MemberData.get(position).getCountryCode();
+        dName = MemberData.get(position).getDistrict();
+        dCode = MemberData.get(position).getDistrictCode();
+        upName = MemberData.get(position).getUpazilla();
+        upCode = MemberData.get(position).getUpazillaCode();
+        uName = MemberData.get(position).getUnitName();
+        uCode = MemberData.get(position).getUnitNameCode();
+        vName = MemberData.get(position).getVillage();
+        vCode = MemberData.get(position).getVillageCode();
 
-        str_entry_by    = MemberData.get(position).getEntryBy();
-        str_entry_date  = MemberData.get(position).getEntryDate();
+        str_entry_by = MemberData.get(position).getEntryBy();
+        str_entry_date = MemberData.get(position).getEntryDate();
+        str_regDate = MemberData.get(position).getRegDate();
 
-        Intent dIntent ;
+        Intent dIntent;
         if (cCode.equals("0002"))
-         dIntent = new Intent(activity, RegisterMember.class);
+            dIntent = new Intent(activity, RegisterMember.class);
         else
             dIntent = new Intent(activity, RegisterMemberLiberia.class);
 
@@ -238,7 +232,7 @@ public class MemberListAdapter extends BaseAdapter {
 
         dIntent.putExtra("pID", pID);
         dIntent.putExtra("mId", mId);
-        dIntent.putExtra("str_hhID", dCode+upCode+uCode+vCode+HhID);
+        dIntent.putExtra("str_hhID", dCode + upCode + uCode + vCode + HhID);
         dIntent.putExtra("str_hhName", Hhname);
         dIntent.putExtra("MemID", MemID);
         dIntent.putExtra("MemberName", MemberName);
@@ -266,6 +260,7 @@ public class MemberListAdapter extends BaseAdapter {
 
         dIntent.putExtra("str_entry_by", str_entry_by);
         dIntent.putExtra("str_entry_date", str_entry_date);
+        dIntent.putExtra("str_regDate", str_regDate);
 
         activity.startActivity(dIntent);
 
@@ -273,18 +268,15 @@ public class MemberListAdapter extends BaseAdapter {
     }
 
 
-    static class ListHolder
-    {
+    static class ListHolder {
         TextView member_ID;
         TextView member_Name;
         ImageView memberEdit;
         //ImageView memberDelete;
-       // ImageView memberView;
+        // ImageView memberView;
 
 
     }
-
-
 
 
 }

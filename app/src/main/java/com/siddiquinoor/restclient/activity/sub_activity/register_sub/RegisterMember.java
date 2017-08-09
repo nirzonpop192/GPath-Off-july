@@ -1,6 +1,7 @@
 package com.siddiquinoor.restclient.activity.sub_activity.register_sub;
 
 import android.annotation.TargetApi;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -12,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -132,7 +134,7 @@ public class RegisterMember extends BaseActivity {
 
     private Button btn_Clear;
 
-
+    private TextView tv_regDate;
     private ADNotificationManager dialog;
     private boolean isMemberSaved;
 
@@ -183,9 +185,6 @@ public class RegisterMember extends BaseActivity {
                 iReg.putExtra(KEY.UPAZILLA_CODE, layR2ListCode);
                 iReg.putExtra(KEY.UNIT_CODE, str_unionCode);
                 iReg.putExtra(KEY.VILLAGE_CODE, str_villageCode);
-                Log.d("REFAT--->", str_district + "\n" + str_upazilla + "\n" + str_union + "\n" + str_village
-                        + "\n" + layR1ListCode + "\n" + layR2ListCode + "\n" + str_unionCode
-                        + "\n" + str_villageCode);
 
 
                 startActivity(iReg);
@@ -248,13 +247,14 @@ public class RegisterMember extends BaseActivity {
 
         str_entry_by = cIntent.getStringExtra("str_entry_by");
         str_entry_date = cIntent.getStringExtra("str_entry_date");
+        str_reg_date = cIntent.getStringExtra("str_regDate");
 
         pID = cIntent.getIntExtra("pID", 20);
         /** For Liberia Member Designe test
          * */
 
-        // no need The Liberia Containnner
-        lLayoutLiberiaContainer.setVisibility(View.GONE);
+
+        lLayoutLiberiaContainer.setVisibility(View.GONE);                                           // no need The Liberia Containers
 
         if (!is_edit) {
             if (str_hhID.length() > 5) {
@@ -286,30 +286,21 @@ public class RegisterMember extends BaseActivity {
             age = cIntent.getStringExtra("age");
             tvMemID.setText(MemID);
             txtMemName.setText(MemberName);
-            // lmpDate.setText(lmp_date);
-            //  childDOB.setText(child_dob);
+
             txtAge.setText(age);
         }
         if (redirect != null) {
-        /*    if (redirect.equals("Sub_Assign")) {
-                //  strAward = cIntent.getStringExtra(KEY.AWARD_NAME);
-                idAward = cIntent.getStringExtra(KEY.AWARD_CODE);
-                idProgram = cIntent.getStringExtra(KEY.PROGRAM_CODE);
-                strProgram = cIntent.getStringExtra(KEY.PROGRAM_NAME);
-                idDonor = cIntent.getStringExtra("DONOR_CODE");
-                idCriteria = cIntent.getStringExtra("CRITERIA_CODE");
-                strCriteria = cIntent.getStringExtra("CRITERIA_STR");
-            }*/
+
         }
 
         tvHHID.setText(str_hhID);
         tvHHName.setText(str_hhName);
 
-//        loadAward(str_c_code);
+
         loadGender();
         loadRelation();
 
-
+        tv_regDate.setText(str_reg_date);
         tvHHID.setEnabled(false);
         tvHHName.setEnabled(false);
         tvMemID.setEnabled(false);
@@ -317,7 +308,12 @@ public class RegisterMember extends BaseActivity {
         txtMemName.requestFocus();
         InputMethodManager imm = (InputMethodManager) getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
         imm.showSoftInput(txtMemName, InputMethodManager.SHOW_IMPLICIT);
-
+        tv_regDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setRegDate();
+            }
+        });
 
     }
 
@@ -411,7 +407,7 @@ public class RegisterMember extends BaseActivity {
 
         loadGender();
         loadRelation();
-        //  btnSaveMember.setText("Save");
+
     }
 
 
@@ -421,7 +417,7 @@ public class RegisterMember extends BaseActivity {
         Intent intent = new Intent(RegisterMember.this, AssignActivity.class);
         finish();
         String tmpMemberCode = tvHHID.getText().toString() + tvMemID.getText().toString();
-//        Log.d("MOR", "tmpMemberCode:" + tmpMemberCode + "str_c_code:" + str_c_code);
+
         intent.putExtra(KEY.COUNTRY_ID, str_c_code);
         intent.putExtra(KEY.MEMBER_ID, tmpMemberCode);
         startActivity(intent);
@@ -433,15 +429,12 @@ public class RegisterMember extends BaseActivity {
         str_hhMemID = tvMemID.getText().toString();
         str_MemName = txtMemName.getText().toString();
         str_age = txtAge.getText().toString();
+        str_reg_date = tv_regDate.getText().toString();
 
 
-        String lmp_date = "";// lmpDate.getText().toString();
-        String child_dob = "";// childDOB.getText().toString();
+        String lmp_date = "";
+        String child_dob = "";
 
-        //  boolean invalid = false;
-
-
-        // TODO :: Need to check valid date range collect from online
 
         if (str_hhMemID.equals("")) {
 
@@ -462,6 +455,8 @@ public class RegisterMember extends BaseActivity {
 
             dialog.showErrorDialog(mContext, "Missing relation. Please select a Relation");
 
+        } else if (str_reg_date == null || str_reg_date.equals("Date")) {
+            dialog.showErrorDialog(mContext, "Missing Registration date. Save attempt denied");
         } else {
             String temHH;
             if (str_hhID.length() > 5) {
@@ -474,9 +469,11 @@ public class RegisterMember extends BaseActivity {
 
                 String memAgeTypeFlag = sqlH.getMemberAgeTypeFlag(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temHH, str_hhMemID);
 
-//                Log.e("shuvoTest",memAgeFlg);
 
-                sqlH.editMalawiMemberData(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temHH, str_hhMemID, str_MemName, str_gender, idRelation, lmp_date, child_dob, str_elderly, str_disabled, str_age, pID, memAgeTypeFlag);
+                sqlH.editMalawiMemberData(str_c_code, layR1ListCode, layR2ListCode, str_unionCode,
+                        str_villageCode, temHH, str_hhMemID, str_MemName, str_gender, idRelation,
+                        lmp_date, child_dob, str_elderly, str_disabled, str_age, pID, memAgeTypeFlag,
+                        str_reg_date);
 
                 // Update Member data
                 Toast.makeText(mContext, "The member has been uploaded  ", Toast.LENGTH_SHORT).show();
@@ -491,13 +488,17 @@ public class RegisterMember extends BaseActivity {
                 else
                     temId = tvHHID.getText().toString();
 
-                ListDataModel data = sqlH.getSingleRegisteredData(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temId);
-                String memAgeFlag = sqlH.getMemberAgeTypeFlag(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temId, str_hhMemID);
+                ListDataModel data = sqlH.getSingleRegisteredData(str_c_code, layR1ListCode,
+                        layR2ListCode, str_unionCode, str_villageCode, temId);
 
-                sqlH.addMemberDataForMalawi(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temId, str_hhMemID, str_MemName, str_gender, idRelation, str_entry_by, str_entry_date, lmp_date, child_dob, str_elderly, str_disabled, str_age, data.getRegDate(), pID, memAgeFlag);
+                String memAgeFlag = sqlH.getMemberAgeTypeFlag(str_c_code, layR1ListCode,
+                        layR2ListCode, str_unionCode, str_villageCode, temId, str_hhMemID);
 
+                sqlH.addMemberDataForMalawi(str_c_code, layR1ListCode, layR2ListCode,
+                        str_unionCode, str_villageCode, temId, str_hhMemID, str_MemName,
+                        str_gender, idRelation, str_entry_by, str_entry_date, lmp_date,
+                        child_dob, str_elderly, str_disabled, str_age, str_reg_date, pID, memAgeFlag);
 
-//                Log.e("shuvoTest",memAgeFlag);
 
                 Toast.makeText(getApplicationContext(), "save successfully", Toast.LENGTH_LONG).show();
                 setIsMemberSaved(true);
@@ -506,10 +507,7 @@ public class RegisterMember extends BaseActivity {
         }
         /**
          * When the member is saved than the Assign controller will appears */
-        /**
-         * todo: enable asssigne Button
-         *
-         */
+
         btngotToAssigne.setEnabled(true);
 
     }
@@ -520,19 +518,45 @@ public class RegisterMember extends BaseActivity {
         Log.d(TAG, "Member ID is = " + next_id);
     }
 
+    private SimpleDateFormat formatUSA = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+
+    /**
+     * set date picker for registration
+     */
+    public void updateRegDate() {
+
+        tv_regDate.setText(formatUSA.format(calendar.getTime()));
+    }
+
+    public void setRegDate() {
+        new DatePickerDialog(mContext, d, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+    }
+
+    DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            calendar.set(Calendar.YEAR, year);
+            calendar.set(Calendar.MONTH, monthOfYear);
+            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateRegDate();
+        }
+    };
+
+
     /**
      * LOAD :: Relation
      */
     private void loadRelation() {
 
-        // Spinner Drop down elements for District
+
         List<SpinnerHelper> listRelation = sqlH.getListAndID(sqlH.LUP_REG_NHH_RELATION_TABLE, criteria, null, false);
 
-        // Creating adapter for spinner
+
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listRelation);
-        // Drop down layout style
+
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        // attaching data adapter to spinner
+
         spRelation.setAdapter(dataAdapter);
 
         if (idRelation != null) {
@@ -602,46 +626,6 @@ public class RegisterMember extends BaseActivity {
     }
 
 
-//    public void updateDateLMB() {
-//        /*lmpDate.setText(format.format( calendar.getTime()));*/
-//    }
-
-//    public void setDateLMB() {
-//        new DatePickerDialog(RegisterMember.this, dpLMB, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
-//    }
-
-//    DatePickerDialog.OnDateSetListener dpLMB = new DatePickerDialog.OnDateSetListener() {
-//
-//        @Override
-//        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//            calendar.set(Calendar.YEAR, year);
-//            calendar.set(Calendar.MONTH, monthOfYear);
-//            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-//            updateDateLMB();
-//        }
-//    };
-
-
-/*    public void updateChildDOBDate() {
-        //childDOB.setText(format.format( calendarChildDOB.getTime()));
-    }*/
-
-//    public void setDateChildDOB() {
-//        new DatePickerDialog(RegisterMember.this, dpChildDOB, calendarChildDOB.get(Calendar.YEAR), calendarChildDOB.get(Calendar.MONTH), calendarChildDOB.get(Calendar.DAY_OF_MONTH)).show();
-//    }
-
-//    DatePickerDialog.OnDateSetListener dpChildDOB = new DatePickerDialog.OnDateSetListener() {
-//
-//        @Override
-//        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//            calendarChildDOB.set(Calendar.YEAR, year);
-//            calendarChildDOB.set(Calendar.MONTH, monthOfYear);
-//            calendarChildDOB.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-//            updateChildDOBDate();
-//        }
-//    };
-
-
     private void viewReference() {
         tvHHID = (TextView) findViewById(R.id.tv_Mreg_HH_id);
         tvHHName = (TextView) findViewById(R.id.tv_reg_mem_hh_name);
@@ -659,7 +643,7 @@ public class RegisterMember extends BaseActivity {
         btn_Clear = (Button) findViewById(R.id.btnClearMember);
         btnHome = (Button) findViewById(R.id.btnHomeFooter);
         btnReg = (Button) findViewById(R.id.btnRegisterFooter);
-
+        tv_regDate = (TextView) findViewById(R.id.as_PW_edt_regD);
     }
 
 

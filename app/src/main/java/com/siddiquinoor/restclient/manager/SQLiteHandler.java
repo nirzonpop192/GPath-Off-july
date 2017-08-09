@@ -8322,9 +8322,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             do {
                 MemberModel member = new MemberModel();
 
-                //   member.setPID(Integer.parseInt(cursor.getString(cursor.getColumnIndex("PID"))));
-                member.setPID(Integer.parseInt(cursor.getString(cursor.getColumnIndex("PID"))));/*
-                member.setID(Integer.parseInt(cursor.getString(cursor.getColumnIndex(ID_COL))));*/
+
+                member.setPID(Integer.parseInt(cursor.getString(cursor.getColumnIndex("PID"))));
                 member.setRegID(cursor.getString(cursor.getColumnIndex(HHID_COL)));
                 member.setName(cursor.getString(cursor.getColumnIndex(REGISTRATION_TABLE_HH_HEAD_NAME)));
 
@@ -8344,14 +8343,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 member.setMemberName(cursor.getString(cursor.getColumnIndex(MEM_NAME_COL)));
                 member.setGender(cursor.getString(cursor.getColumnIndex(SEX_COL)));
 
-                // TODO :: Need to check relation in Member table and needs to save the Relation code
-                // TODO :: Need to select relation according to code in Member Detail page
 
                 member.setEntryBy(cursor.getString(cursor.getColumnIndex(ENTRY_BY)));
                 member.setEntryDate(cursor.getString(cursor.getColumnIndex(ENTRY_DATE)));
 
                 member.setRelation(cursor.getString(cursor.getColumnIndex(RELATION_COL)));
                 member.setRelationCode(cursor.getString(cursor.getColumnIndex(RELATION_NAME)));
+                member.setRegDate(cursor.getString(cursor.getColumnIndex(REG_DATE_COL)));
 
 
                 member.setLMPDate(cursor.getString(cursor.getColumnIndex(LMP_DATE)));
@@ -8371,7 +8369,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         cursor.close();
         db.close();
 
-        // return contact list
+
         return memberList;
     }
 
@@ -9355,7 +9353,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                             selectQuery = SQLiteQuery.getRptMemberServiceList_ca2_sql(cCode,
                                     donorCode, awardCode, programCode, srvCode, opCode, opMCode,
                                     mm_SearchId, groupCode, distFlag, grpLayR1Code, grpLayR2Code,
-                                    grpLayR3Code,syncMode);
+                                    grpLayR3Code, syncMode);
 
                             break;
 
@@ -9363,7 +9361,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                             selectQuery = SQLiteQuery.getRptMemberServiceList_lm_sql(cCode,
                                     donorCode, awardCode, programCode, srvCode, opCode, opMCode,
                                     mm_SearchId, groupCode, distFlag, grpLayR1Code, grpLayR2Code,
-                                    grpLayR3Code,syncMode);
+                                    grpLayR3Code, syncMode);
 
                             break;
 
@@ -9371,7 +9369,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                             selectQuery = SQLiteQuery.getRptMemberServiceList_pw_sql(cCode,
                                     donorCode, awardCode, programCode, srvCode, opCode, opMCode,
                                     mm_SearchId, groupCode, distFlag, grpLayR1Code, grpLayR2Code,
-                                    grpLayR3Code,syncMode);
+                                    grpLayR3Code, syncMode);
 
                             break;
 
@@ -11513,9 +11511,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     }
 
-    public void editMalawiMemberData(String cCode, String layR1Code, String layR2Code, String layR3Code,
-                                     String layR4Code, String hhID,
-                                     String memID, String memName, String str_gender, String str_relation, String str_lmp_date, String str_child_dob, String str_elderly, String str_disabled, String str_age, int pID, String memAgeTypeFlag) {
+    public void editMalawiMemberData(String cCode, String layR1Code, String layR2Code,
+                                     String layR3Code, String layR4Code, String hhID,
+                                     String memID, String memName, String str_gender,
+                                     String str_relation, String str_lmp_date, String str_child_dob,
+                                     String str_elderly, String str_disabled, String str_age,
+                                     int pID, String memAgeTypeFlag,String regDate) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -11529,6 +11530,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(RELATION_COL, str_relation);                                                     // relation
 
         values.put(MEM_AGE, str_age);                                                               // age
+        values.put(REG_DATE_COL, regDate);                                                               // age
 
         values.put(MEM_TYPE_FLAG, memAgeTypeFlag);                                                  // member age type flag := AM /AF/CM/ CF
         db.update(REGISTRATION_MEMBER_TABLE, values, where, null);                                  // updating Row into local database
@@ -11550,6 +11552,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         malawiMember.setMmHHRelation(str_relation);
         malawiMember.setMmMemAge(str_age);
         malawiMember.setMemTypeFlag(memAgeTypeFlag);
+        malawiMember.setRegNDate(regDate);
 
 
         insertIntoUploadTable(malawiMember.updateRegNMemberForMalawi());
@@ -11652,7 +11655,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * Storing Member Data into database for Malawi
      */
 
-    public void addMemberDataForMalawi(String str_c_code, String str_district, String str_upazilla, String str_union, String str_village, String str_hhID, String str_hhMemID, String str_MemName, String str_gender, String str_relation, String str_entry_by, String str_entry_date, String lmp_date, String child_dob, String str_elderly, String str_disabled, String str_age, String regDate, int pID, String memAgeFlag) {
+    public void addMemberDataForMalawi(String str_c_code, String str_district, String str_upazilla,
+                                       String str_union, String str_village, String str_hhID,
+                                       String str_hhMemID, String str_MemName, String str_gender,
+                                       String str_relation, String str_entry_by,
+                                       String str_entry_date, String lmp_date, String child_dob,
+                                       String str_elderly, String str_disabled, String str_age,
+                                       String regDate, int pID, String memAgeFlag) {
         addMemberData(str_c_code, str_district, str_upazilla, str_union, str_village, str_hhID, str_hhMemID, str_MemName, str_gender, str_relation, str_entry_by, str_entry_date, lmp_date, child_dob, str_elderly, str_disabled, str_age
                 , regDate, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
                 null, null, null, null, null, null, null, null, null, null, null, null, null, null, memAgeFlag);
@@ -11679,51 +11688,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     }
 
-//    public long addMemberDataForLiberia(String str_c_code, String str_district, String str_upazilla, String str_union, String str_village, String str_hhID, String str_hhMemID,
-//                                        String regNDate,
-//                                        String memOtherID, String memName_First,
-//                                        String memName_Middle, String memName_Last, String birthYear,
-//                                        String maritalStatus, String contactNo,
-//                                        String Photo,
-//                                        String type_ID, String id_NO,
-//                                        String v_BSCMemName1_First, String v_BSCMemName1_Mid, String v_BSCMemName1_Last,
-//                                        String v_BSCMem1_TitlePosition, String v_BSCMemName2_First, String v_BSCMemName2_Mid,
-//                                        String v_BSCMemName2_Last, String v_BSCMem2_TitlePos, String proxy_Desig, String proxy_Name_First,
-//                                        String proxy_Name_Mid, String proxy_Name_Last, String proxy_BirthYear,
-//                                        String Proxy_Photo,
-//                                        String proxy_Type_ID, String proxy_ID_NO, String p_BSCMemName1_First, String p_BSCMemName1_Middle,
-//                                        String p_BSCMemName1_Last, String p_BSCMem1_TitlePosition, String p_BSCMemName2_First, String p_BSCMemName2_Middle,
-//                                        String p_BSCMemName2_Last, String p_BSCMem2_TitlePosition,
-//                                        String str_entry_by, String str_entry_date) {
-//        //    addMemberData(str_c_code, str_district,  str_upazilla,  str_union,  str_village,  str_hhID,  str_hhMemID,  str_MemName,  str_gender,  str_relation,  str_entry_by,  str_entry_date,  lmp_date,  child_dob,  str_elderly,  str_disabled,  str_age
-//
-//        String str_gender = null, str_relation = null, lmp_date = null, child_dob = null, str_elderly = null, str_disabled = null;
-//        String str_age = null;
-//        String grp_code = null;
-//
-//        long idRow = addMemberData(str_c_code, str_district, str_upazilla, str_union, str_village,
-//                str_hhID, str_hhMemID, memName_First, str_gender, str_relation, str_entry_by, str_entry_date,
-//                lmp_date, child_dob, str_elderly, str_disabled, str_age, regNDate, birthYear, maritalStatus
-//                , contactNo, memOtherID, memName_First, memName_Middle, memName_Last,
-//                Photo//.toString()
-//                ,
-//                type_ID, id_NO, v_BSCMemName1_First, v_BSCMemName1_Mid, v_BSCMemName1_Last, v_BSCMem1_TitlePosition,
-//                v_BSCMemName2_First, v_BSCMemName2_Mid, v_BSCMemName2_Last, v_BSCMem2_TitlePos,
-//                proxy_Desig, proxy_Name_First, proxy_Name_Mid, proxy_Name_Last, proxy_BirthYear,
-//                Proxy_Photo//.toString()
-//                ,
-//                proxy_Type_ID, proxy_ID_NO,
-//                p_BSCMemName1_First, p_BSCMemName1_Middle, p_BSCMemName1_Last, p_BSCMem1_TitlePosition,
-//                p_BSCMemName2_First, p_BSCMemName2_Middle, p_BSCMemName2_Last, p_BSCMem2_TitlePosition, grp_code);
-//
-//
-////        Log.d(TAG, " add member Liberia id: " + idRow);
-//
-//
-//        return idRow;
-//
-//
-//    }
 
     public long addMemberDataForLiberia(String str_c_code, String str_district, String str_upazilla, String str_union, String str_village, String str_hhID, String str_hhMemID,
                                         String regNDate,

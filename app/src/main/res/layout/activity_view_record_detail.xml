@@ -214,6 +214,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignTop="@+id/lblName"
                             android:layout_toRightOf="@+id/lblName"
+                            android:layout_toEndOf="@+id/lblName"
                             android:hint="Name of the person" />
                         <!-- Here the details about malawi from -->
                         <RelativeLayout
