@@ -95,9 +95,9 @@ public class ServiceRecordDetails extends BaseActivity implements AdapterView.On
                     , sPerson.getAward_code(), sPerson.getProgram_code(), sPerson.getService_code());
 
 
-            Log.d("NIR0","Service Record: idGroup idGroupCat:"+sPerson.getTemIdGroupCat()+" strGroupCat: "+sPerson.getTemStrGroupCat()
+       /*     Log.d("NIR0","Service Record: idGroup idGroupCat:"+sPerson.getTemIdGroupCat()+" strGroupCat: "+sPerson.getTemStrGroupCat()
            +"   idGroup:"+sPerson.getTemIdGroup()+" strGroup : "+sPerson.getTemStrGroup()
-            );
+            );*/
         }
 
 
@@ -155,21 +155,7 @@ public class ServiceRecordDetails extends BaseActivity implements AdapterView.On
         });
     }
 
-    /**
-     * @param cCode Country Code
-     * @param disCode District Code
-     * @param upCode
-     * @param uCode
-     * @param vCode
-     * @param hhID
-     * @param mmID
-     * @param opCode
-     * @param opMCode
-     * @param donorCode
-     * @param awardCode
-     * @param progCode
-     * @param srvCode
-     */
+
 
     private void loadServiceSlListData(String cCode, String disCode, String upCode, String uCode, String vCode,
                                        String hhID, String mmID, String opCode, String opMCode,

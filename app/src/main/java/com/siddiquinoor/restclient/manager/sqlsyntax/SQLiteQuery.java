@@ -2362,16 +2362,16 @@ public class SQLiteQuery {
     public static String getMemberDataFrom_RegNAssProgSrv_Query(GraduationGridDataModel member) {
         return "SELECT * FROM " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_TABLE +
                 " WHERE  " + ADM_COUNTRY_CODE_COL + " = '" + member.getCountryCode() + "' "
-                + " AND " + LAY_R_LIST_CODE_COL + " = '" + member.getDistrictCode() + "' "
+                + " AND " + LAY_R1_LIST_CODE_COL + " = '" + member.getDistrictCode() + "' "
                 + " AND " + LAY_R2_LIST_CODE_COL + " = '" + member.getUpazillaCode() + "' "
                 + " AND " + LAY_R3_LIST_CODE_COL + " = '" + member.getUnitCode() + "' "
                 + " AND " + LAY_R4_LIST_CODE_COL + " = '" + member.getVillageCode() + "' "
                 + " AND " + HHID_COL + " = '" + member.getHh_id() + "' "
-                + " AND " + HH_MEM_ID + " = '" + member.getMember_Id() + "' "
+                + " AND " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + member.getMember_Id() + "' "
                 + " AND " + ADM_DONOR_CODE_COL + " = '" + member.getDonor_code() + "' "
                 + " AND " + ADM_AWARD_CODE_COL + " = '" + member.getAward_code() + "' "
-                + " AND " + ADM_PROG_CODE_COL + " = '" + member.getProgram_code() + "' "
-                + " AND " + ADM_SRV_CODE_COL + " = '" + member.getService_code() + "'  ";
+                + " AND " + PROG_CODE_COL + " = '" + member.getProgram_code() + "' "
+                + " AND " + SRV_CODE_COL + " = '" + member.getService_code() + "'  ";
     }
 
     /**
@@ -3058,17 +3058,21 @@ public class SQLiteQuery {
         return ADM_COUNTRY_CODE_COL + " = '" + cCode + "'" +
                 " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + ADM_AWARD_CODE_COL + " = '" + awardCode + "' " +
-                " AND " + LAY_R_LIST_CODE_COL + " = '" + distId + "' " +
+                " AND " + LAY_R1_LIST_CODE_COL + " = '" + distId + "' " +
                 " AND " + LAY_R2_LIST_CODE_COL + " = '" + upId + "' " +
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + unId + "' " +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + villId + "' " +
                 " AND " + HHID_COL + " = '" + hhId + "' " +
-                " AND " + HH_MEM_ID + " = '" + memId + "' " +
-                " AND " + ADM_PROG_CODE_COL + " = '" + progCode + "' " +
-                " AND " + ADM_SRV_CODE_COL + " = '" + srvCode + "' " +
-                " AND " + SQLiteHandler.OPERATION_CODE_COL + " = '2' " +
+                " AND " + MEM_ID_COL + " = '" + memId + "' " +
+                " AND " + PROG_CODE_COL + " = '" + progCode + "' " +
+                " AND " + SRV_CODE_COL + " = '" + srvCode + "' " +
+                " AND " + OPERATION_CODE_COL + " = '2' " +
                 " AND " + OP_MONTH_CODE_COL + " = '" + opMonthCode + "' " +
-                " AND " + SQLiteHandler.SERVICE_SL_COL + " = '" + slNo + "' ";
+                " AND " + SERVICE_TABLE_SERVICE_SL_COL + " = '" + slNo + "' ";
+
+
+
+
     }
 
     public static String getRegisteredData_ifVillageExt_SelectQuery(String ext_village, String hhId) {

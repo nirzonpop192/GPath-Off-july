@@ -928,7 +928,6 @@ public class Schema {
 
     public static String sqlCreateServiceTable() {
         return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.SERVICE_TABLE + "("
-                //   + SQLiteHandler.ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4), "
                 + ADM_DONOR_CODE_COL + " VARCHAR(2), "
                 + ADM_AWARD_CODE_COL + " VARCHAR(2), "
@@ -952,14 +951,11 @@ public class Schema {
                 + WORK_DAY_COL + " VARCHAR(6) , "
                 + DIST_FLAG_COL + " VARCHAR(100) , "
 
-                /**  this column may not be necessary in future delete id no use now */
-//                + GROUP_CODE_COL + " VARCHAR(4)  , "
-                // for total synch summary report need entry by & entry date
                 + ENTRY_BY + " VARCHAR(4) DEFAULT '00' , "
                 + ENTRY_DATE + " VARCHAR(20) DEFAULT '00' " +
-//                ", " + SYNC_COL + "  BOOLEAN DEFAULT 0 " +
+
                 ") "
-                ;// delete last comma ,
+                ;
 
     }
 
@@ -2174,10 +2170,23 @@ public class Schema {
 
                 + " , " + PRIMARY_KEY + " (" + M_CODE_COL + " , " + DEVICE_ROLE_ID_COL + " ) "
                 + " )";
-
-
     }
 
+
+    public static String sqlCreateAdmMachineRole_Table() {
+
+        return CREATE_TABLE_IF_NOT_EXISTS + ADM_MACHINE_ROLE_TABLE + " ("
+
+
+                +  DEVICE_ROLE_ID_COL + " integer NOT NULL "
+                + " , " + DEVICE_ROLE_NAME_COL + " VARCHAR(50) "
+                + " , " + DATA_COLLECTION_CATEGORY_ID_COL + " VARCHAR(50) "
+                + " , " + ENTRY_BY + " VARCHAR(4) "
+                + " , " + ENTRY_DATE + " VARCHAR(50) "
+
+
+                + " )";
+    }
 
     public static String sqlCreateAdmMachinePublisher_Table() {
 

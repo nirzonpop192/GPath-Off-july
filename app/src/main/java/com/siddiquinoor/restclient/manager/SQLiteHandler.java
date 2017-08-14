@@ -209,6 +209,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public static final String LUP_COMMUNITY_FUND_SOURCE_TABLE = "LUP_CommnityFundSource";
     public static final String LUP_COMMUNITY_IRRIGATION_SYSTEM_TABLE = "LUP_CommunityIrrigationSystem";
     public static final String ADM_MACHINE_REGISTRY_TABLE = "AdmMachineRegistry";
+    public static final String ADM_MACHINE_ROLE_TABLE = "AdmMachineRole";
     public static final String ADM_MACHINE_PUBLISHER_TABLE = "AdmMachinePublisher";
 
     public static final String REG_N_MEM_PROG_GRP_TABLE = "RegNMemProgGrp";
@@ -643,6 +644,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public static final String M_LABLE_COL = "MLabel";
     public static final String M_ID_COL = "MID";
     public static final String DEVICE_ROLE_ID_COL = "DeviceRoleID";
+    public static final String DEVICE_ROLE_NAME_COL = "DeviceRoleName";
+    public static final String DATA_COLLECTION_CATEGORY_ID_COL = "DataCollectionCategoryID";
     public static final String OFF_MODE_COL = "OFFMode";
     public static final String ON_MODE_COL = "ONMode";
     public static final String OPERATION_MODE_COL = "OperationMode";
@@ -1126,7 +1129,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String fileName = "";
         String sourceID = "";
         String destinationID = "";
-        String opCode = "";
+        String deviceRoleID = "";
+        String temDeviceRoleId = "";
+        String operationModeName = "";
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = " SELECT " + M_CODE_COL + " AS SubscriberID "
                 + " , " + DEVICE_ROLE_ID_COL
@@ -1136,10 +1141,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         if (cursor != null && cursor.moveToFirst()) {
             sourceID = cursor.getString(cursor.getColumnIndex("SubscriberID"));
-            opCode = cursor.getString(cursor.getColumnIndex(DEVICE_ROLE_ID_COL));
-        }
-        if (cursor != null)
+            deviceRoleID = cursor.getString(cursor.getColumnIndex(DEVICE_ROLE_ID_COL));
             cursor.close();
+        }
+
 
         String sql_1 = " SELECT " + M_CODE_COL + " AS PublisherID "
                 + " FROM " + ADM_MACHINE_PUBLISHER_TABLE
@@ -1148,13 +1153,35 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         if (cursor_2 != null && cursor_2.moveToFirst()) {
             destinationID = cursor_2.getString(cursor_2.getColumnIndex("PublisherID"));
-        }
-        if (cursor_2 != null)
             cursor_2.close();
+        }
 
 
-        fileName = sourceID + "_" + destinationID + "_" + opCode;
-        if (sourceID.length() == 0 || destinationID.length() == 0 || opCode.length() == 0)
+        String sql_opModeTable = " SELECT " + SELECTED_OPERATION_MODE_NAME_COL
+
+                + " FROM " + SELECTED_OPERATION_MODE_TABLE;
+        Cursor cursor_opMTable = db.rawQuery(sql_opModeTable, null);
+
+        if (cursor_opMTable != null && cursor_opMTable.moveToFirst()) {
+            operationModeName = cursor_opMTable.getString(cursor_opMTable.getColumnIndex(SELECTED_OPERATION_MODE_NAME_COL));
+            cursor_opMTable.close();
+        }
+
+        String sql_deviceRole = " SELECT " + DEVICE_ROLE_ID_COL
+
+                + " FROM " + ADM_MACHINE_ROLE_TABLE
+                + " WHERE " + DEVICE_ROLE_NAME_COL + " = 'Collection - " + operationModeName + "'";
+        Cursor cursor_deviceRole = db.rawQuery(sql_deviceRole, null);
+
+        if (cursor_deviceRole != null && cursor_deviceRole.moveToFirst()) {
+            temDeviceRoleId = cursor_deviceRole.getString(cursor_deviceRole.getColumnIndex(DEVICE_ROLE_ID_COL));
+            cursor_deviceRole.close();
+        }
+
+
+        fileName = sourceID + "_" + destinationID + "_" + deviceRoleID;
+        if (sourceID.length() == 0 || destinationID.length() == 0 || deviceRoleID.length() == 0
+                || !deviceRoleID.equals(temDeviceRoleId))
             fileName = "";
         db.close();
         return fileName;
@@ -1398,6 +1425,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.execSQL(DROP_TABLE_IF_EXISTS + LUP_REGN_ADDRESS_LOOKUP_TABLE);
         db.execSQL(DROP_TABLE_IF_EXISTS + LUP_COMMUNITY_FUND_SOURCE_TABLE);
         db.execSQL(DROP_TABLE_IF_EXISTS + LUP_COMMUNITY_IRRIGATION_SYSTEM_TABLE);
+        db.execSQL(DROP_TABLE_IF_EXISTS + ADM_MACHINE_ROLE_TABLE);
+        db.execSQL(DROP_TABLE_IF_EXISTS + ADM_MACHINE_REGISTRY_TABLE);
+        db.execSQL(DROP_TABLE_IF_EXISTS + ADM_MACHINE_PUBLISHER_TABLE);
 
     }
 
@@ -1526,6 +1556,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         db.execSQL(Schema.sqlCreateAdmMachineRegistry_Table());                                     //  FOR IMPORT EXPORT device information
         db.execSQL(Schema.sqlCreateAdmMachinePublisher_Table());                                    //  FOR IMPORT EXPORT device information
+        db.execSQL(Schema.sqlCreateAdmMachineRole_Table());                                    //  FOR IMPORT EXPORT device information
 
 
         Log.d(TAG, "  Create All Table ");
@@ -1665,6 +1696,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             db.execSQL(DROP_TABLE_IF_EXISTS + LUP_COMMUNITY_IRRIGATION_SYSTEM_TABLE);
             db.execSQL(DROP_TABLE_IF_EXISTS + ADM_MACHINE_REGISTRY_TABLE);
             db.execSQL(DROP_TABLE_IF_EXISTS + ADM_MACHINE_PUBLISHER_TABLE);
+            db.execSQL(DROP_TABLE_IF_EXISTS + ADM_MACHINE_ROLE_TABLE);
 
 
 //            Log.d(TAG, "All table Dropped.");
@@ -1857,6 +1889,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             db.delete(LUP_TA_PATICIPANT_CAT_TABLE, null, null);
             db.delete(ADM_MACHINE_REGISTRY_TABLE, null, null);
             db.delete(ADM_MACHINE_PUBLISHER_TABLE, null, null);
+            db.delete(ADM_MACHINE_ROLE_TABLE, null, null);
 
 
 //            Log.d(TAG, "All User data Deleted.");
@@ -2319,7 +2352,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      */
 
 
-    public void insertIntoGPSLocationContentTable(String cCode, String grpCode, String subGrpCode, String locCode, String contentCode, byte[] imageFile, String remarks, String entryBy, String entryDate) {
+    public void insertIntoGPSLocationContentTable(String cCode, String grpCode, String subGrpCode,
+                                                  String locCode, String contentCode,
+                                                  byte[] imageFile, String remarks,
+                                                  String entryBy, String entryDate) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
@@ -8084,11 +8120,16 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String sql = "";
         // query to get the start date of the registration process.
         if (MinOrMax.equals("Min")) {
-            sql = "SELECT MIN " + "(" + START_DATE_COL + ")" + " FROM " + OP_MONTH_TABLE + " WHERE " + ADM_COUNTRY_CODE_COL
-                    + " = '" + cCode + "'" + " AND " + STATUS + "= 'A'";
+            sql = "SELECT MIN " + "(" + START_DATE_COL + ")"
+                    + " FROM " + OP_MONTH_TABLE
+                    + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
+                    + " AND " + STATUS + "= 'A'"
+                    + " AND " + OPERATION_CODE_COL + "= '1'";
         } else {
-            sql = "SELECT MAX " + "(" + END_DATE_COL + ")" + " FROM " + OP_MONTH_TABLE + " WHERE " + ADM_COUNTRY_CODE_COL
-                    + " = '" + cCode + "'" + " AND " + STATUS + "= 'A'";
+            sql = "SELECT MAX " + "(" + END_DATE_COL + ")" + " FROM " + OP_MONTH_TABLE
+                    + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
+                    + " AND " + STATUS + "= 'A'"
+                    + " AND " + OPERATION_CODE_COL + "= '1'";
         }
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -9397,7 +9438,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             }
         }
 
-// for test
+
         Log.d("ERROR192", selectQuery);
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -9484,14 +9525,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         int records = 0;
         String vill_name = "";
 
-        //String query = "SELECT " + LAY_R4_LIST_NAME_COL + " AS Vill_Name, COUNT(*) AS records FROM " + REG_N_HH_TABLE + " GROUP BY " + LAY_R4_LIST_NAME_COL;
-/*
-        *****NOR VAI QUEY
-        String query = "SELECT v." + LAY_R4_LIST_CODE_COL +" AS v_code,"+
-                " v."+ LAY_R4_LIST_NAME_COL +" AS Vill_Name, COUNT(*) AS records FROM " + REG_N_HH_TABLE + " AS r LEFT JOIN " + GEO_LAY_R4_LIST_TABLE + " AS v ON r."+ LAY_R4_LIST_NAME_COL +"=v."+ LAY_R4_LIST_CODE_COL +"  GROUP BY v."+ LAY_R4_LIST_NAME_COL;
 
-*/
-        // POP CODE
         String query = "SELECT " + " v." + ADM_COUNTRY_CODE_COL + " || '' ||  v." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " || '' || v." + LAY_R2_LIST_CODE_COL + " || '' || v." +
                 LAY_R3_LIST_CODE_COL + " || '' || v." + LAY_R4_LIST_CODE_COL + " AS v_code," +
                 " v." + LAY_R4_LIST_NAME_COL + " AS Vill_Name," +
@@ -11516,7 +11550,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                                      String memID, String memName, String str_gender,
                                      String str_relation, String str_lmp_date, String str_child_dob,
                                      String str_elderly, String str_disabled, String str_age,
-                                     int pID, String memAgeTypeFlag,String regDate) {
+                                     int pID, String memAgeTypeFlag, String regDate) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -12720,7 +12754,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String where = ADM_COUNTRY_CODE_COL + " = '" + distData.getCountryCode() + "'" +
                 " AND " + ADM_DONOR_CODE_COL + " = '" + distData.getAdmDonorCode() + "' " +
                 " AND " + ADM_AWARD_CODE_COL + " = '" + distData.getAdmAwardCode() + "' " +
-                " AND " + LAY_R_LIST_CODE_COL + " = '" + distData.getDistrictCode() + "' " +
+                " AND " + LAY_R1_LIST_CODE_COL + " = '" + distData.getDistrictCode() + "' " +
                 " AND " + LAY_R2_LIST_CODE_COL + " = '" + distData.getUpCode() + "' " +
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + distData.getUniteCode() + "' " +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + distData.getVillageCode() + "' " +
@@ -12904,8 +12938,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, null);
         while (cursor.moveToNext()) {
             byte[] image = cursor.getBlob(cursor.getColumnIndex(IMAGE_FILE_COL));
-            Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-            imageView.setImageBitmap(bitmap);
+            if (image != null) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+                imageView.setImageBitmap(bitmap);
+            }
+
         }
         cursor.close();
 

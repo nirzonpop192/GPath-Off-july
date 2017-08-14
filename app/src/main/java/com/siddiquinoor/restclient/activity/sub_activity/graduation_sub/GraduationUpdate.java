@@ -147,18 +147,19 @@ public class GraduationUpdate extends BaseActivity {
 
                 graduation_date = tv_grdDate.getText().toString();
 
-                if (registration_date!=null){
+                if (registration_date != null) {
                     if (graduation_date.length() > 0) {
-                        DateFormat inputFormat = new SimpleDateFormat("mm-dd-yyyy", Locale.ENGLISH);
-                        DateFormat outputFormat = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
+//                        DateFormat inputFormat = new SimpleDateFormat("mm-dd-yyyy", Locale.ENGLISH);
+//                        DateFormat outputFormat = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
+                        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
                         String inputDateStr = graduation_date;
                         Date date = null;
                         try {
-                            date = inputFormat.parse(inputDateStr);
+                            date = format.parse(inputDateStr);
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
-                        String outputDateStr = outputFormat.format(date);
+                        String outputDateStr = format.format(date);
 
                         if (outputDateStr.length() > 0) {
                             if (Integer.parseInt(idGRD) < 0 || !strGRDTitle.equals("Select Reason")) {
@@ -171,14 +172,14 @@ public class GraduationUpdate extends BaseActivity {
                                         if (ok) {
                                             saveMemberGraduationData();
                                         } else
-                                            Toast.makeText(GraduationUpdate.this, "Check graduation date.", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(GraduationUpdate.this, "Invalid date specified.", Toast.LENGTH_SHORT).show();
 
                                     } catch (ParseException e) {
                                         Toast.makeText(GraduationUpdate.this, "Wrong Date Format, parse error!", Toast.LENGTH_SHORT).show();
                                     }
 
                                 } else
-                                    Toast.makeText(GraduationUpdate.this, "No valid date range found!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(GraduationUpdate.this, "Invalid date specified.", Toast.LENGTH_SHORT).show();
 
                             } else
                                 Toast.makeText(GraduationUpdate.this, "Please enter a reason.", Toast.LENGTH_SHORT).show();
@@ -190,7 +191,6 @@ public class GraduationUpdate extends BaseActivity {
                         Toast.makeText(GraduationUpdate.this, "Please Enter Graduation date.", Toast.LENGTH_SHORT).show();
                     }
                 }
-
 
 
             }
@@ -315,14 +315,7 @@ public class GraduationUpdate extends BaseActivity {
                     graduationQuery.setEntryDate(EntryDate);
 
                     sqlH.insertIntoUploadTable(graduationQuery.updateGraduation());
-                    //Toast.makeText(mContext, "The data is delete", Toast.LENGTH_SHORT).show();
-                         /*  GraduationDateCode dateCode= sqlH.getGRDPeopleDetial(mGraduation.getCountryCode(),
-                                    mGraduation.getDistrictCode(), mGraduation.getUpazillaCode(),
-                                    mGraduation.getUnitCode(), mGraduation.getVillageCode(), mGraduation.getHh_id(),
-                                    mGraduation.getMember_Id(), mGraduation.getProgram_code(),
-                                    mGraduation.getService_code(), mGraduation.getDonor_code(), mGraduation.getAward_code());
-                            tv_grdDate.setText(dateCode.getGrdDate());
-                            idGRD=dateCode.getGrdCode();*/
+
 
                     tv_grdDate.setText("");
 
@@ -344,6 +337,12 @@ public class GraduationUpdate extends BaseActivity {
                     mGraduation.getMember_Id(), mGraduation.getProgram_code(),
                     mGraduation.getService_code(), mGraduation.getDonor_code(), mGraduation.getAward_code());
 
+            try {
+                EntryBy = getStaffID();
+                EntryDate = getDateTime();
+            } catch (ParseException pe) {
+                pe.printStackTrace();
+            }
             SQLServerSyntaxGenerator graduationQuery = new SQLServerSyntaxGenerator();
             graduationQuery.setAdmCountryCode(mGraduation.getCountryCode());
             graduationQuery.setLayR1ListCode(mGraduation.getDistrictCode());
@@ -534,7 +533,7 @@ public class GraduationUpdate extends BaseActivity {
 
 
         setSrtGrdDate(format.format(calendar.getTime()));
-        tv_grdDate.setText(formatUSA.format(calendar.getTime()));
+        tv_grdDate.setText(format.format(calendar.getTime()));
     }
 
 
