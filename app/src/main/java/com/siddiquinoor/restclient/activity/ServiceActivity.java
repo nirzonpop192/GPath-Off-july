@@ -193,7 +193,6 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             strGroupCat = intent.getStringExtra(KEY.GROUP_CATEGORY_NAME);
 
 
-
             String memSearchId = "";
 
 
@@ -688,7 +687,8 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
 
                                         /**                                         * none food flag                                         */
-                                        saveNoneFoodProgram(srvMemData, sqlServerSyntax, EntryBy, EntryDate);
+                                        if (idDistributionType.equals(DistributionActivity.NON_FOOD_TYPE))
+                                            saveNoneFoodProgram(srvMemData, sqlServerSyntax, EntryBy, EntryDate);
                                     } else {
                                         /***
                                          * try to edit section
@@ -725,10 +725,8 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                                     saveServiceMaxDate(srvMemData, serviceDate, sqlServerSyntax, sqlH);
 
 
-                                    /**
-                                     * none food flag
-                                     */
-                                    saveNoneFoodProgram(srvMemData, sqlServerSyntax, EntryBy, EntryDate);
+                                    if (idDistributionType.equals(DistributionActivity.NON_FOOD_TYPE))      // none food flag
+                                        saveNoneFoodProgram(srvMemData, sqlServerSyntax, EntryBy, EntryDate);
 
 
                                 }                                                                   // end of the else
@@ -831,7 +829,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
         } else {
             /***
-             *  todo: for  grdExtendedSrvMemberList think about it later
+
              *  do not delete
              */
 
@@ -843,10 +841,10 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                 if (mChecked.get(i)) {
                     count++;
 
-                    Log.d("AAA", "pos: " + i + " mChecked.get(i)" + mChecked.get(i) + "count:");
+//                    Log.d("AAA", "pos: " + i + " mChecked.get(i)" + mChecked.get(i) + "count:");
                 }
                 if (count < 2) {
-                    Log.d("AAA", "false: ");
+//                    Log.d("AAA", "false: ");
                     flag = false;
                     break;
                 }
@@ -1471,7 +1469,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                             showNHideGroupNCat(View.GONE);
                             showNHideLayRList(View.VISIBLE);
                             loadLayR4List(idCountry);
-                            //  get village list  getList4(_CountryCode, Class.SessionManager.LoginUserId);
+
                             break;
 
                     }
@@ -1581,7 +1579,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                         srvMemberList = sqlH.getRptMemberServiceList(cCode, donorCode, awardCode,
                                 prgCode, srvCode, memSearchId, opCode, opMCode, grpCode,
                                 idDistributionType, idGrpLayR1Code, idGrpLayR2Code, idGrpLayR3Code,
-                                layR1Code, layR2Code, layR3Code, layR4Code,syncMode);
+                                layR1Code, layR2Code, layR3Code, layR4Code, syncMode);
                         break;
                 }
                 break;
@@ -1593,7 +1591,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                     srvMemberList = sqlH.getRptMemberServiceList(cCode, donorCode, awardCode,
                             prgCode, srvCode, memSearchId, opCode, opMCode, grpCode,
                             idDistributionType, idGrpLayR1Code, idGrpLayR2Code, idGrpLayR3Code,
-                            layR1Code, layR2Code, layR3Code, layR4Code,syncMode);
+                            layR1Code, layR2Code, layR3Code, layR4Code, syncMode);
 
                 break;
         }
@@ -1659,7 +1657,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                     srvMemberList = sqlH.getRptMemberServiceList(cCode, donorCode, awardCode,
                             prgCode, srvCode, memSearchId, opCode, opMCode, grpCode,
                             idDistributionType, idGrpLayR1Code, idGrpLayR2Code, idGrpLayR3Code,
-                            idLayR1List, idLayR2List, idLayR3List, idLayR4List,syncMode);
+                            idLayR1List, idLayR2List, idLayR3List, idLayR4List, syncMode);
 
                 break;
         }

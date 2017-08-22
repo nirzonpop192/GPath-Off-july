@@ -108,11 +108,10 @@ public class Schema {
     }
 
 
-    // RegNHHMemschema schema
+
     public static String sqlCreateRegMember() {
         return CREATE_TABLE_IF_NOT_EXISTS + REGISTRATION_MEMBER_TABLE + "("
-//                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT "
-//                + " , " +
+
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(5) "
                 + " , " + LAY_R1_LIST_CODE_COL + " VARCHAR(5) "
                 + " , " + LAY_R2_LIST_CODE_COL + " VARCHAR(5) "
@@ -166,72 +165,14 @@ public class Schema {
                 + " , " + PROXY_BSC_MEM_2_NAME_LAST_COL + " VARCHAR(50) "
                 + " , " + PROXY_BSC_MEM_2_TITLE_COL + " VARCHAR(50) "
                 + " , " + MEM_TYPE_FLAG + " VARCHAR(2) "
-//                + " , " + GROUP_CODE_COL + " VARCHAR(5) "
+
 
                 + " )";
     }
 
 
 
-    /*  public static String sqlCreateRegMember() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.REGISTRATION_MEMBER_TABLE + "("
-                + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT "
-                + " , " + ADM_COUNTRY_CODE_COL + " VARCHAR(5) "
-                + " , " + SQLiteHandler.LAY_R_LIST_NAME_COL + " VARCHAR(5) "
-                + " , " + SQLiteHandler.LAY_R2_LIST_NAME_COL + " VARCHAR(5) "
-                + " , " + LAY_R3_LIST_NAME + " VARCHAR(5) "
-                + " , " + LAY_R4_LIST_NAME_COL + " VARCHAR(5) "
-                + " , " + HHID_COL + " VARCHAR(7) "
-                + " , " + HH_MEM_ID + " VARCHAR(5) "
-                + " , " + SQLiteHandler.MEM_NAME_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.SEX_COL + " VARCHAR(8) "
-                + " , " + SQLiteHandler.RELATION_COL + " VARCHAR(50) "
-                + " , " + ENTRY_BY + " VARCHAR(10) "
-                + " , " + ENTRY_DATE + " VARCHAR(20) "
-                + " , " + SQLiteHandler.LMP_DATE + " DATE "
-                + " , " + SQLiteHandler.CHILD_DOB + " DATE "
-                + " , " + SQLiteHandler.ELDERLY + " VARCHAR(1) "
-                + " , " + SQLiteHandler.DISABLE + " VARCHAR(1) "
-                + " , " + SQLiteHandler.MEM_AGE + " VARCHAR(5) "
-                + " , " + SQLiteHandler.REG_DATE_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.BIRTH_YEAR_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.MARITAL_STATUS_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.CONTACT_NO_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.MEMBER_OTHER_ID_COL + " VARCHAR(100) "
-                + " , " + SQLiteHandler.MEM_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.MEM_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.MEM_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PHOTO_COL + " BLOB "
-                + " , " + SQLiteHandler.TYPE_ID_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.ID_NO_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_1_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_1_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_1_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_1_TITLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_2_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_2_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_2_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_2_TITLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_DESIGNATION_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BIRTH_YEAR_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.PROXY_PHOTO_COL + " BLOB "
-                + " , " + SQLiteHandler.PROXY_TYPE_ID_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_ID_NO_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_1_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_1_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_1_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_1_TITLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_2_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_2_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_2_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_2_TITLE_COL + " VARCHAR(50) "
-                + " , " + GROUP_CODE_COL + " VARCHAR(5) "
 
-                + " )";
-    }*/
 
 
     public static String sqlCreateRegMemberCardPrintTable() {
@@ -246,16 +187,16 @@ public class Schema {
                 + LAY_R4_LIST_CODE_COL + " VARCHAR(10), "
                 + HHID_COL + " VARCHAR(10), "
                 + MEM_ID_COL + " VARCHAR(10), "
-                + SQLiteHandler.REPORT_GROUP_COL + " VARCHAR(10), "
-                + SQLiteHandler.REPORT_CODE_COL + " VARCHAR(50), "
-                + SQLiteHandler.CARD_REQUEST_SL_COL + " VARCHAR(10), "
-                + SQLiteHandler.CARD_PRINT_REASON_CODE_COL + " VARCHAR(10), "
-                + SQLiteHandler.REQUEST_DATE_COL + " VARCHAR(50) , "
-                + SQLiteHandler.PRINT_DATE_COL + " VARCHAR(50) , "
-                + SQLiteHandler.PRINT_BY_COL + " VARCHAR(10), "
-                + SQLiteHandler.DELIVERY_DATE_COL + " VARCHAR(50), "
-                + SQLiteHandler.DELIVERY_BY_COL + " VARCHAR(10), "
-                + SQLiteHandler.DELIVERY_STATUS_COL + " VARCHAR(10), "
+                + REPORT_GROUP_COL + " VARCHAR(10), "
+                + REPORT_CODE_COL + " VARCHAR(50), "
+                + CARD_REQUEST_SL_COL + " VARCHAR(10), "
+                + CARD_PRINT_REASON_CODE_COL + " VARCHAR(10), "
+                + REQUEST_DATE_COL + " VARCHAR(50) , "
+                + PRINT_DATE_COL + " VARCHAR(50) , "
+                + PRINT_BY_COL + " VARCHAR(10), "
+                + DELIVERY_DATE_COL + " VARCHAR(50), "
+                + DELIVERY_BY_COL + " VARCHAR(10), "
+                + DELIVERY_STATUS_COL + " VARCHAR(10), "
                 + ENTRY_BY + " VARCHAR(10), "
                 + ENTRY_DATE + " VARCHAR(50), "
 
@@ -374,7 +315,6 @@ public class Schema {
     public static String sqlCreateRegNCA2Table() {
 
         return CREATE_TABLE_IF_NOT_EXISTS + REG_N_CA2_TABLE + " ( "
-                //   + SQLiteHandler.ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(10), "
                 + LAY_R1_LIST_CODE_COL + " VARCHAR(10), "
                 + LAY_R2_LIST_CODE_COL + " VARCHAR(10), "
@@ -392,8 +332,7 @@ public class Schema {
                 + CHILD_SEX_COL + " VARCHAR(2) , "
                 + ENTRY_BY + " VARCHAR(50) DEFAULT '0', "
                 + ENTRY_DATE + " VARCHAR(50) DEFAULT '0'" +
-//                " , "
-//                + SYNC_COL + " BOOLEAN DEFAULT 0 " +
+
                 ")";
     }
 
@@ -418,9 +357,7 @@ public class Schema {
                 + CHILD_SEX_COL + " VARCHAR(2) , "
                 + ENTRY_BY + " VARCHAR(50) , "
                 + ENTRY_DATE + " VARCHAR(50) " +
-                //+
-                //  " , "
-              /*  + SYNC_COL + "  BOOLEAN DEFAULT 0 "+*/
+
                 " )";
     }
 
@@ -428,7 +365,7 @@ public class Schema {
 
 
         return CREATE_TABLE_IF_NOT_EXISTS + REG_N_PW_TABLE + " ( "
-//                + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(10), "
                 + LAY_R1_LIST_CODE_COL + " VARCHAR(10), "
                 + LAY_R2_LIST_CODE_COL + " VARCHAR(10), "
@@ -444,7 +381,7 @@ public class Schema {
                 + PW_GRD_DATE_COL + " VARCHAR(50) , "
                 + ENTRY_BY + " VARCHAR(50) DEFAULT '0', "
                 + ENTRY_DATE + " VARCHAR(50) DEFAULT '0'" +
-//                " , " + SYNC_COL + "  BOOLEAN DEFAULT 0" +
+
                 " )";
     }
 
@@ -565,9 +502,9 @@ public class Schema {
         return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.FDP_MASTER_TABLE + " ( "
                 + SQLiteHandler.FDP_MASTER_COUNTRY_CODE + " VARCHAR(5) , "
                 + FDP_CODE_COL + " VARCHAR(6) , "
-                + SQLiteHandler.FDP_NAME_COL + " VARCHAR(100) , "
-                + SQLiteHandler.FDA_CATEGORIES_CODE_COL + " VARCHAR(10) , "
-                + SQLiteHandler.WH_CODE_COL + " VARCHAR(3)  ,"
+                + FDP_NAME_COL + " VARCHAR(100) , "
+                + FDA_CATEGORIES_CODE_COL + " VARCHAR(10) , "
+                + WH_CODE_COL + " VARCHAR(3)  ,"
                 + FDP_MASTER_LAY_R1_LIST_CODE_COL + " VARCHAR(6)  ,"
                 + FDP_MASTER_LAY_R2_LIST_CODE_COL + " VARCHAR(6)  "
                 + " ) ";
@@ -584,16 +521,16 @@ public class Schema {
                 + LAY_R4_LIST_CODE_COL + " VARCHAR(10), "
                 + HHID_COL + " VARCHAR(10), "
                 + HH_MEM_ID + " VARCHAR(10), "
-                + SQLiteHandler.C11_CT_PR + " VARCHAR(1) , "
-                + SQLiteHandler.C21_CT_PR + " VARCHAR(1) , "
-                + SQLiteHandler.C31_CT_PR + " VARCHAR(1) , "
-                + SQLiteHandler.C32_CT_PR + " VARCHAR(1) , "
-                + SQLiteHandler.C33_CT_PR + " VARCHAR(1) , "
-                + SQLiteHandler.C34_CT_PR + " VARCHAR(1) , "
-                + SQLiteHandler.C35_CT_PR + " VARCHAR(1) , "
-                + SQLiteHandler.C36_CT_PR + " VARCHAR(1) , "
-                + SQLiteHandler.C37_CT_PR + " VARCHAR(1) , "
-                + SQLiteHandler.C38_CT_PR + " VARCHAR(1) , "
+                + C11_CT_PR + " VARCHAR(1) , "
+                + C21_CT_PR + " VARCHAR(1) , "
+                + C31_CT_PR + " VARCHAR(1) , "
+                + C32_CT_PR + " VARCHAR(1) , "
+                + C33_CT_PR + " VARCHAR(1) , "
+                + C34_CT_PR + " VARCHAR(1) , "
+                + C35_CT_PR + " VARCHAR(1) , "
+                + C36_CT_PR + " VARCHAR(1) , "
+                + C37_CT_PR + " VARCHAR(1) , "
+                + C38_CT_PR + " VARCHAR(1) , "
                 + ENTRY_BY + " VARCHAR(10), "
                 + ENTRY_DATE + " VARCHAR(20) "
                 + " )";
@@ -701,11 +638,11 @@ public class Schema {
                 + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(5), "
                 + GROUP_CODE_COL + " VARCHAR(3), "
-                + SQLiteHandler.SUB_GROUP_CODE_COL + " VARCHAR(3), "
-                + SQLiteHandler.LOCATION_CODE_COL + " VARCHAR(5), "
-                + SQLiteHandler.LOCATION_NAME_COL + " VARCHAR(100), "
-                + SQLiteHandler.LATITUDE_COL + " VARCHAR(20), "
-                + SQLiteHandler.LONGITUDE_COL + " VARCHAR(20) , "
+                + SUB_GROUP_CODE_COL + " VARCHAR(3), "
+                + LOCATION_CODE_COL + " VARCHAR(5), "
+                + LOCATION_NAME_COL + " VARCHAR(100), "
+                + LATITUDE_COL + " VARCHAR(20), "
+                + LONGITUDE_COL + " VARCHAR(20) , "
                 + ENTRY_BY + " VARCHAR(20) , "
                 + ENTRY_DATE + " VARCHAR(20) ) ";
     }
@@ -748,8 +685,8 @@ public class Schema {
      * remarks-
      */
     public static String sqlCreateRegNAssignPrgSrvTable() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_TABLE + "("
-                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+        return CREATE_TABLE_IF_NOT_EXISTS + REG_N_ASSIGN_PROG_SRV_TABLE + "("
+
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(10), "
                 + LAY_R1_LIST_CODE_COL + " VARCHAR(10), "
                 + LAY_R2_LIST_CODE_COL + " VARCHAR(10), "
@@ -770,8 +707,7 @@ public class Schema {
                 + SRV_MAX_DATE_COL + " VARCHAR(50)  , "
                 + ENTRY_BY + " VARCHAR(5) , "
                 + ENTRY_DATE + " VARCHAR(20) " +
-//                " , "+
-                // + SYNC_COL + " DEFAULT 0 " +
+
                 " ) ";
 
 
@@ -828,7 +764,7 @@ public class Schema {
 
     public static String sqlCreateRegistration() {
         return CREATE_TABLE_IF_NOT_EXISTS + REG_N_HH_TABLE + "("
-//                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(10), "
                 + LAY_R1_LIST_CODE + " VARCHAR(10), "
                 + LAY_R2_LIST_CODE_COL + " VARCHAR(10), "
@@ -927,7 +863,7 @@ public class Schema {
      */
 
     public static String sqlCreateServiceTable() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.SERVICE_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + SERVICE_TABLE + "("
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4), "
                 + ADM_DONOR_CODE_COL + " VARCHAR(2), "
                 + ADM_AWARD_CODE_COL + " VARCHAR(2), "
@@ -962,10 +898,10 @@ public class Schema {
 
     // Creating RegNHHMember Schema
     public static String sqlCreateRegRelation() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.LUP_REG_NHH_RELATION_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + LUP_REG_NHH_RELATION_TABLE + "("
                 + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
-                + SQLiteHandler.RELATION_CODE + " VARCHAR(10), "
-                + SQLiteHandler.RELATION_NAME + " VARCHAR(100)"
+                + RELATION_CODE + " VARCHAR(10), "
+                + RELATION_NAME + " VARCHAR(100)"
                 + " )";
     }
 
@@ -985,7 +921,7 @@ public class Schema {
     // create Vul table schema
     public static String sqlCreateRegNVUL_Table() {
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.REG_N_VUL_TABLE + " ("
+        return CREATE_TABLE_IF_NOT_EXISTS + REG_N_VUL_TABLE + " ("
 
                 + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
 

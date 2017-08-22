@@ -455,7 +455,7 @@ public class RegisterMember extends BaseActivity {
 
             dialog.showErrorDialog(mContext, "Missing relation. Please select a Relation");
 
-        } else if (str_reg_date == null || str_reg_date.equals("Date")) {
+        } else if (str_reg_date == null || str_reg_date.length() == 0 || str_reg_date.equals("Date") || str_reg_date.equals("Registration Date")) {
             dialog.showErrorDialog(mContext, "Missing Registration date. Save attempt denied");
         } else {
             String temHH;
@@ -467,7 +467,9 @@ public class RegisterMember extends BaseActivity {
             if (is_edit) {
 
 
-                String memAgeTypeFlag = sqlH.getMemberAgeTypeFlag(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temHH, str_hhMemID);
+                String memAgeTypeFlag = sqlH.getMemberAgeTypeFlag(str_c_code,
+                        layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temHH,
+                        str_hhMemID);
 
 
                 sqlH.editMalawiMemberData(str_c_code, layR1ListCode, layR2ListCode, str_unionCode,

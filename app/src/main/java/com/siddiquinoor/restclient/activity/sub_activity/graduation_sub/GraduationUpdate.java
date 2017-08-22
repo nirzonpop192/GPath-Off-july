@@ -28,7 +28,6 @@ import com.siddiquinoor.restclient.data_model.adapters.GraduationGridDataModel;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 import com.siddiquinoor.restclient.views.notifications.ADNotificationManager;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -108,7 +107,7 @@ public class GraduationUpdate extends BaseActivity {
 
     private void set15DigitId() {
         if (mGraduation != null) {
-            memberId15Digit = mGraduation.getDistrictCode() + mGraduation.getUpazillaCode()
+            memberId15Digit = mGraduation.getLayR1Code() + mGraduation.getUpazillaCode()
                     + mGraduation.getUnitCode() + mGraduation.getVillageCode() +
                     mGraduation.getHh_id() + mGraduation.getMember_Id();
         }
@@ -212,24 +211,25 @@ public class GraduationUpdate extends BaseActivity {
         });
     }
 
-    private boolean isValidDateForGraduation(String grdDate, String sDate, String eDate, String regDate) throws ParseException {
+    private boolean isValidDateForGraduation(String str_grdDate, String str_sDate, String str_eDate,
+                                             String str_regDate) throws ParseException {
 
-        String curr_date;
-        if (isTheDateValidFormat(grdDate)) {
-            curr_date = grdDate;
+        String grdDate;
+        if (isTheDateValidFormat(str_grdDate)) {
+            grdDate = str_grdDate;
         } else {
-            curr_date = grdDate + " 00:00:00.000";
+            grdDate = str_grdDate + " 00:00:00.000";
         }
 
-        Log.e("ShuvoCurr", curr_date);
+        Log.e("ShuvoCurr", grdDate);
 
-        Date newDate = format.parse(curr_date);
+        Date newDate = format.parse(grdDate);
         Log.e("ShuvoNew", String.valueOf(newDate.getTime()));
 
-        Date startDate = format.parse(String.valueOf(sDate));
+        Date startDate = format.parse(String.valueOf(str_sDate));
         Log.e("ShuvoNew", String.valueOf(startDate));
-        Date endDate = format.parse(String.valueOf(eDate));
-        Date registrationDate = format.parse(regDate);
+        Date endDate = format.parse(String.valueOf(str_eDate));
+        Date registrationDate = format.parse(str_regDate);
 
         // return newDate.after(startDate)&& newDate.before(endDate) && newDate.after(registrationDate);
         return newDate.getTime() >= startDate.getTime() && newDate.getTime() <= endDate.getTime() &&
@@ -275,7 +275,7 @@ public class GraduationUpdate extends BaseActivity {
 
     private void memberGraduationDelete() {
         String grdMemberReason = sqlH.getGrdCodeForMember_RegNAssProgSrv(mGraduation.getCountryCode(),
-                mGraduation.getDistrictCode(), mGraduation.getUpazillaCode(),
+                mGraduation.getLayR1Code(), mGraduation.getUpazillaCode(),
                 mGraduation.getUnitCode(), mGraduation.getVillageCode(), mGraduation.getHh_id(),
                 mGraduation.getMember_Id(), mGraduation.getProgram_code(),
                 mGraduation.getService_code(), mGraduation.getDonor_code(), mGraduation.getAward_code());
@@ -294,14 +294,14 @@ public class GraduationUpdate extends BaseActivity {
                     sqlH.editMemberDataIn_RegNAsgProgSrv(null,
                             null,
                             EntryBy, EntryDate, mGraduation.getCountryCode(),
-                            mGraduation.getDistrictCode(), mGraduation.getUpazillaCode(),
+                            mGraduation.getLayR1Code(), mGraduation.getUpazillaCode(),
                             mGraduation.getUnitCode(), mGraduation.getVillageCode(), mGraduation.getHh_id(),
                             mGraduation.getMember_Id(), mGraduation.getProgram_code(),
                             mGraduation.getService_code(), mGraduation.getDonor_code(), mGraduation.getAward_code());
 
                     SQLServerSyntaxGenerator graduationQuery = new SQLServerSyntaxGenerator();
                     graduationQuery.setAdmCountryCode(mGraduation.getCountryCode());
-                    graduationQuery.setLayR1ListCode(mGraduation.getDistrictCode());
+                    graduationQuery.setLayR1ListCode(mGraduation.getLayR1Code());
                     graduationQuery.setLayR2ListCode(mGraduation.getUpazillaCode());
                     graduationQuery.setLayR3ListCode(mGraduation.getUnitCode());
                     graduationQuery.setLayR4ListCode(mGraduation.getVillageCode());
@@ -332,10 +332,6 @@ public class GraduationUpdate extends BaseActivity {
 
     private void saveMemberGraduationData() {
         if (sqlH.ifExistsInRegNAssProgSrv(mGraduation)) {
-            sqlH.editMemberDataIn_RegNAsgProgSrv(getSrtGrdDate(), idGRD, EntryBy, EntryDate, mGraduation.getCountryCode(), mGraduation.getDistrictCode(), mGraduation.getUpazillaCode(),
-                    mGraduation.getUnitCode(), mGraduation.getVillageCode(), mGraduation.getHh_id(),
-                    mGraduation.getMember_Id(), mGraduation.getProgram_code(),
-                    mGraduation.getService_code(), mGraduation.getDonor_code(), mGraduation.getAward_code());
 
             try {
                 EntryBy = getStaffID();
@@ -343,9 +339,15 @@ public class GraduationUpdate extends BaseActivity {
             } catch (ParseException pe) {
                 pe.printStackTrace();
             }
+
+            sqlH.editMemberDataIn_RegNAsgProgSrv(getSrtGrdDate(), idGRD, EntryBy, EntryDate, mGraduation.getCountryCode(), mGraduation.getLayR1Code(), mGraduation.getUpazillaCode(),
+                    mGraduation.getUnitCode(), mGraduation.getVillageCode(), mGraduation.getHh_id(),
+                    mGraduation.getMember_Id(), mGraduation.getProgram_code(),
+                    mGraduation.getService_code(), mGraduation.getDonor_code(), mGraduation.getAward_code());
+
             SQLServerSyntaxGenerator graduationQuery = new SQLServerSyntaxGenerator();
             graduationQuery.setAdmCountryCode(mGraduation.getCountryCode());
-            graduationQuery.setLayR1ListCode(mGraduation.getDistrictCode());
+            graduationQuery.setLayR1ListCode(mGraduation.getLayR1Code());
             graduationQuery.setLayR2ListCode(mGraduation.getUpazillaCode());
             graduationQuery.setLayR3ListCode(mGraduation.getUnitCode());
             graduationQuery.setLayR4ListCode(mGraduation.getVillageCode());
@@ -362,7 +364,7 @@ public class GraduationUpdate extends BaseActivity {
             graduationQuery.setEntryDate(EntryDate);
             sqlH.insertIntoUploadTable(graduationQuery.updateGraduation());
 
-            Toast.makeText(mContext, "The data is saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "Saved successfully ", Toast.LENGTH_SHORT).show();
         }
 
     } /*{
@@ -391,7 +393,7 @@ public class GraduationUpdate extends BaseActivity {
 
                     if (sqlH.ifExistsInRegNAssProgSrv(mGraduation)) {
                         *//** the update operation  for local database*//*
-                        sqlH.editMemberDataIn_RegNAsgProgSrv(getSrtGrdDate(), idGRD, EntryBy, EntryDate, mGraduation.getCountryCode(), mGraduation.getDistrictCode(), mGraduation.getUpazillaCode(),
+                        sqlH.editMemberDataIn_RegNAsgProgSrv(getSrtGrdDate(), idGRD, EntryBy, EntryDate, mGraduation.getCountryCode(), mGraduation.getLayR1Code(), mGraduation.getUpazillaCode(),
                                 mGraduation.getUnitCode(), mGraduation.getVillageCode(), mGraduation.getHh_id(),
                                 mGraduation.getMember_Id(), mGraduation.getProgram_code(),
                                 mGraduation.getService_code(), mGraduation.getDonor_code(), mGraduation.getAward_code());
@@ -402,7 +404,7 @@ public class GraduationUpdate extends BaseActivity {
      *//*
                         SQLServerSyntaxGenerator graduationQuery = new SQLServerSyntaxGenerator();
                         graduationQuery.setAdmCountryCode(mGraduation.getCountryCode());
-                        graduationQuery.setLayR1ListCode(mGraduation.getDistrictCode());
+                        graduationQuery.setLayR1ListCode(mGraduation.getLayR1Code());
                         graduationQuery.setLayR2ListCode(mGraduation.getUpazillaCode());
                         graduationQuery.setLayR3ListCode(mGraduation.getUnitCode());
                         graduationQuery.setLayR4ListCode(mGraduation.getVillageCode());

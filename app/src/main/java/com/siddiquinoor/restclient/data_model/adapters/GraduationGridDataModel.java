@@ -17,7 +17,7 @@ public class GraduationGridDataModel implements Parcelable{
     private String award_name;
 
     private String countryCode;                // country code
-    private String districtCode;         // from RegNAssignProgSrv
+    private String layR1Code;         // from RegNAssignProgSrv
     private String upazillaCode;            // from RegNAssignProgSrv
     private String unitCode;              // from RegNAssignProgSrv
     private String villageCode;          // from RegNAssignProgSrv
@@ -68,7 +68,7 @@ public class GraduationGridDataModel implements Parcelable{
         dest.writeString(award_code);
         dest.writeString(award_name);
         dest.writeString(countryCode);
-        dest.writeString(districtCode);
+        dest.writeString(layR1Code);
         dest.writeString(upazillaCode);
         dest.writeString(unitCode);
         dest.writeString(villageCode);
@@ -104,7 +104,7 @@ public class GraduationGridDataModel implements Parcelable{
         award_code=in.readString();
         award_name=in.readString();
         countryCode=in.readString();
-        districtCode=in.readString();
+        layR1Code =in.readString();
         upazillaCode=in.readString();
         unitCode=in.readString();
         villageCode=in.readString();
@@ -184,12 +184,12 @@ public class GraduationGridDataModel implements Parcelable{
         this.countryCode = countryCode;
     }
 
-    public String getDistrictCode() {
-        return districtCode;
+    public String getLayR1Code() {
+        return layR1Code;
     }
 
-    public void setDistrictCode(String districtCode) {
-        this.districtCode = districtCode;
+    public void setLayR1Code(String layR1Code) {
+        this.layR1Code = layR1Code;
     }
 
     public String getUpazillaCode() {

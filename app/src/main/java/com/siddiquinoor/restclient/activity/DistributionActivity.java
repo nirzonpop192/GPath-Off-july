@@ -1121,7 +1121,7 @@ public class DistributionActivity extends BaseActivity {
                 holder.rptName.setText(disPeople.getRpt_name());
                 holder.memSrvShortName.setText("HHR");
 
-                String hhDistStatus = sqH.getDistributionStatusFromDistributionTable(disPeople.getC_code(), disPeople.getDonorCode(), disPeople.getAwardCode(), disPeople.getDistrictCode(), disPeople.getUpazillaCode(), disPeople.getUnitCode(), disPeople.getVillageCode(), disPeople.getProgram_code(), disPeople.getService_code(), distOpMonthCode, fdpCode, disPeople.getRpt_id());
+                String hhDistStatus = sqH.getDistributionStatusFromDistributionTable(disPeople.getC_code(), disPeople.getDonorCode(), disPeople.getAwardCode(), disPeople.getLayR1Code(), disPeople.getUpazillaCode(), disPeople.getUnitCode(), disPeople.getVillageCode(), disPeople.getProgram_code(), disPeople.getService_code(), distOpMonthCode, fdpCode, disPeople.getRpt_id());
                 Log.d("In Adapter Dist", " hh dist status :" + hhDistStatus);
                 holder.memDistStatus.setText(hhDistStatus);
                 disPeople.setnMId(disPeople.getRpt_id()); /// if criteria HHR
@@ -1222,7 +1222,7 @@ public class DistributionActivity extends BaseActivity {
 //                                                " dsM.getCountryCode() :" + dsM.getCountryCode() +
 //                                                " dsM.getAdmAwardCode() :" + dsM.getAdmAwardCode() +
 //                                                " dsM.getAdmDonorCode() ;" + dsM.getAdmDonorCode() +
-//                                                " dsM.getDistrictCode() ;" + dsM.getDistrictCode() +
+//                                                " dsM.getLayR1Code() ;" + dsM.getLayR1Code() +
 //                                                " dsM.getUpCode() :" + dsM.getUpCode() +
 //                                                " dsM.getUniteCode() :" + dsM.getUniteCode() +
 //                                                " dsM.getVillageCode() :" + dsM.getVillageCode() +

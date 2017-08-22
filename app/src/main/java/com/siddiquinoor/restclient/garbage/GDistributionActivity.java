@@ -958,7 +958,7 @@ public class GDistributionActivity {
                         distributedData.setAdmCountryCode(distDataP.getCountryCode());
                         distributedData.setAdmDonorCode(distDataP.getAdmDonorCode());
                         distributedData.setAdmAwardCode(distDataP.getAdmAwardCode());
-                        distributedData.setLayR1ListCode(distDataP.getDistrictCode());
+                        distributedData.setLayR1ListCode(distDataP.getLayR1Code());
                         distributedData.setLayR2ListCode(distDataP.getUpCode());
                         distributedData.setLayR3ListCode(distDataP.getUniteCode());
                         distributedData.setLayR4ListCode(distDataP.getVillageCode());
@@ -1092,10 +1092,10 @@ public class GDistributionActivity {
                 holder.memName.setText(disPeople.getMem_name());
                 holder.memSrvShortName.setText(disPeople.getServiceShortName());
 
-                String hhDistStatus = sqLiteHandler.getDistributionStatusFromDistributionTable(disPeople.getC_code(), disPeople.getDonorCode(), disPeople.getAwardCode(), disPeople.getDistrictCode(), disPeople.getUpazillaCode(), disPeople.getUnitCode(), disPeople.getVillageCode(), disPeople.getProgram_code(), disPeople.getService_code(), distOpMonthCode, fdpCode, disPeople.getHh_id());
+                String hhDistStatus = sqLiteHandler.getDistributionStatusFromDistributionTable(disPeople.getC_code(), disPeople.getDonorCode(), disPeople.getAwardCode(), disPeople.getLayR1Code(), disPeople.getUpazillaCode(), disPeople.getUnitCode(), disPeople.getVillageCode(), disPeople.getProgram_code(), disPeople.getService_code(), distOpMonthCode, fdpCode, disPeople.getHh_id());
                 Log.d("In Adapter Dist", " hh dist status :" + hhDistStatus);
                 holder.hhDistStatus.setText(hhDistStatus);
-                String memDistStatus = sqLiteHandler.getDistributionStatusFromDistributionTable(disPeople.getC_code(), disPeople.getDonorCode(), disPeople.getAwardCode(), disPeople.getDistrictCode(), disPeople.getUpazillaCode(), disPeople.getUnitCode(), disPeople.getVillageCode(), disPeople.getProgram_code(), disPeople.getService_code(), distOpMonthCode, fdpCode, disPeople.getMem_id());
+                String memDistStatus = sqLiteHandler.getDistributionStatusFromDistributionTable(disPeople.getC_code(), disPeople.getDonorCode(), disPeople.getAwardCode(), disPeople.getLayR1Code(), disPeople.getUpazillaCode(), disPeople.getUnitCode(), disPeople.getVillageCode(), disPeople.getProgram_code(), disPeople.getService_code(), distOpMonthCode, fdpCode, disPeople.getMem_id());
                 holder.memDistStatus.setText(memDistStatus);
                 Log.d("In Adapter Dist", " mem dist status :" + memDistStatus);
                 //  the hh check box reference is define here
@@ -1278,7 +1278,7 @@ public class GDistributionActivity {
 
                 distributedPeople = convertGridDataIntoSaveDataModel(gridData, gridData.getHh_id());
 
-                Log.d(TAG, "getC_code: " + gridData.getC_code() + " getDonorCode: " + gridData.getDonorCode() + "getAwardCode: " + gridData.getAwardCode() + " getDistrictCode: " + gridData.getDistrictCode() + " getUpazillaCode: " + gridData.getUpazillaCode() + " getUnitCode:" + gridData.getUnitCode() + " getVillageCode: " + gridData.getVillageCode() + " getProgram_code:" + gridData.getProgram_code() + " getService_code:" + gridData.getService_code() + " distOpMonthCode: " + distOpMonthCode + " fdpCode: " + fdpCode + " id : " + gridData.getHh_id());
+                Log.d(TAG, "getC_code: " + gridData.getC_code() + " getDonorCode: " + gridData.getDonorCode() + "getAwardCode: " + gridData.getAwardCode() + " getLayR1Code: " + gridData.getLayR1Code() + " getUpazillaCode: " + gridData.getUpazillaCode() + " getUnitCode:" + gridData.getUnitCode() + " getVillageCode: " + gridData.getVillageCode() + " getProgram_code:" + gridData.getProgram_code() + " getService_code:" + gridData.getService_code() + " distOpMonthCode: " + distOpMonthCode + " fdpCode: " + fdpCode + " id : " + gridData.getHh_id());
 
                 // if the the check box is checked
                 if (chackBoxStatus) {
@@ -1300,7 +1300,7 @@ public class GDistributionActivity {
                 // set up the Dist Data model to save Dist data table
                 distributedPeople = convertGridDataIntoSaveDataModel(gridData, gridData.getMem_id());
 
-                Log.d(TAG, "getC_code: " + gridData.getC_code() + " getDonorCode: " + gridData.getDonorCode() + "getAwardCode: " + gridData.getAwardCode() + " getDistrictCode: " + gridData.getDistrictCode() + " getUpazillaCode: " + gridData.getUpazillaCode() + " getUnitCode:" + gridData.getUnitCode() + " getVillageCode: " + gridData.getVillageCode() + " getProgram_code:" + gridData.getProgram_code() + " getService_code:" + gridData.getService_code() + " distOpMonthCode: " + distOpMonthCode + " fdpCode: " + fdpCode + " id : " + gridData.getMem_id());
+                Log.d(TAG, "getC_code: " + gridData.getC_code() + " getDonorCode: " + gridData.getDonorCode() + "getAwardCode: " + gridData.getAwardCode() + " getLayR1Code: " + gridData.getLayR1Code() + " getUpazillaCode: " + gridData.getUpazillaCode() + " getUnitCode:" + gridData.getUnitCode() + " getVillageCode: " + gridData.getVillageCode() + " getProgram_code:" + gridData.getProgram_code() + " getService_code:" + gridData.getService_code() + " distOpMonthCode: " + distOpMonthCode + " fdpCode: " + fdpCode + " id : " + gridData.getMem_id());
 
                 // if the the check box is checked
                 if (chackBoxStatus) {
@@ -1324,7 +1324,7 @@ public class GDistributionActivity {
                 dPeople.setCountryCode(gridData.getC_code());
                 dPeople.setAdmDonorCode(gridData.getDonorCode());
                 dPeople.setAdmAwardCode(gridData.getAwardCode());
-                dPeople.setDistrictCode(gridData.getDistrictCode());
+                dPeople.setLayR1Code(gridData.getLayR1Code());
                 dPeople.setUpCode(gridData.getUpazillaCode());
                 dPeople.setUniteCode(gridData.getUnitCode());
                 dPeople.setVillageCode(gridData.getVillageCode());

@@ -148,12 +148,12 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\2.3.0\\res\\raw\\zxing_beep.ogg"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_chicago",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_chicago"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_nauru",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_nauru"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_chicago",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_chicago"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_oslo",
@@ -180,12 +180,12 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_bahrain"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_belgrade",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_belgrade"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_etc_gmt_13",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_etc_gmt_13"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_belgrade",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_belgrade"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_ust_nera",
@@ -948,12 +948,12 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_pago_pago"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_mariehamn",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_mariehamn"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_tunis",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_tunis"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_mariehamn",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_mariehamn"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_bangui",
@@ -1404,12 +1404,12 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_tirane"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_lower_princes",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_lower_princes"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_inuvik",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_inuvik"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_lower_princes",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_lower_princes"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_chita",
@@ -1436,12 +1436,12 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_indian_mahe"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_eirunepe",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_eirunepe"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_lubumbashi",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_lubumbashi"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_eirunepe",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_eirunepe"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_madrid",

@@ -1,7 +1,5 @@
 package com.siddiquinoor.restclient.manager.sqlsyntax;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.siddiquinoor.restclient.activity.sub_activity.dynamic_table.DTResponseRecordingActivity;
@@ -2362,7 +2360,7 @@ public class SQLiteQuery {
     public static String getMemberDataFrom_RegNAssProgSrv_Query(GraduationGridDataModel member) {
         return "SELECT * FROM " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_TABLE +
                 " WHERE  " + ADM_COUNTRY_CODE_COL + " = '" + member.getCountryCode() + "' "
-                + " AND " + LAY_R1_LIST_CODE_COL + " = '" + member.getDistrictCode() + "' "
+                + " AND " + LAY_R1_LIST_CODE_COL + " = '" + member.getLayR1Code() + "' "
                 + " AND " + LAY_R2_LIST_CODE_COL + " = '" + member.getUpazillaCode() + "' "
                 + " AND " + LAY_R3_LIST_CODE_COL + " = '" + member.getUnitCode() + "' "
                 + " AND " + LAY_R4_LIST_CODE_COL + " = '" + member.getVillageCode() + "' "

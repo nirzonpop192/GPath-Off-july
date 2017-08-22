@@ -339,7 +339,7 @@ public class ServiceSpecification extends BaseActivity {
 
     private void deleteLog() {
         Log.d("Delete", "getC_code:" + srvData.getC_code() + "getDonor_code:" + srvData.getDonor_code()
-                + " getAward_code" + srvData.getAward_code() + " getDistrictCode :" + srvData.getDistrictCode()
+                + " getAward_code" + srvData.getAward_code() + " getLayR1Code :" + srvData.getDistrictCode()
                 + " getUpazillaCode:" + srvData.getUpazillaCode() + " getUnitCode:" + srvData.getUnitCode()
                 + " getVillageCode: " + srvData.getVillageCode() + " getHHID:" + srvData.getHHID()
                 + " getMemberId:" + srvData.getMemberId() + " getProgram_code:" + srvData.getProgram_code()
@@ -1461,7 +1461,7 @@ public class ServiceSpecification extends BaseActivity {
                         + "\n srvData.getHh_name() :" + srvData.getHh_name()
                         + "\n srvData.getHh_mm_name() :" + srvData.getHh_mm_name()
                         + "\n srvData.getC_code() :" + srvData.getC_code()
-                        + " srvData.getDistrictCode() :" + srvData.getDistrictCode()
+                        + " srvData.getLayR1Code() :" + srvData.getDistrictCode()
                         + " srvData.getUpazillaCode() :" + srvData.getUpazillaCode()
                         + " srvData.getUnitCode() :" + srvData.getUnitCode()
                         + " srvData.getVillageCode() :" + srvData.getVillageCode()

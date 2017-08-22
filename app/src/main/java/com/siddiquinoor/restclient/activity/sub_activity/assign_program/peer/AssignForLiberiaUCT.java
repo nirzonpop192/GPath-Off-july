@@ -465,7 +465,7 @@ public class AssignForLiberiaUCT extends BaseActivity implements View.OnClickLis
         tViewMemberId.setText(assignMemData.getMemId());
         tViewCriteria.setText(assignMemData.getAssign_criteria());
         // todo: change : get data from Reg Table
-      /*  String regDate=sqlH.getRegDateFromRegNAssignProgSrv(assignMemData.getCountryCode(),assignMemData.getDistrictCode(),assignMemData.getUpazillaCode(),
+      /*  String regDate=sqlH.getRegDateFromRegNAssignProgSrv(assignMemData.getCountryCode(),assignMemData.getLayR1Code(),assignMemData.getUpazillaCode(),
                 assignMemData.getUnitCode(),assignMemData.getVillageCode(),assignMemData.getHh_id(),assignMemData.getMemberId(),assignMemData.getProgram_code(),assignMemData.getService_code(),assignMemData.getDonor_code(),assignMemData.getAward_code());
         if (!regDate.equals("")||regDate.length()>0)
             tViewDate.setText(assignMemData.getRegNDate());
@@ -552,7 +552,7 @@ public class AssignForLiberiaUCT extends BaseActivity implements View.OnClickLis
         iAssign.putExtra(OldAssignActivity.ASSIGN_CRITERIA_STR, holderStrCriteria);
         iAssign.putExtra(OldAssignActivity.ASSIGN_VILLAGE_CODE, assignMemData.getVillageCode());
         iAssign.putExtra(OldAssignActivity.ASSIGN_VILLAGE_STR, holderStrVillage);
-        iAssign.putExtra(OldAssignActivity.ASSIGN_DISTRICT_CODE, assignMemData.getDistrictCode());
+        iAssign.putExtra(OldAssignActivity.ASSIGN_DISTRICT_CODE, assignMemData.getLayR1Code());
         iAssign.putExtra(OldAssignActivity.ASSIGN_UPZELA_CODE, assignMemData.getUpazillaCode());
         iAssign.putExtra(OldAssignActivity.ASSIGN_UNIT_CODE, assignMemData.getUnitCode());
         //   iAssign.putExtra("Ass_DIR", true);

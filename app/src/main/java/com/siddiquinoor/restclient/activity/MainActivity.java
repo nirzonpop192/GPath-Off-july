@@ -209,6 +209,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 String root = Environment.getExternalStorageDirectory().toString();
 
+                //  delete all gof file from root directory
+                File[] allFiles = Environment.getExternalStorageDirectory().listFiles();
+
+                for (File f : allFiles) {
+                    if (f.isFile() && f.getPath().endsWith(".gof")) {
+                        //  ... do stuff
+                        boolean result = f.delete();
+                        Log.e("DEL", " file name " + f.getName() + " result:" + result);
+                    }
+                }
                 File sd = new File(root + "/GpathOffline/");                                             // get the internal root directories root/GpathOffline path
 
                 deleteRecursive(sd);
@@ -242,12 +252,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     String backupdbName = subNpubId + "_" + getStaffID() + "_" + startDate + "_" + endDate + ".gof";
                     FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext, currentDBPath, backupdbName, "Export Successful! ");
 
-//                db.clearUploadSyntaxTable();                                                      // ei method tha na delete kora valo kokhon er projon pore buja jaitese na
+
                     logoutUser();
 
                 } else {
                     ADNotificationManager dialog = new ADNotificationManager();
-                    dialog.showInvalidDialog(mContext, "Invalid Attempt ", "This device is not registered to export !");
+                    dialog.showInvalidDialog(mContext, "Invalid Attempt ", "Device Authentication Failed !!");
 
                 }
 
@@ -1260,7 +1270,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         protected Void doInBackground(Void... params) {
 
             String retrieveData = readDataFromFile(LoginActivity.REG_MEMBER_PROG_GROUP_DATA);
-            // todo change the  structure
+
             Parser.RegNMemProGrpParser(retrieveData, db);
             publishProgress(++progressIncremental);
 

@@ -117,11 +117,11 @@ public class RegN_HH_libDataModel  extends PrimaryDataModel{
         this.countryCode = countryCode;
     }
 
-    public String getDistrictCode() {
+    public String getLayR1Code() {
         return districtCode;
     }
 
-    public void setDistrictCode(String districtCode) {
+    public void setLayR1Code(String districtCode) {
         this.districtCode = districtCode;
     }
 

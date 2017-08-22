@@ -16,6 +16,9 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -142,7 +145,29 @@ public class Register extends BaseActivity {
     private TextView tv_LayR2Label;
     private TextView tv_LayR3Label;
     private TextView tv_LayR4Label;
+    private Location mLocation;
 
+    /**
+     * set up location listener
+     */
+    private LocationListener mLocationListener = new LocationListener() {
+        @Override
+        public void onLocationChanged(Location location) {
+            mLocation = location;
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+        }
+    };
     private SimpleDateFormat formatUSA = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
 
     @Override
@@ -165,8 +190,8 @@ public class Register extends BaseActivity {
         if (gps.canGetLocation()) {
             latitude = gps.getLatitude();
             longitude = gps.getLongitude();
-            txtLatitude.setText(String.valueOf(latitude));
-            txtLongitude.setText(String.valueOf(longitude));
+            txtLatitude     .setText(String.valueOf(latitude));
+            txtLongitude    .setText(String.valueOf(longitude));
 
             // \n is for new line
 
@@ -187,8 +212,7 @@ public class Register extends BaseActivity {
         InputMethodManager imm = (InputMethodManager) getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
         imm.showSoftInput(regName, InputMethodManager.SHOW_IMPLICIT);
 
-        // Country Code
-        //idCountry = getCountryCode();
+
 
         // When Edit is passed
         Intent intnt = getIntent();
@@ -253,6 +277,7 @@ public class Register extends BaseActivity {
 
         btnAddMember.setEnabled(false);
         // btnAddMember.setTextColor(getResources().getColor(R.color.input_label_hint));
+
 
 
     }
@@ -553,7 +578,7 @@ public class Register extends BaseActivity {
             String v_status = sqlH.getHH_VerifiedStatus(idCountry, idDist, idUP, idUnion, idVill, registeredId);
             if (v_status.equals("N")) {
                 // uload for locat device
-                sqlH.updateRegistrationRecord(pID, idDist, idUP, idUnion, idVill, idAddress, registeredId, regDate, name, strGender, HHSize, strLatitude, strLongitude, AGLand, strVStatus, strMStatus, EntryBy, EntryDate, v_group, idWRank,
+                sqlH.updateRegistrationRecord(pID,idCountry ,idDist, idUP, idUnion, idVill, idAddress, registeredId, regDate, name, strGender, HHSize, strLatitude, strLongitude, AGLand, strVStatus, strMStatus, EntryBy, EntryDate, v_group, idWRank,
                         lTp2Hectres, lT3mFoodStock, noMajorCommonLiveStock, receiveNoFormalWages, noIGA, relyPiecework);
 
 

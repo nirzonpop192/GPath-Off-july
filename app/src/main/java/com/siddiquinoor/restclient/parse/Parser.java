@@ -1021,7 +1021,8 @@ public class Parser extends Parse {
 
 
             int size;
-            String AdmCountryCode, GrpCode, SubGrpCode, LocationCode, ContentCode, ImageFileString, Remarks, EntryBy, EntryDate;
+            String AdmCountryCode, GrpCode, SubGrpCode, LocationCode, ContentCode, ImageFileString,
+                    Remarks, EntryBy, EntryDate;
 
 
             /**

@@ -734,6 +734,7 @@ com/google/android/gms/internal/zzci.class
 com/google/android/gms/internal/zztd.class
 com/google/android/gms/ads/internal/overlay/zzw.class
 com/google/android/gms/internal/zzgz.class
+com/siddiquinoor/restclient/activity/Register$17.class
 com/google/android/gms/ads/search/SearchAdView.class
 org/joda/time/Hours.class
 com/google/gson/reflect/TypeToken.class

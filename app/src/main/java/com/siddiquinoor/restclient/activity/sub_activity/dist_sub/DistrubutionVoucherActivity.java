@@ -101,8 +101,6 @@ public class DistrubutionVoucherActivity extends BaseActivity {
         distDataP.setDistFlag(distData.getDistFlag());
 
 
-
-
         tv_MemberId.setText(distData.getRpt_id());
         tv_MemberName.setText(distData.getRpt_name());
 
@@ -154,13 +152,7 @@ public class DistrubutionVoucherActivity extends BaseActivity {
                 iDistActivity.putExtra(KEY.LAYER_2_NAME, distData.getTempUpazillaName());
                 iDistActivity.putExtra(KEY.FDP_CODE, distData.getFdpCode());
                 iDistActivity.putExtra(KEY.FDP_NAME, distData.getTempFDPName());
-//                iService.putExtra(KEY.SERVICE_CENTER_CODE,srvData.getServiceCenterCode());
-//                iService.putExtra(KEY.SERVICE_CENTER_CODE,srvData.getServiceCenterCode());
-//                iService.putExtra(KEY.SERVICE_CENTER_NAME,srvData.getTemServiceCenterName());
-//                iService.putExtra(KEY.SERVICE_DATE,srvData.getTemServiceDate());
-//                iService.putExtra(KEY.OP_MONTH_LABLE,srvData.getOpMonthStr());
-//                iService.putExtra(KEY.OP_MONTH_CODE,srvData.getOpMontheCode());
-//                iService.putExtra(KEY.OP_CODE,srvData.getOpCode());
+
                 startActivity(iDistActivity);
             }
         });
@@ -242,7 +234,7 @@ public class DistrubutionVoucherActivity extends BaseActivity {
                         Log.d("NIR2", "edtVoItmUnitCode[" + i + "]=" + edtVoItmUnitCode[i]);
 
 
-                        if ((sqlH.isDataExitedDistExtendedTable(distData)) && i == 0) {
+                        if (i == 0 && (sqlH.isDataExitedDistExtendedTable(distData))) {
 
                             sqlH.deleteFromDistExtendedTable(distData.getC_code(), distData.getDistrictCode(), distData.getUpazillaCode(), distData.getUnitCode(),
                                     distData.getVillageCode(), distData.getRpt_id(), distData.getDonorCode()
@@ -277,13 +269,11 @@ public class DistrubutionVoucherActivity extends BaseActivity {
 
             }// end of for
 
-            Toast.makeText(this, "Saved Successfully", Toast.LENGTH_SHORT).show();
+
         }
 
 
     }
-
-
 
 
     private void viewReference() {
@@ -329,10 +319,9 @@ public class DistrubutionVoucherActivity extends BaseActivity {
     }
 
 
-
     public void loadDistExtVoucherListView(String cCode, String discode, String upCode, String unCode, String vCode, String memId, String donorCode, String awardCode, String programCode,
                                            String serviceCode, String opMonthCode, String fdpCode) {
-        Log.d(TAG, "In load Dist Extention List ");
+//        Log.d(TAG, "In load Dist Extention List ");
 
         distData.setFdpCode(fdpCode);
 
@@ -420,8 +409,6 @@ public class DistrubutionVoucherActivity extends BaseActivity {
             final VouItemServiceExtDataModel personToBeServicedExtedS = distExtendedData.get(position);
             View row = convertView;
 
-//            final ViewHolder holder;
-
 
             if (inflater == null)
                 inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -466,9 +453,6 @@ public class DistrubutionVoucherActivity extends BaseActivity {
                             true);
 
 
-
-
-                    Log.d(TAG, " list size :" + listOFWant2Save.size());
                     /** old state*/
 
 
@@ -481,10 +465,7 @@ public class DistrubutionVoucherActivity extends BaseActivity {
             /**
              * Set CheckBox "TRUE" or "FALSE" if mChecked == true or in db staff have provided service to him
              */
-            cbId_holder.setChecked((mChecked.get(position) == true));
-//            if (personToBeServicedExted.isCheckBox() ? true : false) {
-//                mChecked.put(position, true);
-//            }
+            cbId_holder.setChecked((mChecked.get(position)));
 
 
             if (dataExitsInDistExtenTable) {
@@ -498,6 +479,7 @@ public class DistrubutionVoucherActivity extends BaseActivity {
 
             holder.reference = position;
             holder.edtUnit.setText(edtVoItmUnitCode[position]);
+            Log.d("MOR", "holeder :" + holder.edtUnit.getText());
             holder.edtUnit.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {

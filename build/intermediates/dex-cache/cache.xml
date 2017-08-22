@@ -229,7 +229,7 @@
         jar="D:\Android\GPath-Off-july\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="2a7143af441607be3555ec860980ace0ed4ae795">
+        sha1="aaa5488d94ee15874714f95ec7414b1e8fd47a06">
         <dex dex="D:\Android\GPath-Off-july\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_23c14bc643fd738f38464f1cbf977ff19397c704\classes.dex" />
     </item>
     <item
@@ -418,7 +418,7 @@
         jar="D:\Android\GPath-Off-july\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="15ad21f873d56bd547c8300dfae0f57ab98b9fd0">
+        sha1="797a204f93ffc10e95eb605754c5920043ebd4a8">
         <dex dex="D:\Android\GPath-Off-july\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_74cf70e9b2b0393638718d4aa5f99e88f37f1935\classes.dex" />
     </item>
     <item

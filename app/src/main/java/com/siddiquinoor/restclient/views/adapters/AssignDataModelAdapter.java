@@ -366,7 +366,7 @@ public class AssignDataModelAdapter extends BaseAdapter {
                     iSubAssignClass.putExtra(KEY.ASSIGN_HOUSEHOLD_MEMBER_NAME, memData.getHh_mm_name());
                     iSubAssignClass.putExtra(KEY.ASSIGN_CRITERIA, memData.getAssign_criteria());
                     iSubAssignClass.putExtra(KEY.ASSIGN_COUNTRY_CODE, memData.getCountryCode());
-                    iSubAssignClass.putExtra(KEY.ASSIGN_DISTRICT_CODE, memData.getDistrictCode());
+                    iSubAssignClass.putExtra(KEY.ASSIGN_DISTRICT_CODE, memData.getLayR1Code());
                     iSubAssignClass.putExtra(KEY.ASSIGN_UPOZILLA_CODE, memData.getUpazillaCode());
                     iSubAssignClass.putExtra(KEY.ASSIGN_UNIT_CODE, memData.getUnitCode());
                     iSubAssignClass.putExtra(KEY.ASSIGN_VILLAGE_CODE, memData.getVillageCode());

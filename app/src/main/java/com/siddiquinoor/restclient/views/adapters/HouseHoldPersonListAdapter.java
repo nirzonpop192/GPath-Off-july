@@ -243,7 +243,7 @@ public class HouseHoldPersonListAdapter extends BaseAdapter {
 
                     *//**  check delete permission  if ok than delete*//*
                     // dialog.showInfromDialog(mContext,"Save Denied","You don't have Save Permission .Pls contact with Admin");
-                    if (sqlH.getDeletePermissionForHHEntries(registrationData.get(position).getCountryCode(), registrationData.get(position).getDistrictCode(), registrationData.get(position).getUpazillaCode(), registrationData.get(position).getUnitNameCode(), registrationData.get(position).getVillageCode())) {
+                    if (sqlH.getDeletePermissionForHHEntries(registrationData.get(position).getCountryCode(), registrationData.get(position).getLayR1Code(), registrationData.get(position).getUpazillaCode(), registrationData.get(position).getUnitNameCode(), registrationData.get(position).getVillageCode())) {
                         AlertDialog.Builder alertDialog = new AlertDialog.Builder(activity);
                         alertDialog.setTitle("Confirm Delete...");
                         alertDialog.setMessage("Are you sure delete this Household?");

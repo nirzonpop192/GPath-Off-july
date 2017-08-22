@@ -205,7 +205,7 @@ public class AssignForLiberiaCFW extends BaseActivity implements View.OnClickLis
 
             //insert for server
             assign.setAdmCountryCode(assignMemData.getCountryCode());
-            assign.setLayR1ListCode(assignMemData.getDistrictCode());
+            assign.setLayR1ListCode(assignMemData.getLayR1Code());
             assign.setLayR2ListCode(assignMemData.getUpazillaCode());
             assign.setLayR3ListCode(assignMemData.getUnitCode());
             assign.setLayR4ListCode(assignMemData.getVillageCode());
@@ -235,13 +235,13 @@ public class AssignForLiberiaCFW extends BaseActivity implements View.OnClickLis
             Toast.makeText(mContext, "id  " + id + " is insert in RegAssign program table ", Toast.LENGTH_SHORT).show();
 
         }
-        if (sqlH.ifDataExiteInRegNCT(assignMemData.getCountryCode(), assignMemData.getDistrictCode(),
+        if (sqlH.ifDataExiteInRegNCT(assignMemData.getCountryCode(), assignMemData.getLayR1Code(),
                 assignMemData.getUpazillaCode(), assignMemData.getUnitCode(),
                 assignMemData.getVillageCode(), assignMemData.getHh_id(), assignMemData.getMemberId())) {
             dialog.showInfromDialog(mContext, "ALREADY ISERTED", "DATA IS ALREADY INSERTED");
         } else {
 
-            *//*sqlH.addMemIntoCT_Table(assignMemData.getCountryCode(), assignMemData.getDistrictCode(),
+            *//*sqlH.addMemIntoCT_Table(assignMemData.getCountryCode(), assignMemData.getLayR1Code(),
                     assignMemData.getUpazillaCode(), assignMemData.getUnitCode(),
                     assignMemData.getVillageCode(), assignMemData.getHh_id(), assignMemData.getMemberId(), getRb11(), getRb21(), getRb31(),
                     getRb32(), getRb33(), getRb34(), getRb35(), getRb36(), getRb37(), getRb38(), assignMemData.getEntryBy(), assignMemData.getEntryDate());
@@ -513,7 +513,7 @@ public class AssignForLiberiaCFW extends BaseActivity implements View.OnClickLis
         iAssign.putExtra(OldAssignActivity.ASSIGN_VILLAGE_CODE, assignMemData.getVillageCode());
         iAssign.putExtra(OldAssignActivity.ASSIGN_VILLAGE_STR, holderStrVillage);
 
-        iAssign.putExtra(OldAssignActivity.ASSIGN_DISTRICT_CODE, assignMemData.getDistrictCode());
+        iAssign.putExtra(OldAssignActivity.ASSIGN_DISTRICT_CODE, assignMemData.getLayR1Code());
         iAssign.putExtra(OldAssignActivity.ASSIGN_UPZELA_CODE, assignMemData.getUpazillaCode());
         iAssign.putExtra(OldAssignActivity.ASSIGN_UNIT_CODE, assignMemData.getUnitCode());
         //   iAssign.putExtra("Ass_DIR", true);

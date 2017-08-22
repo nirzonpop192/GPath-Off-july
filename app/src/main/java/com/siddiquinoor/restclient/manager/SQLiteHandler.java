@@ -3435,18 +3435,41 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
 
-    public String getMemberRegNDate(GraduationGridDataModel dtata) {
-        AssignDataModel assignedMem = new AssignDataModel();
-        assignedMem.setC_code(dtata.getCountryCode());
-        assignedMem.setDistrictCode(dtata.getDistrictCode());
-        assignedMem.setUpazillaCode(dtata.getUpazillaCode());
-        assignedMem.setUnitCode(dtata.getUnitCode());
-        assignedMem.setVillageCode(dtata.getVillageCode());
-        assignedMem.setHh_id(dtata.getHh_id());
-        assignedMem.setMemId(dtata.getMember_Id());
-        assignedMem.setProgram_code(dtata.getProgram_code());
-        assignedMem.setService_code(dtata.getService_code());
-        return getMemberRegNDate(assignedMem);
+    public String getMemberRegNDate(GraduationGridDataModel mem) {
+
+
+        String regDate = "";
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT   " + REG_N_DAT_COL + "  " +
+                " FROM " + REG_N_ASSIGN_PROG_SRV_TABLE
+                + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + mem.getCountryCode() + "' " +
+                " AND " + LAY_R1_LIST_CODE_COL + " = '" +  mem.getLayR1Code() + "' " +
+                " AND " + LAY_R2_LIST_CODE_COL + " = '" +  mem.getUpazillaCode() + "' " +
+                " AND " + LAY_R3_LIST_CODE_COL + " = '" +  mem.getUnitCode()+ "' " +
+                " AND " + LAY_R4_LIST_CODE_COL + " = '" +  mem.getVillageCode()+ "' " +
+                " AND " + HHID_COL + " = '" + mem.getHh_id() + "' " +
+                " AND " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" +mem.getMember_Id() + "' "+
+                " AND " + PROG_CODE_COL + " = '" + mem.getProgram_code() + "' "+
+                " AND " + SRV_CODE_COL + " = '" +  mem.getService_code() + "' ";
+
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            regDate = cursor.getString(cursor.getColumnIndex(REG_N_DAT_COL));
+
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
+
+        db.close();
+
+        return regDate;
+
     }
 
 
@@ -3455,7 +3478,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      */
     public String getMemberRegNDate(AssignDataModel assignedMem) {
         String regDate = "";
-        //String temp="";
+
 
         SQLiteDatabase db = this.getReadableDatabase();
         String selectQuery = "SELECT   " + REG_DATE_COL + "  " +
@@ -3586,7 +3609,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         values.put(COUNTRY_CODE, assingPerson.getCountryCode()); // country name
 
-        values.put(LAY_R_LIST_CODE_COL, assingPerson.getDistrictCode()); // district name
+        values.put(LAY_R_LIST_CODE_COL, assingPerson.getLayR1Code()); // district name
         values.put(LAY_R2_LIST_CODE_COL, assingPerson.getUpazillaCode()); // upazilla name
         values.put(LAY_R3_LIST_CODE_COL, assingPerson.getUnitCode()); // Unit name
         values.put(LAY_R4_LIST_CODE_COL, assingPerson.getVillageCode()); // village  name
@@ -3892,7 +3915,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 data.setMember_name(cursor.getString(cursor.getColumnIndex("memName")));
 
                 data.setCountryCode(cursor.getString(cursor.getColumnIndex(ADM_COUNTRY_CODE_COL)));
-                data.setDistrictCode(cursor.getString(cursor.getColumnIndex(LAY_R1_LIST_CODE_COL)));
+                data.setLayR1Code(cursor.getString(cursor.getColumnIndex(LAY_R1_LIST_CODE_COL)));
                 data.setUpazillaCode(cursor.getString(cursor.getColumnIndex(LAY_R2_LIST_CODE_COL)));
                 data.setUnitCode(cursor.getString(cursor.getColumnIndex(LAY_R3_LIST_CODE_COL)));
                 data.setVillageCode(cursor.getString(cursor.getColumnIndex(LAY_R4_LIST_CODE_COL)));
@@ -12039,45 +12062,54 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.close();                                                                                 // Closing database connection
     }
 
-    public void updateRegistrationRecord(int pID, String dname, String upname, String uname,
-                                         String vname, String addressCode, String pid, String r_date, String pname,
-                                         String sex, String HHSize, String latitude, String longitude,
-                                         String AGLand, String VStatus, String MStatus, String EntryBy,
+    public void updateRegistrationRecord(int pID, String cCode, String layR1Code, String layR2Code,
+                                         String layR3Code, String layR4Code, String addressCode,
+                                         String pid,
+                                         String r_date, String pname, String sex, String HHSize,
+                                         String latitude, String longitude, String AGLand,
+                                         String VStatus, String MStatus, String EntryBy,
                                          String EntryDate, String v_group, String wealthRank,
-                                         String LTp2Hectres, String LT3mFoodStock, String NoMajorCommonLiveStock, String ReceiveNoFormalWages, String NoIGA, String RelyPiecework) {
+                                         String LTp2Hectres, String LT3mFoodStock,
+                                         String NoMajorCommonLiveStock, String ReceiveNoFormalWages,
+                                         String NoIGA, String RelyPiecework) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        String where = ID_COL + "=" + pID;
-        values.put(LAY_R1_LIST_CODE, dname); // district name
-        values.put(LAY_R2_LIST_CODE_COL, upname); // upazilla name
-        values.put(LAY_R3_LIST_CODE_COL, uname); // Unit name
-        values.put(LAY_R4_LIST_CODE_COL, vname); // Unit name
+
+
+        String where = ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
+                + " AND " + LAY_R1_LIST_CODE + " = '" + layR1Code + "'"
+                + " AND " + LAY_R2_LIST_CODE_COL + " = '" + layR2Code + "'"
+                + " AND " + LAY_R3_LIST_CODE_COL + " = '" + layR3Code + "'"
+                + " AND " + LAY_R4_LIST_CODE_COL + " = '" + layR4Code + "'"
+                + " AND " + HHID_COL + " = '" + pid + "'";
+
+        // Unit name
         values.put(REGISTRATION_TABLE_REGN_ADDRESS_LOOKUP_CODE_COL, addressCode);
-        values.put(REGISTRATION_TABLE_HHID, pid); // Personal name
-        values.put(REG_DATE_COL, r_date); // Registration name
-        values.put(REGISTRATION_TABLE_HH_HEAD_NAME, pname); // Person name
-        values.put(REGISTRATION_TABLE_HH_HEAD_SEX, sex); // sex
+
+        values.put(REG_DATE_COL, r_date);                                                           // Registration name
+        values.put(REGISTRATION_TABLE_HH_HEAD_NAME, pname);                                         // Person name
+        values.put(REGISTRATION_TABLE_HH_HEAD_SEX, sex);                                            // sex
         values.put(HH_SIZE, HHSize);
-        values.put(REGISTRATION_TABLE_GPS_LAT, latitude); // Latitude
-        values.put(REGISTRATION_TABLE_GPS_LONG, longitude); // Longitude
-        values.put(AG_LAND, AGLand); // Longitude
-        values.put(V_STATUS, VStatus); // Longitude
-        values.put(M_STATUS, MStatus); // Longitude
-        values.put(ENTRY_BY, EntryBy); // Longitude
-        values.put(ENTRY_DATE, EntryDate); // Date of creation
+        values.put(REGISTRATION_TABLE_GPS_LAT, latitude);                                            // Latitude
+        values.put(REGISTRATION_TABLE_GPS_LONG, longitude);                                         // Longitude
+        values.put(AG_LAND, AGLand);
+        values.put(V_STATUS, VStatus);
+        values.put(M_STATUS, MStatus);
+        values.put(ENTRY_BY, EntryBy);
+        values.put(ENTRY_DATE, EntryDate);                                                                          // Date of creation
         values.put(VSLA_GROUP, v_group);
-        values.put(W_RANK_COL, wealthRank);// Date of creation
+        values.put(W_RANK_COL, wealthRank);
         values.put(LTP_2_HECTRES_COL, LTp2Hectres);
         values.put(LT_3_FOOD_STOCK_COL, LT3mFoodStock);
         values.put(NO_MAJOR_COMMON_LIVE_STOCK_COL, NoMajorCommonLiveStock);
         values.put(RECEIVE_NO_FORMAL_WAGES_COL, ReceiveNoFormalWages);
         values.put(NO_IGA_COL, NoIGA);
         values.put(RELY_PICE_EORK_COL, RelyPiecework);
-// Inserting Row into local database
+
         db.update(REG_N_HH_TABLE, values, where, null);
-//        updateRegistrationStatus("" + pID, 0);    // Setting Update status to false
+
         db.close(); // Closing database connection
-//        Log.d(TAG, "Registration data edited for: " + pID);
+
     }
 
 
