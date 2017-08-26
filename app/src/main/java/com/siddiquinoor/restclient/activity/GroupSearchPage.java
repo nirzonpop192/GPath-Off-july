@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GroupSearchPage extends BaseActivity {
-    // TODO: 10/18/2016  page reloading problem
+
     private static final String TAG = GroupSearchPage.class.getSimpleName();
     private SQLiteHandler sqlH;
     private static ProgressDialog pDialog;

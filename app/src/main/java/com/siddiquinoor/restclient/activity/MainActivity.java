@@ -326,7 +326,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         String sourceDbPath = "/data/data/" + getPackageName() + "/databases/" + SQLiteHandler.DATABASE_NAME;
 
-        FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext, sourceDbPath, destinationDbPath, "Import Successful! " + destinationDbPath);
+        FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext, sourceDbPath, destinationDbPath, "Restore Successful! " + destinationDbPath);
 
     }
 
