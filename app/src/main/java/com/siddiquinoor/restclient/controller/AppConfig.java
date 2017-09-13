@@ -16,9 +16,9 @@ public class AppConfig {
      * UAT
      * //Windows Server Azure VM Live Server
      */
-    public static final String API_LINK = "http://pciapp.cloudapp.net/datacraft/api/";
-    public static final String API_LINK_ENU = "http://pciapp.cloudapp.net/datacraft/api/index.php?enu";
-    public static final String API_LINK_VER = "http://pciapp.cloudapp.net/datacraft/api/index.php?ver";
+    public static final String API_LINK = "http://pciapp.cloudapp.net/datacraft/apilive/";
+    public static final String API_LINK_ENU = "http://pciapp.cloudapp.net/datacraft/apilive/index.php?enu";
+    public static final String API_LINK_VER = "http://pciapp.cloudapp.net/datacraft/apilive/index.php?ver";
     //LIVE LINK
     //  public static final String API_LINK = "http://pciapp.cloudapp.net/apilive/";
     /************************************************************************/

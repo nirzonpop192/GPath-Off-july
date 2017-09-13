@@ -1180,9 +1180,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         fileName = sourceID + "_" + destinationID + "_" + deviceRoleID;
-        if (sourceID.length() == 0 || destinationID.length() == 0 || deviceRoleID.length() == 0
+        /**
+         * device Atuntication close
+         */
+ /*       if (sourceID.length() == 0 || destinationID.length() == 0 || deviceRoleID.length() == 0
                 || !deviceRoleID.equals(temDeviceRoleId))
-            fileName = "";
+            fileName = "";*/
         db.close();
         return fileName;
     }

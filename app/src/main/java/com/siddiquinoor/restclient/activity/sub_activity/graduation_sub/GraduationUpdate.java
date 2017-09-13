@@ -164,8 +164,7 @@ public class GraduationUpdate extends BaseActivity {
                             if (Integer.parseInt(idGRD) < 0 || !strGRDTitle.equals("Select Reason")) {
 
                                 if (start_date != null && end_date != null) {
-//                                    Log.e("Shuvo", "Graduation date:" + outputDateStr + " Start date: " + start_date + " end date : " +
-//                                            end_date + " Registration date: " + registration_date);
+
                                     try {
                                         Boolean ok = isValidDateForGraduation(outputDateStr, start_date, end_date, registration_date);
                                         if (ok) {
@@ -232,9 +231,10 @@ public class GraduationUpdate extends BaseActivity {
         Date registrationDate = format.parse(str_regDate);
 
         // return newDate.after(startDate)&& newDate.before(endDate) && newDate.after(registrationDate);
-        return newDate.getTime() >= startDate.getTime() && newDate.getTime() <= endDate.getTime() &&
+ /*       return newDate.getTime() >= startDate.getTime() && newDate.getTime() <= endDate.getTime() &&
                 newDate.getTime() > registrationDate.getTime();
-
+*/
+        return newDate.getTime() > registrationDate.getTime();
     }
 
     private void backToGraduationPage() {

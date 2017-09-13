@@ -206,15 +206,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         btnExportDataBase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                new ExportDbAsycnTask().execute();
 
-                String root = Environment.getExternalStorageDirectory().toString();
+             /*   String root = Environment.getExternalStorageDirectory().toString();
 
                 //  delete all gof file from root directory
                 File[] allFiles = Environment.getExternalStorageDirectory().listFiles();
 
                 for (File f : allFiles) {
                     if (f.isFile() && f.getPath().endsWith(".gof")) {
-                        //  ... do stuff
+
                         boolean result = f.delete();
                         Log.e("DEL", " file name " + f.getName() + " result:" + result);
                     }
@@ -259,7 +260,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     ADNotificationManager dialog = new ADNotificationManager();
                     dialog.showInvalidDialog(mContext, "Invalid Attempt ", "Device Authentication Failed !!");
 
-                }
+                }*/
 
 
             }
@@ -291,6 +292,100 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     }                                                                                               // end of onCreate
+
+    private class ExportDbAsycnTask extends AsyncTask<Void, Integer, String> {
+
+        private boolean importFlag;
+        private String backupdbName="";
+        private String currentDBPath="";
+
+        private ExportDbAsycnTask() {
+//            importFlag = false;
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            String root = Environment.getExternalStorageDirectory().toString();
+
+            //  delete all gof file from root directory
+            File[] allFiles = Environment.getExternalStorageDirectory().listFiles();
+
+            for (File f : allFiles) {
+                if (f.isFile() && f.getPath().endsWith(".gof")) {
+
+                    boolean result = f.delete();
+                    Log.e("DEL", " file name " + f.getName() + " result:" + result);
+                }
+            }
+            File sd = new File(root + "/GpathOffline/");                                             // get the internal root directories root/GpathOffline path
+
+            deleteRecursive(sd);
+
+            // Check this link also how to delete folder from internal storage in android?.
+
+
+            SQLiteHandler sqLiteHandler = new SQLiteHandler(MainActivity.this, 1);
+
+            sqLiteHandler.insertIntoExportDataBase(MainActivity.this);
+
+
+             currentDBPath = "/data/data/" + getPackageName() + "/databases/"
+                    + SQLiteHandler.EXTERNAL_DATABASE_NAME;
+
+
+            // file exporting naming conversation
+            String subNpubId = sqlH.getSubscriberNPublisherID(UtilClass.getDeviceId(mContext));
+
+            if (!subNpubId.equals("") && subNpubId.length() != 0) {
+                String endDate = "";
+                try {
+                    endDate = getDateTime(true);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+                String startDate = settings.getString(UtilClass.IMPORT_DATE_TIME_KEY, "");
+
+//                String backupdbName = FileUtils.EXPORT_GOF_FILE;                                  // don't delete the code  eta o lagte pare
+                 backupdbName = subNpubId + "_" + getStaffID() + "_" + startDate + "_" + endDate + ".gof";
+
+
+
+//                logoutUser();
+
+            }/* else {
+                ADNotificationManager dialog = new ADNotificationManager();
+                dialog.showInvalidDialog(mContext, "Invalid Attempt ", "Device Authentication Failed !!");
+
+            }*/
+
+            return "successes";
+        }
+
+        /**
+         * Initiate the dialog
+         */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            startProgressBar("Data Exporting");
+
+        }
+
+
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            /*String ddf = importFlag ? "Imported " : " is not imported ";
+            CustomToast.show(mContext, "DataBase : " + ddf);
+*/
+            FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext, currentDBPath, backupdbName, "Export Successful! ");
+            hideProgressBar();
+            logoutUser();
+
+        }
+    }
 
 
     public static void whenDComplete() {

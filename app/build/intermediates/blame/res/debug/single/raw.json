@@ -148,12 +148,12 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\com.journeyapps\\zxing-android-embedded\\2.3.0\\res\\raw\\zxing_beep.ogg"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_nauru",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_nauru"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_chicago",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_chicago"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_pacific_nauru",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_pacific_nauru"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_oslo",
@@ -1404,12 +1404,12 @@
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_tirane"
     },
     {
-        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_inuvik",
-        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_inuvik"
-    },
-    {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_lower_princes",
         "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_lower_princes"
+    },
+    {
+        "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_inuvik",
+        "source": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_inuvik"
     },
     {
         "merged": "D:\\Android\\GPath-Off-july\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_chita",
