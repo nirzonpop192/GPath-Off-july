@@ -1167,6 +1167,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             cursor_opMTable.close();
         }
 
+        /**
+         * ekhane selected operation mode diye device role id ta ber korte chaisilam
+         */
         String sql_deviceRole = " SELECT " + DEVICE_ROLE_ID_COL
 
                 + " FROM " + ADM_MACHINE_ROLE_TABLE
@@ -1178,10 +1181,16 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             cursor_deviceRole.close();
         }
 
+        if (sourceID.length() == 0)
+            sourceID = "0";
+        if (destinationID.length() == 0)
+            destinationID = "0";
+        if (deviceRoleID.length() == 0)
+            deviceRoleID = "0";
 
         fileName = sourceID + "_" + destinationID + "_" + deviceRoleID;
         /**
-         * device Atuntication close
+         * device Authentication comment out
          */
  /*       if (sourceID.length() == 0 || destinationID.length() == 0 || deviceRoleID.length() == 0
                 || !deviceRoleID.equals(temDeviceRoleId))
@@ -2481,7 +2490,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * @param entryDate endtry Date
      */
 
-    public void addRegNmemProgGroup(String cCode, String donorCode, String awardCode, String layR1Code, String layR2Code, String layR3Code, String layR4Code, String hhID, String memID, String progCode, String srvCode, String grpCode, String grpName, String active, String entryBy, String entryDate, String grpLayR1Code, String grpLayR2Code, String grpLayR3Code) {
+    public void addRegNmemProgGroup(String cCode, String donorCode, String awardCode,
+                                    String layR1Code, String layR2Code, String layR3Code,
+                                    String layR4Code, String hhID, String memID, String progCode,
+                                    String srvCode, String grpCode, String grpName, String active,
+                                    String entryBy, String entryDate, String grpLayR1Code,
+                                    String grpLayR2Code, String grpLayR3Code) {
         SQLiteDatabase db = this.getWritableDatabase();
 
 
@@ -3448,14 +3462,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String selectQuery = "SELECT   " + REG_N_DAT_COL + "  " +
                 " FROM " + REG_N_ASSIGN_PROG_SRV_TABLE
                 + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + mem.getCountryCode() + "' " +
-                " AND " + LAY_R1_LIST_CODE_COL + " = '" +  mem.getLayR1Code() + "' " +
-                " AND " + LAY_R2_LIST_CODE_COL + " = '" +  mem.getUpazillaCode() + "' " +
-                " AND " + LAY_R3_LIST_CODE_COL + " = '" +  mem.getUnitCode()+ "' " +
-                " AND " + LAY_R4_LIST_CODE_COL + " = '" +  mem.getVillageCode()+ "' " +
+                " AND " + LAY_R1_LIST_CODE_COL + " = '" + mem.getLayR1Code() + "' " +
+                " AND " + LAY_R2_LIST_CODE_COL + " = '" + mem.getUpazillaCode() + "' " +
+                " AND " + LAY_R3_LIST_CODE_COL + " = '" + mem.getUnitCode() + "' " +
+                " AND " + LAY_R4_LIST_CODE_COL + " = '" + mem.getVillageCode() + "' " +
                 " AND " + HHID_COL + " = '" + mem.getHh_id() + "' " +
-                " AND " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" +mem.getMember_Id() + "' "+
-                " AND " + PROG_CODE_COL + " = '" + mem.getProgram_code() + "' "+
-                " AND " + SRV_CODE_COL + " = '" +  mem.getService_code() + "' ";
+                " AND " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + mem.getMember_Id() + "' " +
+                " AND " + PROG_CODE_COL + " = '" + mem.getProgram_code() + "' " +
+                " AND " + SRV_CODE_COL + " = '" + mem.getService_code() + "' ";
 
 
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -4503,7 +4517,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     /**
      * @param query sp for dtresponse table
-     * @return
      */
     public long insertIntoUploadPhysicalTable(String query, int sequence) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -4531,7 +4544,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     /**
      * Used in Synchronize data in MainActivity
-     * <p/>
+     * <p>
      * for sql Query data
      */
     public ArrayList<dataUploadDB> getUploadSyntaxData() {
@@ -4566,11 +4579,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     /**
      * date : 2015-10-17
-     * <p/>
+     * <p>
      * Faisal Mohammad
-     * <p/>
+     * <p>
      * SummaryAssignBaseCriteria.class
-     * <p/>
+     * <p>
      * description : base on the criteria this method will list of member which are assigned in particular Criteria or Service
      */
 
@@ -4605,7 +4618,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * :
      * 2015-11-07
-     * <p/>
+     * <p>
      * :
      */
     public String getMemberName(String cCode, String disCode,
@@ -5076,9 +5089,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     /**
      * @since :2015-11-09
-     * <p/>
-     * <p/>
-     * <p/>
+     * <p>
+     * <p>
+     * <p>
      * get DalivaryStatus no from MemberCardRequestTable
      */
     public String getCardDeliveryStatus(String cCode, String donorCode, String awardCode, String disCode, String upCode, String unCode, String vCode, String hhID, String memID, String rptGroup, String reportCode, String requestSl) {
@@ -5383,8 +5396,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * date :2015-11-07
      * modified: 2015-11-07
-     * <p/>
-     * <p/>
+     * <p>
+     * <p>
      * get Serial no from MemberCardRequestTable
      */
     public String getCardRequestDate(String cCode, String donorCode, String awardCode, String disCode, String upCode, String unCode, String vCode, String hhID,
@@ -5524,8 +5537,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     /**
      * @since : 2015-10-15 m:2015-10-19
-     * <p/>
-     * <p/>
+     * <p>
+     * <p>
      * this method load Assign  Criteria for Assigne SumRegLay4TotalHHRecords Criteria
      */
 
@@ -6209,7 +6222,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     /* this method load Service Extented item summary   */
     public List<SummaryCriteriaModel> getSrvORDistExtendedItemSummaryList(String cCode, String donorCode, String awardCord, String opMCode, String progCode, String srvDistFlag) {
-        List<SummaryCriteriaModel> criteriaList = new ArrayList<SummaryCriteriaModel>();
+        List<SummaryCriteriaModel> criteriaList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
         String selectQuery;
@@ -6257,7 +6270,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      */
     public ArrayList<AssignDataModel> getSingleMemberForAssign(String cCode, String disCode, String upCode, String unCode, String vCode, String hhid, String memberId, String donorCode, String awardCode, String progCode, String servCode) {
 
-        ArrayList<AssignDataModel> listAsignPeople = new ArrayList<AssignDataModel>();
+        ArrayList<AssignDataModel> listAsignPeople = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = SQLiteQuery.getSingleMemberForAssign_sql(cCode, disCode, upCode, unCode, vCode, hhid, memberId, donorCode, awardCode, progCode, servCode);
 
@@ -7514,7 +7527,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * 2015-11-23
      * Faisal Mohammad
-     * <p/>
+     * <p>
      * get default Exit Reason for Graduation
      */
     public String getGRDDefaultActiveReason(String progCode, String srvCode) {
@@ -8689,20 +8702,20 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         return distributedList;/// ther select per son to get service
     }
 
-    public String getVoucherRefNoFromDistExted(String cCode, String discode, String upCode, String unCode, String vCode,
-                                               String memId
-            , String donorCode, String awardCode, String programCode, String serviceCode, String opMonthCode, String fdpCode) {
+    public String getVoucherRefNoFromDistExted(String cCode, String discode, String upCode,
+                                               String unCode, String vCode, String memId,
+                                               String donorCode, String awardCode,
+                                               String programCode, String serviceCode,
+                                               String opMonthCode, String fdpCode) {
 
 //        Log.d(TAG, "In get data Service ");
 
         String voiReference = "";
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String selectQuery = "";
-
 
 // Grid data will load from DistExtended table
-        selectQuery = "SELECT " + VOUCHER_REFERENCE_NUMBER_COL +
+        String selectQuery = "SELECT " + VOUCHER_REFERENCE_NUMBER_COL +
                 " FROM  " + DISTRIBUTION_EXTENDED_TABLE +
                 " WHERE  " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
                 " AND  " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
@@ -8715,8 +8728,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND  " + SRV_CODE_COL + " = '" + serviceCode + "' " +
                 " AND  " + OP_MONTH_CODE_COL + " = '" + opMonthCode + "' " +
                 " AND  " + MEM_ID_15_D_COL + " = '" + memId + "' " +
-                " AND  " + FDP_CODE_COL + " = '" + fdpCode + "' "
-        ;
+                " AND  " + FDP_CODE_COL + " = '" + fdpCode + "' ";
 
 
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -9078,7 +9090,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * @param voItmCost   Voucher Item Cost
      * @param entryBy     seasson manager
      * @param entryDate   seasson Date
-     * @param is_online   is it come from online
      */
     public void addServiceExtendedTable(String cCode, String discode, String upCode, String unCode,
                                         String vCode, String hhId, String memId, String donorCode,
@@ -9116,7 +9127,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         // Inserting Row
-        long id = db.insert(SERVICE_EXTENDED_TABLE, null, values);
+        db.insert(SERVICE_EXTENDED_TABLE, null, values);
         db.close(); // Closing database connection
 
     /*    Log.d(TAG, "New Service Extended  data added  Service Extended Table: " + id);*/

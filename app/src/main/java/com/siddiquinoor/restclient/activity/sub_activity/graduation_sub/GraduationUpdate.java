@@ -231,10 +231,10 @@ public class GraduationUpdate extends BaseActivity {
         Date registrationDate = format.parse(str_regDate);
 
         // return newDate.after(startDate)&& newDate.before(endDate) && newDate.after(registrationDate);
- /*       return newDate.getTime() >= startDate.getTime() && newDate.getTime() <= endDate.getTime() &&
+      return newDate.getTime() >= startDate.getTime() && newDate.getTime() <= endDate.getTime() &&
                 newDate.getTime() > registrationDate.getTime();
-*/
-        return newDate.getTime() > registrationDate.getTime();
+
+
     }
 
     private void backToGraduationPage() {
