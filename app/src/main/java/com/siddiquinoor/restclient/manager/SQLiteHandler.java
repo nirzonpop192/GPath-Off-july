@@ -7806,14 +7806,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
 
-    public boolean ifThisHHIDExitsInRegHHTable(String countryCode, String distCode, String upCode, String unCode, String villCode, String hh_id) {
+    public boolean ifThisHHIDExitsInRegHHTable(String countryCode, String layR1Code, String layR2Code,
+                                               String layR3Code, String layR4Code, String hh_id) {
         boolean isExits;
         String selectQuery = "SELECT * FROM " + REG_N_HH_TABLE
                 + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + countryCode + "' "
-                + " AND " + LAY_R1_LIST_CODE + " = '" + distCode + "' "
-                + " AND " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "' "
-                + " AND " + LAY_R3_LIST_CODE_COL + " = '" + unCode + "' "
-                + " AND " + LAY_R4_LIST_CODE_COL + " = '" + villCode + "' "
+                + " AND " + LAY_R1_LIST_CODE + " = '" + layR1Code + "' "
+                + " AND " + LAY_R2_LIST_CODE_COL + " = '" + layR2Code + "' "
+                + " AND " + LAY_R3_LIST_CODE_COL + " = '" + layR3Code + "' "
+                + " AND " + LAY_R4_LIST_CODE_COL + " = '" + layR4Code + "' "
                 + " AND " + REGISTRATION_TABLE_HHID + " = '" + hh_id + "' ";
         SQLiteDatabase db = this.getReadableDatabase();
 

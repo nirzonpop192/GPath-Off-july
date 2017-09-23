@@ -18,7 +18,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -90,10 +89,10 @@ public class Register extends BaseActivity {
     private String lTp2Hectres, lT3mFoodStock, noMajorCommonLiveStock, receiveNoFormalWages, noIGA, relyPiecework;
 
     private String idCountry;
-    private String idDist;
-    private String idUP;
-    private String idUnion;
-    private String idVill;
+    private String idLayR1Code;
+    private String idLayR2Code;
+    private String idLayR3Code;
+    private String idLayR4Code;
     private String idAddress;
 
     private EditText regId;
@@ -135,7 +134,7 @@ public class Register extends BaseActivity {
 
     String EntryBy;
     String EntryDate;
-    String registeredId;
+    String HHId;
     String name;
     private ADNotificationManager dialog;
     private Context mContext;
@@ -224,10 +223,10 @@ public class Register extends BaseActivity {
         strUnion = intnt.getStringExtra(KEY.UNIT);
         strVillage = intnt.getStringExtra(KEY.VILLAGE_NAME);
         idCountry = intnt.getStringExtra(KEY.COUNTRY_CODE);
-        idDist = intnt.getStringExtra(KEY.DISTRICT_CODE);
-        idUP = intnt.getStringExtra(KEY.UPAZILLA_CODE);
-        idUnion = intnt.getStringExtra(KEY.UNIT_CODE);
-        idVill = intnt.getStringExtra(KEY.VILLAGE_CODE);
+        idLayR1Code = intnt.getStringExtra(KEY.DISTRICT_CODE);
+        idLayR2Code = intnt.getStringExtra(KEY.UPAZILLA_CODE);
+        idLayR3Code = intnt.getStringExtra(KEY.UNIT_CODE);
+        idLayR4Code = intnt.getStringExtra(KEY.VILLAGE_CODE);
         regId.setText(intnt.getStringExtra(KEY.REG_ID));
         reDOB.setText(intnt.getStringExtra(KEY.REG_DATE));
         String regDate = intnt.getStringExtra(KEY.REG_DATE);
@@ -254,15 +253,15 @@ public class Register extends BaseActivity {
             loadLayR1List(idCountry);
             loadLayR2List(idCountry);
             loadLayR3List(idCountry);
-            loadLayR4List(idCountry, idDist, idUP, idUnion);
+            loadLayR4List(idCountry, idLayR1Code, idLayR2Code, idLayR3Code);
 
 
-            chkBxHhCat1.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.LTP_2_HECTRES_COL, idCountry, idDist, idUP, idUnion, idVill, intnt.getStringExtra(KEY.REG_ID)));
-            chkBxHhCat2.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.LT_3_FOOD_STOCK_COL, idCountry, idDist, idUP, idUnion, idVill, intnt.getStringExtra(KEY.REG_ID)));
-            chkBxHhCat3.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.NO_MAJOR_COMMON_LIVE_STOCK_COL, idCountry, idDist, idUP, idUnion, idVill, intnt.getStringExtra(KEY.REG_ID)));
-            chkBxHhCat4.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.RECEIVE_NO_FORMAL_WAGES_COL, idCountry, idDist, idUP, idUnion, idVill, intnt.getStringExtra(KEY.REG_ID)));
-            chkBxHhCat5.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.NO_IGA_COL, idCountry, idDist, idUP, idUnion, idVill, intnt.getStringExtra(KEY.REG_ID)));
-            chkBxHhCat6.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.RELY_PICE_EORK_COL, idCountry, idDist, idUP, idUnion, idVill, intnt.getStringExtra(KEY.REG_ID)));
+            chkBxHhCat1.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.LTP_2_HECTRES_COL, idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, intnt.getStringExtra(KEY.REG_ID)));
+            chkBxHhCat2.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.LT_3_FOOD_STOCK_COL, idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, intnt.getStringExtra(KEY.REG_ID)));
+            chkBxHhCat3.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.NO_MAJOR_COMMON_LIVE_STOCK_COL, idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, intnt.getStringExtra(KEY.REG_ID)));
+            chkBxHhCat4.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.RECEIVE_NO_FORMAL_WAGES_COL, idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, intnt.getStringExtra(KEY.REG_ID)));
+            chkBxHhCat5.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.NO_IGA_COL, idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, intnt.getStringExtra(KEY.REG_ID)));
+            chkBxHhCat6.setChecked(sqlH.getHouseHoldRegistrationIsChecked(SQLiteHandler.RELY_PICE_EORK_COL, idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, intnt.getStringExtra(KEY.REG_ID)));
 
         }
 
@@ -288,13 +287,13 @@ public class Register extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                if (idDist.equals("00"))
+                if (idLayR1Code.equals("00"))
                     dialog.showErrorDialog(mContext, "Select " + tv_LayR1Label.getText());
-                else if (idUP.equals("00"))
+                else if (idLayR2Code.equals("00"))
                     dialog.showErrorDialog(mContext, "Select " + tv_LayR2Label.getText());
-                else if (idUnion.equals("00"))
+                else if (idLayR3Code.equals("00"))
                     dialog.showErrorDialog(mContext, "Select " + tv_LayR3Label.getText());
-                else if (idVill.equals("00"))
+                else if (idLayR4Code.equals("00"))
                     dialog.showErrorDialog(mContext, "Select " + tv_LayR4Label.getText());
 
                 else if (idAddress.equals("00")) {
@@ -308,9 +307,9 @@ public class Register extends BaseActivity {
         btnRegistrationRecode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!idVill.equals("00")) {
+                if (!idLayR4Code.equals("00")) {
                     Intent intent = new Intent(Register.this, RegisterRecordView.class);
-                    intent.putExtra("village_code", idCountry + idDist + idUP + idUnion + idVill);
+                    intent.putExtra("village_code", idCountry + idLayR1Code + idLayR2Code + idLayR3Code + idLayR4Code);
                     intent.putExtra("village", strVillage);
                     finish();
                     startActivity(intent);
@@ -417,7 +416,7 @@ public class Register extends BaseActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        registeredId = regId.getText().toString();
+        HHId = regId.getText().toString();
 
         name = regName.getText().toString();
 
@@ -431,13 +430,13 @@ public class Register extends BaseActivity {
         dIntent.putExtra("str_union", strUnion);
         dIntent.putExtra("str_village", strVillage);
         dIntent.putExtra("str_c_code", idCountry);
-        dIntent.putExtra("str_districtCode", idDist);
-        dIntent.putExtra("str_upazillaCode", idUP);
-        dIntent.putExtra("str_unionCode", idUnion);
-        dIntent.putExtra("str_villageCode", idVill);
+        dIntent.putExtra("str_districtCode", idLayR1Code);
+        dIntent.putExtra("str_upazillaCode", idLayR2Code);
+        dIntent.putExtra("str_unionCode", idLayR3Code);
+        dIntent.putExtra("str_villageCode", idLayR4Code);
         dIntent.putExtra("str_entry_by", EntryBy);
         dIntent.putExtra("str_entry_date", EntryDate);
-        dIntent.putExtra("str_hhID", idDist + idUP + idUnion + idVill + registeredId);
+        dIntent.putExtra("str_hhID", idLayR1Code + idLayR2Code + idLayR3Code + idLayR4Code + HHId);
         dIntent.putExtra("str_hhName", name);
 
         startActivity(dIntent);
@@ -457,7 +456,7 @@ public class Register extends BaseActivity {
         loadVStatus();
         loadWRank();
 
-        String next_id = sqlH.getRegistrationID(idCountry, idDist, idUP, idUnion, idVill);
+        String next_id = sqlH.getRegistrationID(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code);
         regId.setText(next_id);
 
         btnAddMember.setEnabled(false);
@@ -511,7 +510,7 @@ public class Register extends BaseActivity {
         }
 
 
-        registeredId = regId.getText().toString();
+        HHId = regId.getText().toString();
         name = regName.getText().toString().trim();
         String regDate = reDOB.getText().toString();
 
@@ -534,14 +533,14 @@ public class Register extends BaseActivity {
 
         SQLServerSyntaxGenerator malaiwTable = new SQLServerSyntaxGenerator();
         malaiwTable.setAdmCountryCode(idCountry);
-        malaiwTable.setLayR1ListCode(idDist);
-        malaiwTable.setLayR2ListCode(idUP);
-        malaiwTable.setLayR3ListCode(idUnion);
-        malaiwTable.setLayR4ListCode(idVill);
+        malaiwTable.setLayR1ListCode(idLayR1Code);
+        malaiwTable.setLayR2ListCode(idLayR2Code);
+        malaiwTable.setLayR3ListCode(idLayR3Code);
+        malaiwTable.setLayR4ListCode(idLayR4Code);
 
-        malaiwTable.setLayR4ListCode(idVill);
+        malaiwTable.setLayR4ListCode(idLayR4Code);
 
-        malaiwTable.setHHID(registeredId);
+        malaiwTable.setHHID(HHId);
         malaiwTable.setHhRegNDate(regDate);
         malaiwTable.setHhHHHeadName(name);
         malaiwTable.setHhHHHeadSex(strGender);
@@ -575,17 +574,17 @@ public class Register extends BaseActivity {
 
         // UPDATE Postion
         if (is_edit) {
-            String v_status = sqlH.getHH_VerifiedStatus(idCountry, idDist, idUP, idUnion, idVill, registeredId);
+            String v_status = sqlH.getHH_VerifiedStatus(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, HHId);
             if (v_status.equals("N")) {
                 // uload for locat device
-                sqlH.updateRegistrationRecord(pID,idCountry ,idDist, idUP, idUnion, idVill, idAddress, registeredId, regDate, name, strGender, HHSize, strLatitude, strLongitude, AGLand, strVStatus, strMStatus, EntryBy, EntryDate, v_group, idWRank,
+                sqlH.updateRegistrationRecord(pID,idCountry , idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, idAddress, HHId, regDate, name, strGender, HHSize, strLatitude, strLongitude, AGLand, strVStatus, strMStatus, EntryBy, EntryDate, v_group, idWRank,
                         lTp2Hectres, lT3mFoodStock, noMajorCommonLiveStock, receiveNoFormalWages, noIGA, relyPiecework);
 
 
                 sqlH.insertIntoUploadTable(malaiwTable.updateRegNHHtableForMalawi());
                 Toast.makeText(Register.this, " update successfully ", Toast.LENGTH_SHORT).show();
                 finish();
-                String tem = idCountry + idDist + idUP + idUnion + idVill;
+                String tem = idCountry + idLayR1Code + idLayR2Code + idLayR3Code + idLayR4Code;
                 Intent vIntent = new Intent(Register.this, RegisterRecordView.class);
                 vIntent.putExtra("village_code", tem);
                 vIntent.putExtra("village", strVillage);
@@ -601,14 +600,15 @@ public class Register extends BaseActivity {
         else    // Add data
         {
 
-            if (registeredId.equals("")) {
+            if (HHId.equals("")) {
 
                 Toast.makeText(getApplicationContext(), "Enter any ID", Toast.LENGTH_SHORT).show();
             } else if (name.equals("")) {
 
                 dialog.showErrorDialog(mContext, "Missing HH Head hhName. Save attempt denied");
 
-            } else if (sqlH.ifThisHHIDExitsInRegHHTable(idCountry, idDist, idUP, idUnion, idVill, registeredId)) {
+            } else if (sqlH.ifThisHHIDExitsInRegHHTable(idCountry, idLayR1Code, idLayR2Code,
+                    idLayR3Code, idLayR4Code, HHId)) {
                 dialog.showErrorDialog(mContext, "HH Id already exists. Save attempt denied. Press clear Button For new Entry");
             }
             /* else if (countNoWhitSpace(name) > countNoWord(name)) {
@@ -639,7 +639,7 @@ public class Register extends BaseActivity {
 
                     } else {
 
-                        long id = sqlH.addRegistrationForMalawi(idCountry, idDist, idUP, idUnion, idVill, idAddress, registeredId, regDate, name, strGender, HHSize, strLatitude, strLongitude, AGLand, strVStatus, strMStatus, EntryBy, EntryDate, v_group, idWRank, lTp2Hectres, lT3mFoodStock, noMajorCommonLiveStock, receiveNoFormalWages, noIGA, relyPiecework);
+                        long id = sqlH.addRegistrationForMalawi(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, idAddress, HHId, regDate, name, strGender, HHSize, strLatitude, strLongitude, AGLand, strVStatus, strMStatus, EntryBy, EntryDate, v_group, idWRank, lTp2Hectres, lT3mFoodStock, noMajorCommonLiveStock, receiveNoFormalWages, noIGA, relyPiecework);
 
 
 
@@ -692,7 +692,7 @@ public class Register extends BaseActivity {
         spDistrict.setAdapter(dataAdapter);
 
 
-        if (idDist != null) {
+        if (idLayR1Code != null) {
             for (int i = 0; i < spDistrict.getCount(); i++) {
                 String district = spDistrict.getItemAtPosition(i).toString();
                 if (district.equals(strDistrict)) {
@@ -708,7 +708,7 @@ public class Register extends BaseActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 strDistrict = ((SpinnerHelper) spDistrict.getSelectedItem()).getValue();
-                idDist = ((SpinnerHelper) spDistrict.getSelectedItem()).getId();
+                idLayR1Code = ((SpinnerHelper) spDistrict.getSelectedItem()).getId();
                 loadLayR2List(idCountry);
             }
 
@@ -726,7 +726,7 @@ public class Register extends BaseActivity {
      */
     private void loadLayR2List(String cCode) {
 
-        criteria = SQLiteQuery.getUpzillaJoinQuery(idCountry, idDist);
+        criteria = SQLiteQuery.getUpzillaJoinQuery(idCountry, idLayR1Code);
 
 
         List<SpinnerHelper> listUpazilla = sqlH.getListAndID(SQLiteHandler.GEO_LAY_R2_LIST_TABLE, criteria, cCode, false);
@@ -737,7 +737,7 @@ public class Register extends BaseActivity {
         spUpazilla.setAdapter(dataAdapter);
 
 
-        if (idUP != null) {
+        if (idLayR2Code != null) {
             for (int i = 0; i < spUpazilla.getCount(); i++) {
                 String upazilla = spUpazilla.getItemAtPosition(i).toString();
                 if (upazilla.equals(strUpazilla)) {
@@ -754,7 +754,7 @@ public class Register extends BaseActivity {
 
 
                 strUpazilla = ((SpinnerHelper) spUpazilla.getSelectedItem()).getValue();
-                idUP = ((SpinnerHelper) spUpazilla.getSelectedItem()).getId();
+                idLayR2Code = ((SpinnerHelper) spUpazilla.getSelectedItem()).getId();
 
                 loadLayR3List(idCountry);
 
@@ -775,16 +775,16 @@ public class Register extends BaseActivity {
     private void loadLayR3List(String cCode) {
 
 
-        SpinnerLoader.loadLayR3ListLoader(mContext, sqlH, spUnion, idUnion, strUnion, idCountry, idDist, idUP);
+        SpinnerLoader.loadLayR3ListLoader(mContext, sqlH, spUnion, idLayR3Code, strUnion, idCountry, idLayR1Code, idLayR2Code);
         spUnion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
 
                 strUnion = ((SpinnerHelper) spUnion.getSelectedItem()).getValue();
-                idUnion = ((SpinnerHelper) spUnion.getSelectedItem()).getId();
+                idLayR3Code = ((SpinnerHelper) spUnion.getSelectedItem()).getId();
 
-                loadLayR4List(idCountry, idDist, idUP, idUnion);
+                loadLayR4List(idCountry, idLayR1Code, idLayR2Code, idLayR3Code);
 
 
             }
@@ -802,16 +802,16 @@ public class Register extends BaseActivity {
     private void loadLayR4List(String cCode, String layR1Code, String layR2Code, String layR3Code) {
 
 
-        SpinnerLoader.loadLayR4ListLoader(mContext, sqlH, spVillage, idVill, strVillage, cCode, layR1Code, layR2Code, layR3Code);
+        SpinnerLoader.loadLayR4ListLoader(mContext, sqlH, spVillage, idLayR4Code, strVillage, cCode, layR1Code, layR2Code, layR3Code);
         spVillage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
 
                 strVillage = ((SpinnerHelper) spVillage.getSelectedItem()).getValue();
-                idVill = ((SpinnerHelper) spVillage.getSelectedItem()).getId();
+                idLayR4Code = ((SpinnerHelper) spVillage.getSelectedItem()).getId();
 
-                loadAddress(idCountry, idDist, idUP, idUnion, idVill);
+                loadAddress(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code);
 
 
             }
@@ -968,7 +968,7 @@ public class Register extends BaseActivity {
                 idAddress = ((SpinnerHelper) spAddress.getSelectedItem()).getId();
 
                 if (!is_edit) {
-                    String next_id = sqlH.getRegistrationID(idCountry, idDist, idUP, idUnion, idVill);
+                    String next_id = sqlH.getRegistrationID(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code);
                     regId.setText(next_id);
                 }
 
